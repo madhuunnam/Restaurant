@@ -10,6 +10,7 @@ public class HomepageController extends SpringServletContainerInitializer{
 
 	@RequestMapping("/Homepage")	
 	public String homepage(Model model) {
+		System.out.println("Testing Spring Boot");
 		return "Home";
 	}
 }

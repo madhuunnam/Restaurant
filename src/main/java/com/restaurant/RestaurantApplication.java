@@ -13,7 +13,6 @@ public class RestaurantApplication {
 	@ResponseBody
 	@RequestMapping("/Homepage")
 	String homepage() {
-	
 		return "Homepage";
 	}
     public static void main(String[] args) {

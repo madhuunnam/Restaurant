@@ -1,115 +1,122 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Home page</title>
+<title>TastyHub</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/clickFunctions.js"></script>
-<link rel="stylesheet" href="css/BaseStyle.css" type="text/css" />
-<style>
-ul {
-	list-style-type: none;
-	margin: 0;
-	width: 850px;
-	padding: 0;
-	overflow: hidden;
-	display: inline-block;
-}
-
-li {
-	float: left;
-}
-
-a.topbar:link, a.topbar:visited {
-	display: block;
-	width: 200px;
-	font-weight: bold;
-	font-family: "verdana";
-	color: #663300;
-	background-color: #FFCC99;
-	text-align: center;
-	padding: 4px;
-	text-decoration: none;
-	text-transform: uppercase;
-	width: 200px;
-}
-
-a.topbar:hover, a.topbar:active {
-	background-color: #E6B88A;
-}
-
-a.pagelinks:link, a.pagelinks:visited {
-	color: #814D00;
-	font-family: "verdana";
-}
-
-a.pagelinks:hover {
-	color: orange;
-}
-
-a.pagelinks:active {
-	color: yellow;
-}
-</style>
 </head>
 <body>
-	
-	<div id = container style="position: absolute; left: 10%; top: 0%; width: 1000px; height: 750px; background-color: #FFACAC; layer-background-color: #FFACAC; visibility: visible">
-	<br />
-	<br />
-	<div id="menuBar" align="center">
-		<ul>
-			<li><a href="#home" class="topbar">Home</a></li>
-			<li><a href="#chinese" class="topbar">Chinese</a></li>
-			<li><a href="#about" class="topbar">About</a></li>
-			<li><a href="#contact" class="topbar">Contact</a></li>
+	<nav class="navbar navbar-default" style="background-color: #ffb280;">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#"><strong>TASTY HUB</strong></a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="#">Chinese</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+					Sign Up</a></li>
+			<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
+					Login</a></li>
 		</ul>
 	</div>
-	</div>
-	<div id="searchInput" align="center"
-		style="position: absolute; left: 30%; top: 18%; width: 530px; height: 350px; background-color: #FFF0E0; layer-background-color: #FFF0E0; visibility: visible">
+	</nav>
+	<div class="container">
+		<h3 align='center'>Hungry? Order Here!</h3>
+		<div class="row">
+			<div class="col-md-2" style="background-color: #e5f2ff;">
+				<img src="/src/main/resources/static/hamburger.jpg"
+					class="img-rounded" alt="Hamburger" width="194" height="236">
+			</div>
+			<div class="col-md-10" style="background-color: #ffe6cc;">
+				<div class="row">
+					<div class="col-md-12">
+						<h4>
+							<i> Search by your location:</i>
+						</h4>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-7">
+						<input type="text" class="form-control" name=search
+							id="searchtext"
+							placeholder="Enter your Street Address, City, State" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<button type="button" class="btn btn-link">My Address</button>
+					</div>
+					<div class="col-md-4">
+						<button type="button" class="btn btn-link">Add to My
+							Address</button>
+					</div>
+					<div class="col-md-4">
+						<button type="button" class="btn btn-link">My Favorites</button>
+					</div>
+				</div>
 
-		<h1 style = "color: #663300; font-family: 'verdana'">
-			<i>Hungry? Order here!</i>
-		</h1>
-		<input type="text" name=search id="searchtext" class="textboxStyle"
-			placeholder="Enter your Street Address, City, State" /> <br /> <br />
-		<table border="0" align="center">
-			<tr>
-				<td><a href="#address" class="pagelinks">MyAddress</a></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td><a href="#address" class="pagelinks">Add to MyAddress</a></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td><a href="#address" class="pagelinks">My Favorites</a></td>
-			</tr>
-		</table>
-		<br />
-		<table>
-			<tr>
-				<td><select class = "custom-dropdown">
-						<option value="">Select State</option>
-						<option value="NC">NC</option>
-				</select></td>
-				<td></td><td></td><td></td>
-				<td><select class = "custom-dropdown">
-						<option value="">Select City</option>
-						<option value="gso">Greensboro</option>
-				</select></td>
-				<td></td><td></td><td></td>
-				<td><select class = "custom-dropdown">
-						<option value="">Select Cuisine</option>
-						<option value="asian">Asian</option>
-						<option value="Indian">Indian</option>
-						<option value="Chinese">Chinese</option>
-				</select></td>
-			</tr>
-		</table>
-		<br /><br /> <input type="button" class="buttonStyle" value="Search"
-			id="idSearch" onclick="Search();" />
+				<div class="row">
+					<div class="col-md-4">
+						<div class="dropdown">
+							<button type="button" data-toggle="dropdown">
+								Select State <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">NC</a></li>
+								<li><a href="#">FL</a></li>
+								<li><a href="#">SC</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="dropdown">
+							<button type="button" data-toggle="dropdown">
+								Select City <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Greensboro</a></li>
+								<li><a href="#">Charlotte</a></li>
+								<li><a href="#">Raleigh</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="dropdown">
+							<button type="button" data-toggle="dropdown">
+								Select Cuisine <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">American</a></li>
+								<li><a href="#">Chinese</a></li>
+								<li><a href="#">Mexican</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4">
+							<button type="submit" class="btn btn-default">Search</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+
+</body>
+</html>
+
 </body>
 </html>

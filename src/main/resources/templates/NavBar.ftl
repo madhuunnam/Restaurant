@@ -14,16 +14,16 @@
 <script type="text/javascript" src="js/clickFunctions.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-inverse" >
+	<nav class="navbar navbar-inverse " >
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#"><strong>TASTY HUB</strong></a>
 		</div>
 		<ul class="nav navbar-nav">
 			<li><a href="<@spring.url '/Homepage'/> ">Home</a></li>
-			<li><a href="#">Chinese</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Contact</a></li>
+			<li><a href="<@spring.url '/Chinese'/> ">Chinese</a></li>
+			<li><a href="<@spring.url '/About'/> ">About</a></li>
+			<li><a href="<@spring.url '/Contact'/> ">Contact</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="<@spring.url '/SignupPage'/> "><span class="glyphicon glyphicon-user"></span>

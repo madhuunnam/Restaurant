@@ -15,12 +15,24 @@ public class HomepageController extends SpringServletContainerInitializer{
 	}
 	
 	@RequestMapping("/LoginPage")
-	public String LoginPage(Model model) {
+	public String loginPage(Model model) {
 		return "Login";
 	}
 	@RequestMapping("/SignupPage")
-	public String SignupPage(Model model) {
+	public String signupPage(Model model) {
 		return "Signup";
+	}
+	@RequestMapping("/Chinese")
+	public String chinesePage(Model model) {
+		return "Chinese";
+	}
+	@RequestMapping("/About")
+	public String aboutPage(Model model) {
+		return "About";
+	}
+	@RequestMapping("/Contact")
+	public String contactPage(Model model) {
+		return "Contact";
 	}
 	
 }

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -30,14 +29,14 @@
 					class="img-rounded" alt="Mexican" width="360" height="236">
 			</div>
 		</div>
-		<h3 align='center'>Hungry? Order Here!</h3>
+		<h3 align='center'><i>Hungry? Enter your location and select a Restaurant to order!</i></h3>
 		<div class="row">
 
 			<div class="col-md-10" style="background-color: #f2f2f2;">
 				<div class="row">
 					<div class="col-md-12">
 						<h4>
-							<i> Search by your location:</i>
+							 Search by your location:
 						</h4>
 					</div>
 				</div>
@@ -92,7 +91,7 @@
 					<div class="row">
 						<div class="col-md-4"></div>
 						<div class="col-md-2">
-							<button type="button" class="btn btn-info btn-block btn-xs">
+							<button type="button" class="btn btn-info btn-block btn-xs" onclick = "onSearch();">
      					 		<span class="glyphicon glyphicon-search"></span> Search
     						</button>
     						<br />

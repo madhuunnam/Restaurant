@@ -1,8 +1,8 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<#import "spring.ftl" as spring />
 <html lang="en">
 <head>
-<title>LoginPage</title>
+<title>SignUp</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -18,23 +18,19 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3"></div>
-			<div class="col-md-6" style="background-color: #ffe6cc">
+			<div class="col-md-6" style="background-color: #f2f2f2">
 				<form class="form-signin">
-					<h2 class="form-signin-heading">Please sign in</h2>
+					<h2 class="form-signin-heading">Create Your Account</h2>
 					<label for="inputEmail" class="sr-only">Email address</label> <input
 						type="email" id="inputEmail" class="form-control"
 						placeholder="Email address" required autofocus> <label
 						for="inputPassword" class="sr-only">Password</label> <input
 						type="password" id="inputPassword" class="form-control"
 						placeholder="Password" required>
-					<div class="checkbox">
-						<label> <input type="checkbox" value="remember-me">
-							Remember me
-						</label>
-					</div>
-					<button class="btn btn-md  btn-default " type="submit">Sign
-						in</button>
+						<br />
+					<button class="btn btn-md  btn-info " type="submit">Create My Account</button>
 				</form>
+				<br />
 			</div>
 		</div>
 	</div>

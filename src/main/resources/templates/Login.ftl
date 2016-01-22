@@ -18,7 +18,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3"></div>
-			<div class="col-md-6" style="background-color: #ffe6cc">
+			<div class="col-md-6" style="background-color: #f2f2f2">
 				<form class="form-signin">
 					<h2 class="form-signin-heading">Please sign in</h2>
 					<label for="inputEmail" class="sr-only">Email address</label> <input

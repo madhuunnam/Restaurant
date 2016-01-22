@@ -17,15 +17,15 @@
 	<#include "NavBar.ftl">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4" style="background-color: #ffffe5;">
+			<div class="col-md-4" style="background-color: #f2f2f2;">
 				<img src="images/hamburger.jpg"
 					class="img-rounded" alt="Hamburger" width="360" height="236">
 			</div>
-			<div class="col-md-4" style="background-color: #ffffe5;">
+			<div class="col-md-4" style="background-color: #f2f2f2;">
 				<img src="images/chinese.jpg"
 					class="img-rounded" alt="Chinese" width="360" height="236">
 			</div>
-			<div class="col-md-4" style="background-color: #ffffe5;">
+			<div class="col-md-4" style="background-color: #f2f2f2;">
 				<img src="images/quesadilla.jpg"
 					class="img-rounded" alt="Mexican" width="360" height="236">
 			</div>
@@ -33,7 +33,7 @@
 		<h3 align='center'>Hungry? Order Here!</h3>
 		<div class="row">
 
-			<div class="col-md-10" style="background-color: #ffe6cc;">
+			<div class="col-md-10" style="background-color: #f2f2f2;">
 				<div class="row">
 					<div class="col-md-12">
 						<h4>
@@ -95,13 +95,15 @@
 							<button type="button" class="btn btn-info btn-block btn-xs">
      					 		<span class="glyphicon glyphicon-search"></span> Search
     						</button>
+    						<br />
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-2" >
 				<img src="images/didyouknow.jpg"
-					class="img-rounded" alt="Adds" width="194" height="236">
+					class="img-rounded" alt="Adds" width="194" height="136">
+				<button type="button" class="btn btn-link">Check this out</button>
 			</div>
 		</div>
 	</div>

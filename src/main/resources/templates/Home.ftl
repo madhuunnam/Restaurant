@@ -12,10 +12,11 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="javascript/searchPage.js"></script>
 <style>
-.carousel-inner img {
-      width: 100%; /* Set width to 100% */
-      min-height: 50%;
-    }
+.peopleCarouselImg img {
+  width: 100%;
+  height: 355px;
+  max-height: 355px;
+}
 </style>    
 </head>
 <body>
@@ -30,25 +31,25 @@
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
+    <div class="carousel-inner peopleCarouselImg" role="listbox">
       <div class="item active">
-        <img src="images/hamburger.jpg" alt="Image">
+        <img class="peopleCarouselImg" src="images/hamburger.jpg" alt="Image">
         <div class="carousel-caption">
-          <p>American Cuisine.</p>
+          <p>American Cuisine</p>
         </div>      
       </div>
 
       <div class="item">
-        <img src="images/chinese.jpg" alt="Image">
+        <img class="peopleCarouselImg " src="images/chinese.jpg" alt="Image">
         <div class="carousel-caption">
-          <p>Chinese Cuisine.</p>
+          <p>Chinese Cuisine</p>
         </div>      
       </div>
       
       <div class="item">
-        <img src="images/quesadilla.jpg" alt="Image">
+        <img class="peopleCarouselImg" src="images/quesadilla.jpg" alt="Image">
         <div class="carousel-caption">
-          <p>Mexican Cuisine.</p>
+          <p>Mexican Cuisine</p>
         </div>      
       </div>
       
@@ -143,6 +144,9 @@
 				<button type="button" class="btn btn-link">Check this out</button>
 			</div>
 		</div>
-	</div>
+	</div><br>
+	<footer class="container-fluid text-center" style="background-color: #70db70;">
+	<a href="<@spring.url '/Home'/> ">Privacy Policy</a></div>
+</footer>
 </body>
 </html>

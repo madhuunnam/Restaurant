@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<#import "spring.ftl" as spring />
 <html lang="en">
 <head>
 <title>TastyHub</title>
@@ -19,15 +20,15 @@
 			<a class="navbar-brand" href="#"><strong>TASTY HUB</strong></a>
 		</div>
 		<ul class="nav navbar-nav">
-			<li><a href="http://localhost:8080/Homepage">Home</a></li>
+			<li><a href="<@spring.url '/Homepage'/> ">Home</a></li>
 			<li><a href="#">Chinese</a></li>
 			<li><a href="#">About</a></li>
 			<li><a href="#">Contact</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="http://localhost:8080/SignupPage"><span class="glyphicon glyphicon-user"></span>
+			<li><a href="<@spring.url '/SignupPage'/> "><span class="glyphicon glyphicon-user"></span>
 					Sign Up</a></li>
-			<li><a href="http://localhost:8080/LoginPage"><span class="glyphicon glyphicon-log-in"></span>
+			<li><a href="<@spring.url '/LoginPage'/> "><span class="glyphicon glyphicon-log-in"></span>
 					Login</a></li>
 		</ul>
 	</div>

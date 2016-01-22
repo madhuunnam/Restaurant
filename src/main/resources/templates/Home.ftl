@@ -14,32 +14,25 @@
 <script type="text/javascript" src="js/clickFunctions.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-default" style="background-color: #ffb280;">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="#"><strong>TASTY HUB</strong></a>
-		</div>
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Home</a></li>
-			<li><a href="#">Chinese</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#"><span class="glyphicon glyphicon-user"></span>
-					Sign Up</a></li>
-			<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-					Login</a></li>
-		</ul>
-	</div>
-	</nav>
+	<#include "NavBar.ftl">
 	<div class="container">
+		<div class="row">
+			<div class="col-md-4" style="background-color: #ffffe5;">
+				<img src="images/hamburger.jpg"
+					class="img-rounded" alt="Hamburger" width="360" height="236">
+			</div>
+			<div class="col-md-4" style="background-color: #ffffe5;">
+				<img src="images/chinese.jpg"
+					class="img-rounded" alt="Chinese" width="360" height="236">
+			</div>
+			<div class="col-md-4" style="background-color: #ffffe5;">
+				<img src="images/quesadilla.jpg"
+					class="img-rounded" alt="Mexican" width="360" height="236">
+			</div>
+		</div>
 		<h3 align='center'>Hungry? Order Here!</h3>
 		<div class="row">
-			<div class="col-md-2" style="background-color: #e5f2ff;">
-				<img src="/src/main/resources/static/hamburger.jpg"
-					class="img-rounded" alt="Hamburger" width="194" height="236">
-			</div>
+
 			<div class="col-md-10" style="background-color: #ffe6cc;">
 				<div class="row">
 					<div class="col-md-12">
@@ -86,7 +79,7 @@
 						</select>
 					</div>
 					<div class="col-md-4">
-						<label>Cuisine: </label> <select id=cuisine>
+						<label>Cuisine: </label> <select id=cuisine >
 							<option value="">Select Cuisine</option>
 							<option value="American">American</option>
 							<option value="Chinese">Chinese</option>
@@ -94,19 +87,23 @@
 						</select>
 					</div>
 					<div class="row">
-						<div class="col-sm-4">
-						</div>
-						<div class="col-sm-4">
-							<button type="submit" class="btn btn-default">Search</button>
+					<div class="col-md-4"><br /><br /></div>
+					</div>
+					<div class="row">
+						<div class="col-md-4"></div>
+						<div class="col-md-2">
+							<button type="button" class="btn btn-info btn-block btn-xs">
+     					 		<span class="glyphicon glyphicon-search"></span> Search
+    						</button>
 						</div>
 					</div>
 				</div>
 			</div>
+			<div class="col-md-2" >
+				<img src="images/didyouknow.jpg"
+					class="img-rounded" alt="Adds" width="194" height="236">
+			</div>
 		</div>
 	</div>
-
-</body>
-</html>
-
 </body>
 </html>

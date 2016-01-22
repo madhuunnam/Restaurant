@@ -14,25 +14,7 @@
 <script type="text/javascript" src="js/clickFunctions.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-default" style="background-color: #ffb280;">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="#"><strong>TASTY HUB</strong></a>
-		</div>
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Home</a></li>
-			<li><a href="#">Chinese</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#"><span class="glyphicon glyphicon-user"></span>
-					Sign Up</a></li>
-			<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-					Login</a></li>
-		</ul>
-	</div>
-	</nav>
+	<#include "NavBar.ftl">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3"></div>
@@ -50,7 +32,7 @@
 							Remember me
 						</label>
 					</div>
-					<button class="btn btn-md  btn-default " type="submit">Sign
+					<button class="btn btn-md  btn-info " type="submit">Sign
 						in</button>
 				</form>
 			</div>

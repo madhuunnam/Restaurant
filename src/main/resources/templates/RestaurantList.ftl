@@ -22,6 +22,11 @@ p.oblique {
 	margin: 0 0 12px;
 	text-align: center;
 }
+ @media only screen and (max-width : 500px) {
+        .poweredBy{
+             display: none;
+        }
+    }
 </style>
 </head>
 <body>
@@ -31,16 +36,17 @@ p.oblique {
 		<div class="row" style="background-color: #4dc4ff">
 			<div class="col-md-4">
 				<img class="img-rounded" src="images/blueFork.jpg" alt="Image"
-					width="150" height="80"> <img class="img-rounded"
+					width="150" height="80"> 
+				<img class="img-rounded"
 					src="images/blueFork.jpg" alt="Image" width="200" height="80">
-
 			</div>
 			<div class="col-md-3">
 				<p class="oblique">Select a Restaurant and start your Order!</p>
 			</div>
 			<div class="col-md-4">
 				<img class="img-rounded" src="images/blueFork.jpg" alt="Image"
-					width="150" height="80"> <img class="img-rounded"
+					width="150" height="80"> 
+				<img class="img-rounded"
 					src="images/blueFork.jpg" alt="Image" width="200" height="80">
 			</div>
 		</div>

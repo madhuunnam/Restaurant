@@ -66,7 +66,8 @@
 		<h3 align='center'>
 			<i>Hungry? Enter your location and select a Restaurant to order!</i>
 		</h3>
-		<form class="form-horizontal" role="form">
+		<form class="form-horizontal" role="form" id="searchForm"
+			action="/getRestaurantList">
 
 			<div class="form-group">
 				<label class="control-label col-md-2" for="location"></label>
@@ -78,16 +79,57 @@
 
 			<div class="form-group">
 				<div class="col-md-4">
-					<button type="button" class="btn btn-link form-control">My
-						Address</button>
+					<button type="button" class="btn btn-link form-control"
+						data-toggle="modal" data-target="#myAddress">My Address</button>
+					<div class="modal fade" id="myAddress" role="dialog">
+						<div class="modal-dialog">
+
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">My Address</h4>
+								</div>
+								<div class="modal-body">
+									<p>Please select an address.</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Close</button>
+								</div>
+							</div>
+
+						</div>
+					</div>
 				</div>
 				<div class="col-md-4">
-					<button type="button" class="btn btn-link form-control">Add
+					<button type="button" class="btn btn-link form-control" onclick = "onAddToMyAddress();">Add
 						To My Address</button>
+						
 				</div>
 				<div class="col-md-4">
-					<button type="button" class="btn btn-link form-control">My
+					<button type="button" class="btn btn-link form-control" data-toggle="modal" data-target="#myFav">My
 						Favorites</button>
+						<div class="modal fade" id="myFav" role="dialog">
+						<div class="modal-dialog">
+
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">My Favorites</h4>
+								</div>
+								<div class="modal-body">
+									<p>Select any one of your Favorites</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Close</button>
+								</div>
+							</div>
+
+						</div>
+					</div>
 				</div>
 			</div>
 
@@ -130,8 +172,8 @@
 	<br>
 	<footer class="container-fluid text-right"
 		style="background-color: #b3b3b3;"> <a
-		href="<@spring.url '/Home'/> ">Privacy Policy</a> 
-		<p></p>
-		</footer>
+		href="<@spring.url '/Home'/> ">Privacy Policy</a>
+	<p></p>
+	</footer>
 </body>
 </html>

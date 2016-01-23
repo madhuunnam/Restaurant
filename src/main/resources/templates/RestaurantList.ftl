@@ -22,16 +22,11 @@ p.oblique {
 	margin: 0 0 12px;
 	text-align: center;
 }
- @media only screen and (max-width : 500px) {
-        .poweredBy{
-             display: none;
-        }
-    }
+
 </style>
 </head>
 <body>
 	<#include "NavBar.ftl">
-
 	<div class="container-fluid text-center">
 		<div class="row" style="background-color: #4dc4ff">
 			<div class="col-md-4">

@@ -167,6 +167,8 @@
 						<option value="American">American</option>
 						<option value="Chinese">Chinese</option>
 						<option value="Mexican">Mexican</option>
+						<option value="Mexican">Indian</option>
+						<option value="Mexican">Japanese</option>
 					</select>
 				</div>
 			</div>

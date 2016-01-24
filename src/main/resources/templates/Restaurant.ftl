@@ -11,11 +11,17 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/clickFunctions.js"></script>
+<script type="text/javascript" src="javascript/searchPage.js"></script>
 </head>
 <body>
-	<#include "NavBar.ftl">
-<p>Restaurant Page TODO </p>
+<#include "NavBar.ftl">
+<div class="jumbotron" style="background-image: url(images/restaurantBackground.jpg); background-size: 100%;">
+  <div class="container text-left">
+    <h2>Restaurant Name</h2>      
+    <p>Timings</p>
+  </div>
+</div>
+
 </body>
 </html>
 

@@ -11,3 +11,5 @@ $('#restListTable > tbody > tr').click(function() {
 	document.getElementById("restTableForm").submit();
 });
 });
+
+

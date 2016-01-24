@@ -16,7 +16,7 @@ public class RestaurantSearchController extends SpringServletContainerInitialize
 	public String homepage(Model model) {
 		System.out.println("Testing SearchResult");
 
-		Connection dbc = DbConnection.getInstance().getDbConnection();
+		//Connection dbc = DbConnection.getInstance().getDbConnection();
 
 		return "RestaurantList";
 	}

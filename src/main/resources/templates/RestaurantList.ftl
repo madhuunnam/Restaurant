@@ -12,6 +12,7 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="javascript/searchPage.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <style>
 p.oblique {
 	color: white;
@@ -76,7 +77,7 @@ p.oblique {
 		<br />
 		<div class="row">
 			<div class="col-md-12">
-				<table class="table table-striped table-hover">
+				<table class="table table-striped table-hover" id="restListTable">
 					<thead>
 						<tr>
 							<th>Logo</th>

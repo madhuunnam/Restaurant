@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RestaurantController {
 
 	@RequestMapping("/getRestaurantDetailsPage")
-	public String homepage(Model model) {
+	public String restaurantPage(Model model) {
 		System.out.println("Testing Restaurant");
 
 		//Connection dbc = DbConnection.getInstance().getDbConnection();

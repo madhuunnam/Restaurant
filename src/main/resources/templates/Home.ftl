@@ -21,7 +21,9 @@
 </head>
 <body>
 	<#include "NavBar.ftl">
-
+<div class="container-fluid">
+<div class="row" style="background-color: #0d0d0d;" >
+  <div class="col-md-8 col-md-offset-2" >
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
@@ -45,6 +47,12 @@
 				</div>
 			</div>
 			<div class="item">
+				<img class="peopleCarouselImg " src="images/SouthIndian.jpg" alt="Image">
+				<div class="carousel-caption">
+					<p>Indian Cuisine</p>
+				</div>
+			</div>
+			<div class="item">
 				<img class="peopleCarouselImg" src="images/quesadilla.jpg"
 					alt="Image">
 				<div class="carousel-caption">
@@ -62,7 +70,10 @@
 			<span class="sr-only">Next</span>
 		</a>
 	</div>
-	<div class="container">
+	</div>
+	</div>
+	</div>
+	<div class="container-fluid">
 		<h3 align='center'>
 			<i>Hungry? Enter your location and select a Restaurant to order!</i>
 		</h3>

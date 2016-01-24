@@ -77,6 +77,7 @@ p.oblique {
 		<br />
 		<div class="row">
 			<div class="col-md-12">
+			<form role="form" id="restTableForm" action = "/getRestaurantDetailsPage">
 				<table class="table table-striped table-hover" id="restListTable">
 					<thead>
 						<tr>
@@ -109,9 +110,11 @@ p.oblique {
 						</tr>
 					</tbody>
 				</table>
-			</div>
+				
+			</form>
 		</div>
 	</div>
+</div>
 
 </body>
 </html>

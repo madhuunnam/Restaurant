@@ -1,5 +1,5 @@
 function onSearch() {
-	document.getElementById("searchForm").action = "/getRestaurantList";
+	document.getElementById("searchForm").action = "/getRestaurantListPage";
 	document.getElementById("searchForm").submit();
 }
 function onAddToMyAddress(){
@@ -7,6 +7,7 @@ function onAddToMyAddress(){
 }
 $(document).ready(function() {
 $('#restListTable > tbody > tr').click(function() {
-    alert("Row clicked");
+    document.getElementById("restTableForm").action = "/getRestaurantDetailsPage";
+	document.getElementById("restTableForm").submit();
 });
 });

@@ -2,7 +2,7 @@
 <#import "spring.ftl" as spring />
 <html lang="en">
 <head>
-<title>Contact</title>
+<title>Restaurant</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -15,7 +15,7 @@
 </head>
 <body>
 	<#include "NavBar.ftl">
-<p>Contact tab TODO </p>
+<p>Restaurant Page TODO </p>
 </body>
 </html>
 

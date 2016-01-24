@@ -38,5 +38,14 @@ public class HomepageController extends SpringServletContainerInitializer {
 	public String contactPage(Model model) {
 		return "Contact";
 	}
+	
+	@RequestMapping("/getRestaurantListPage")
+	public String restaurantListPage(Model model) {
+		System.out.println("Testing SearchResult");
+
+		//Connection dbc = DbConnection.getInstance().getDbConnection();
+
+		return "RestaurantList";
+	}
 
 }

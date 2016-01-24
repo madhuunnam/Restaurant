@@ -67,7 +67,7 @@
 			<i>Hungry? Enter your location and select a Restaurant to order!</i>
 		</h3>
 		<form class="form-horizontal" role="form" id="searchForm"
-			action="/getRestaurantList">
+			action="/getRestaurantListPage">
 
 			<div class="form-group">
 				<label class="control-label col-md-2" for="location"></label>

@@ -22,7 +22,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#"><strong>TASTY HUB</strong></a>
+      <a class="navbar-brand"><strong>TASTY HUB</strong></a>
     </div>
     <div class="collapse navbar-collapse " id="myNavbar">
       <ul class="nav navbar-nav">
@@ -32,15 +32,7 @@
 		<li><a href="<@spring.url '/Contact'/> ">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="<@spring.url '/SignupPage'/>"><span class="glyphicon glyphicon-user"></span>
-          Sign Up<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Customer SignUp</a></li>
-            <li><a href="#">Restaurant SignUp</a></li>
-            <li><a href="#">Associate SignUp</a></li>
-          </ul>
-        </li>
+        <li><a href="<@spring.url '/SignupPage'/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="<@spring.url '/LoginPage'/> "><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>

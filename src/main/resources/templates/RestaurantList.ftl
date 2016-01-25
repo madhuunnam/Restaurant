@@ -65,7 +65,7 @@ p.oblique {
 		<div class="row">
 			<div class="col-md-12">
 			<form role="form" id="restTableForm" action = "/getRestaurantDetailsPage">
-				<table class="table table-striped table-hover" id="restListTable">
+				<table class="table table-striped table-hover table-responsive" id="restListTable">
 					<thead>
 						<tr>
 							<th>Logo</th>

@@ -15,7 +15,7 @@
 </head>
 <body>
 <#include "NavBar.ftl">
-<div class="jumbotron" style="background-image: url(images/restaurantBackground.jpg); background-size: 100%;">
+<div class="jumbotron" >
   <div class="container text-left">
     <h2>Restaurant Name</h2>      
     <p>Timings</p>

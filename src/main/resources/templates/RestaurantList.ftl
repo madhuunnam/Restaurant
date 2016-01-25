@@ -15,9 +15,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <style>
 p.oblique {
-	color: white;
+	color: Black;
 	font-family: 'Droid serif', serif;
-	font-size: 28px;
+	font-size: 38px;
 	font-weight: 400;
 	line-height: 44px;
 	margin: 0 0 12px;
@@ -29,25 +29,12 @@ p.oblique {
 <body>
 	<#include "NavBar.ftl">
 	<div class="container-fluid text-center">
-		<div class="row" style="background-color: #4dc4ff">
-			<div class="col-md-4">
-				<img class="img-rounded" src="images/blueFork.jpg" alt="Image"
-					width="150" height="80"> 
-				<img class="img-rounded"
-					src="images/blueFork.jpg" alt="Image" width="200" height="80">
-			</div>
-			<div class="col-md-3">
-				<p class="oblique">Select a Restaurant and start your Order!</p>
-			</div>
-			<div class="col-md-4">
-				<img class="img-rounded" src="images/blueFork.jpg" alt="Image"
-					width="150" height="80"> 
-				<img class="img-rounded"
-					src="images/blueFork.jpg" alt="Image" width="200" height="80">
-			</div>
-		</div>
-		<br />
-		<div class="row">
+		<div class="jumbotron" style="background-image: url(images/restBckgrnd.jpg); background-size: 100%;">
+  <div class="container text-center">
+    <h3>Pick a Restaurant of your choice!</h3>      
+  </div>
+</div>
+<div class="row">
 			<div class="col-md-6 text-info">
 				<div class="checkbox">
 					<label><input type="checkbox" value="HasMenuOnly">HasMenuOnly</label>

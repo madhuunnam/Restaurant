@@ -17,24 +17,71 @@
 	<#include "NavBar.ftl">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6 col-md-offset-3" style="background-color: #f2f2f2">
-				<form class="form-signin">
-					<h2 class="form-signin-heading">Create Your Account</h2>
-					<label for="inputEmail" class="sr-only">Email address</label> <input
-						type="email" id="inputEmail" class="form-control"
-						placeholder="Email address" required autofocus> <label
-						for="inputPassword" class="sr-only">Password</label> <input
-						type="password" id="inputPassword" class="form-control"
-						placeholder="Password" required>
-						<br />
-					<button class="btn btn-md  btn-info " type="submit">Create My Account</button>
-				</form>
+			<div class="col-md-6 col-md-offset-3"
+				style="background-color: #f2f2f2">
+				<form class="form-horizontal" role="form">
+				<div class="form-group" align="center">
+					    <label class="col-md-12"><h3>Associate SignUp</h3></label>
+					  </div>
+					  <div class="form-group">
+					    <label class="control-label col-md-3" for="Name">FirstName:</label>
+					    <div class="col-md-6">
+					      <input type="required" class="form-control" id="assocFirstName" placeholder="Enter FirstName" required autofocus>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="control-label col-md-3" for="Name">MiddleName:</label>
+					    <div class="col-md-6">
+					      <input type="text" class="form-control" id="assocMiddleName" placeholder="Enter MiddleName">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="control-label col-md-3" for="Name">LastName:</label>
+					    <div class="col-md-6">
+					      <input type="required" class="form-control" id="assocLastName" placeholder="Enter LastName">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="control-label col-md-3" for="Name">Address:</label>
+					    <div class="col-md-8">
+					      <input type="required" class="form-control" id="assocAddress" placeholder="Enter your Street Address, City, State, Zip">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="control-label col-md-3" for="email">Email:</label>
+					    <div class="col-md-6">
+					      <input type="email" class="form-control" id="assocEmail" placeholder="Enter email">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="control-label col-md-3" for="pwd">Password:</label>
+					    <div class="col-md-6"> 
+					      <input type="password" class="form-control" id="assocPassword" placeholder="Enter password">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="control-label col-md-3" for="phone1">Phone:</label>
+					    <div class="col-md-6">
+					      <input type="mobile" class="form-control" id="assocPhone1" placeholder="Enter Phone Number">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="control-label col-md-3" for="phone2">Other Phone:</label>
+					    <div class="col-md-6">
+					      <input type="phone" class="form-control" id="assocPhone2" placeholder="Enter Phone Number">
+					    </div>
+					  </div>
+					  <div class="form-group"> 
+					    <div class="col-md-offset-4 col-md-6">
+					      <button type="submit" class="btn btn-info">Create Associate Account</button>
+					    </div>
+					  </div>
+					</form>
 				<br />
 			</div>
 		</div>
 	</div>
 	<!-- /container -->
-
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>

@@ -26,7 +26,7 @@
 						type="password" id="inputPassword" class="form-control"
 						placeholder="Password" required>
 						<br />
-					<button class="btn btn-md  btn-info " type="submit">Create My Account</button>
+					<button class="btn btn-md  btn-info " type="submit">Create Restaurant</button>
 				</form>
 				<br />
 			</div>

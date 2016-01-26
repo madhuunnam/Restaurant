@@ -26,13 +26,13 @@
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="Name">Admin Name:</label>
 					    <div class="col-md-6">
-					      <input type="Name" class="form-control" id="adminName" placeholder="Enter Name">
+					      <input type="required" class="form-control" id="adminName" placeholder="Enter Name" required autofocus>
 					    </div>
 					  </div>
 					   <div class="form-group">
 					    <label class="control-label col-md-3" for="Name">Address:</label>
 					    <div class="col-md-8">
-					      <input type="Address" class="form-control" id="adminAddress" placeholder="Enter your Street Address, City, State, Zip">
+					      <input type="required" class="form-control" id="adminAddress" placeholder="Enter your Street Address, City, State, Zip">
 					    </div>
 					  </div>
 					  <div class="form-group">
@@ -50,13 +50,13 @@
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="phone1">Phone:</label>
 					    <div class="col-md-6">
-					      <input type="phone1" class="form-control" id="adminPhone1" placeholder="Enter Phone Number">
+					      <input type="mobile" class="form-control" id="adminPhone1" placeholder="Enter Phone Number">
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="phone2">Other Phone:</label>
 					    <div class="col-md-6">
-					      <input type="phone2" class="form-control" id="phone2" placeholder="Enter Phone Number">
+					      <input type="phone" class="form-control" id="phone2" placeholder="Enter Phone Number">
 					    </div>
 					  </div>
 					  <div class="form-group">
@@ -72,7 +72,7 @@
                         </select> 
 					    </div>
 					     <div class="col-md-3">
-					      <input type="answer1" class="form-control" id="answer1" placeholder="Enter Answer">
+					      <input type="required" class="form-control" id="answer1" placeholder="Enter Answer">
 					    </div>
 					  </div>
 					  <div class="form-group">
@@ -88,7 +88,7 @@
                         </select> 
 					    </div>
 					     <div class="col-md-3">
-					      <input type="answer2" class="form-control" id="answer2" placeholder="Enter Answer">
+					      <input type="required" class="form-control" id="answer2" placeholder="Enter Answer">
 					    </div>
 					  </div>
 					  

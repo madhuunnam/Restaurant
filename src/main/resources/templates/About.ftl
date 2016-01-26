@@ -14,7 +14,7 @@
 
 </head>
 <body>
-	<#include "NavBar.ftl">
+<#include "NavBar.ftl">
 <p>About tab TODO </p>
 </body>
 </html>

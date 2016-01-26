@@ -19,27 +19,85 @@
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3"
 				style="background-color: #f2f2f2">
-				<form class="form-signin">
-					<h2 class="form-signin-heading">Create Your Account</h2>
-					<label for="AdminName" class="sr-only">Admin Name</label>
-						<input type="input" id="adminName" class="form-control" placeholder="Admin Name" required autofocus> 
-					<label for="adminAddress" class="sr-only">Address</label> 
-						<input type="input" id="adminAddress" class="form-control" placeholder="Address" required> 
-					<label for="adminEmail" class="sr-only">Email</label> 
-						<input type="input" id="adminEmail" class="form-control" placeholder="Email" required> 
-					<label for="adminAddress" class="sr-only">Address</label> 
-						<input type="input" id="adminAddress" class="form-control" placeholder="Address" required> 
-					<label for="adminAddress" class="sr-only">Address</label> 
-						<input type="input" id="adminAddress" class="form-control" placeholder="Address" required> 
-					<label for="adminAddress" class="sr-only">Address</label>
-						<input type="input" id="adminAddress" class="form-control" placeholder="Address" required> 
-					<label for="adminAddress" class="sr-only">Address</label> 
-						<input type="input" id="adminAddress" class="form-control" placeholder="Address" required> 
-					<label for="adminAddress" class="sr-only">Address</label>
-						<input type="input" id="adminAddress" class="form-control" placeholder="Address" required> 
-					<br />
-					<button class="btn btn-md  btn-info " type="submit">Create My Admin Account</button>
-				</form>
+				<form class="form-horizontal" role="form">
+				<div class="form-group" align = "center">
+					    <label class="col-md-12"><h3>Admin Details</h3></label>
+					  </div>
+					  <div class="form-group">
+					    <label class="control-label col-md-3" for="Name">Admin Name:</label>
+					    <div class="col-md-6">
+					      <input type="Name" class="form-control" id="adminName" placeholder="Enter Name">
+					    </div>
+					  </div>
+					   <div class="form-group">
+					    <label class="control-label col-md-3" for="Name">Address:</label>
+					    <div class="col-md-8">
+					      <input type="Address" class="form-control" id="adminAddress" placeholder="Enter your Street Address, City, State, Zip">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="control-label col-md-3" for="email">Email:</label>
+					    <div class="col-md-6">
+					      <input type="email" class="form-control" id="adminEmail" placeholder="Enter email">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="control-label col-md-3" for="pwd">Password:</label>
+					    <div class="col-md-6"> 
+					      <input type="password" class="form-control" id="adminPassword" placeholder="Enter password">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="control-label col-md-3" for="phone1">Phone:</label>
+					    <div class="col-md-6">
+					      <input type="phone1" class="form-control" id="adminPhone1" placeholder="Enter Phone Number">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="control-label col-md-3" for="phone2">Other Phone:</label>
+					    <div class="col-md-6">
+					      <input type="phone2" class="form-control" id="phone2" placeholder="Enter Phone Number">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="control-label col-md-3" for="question1">Security Ques1:</label>
+					    <div class="col-md-6">
+					     <select name="securityQuestion1" id="securityQuestion1" class = "form-control"> 
+                            <option value=""/>
+                            <option value="1">Name of your pet </option>
+                            <option value="2">Your first car make </option>
+                            <option value="3">Where did you meet your wife for the first time </option>
+                            <option value="4">Which school did you graduate from </option>
+                            <option value="4">What is your major </option>
+                        </select> 
+					    </div>
+					     <div class="col-md-3">
+					      <input type="answer1" class="form-control" id="answer1" placeholder="Enter Answer">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="control-label col-md-3" for="question2">Security Ques2:</label>
+					    <div class="col-md-6">
+					     <select name="securityQuestion2" id="securityQuestion2" class = "form-control"> 
+                            <option value=""/>
+                            <option value="1">Name of your pet </option>
+                            <option value="2">Your first car make </option>
+                            <option value="3">Where did you meet your wife for the first time </option>
+                            <option value="4">Which school did you graduate from </option>
+                            <option value="4">What is your major </option>
+                        </select> 
+					    </div>
+					     <div class="col-md-3">
+					      <input type="answer2" class="form-control" id="answer2" placeholder="Enter Answer">
+					    </div>
+					  </div>
+					  
+					  <div class="form-group"> 
+					    <div class="col-md-offset-4 col-md-6">
+					      <button type="submit" class="btn btn-info">Submit</button>
+					    </div>
+					  </div>
+					</form>
 				<br />
 			</div>
 		</div>

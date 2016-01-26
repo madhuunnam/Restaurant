@@ -11,24 +11,40 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/clickFunctions.js"></script>
 </head>
 <body>
 	<#include "NavBar.ftl">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3"></div>
-			<div class="col-md-6" style="background-color: #f2f2f2">
-				<form class="form-signin">
-					<h2 class="form-signin-heading">Create Your Account</h2>
-					<label for="inputEmail" class="sr-only">Email address</label> <input
-						type="email" id="inputEmail" class="form-control"
-						placeholder="Email address" required autofocus> <label
-						for="inputPassword" class="sr-only">Password</label> <input
-						type="password" id="inputPassword" class="form-control"
-						placeholder="Password" required>
-						<br />
-					<button class="btn btn-md  btn-info " type="submit">Create My Account</button>
+			<div class="col-md-6 col-md-offset-3" style="background-color: #f2f2f2">
+				<form class="form-group" role="form" id="signUpAsCust" action ="/getCustomerSignUpPage">
+					<h2 class="text-center">SignUp</h2>
+					<br/>
+					<button class="btn btn-lg  btn-info btn-block" type="submit" onclick="onSignUpTypeCust();">Customer SignUp</button>
+				</form>
+				<br />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3" style="background-color: #f2f2f2">
+				<form class="form-group" role="form" id="signUpAsRest" action ="/getRestaurantSignUpPage">
+					<button class="btn btn-lg  btn-info btn-block" type="submit" onclick="signUpTypeRest();">Restaurant SignUp</button>
+				</form>
+				<br />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3" style="background-color: #f2f2f2">
+				<form class="form-group" role="form" id="signUpAsAssc" action ="/getAssociateSignUpPage">
+					<button class="btn btn-lg  btn-info btn-block" type="submit" onclick="onSignUpTypeAssc();">Associate SignUp</button>
+				</form>
+				<br />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3" style="background-color: #f2f2f2">
+				<form class="form-group" role="form" id="signUpAsAdmin" action ="/getAdminSignUpPage">
+					<button class="btn btn-lg  btn-info btn-block" type="submit" onclick="onSignUpTypeAdmin();">Admin SignUp</button>
 				</form>
 				<br />
 			</div>

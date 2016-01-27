@@ -75,7 +75,7 @@
 	</div>
 	<div class="container-fluid">
 		<h3 align='center'>
-			<i>Hungry? Enter your location and select a Restaurant to order!</i>
+			<i>Hungry? Enter your location or click links below!</i>
 		</h3>
 		<form class="form-horizontal" role="form" id="searchForm"
 			action="/getRestaurantListPage">
@@ -89,9 +89,9 @@
 			</div>
 
 			<div class="form-group">
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<button type="button" class="btn btn-link form-control"
-						data-toggle="modal" data-target="#myAddress">My Address</button>
+						data-toggle="modal" data-target="#myAddress">My Saved Addresses</button>
 					<div class="modal fade" id="myAddress" role="dialog">
 						<div class="modal-dialog">
 
@@ -99,7 +99,7 @@
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">My Address</h4>
+									<h4 class="modal-title">My Saved Addresses</h4>
 								</div>
 								<div class="modal-body">
 									<p>Please select an address.</p>
@@ -113,14 +113,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<button type="button" class="btn btn-link form-control" onclick = "onAddToMyAddress();">Add
-						To My Address</button>
+				<div class="col-md-3">
+					<button type="button" class="btn btn-link form-control" onclick = "onAddToMyAddress();">Save This
+					Address</button>
 						
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<button type="button" class="btn btn-link form-control" data-toggle="modal" data-target="#myFav">My
-						Favorites</button>
+						Favorite Restaurants</button>
 						<div class="modal fade" id="myFav" role="dialog">
 						<div class="modal-dialog">
 
@@ -132,6 +132,29 @@
 								</div>
 								<div class="modal-body">
 									<p>Select any one of your Favorites</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Close</button>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<button type="button" class="btn btn-link form-control" data-toggle="modal" data-target="#cuisine">Select Cuisine</button>
+						<div class="modal fade" id="cuisine" role="dialog">
+						<div class="modal-dialog">
+
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Select Cuisine</h4>
+								</div>
+								<div class="modal-body">
+									<p>Select any cuisine</p>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-default"
@@ -162,14 +185,7 @@
 					</select>
 				</div>
 				<div class="col-md-4">
-					<select id="cuisine" class="form-control">
-						<option value="">Select Cuisine</option>
-						<option value="American">American</option>
-						<option value="Chinese">Chinese</option>
-						<option value="Mexican">Mexican</option>
-						<option value="Mexican">Indian</option>
-						<option value="Mexican">Japanese</option>
-					</select>
+      				  <input class="form-control" id="disabledInput" type="text" placeholder="Chosen Cuisine" disabled>
 				</div>
 			</div>
 			<div class="form-group">

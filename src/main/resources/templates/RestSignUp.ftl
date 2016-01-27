@@ -41,6 +41,12 @@
 					    </div>
 					  </div>
 					  <div class="form-group">
+					    <label class="control-label col-md-3" for="Name">Restaurant Name:</label>
+					    <div class="col-md-6">
+					      <input type="text" class="form-control" id="restName" placeholder="Enter Restaurant Name" >
+					    </div>
+					  </div>
+					  <div class="form-group">
 					    <label class="control-label col-md-3" for="email">Email:</label>
 					    <div class="col-md-6">
 					      <input type="email" class="form-control" id="custEmail" placeholder="Enter email">
@@ -53,8 +59,35 @@
 					    </div>
 					  </div>
 					  <div class="form-group"> 
-					    <div class="col-md-offset-4 col-md-6">
-					      <button type="submit" class="btn btn-info">Create Account</button>
+					    <div class="col-md-offset-3 col-md-6">
+					      <button type="button" class="btn btn-info">Tell Your PromoCode to Earn Store Credits</button>
+					    </div>
+					  </div>
+					  <div class="form-group"> 
+					  <label class="control-label col-md-11" for="text">(If you have a promocode from others, welcome gift: get $1 off)</label>
+					  </div>
+					  <div class="form-group"> 
+					   <label class="control-label col-md-3" for="promoCode">Promo Code:</label>
+					  <div class=" col-md-6">
+					      <input type="text" class="form-control" id="promoCode" placeholder="Enter promocode">
+					    </div>
+					   </div>
+					   <div class="form-group">
+					    <label class="control-label col-md-3" for="addChannel">Add Channel:</label>
+					    <div class="col-md-6">
+					     <select name="addChannel" id="addChannel" class = "form-control"> 
+                            <option value=""/>
+                            <option value="1">Social Media: Facebook, Twitter, WeChat etc. </option>
+                            <option value="2">Sign on Car </option>
+                            <option value="3">Sign in Restaurant </option>
+                            <option value="4">Roadside Sign </option>
+                            <option value="4">By email/Text message </option>
+                        </select> 
+					    </div>
+					    </div>
+					  <div class="form-group"> 
+					    <div class="col-md-offset-3 col-md-6">
+					      <button type="submit" class="btn btn-info">Create My Customer Account</button>
 					    </div>
 					  </div>
 					</form>

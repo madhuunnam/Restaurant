@@ -24,9 +24,14 @@ public class HomepageController extends SpringServletContainerInitializer {
 		return "Signup";
 	}
 
-	@RequestMapping("/Chinese")
-	public String chinesePage(Model model) {
-		return "Chinese";
+	@RequestMapping("/forSale")
+	public String forSale(Model model) {
+		return "forSale";
+	}
+	
+	@RequestMapping("/hiring")
+	public String hiring(Model model) {
+		return "hiring";
 	}
 
 	@RequestMapping("/About")
@@ -45,7 +50,7 @@ public class HomepageController extends SpringServletContainerInitializer {
 
 		//Connection dbc = DbConnection.getInstance().getDbConnection();
 
-		return "RestaurantList";
+		return "RestList";
 	}
 
 }

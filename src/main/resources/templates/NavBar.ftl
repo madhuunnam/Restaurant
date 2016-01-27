@@ -26,7 +26,8 @@
     <div class="collapse navbar-collapse " id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="<@spring.url '/Homepage'/>">Home</a></li>
-        <li><a href="<@spring.url '/Chinese'/> ">Chinese</a></li>
+        <li><a href="<@spring.url '/forSale'/> ">For Sale</a></li>
+         <li><a href="<@spring.url '/hiring'/> ">Hiring</a></li>
 		<li><a href="<@spring.url '/About'/> ">About</a></li>
 		<li><a href="<@spring.url '/Contact'/> ">Contact</a></li>
       </ul>

@@ -87,7 +87,7 @@
 					    </div>
 					  <div class="form-group"> 
 					    <div class="col-md-offset-3 col-md-6">
-					      <button type="submit" class="btn btn-info">Create My Customer Account</button>
+					      <button type="submit" class="btn btn-info">Create My Restaurant Account</button>
 					    </div>
 					  </div>
 					</form>

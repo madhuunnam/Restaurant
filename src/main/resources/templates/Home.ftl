@@ -154,11 +154,136 @@
 									<h4 class="modal-title">Select Cuisine</h4>
 								</div>
 								<div class="modal-body">
-									<p>Select any cuisine</p>
+									<form role="form">
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="American">American</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Asian">Asian</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Bagels">Bagels</label>
+									    </div>
+									    <div class="checkbox col-sm-3"">
+									      <label><input type="checkbox" value="Bakery">Bakery</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="BBQ">BBQ</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Catonese">Catonese</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Chinese">Chinese</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Caribbean">Caribbean</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="CoffeeTea">Coffee & Tea</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Deli">Deli</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Dessert">Dessert</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Greek">Greek</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Grill">Grill</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Hamburgers">Hamburgers</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Healthy">Healthy</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Indian">Indian</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Italian">Italian</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Japanese">Japanese</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="LatinAmerican">LatinAmerican</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="LateNight">LateNight</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="LunchSpecials">LunchSpecials</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Mediterranean">Mediterranean</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Mexican">Mexican</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="MiddleEastern">MiddleEastern</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Noodles">Noodles</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Pasta">Pasta</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Pizza">Pizza</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Salads">Salads</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Sandwich">Sandwich</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Seafood">Sea food</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Smoothies">Smoothies</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Soup">Soup</label>
+									    </div>
+									     <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Szechwan">Szechwan</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Steak">Steak</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Subs">Subs</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Sushi">Sushi</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Vegetarian">Vegetarian</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Vietnamese">Vietnamese</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Wings">Wings</label>
+									    </div>
+									    <div class="checkbox col-sm-3">
+									      <label><input type="checkbox" value="Wraps">Wraps</label>
+									    </div>
+									</form>
 								</div>
+								
 								<div class="modal-footer">
+								<br />
 									<button type="button" class="btn btn-default"
-										data-dismiss="modal">Close</button>
+										data-dismiss="modal">OK</button>
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Cancel</button>
 								</div>
 							</div>
 
@@ -202,7 +327,6 @@
 	<footer class="container-fluid text-right"
 		style="background-color: #b3b3b3;"> <a
 		href="<@spring.url '/Home'/> ">Privacy Policy</a>
-	<p></p>
 	</footer>
 </body>
 </html>

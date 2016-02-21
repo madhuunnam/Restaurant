@@ -10,8 +10,6 @@ import com.restaurant.model.Customer;
 @Controller
 public class SignUpController {
 
-
-
 	
 	@RequestMapping("/getCustomerSignUpPage")
 	public String customerSignUp(Model model) {

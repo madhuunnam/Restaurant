@@ -1,16 +1,21 @@
 package com.restaurant.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
 import com.restaurant.model.Customer;
+import com.restaurant.service.CustomerService;
 
 @Controller
 public class SignUpController {
 
-	
+	@Autowired
+	private CustomerService customerService;
+
+
 	@RequestMapping("/getCustomerSignUpPage")
 	public String customerSignUp(Model model) {
 		System.out.println("Testing Customer SignUp PageLoad");
@@ -34,9 +39,9 @@ public class SignUpController {
 
 	@RequestMapping("/registerCustomer")
 	public String registerCustomer(Model model) {
-		System.out.println("Testing Admin SignUp PageLoad");
-		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.getForObject("http://localhost:8090/ping", Customer.class);
+		System.out.println("Testing Customer Registration");
+		 RestTemplate restTemplate = new RestTemplate();
+         restTemplate.getForObject("http://localhost:8090/ping",Customer.class);
 		return "SignUpPages/CustSignUp";
 	}
 }

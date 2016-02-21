@@ -27,4 +27,10 @@ public class SignUpController {
 		System.out.println("Testing Admin SignUp PageLoad");
 		return "AdminSignUp";
 	}
+
+	@RequestMapping("/registerCustomer")
+	public String registerCustomer(Model model) {
+		System.out.println("Testing Admin SignUp PageLoad");
+		return "CustSignUp";
+	}
 }

@@ -2,7 +2,7 @@
 <#import "spring.ftl" as spring />
 <html lang="en">
 <head>
-<title>Customer SignUp</title>
+<title>Associate SignUp</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -13,7 +13,7 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<#include "NavBar.ftl">
+	<#include "../NavBar.ftl">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3"
@@ -54,33 +54,9 @@
 					  </div>
 					  <div class="form-group"> 
 					    <div class="col-md-offset-3 col-md-6">
-					      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#promoInfodialog">Tell Your PromoCode to Earn Store Credits</button>
+					      <button type="button" class="btn btn-info">Tell Your PromoCode to Earn Store Credits</button>
 					    </div>
 					  </div>
-					 	 <div class="modal fade" id="promoInfodialog" role="dialog">
-						    <div class="modal-dialog">
-						      <!-- Modal content-->
-						      <div class="modal-content">
-						        <div class="modal-header">
-						          <button type="button" class="close" data-dismiss="modal">&times;</button>
-						          <h4 class="modal-title">How to get store credits or Free Meals</h4>
-						        </div>
-						        <div class="modal-body">
-						          <p>Your personal promocode is ****. Tell it to others to earn store credits. 
-						          You can always earn the most store credits by introducing a new restaurant to us.
-						          When you become our associate, you can earn cash or even better build your own business
-						          with our help receiving residual income to acheive your financial freedom.
-						          Atleast, you can earn store credits by inviting your friends as our new customers, or
-						          simply by giving your sincere reviews about the restaurants you ordered from.
-						          </p>
-						        </div>
-						        <div class="modal-footer">
-						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						        </div>
-						      </div>
-						      
-						    </div>
-						  </div>
 					  <div class="form-group"> 
 					  <label class="control-label col-md-11" for="text">(If you have a promocode from others, welcome gift: get $1 off)</label>
 					  </div>
@@ -105,7 +81,7 @@
 					    </div>
 					  <div class="form-group"> 
 					    <div class="col-md-offset-3 col-md-6">
-					      <button type="submit" class="btn btn-info">Create My Customer Account</button>
+					      <button type="submit" class="btn btn-info">Create My Associate Account</button>
 					    </div>
 					  </div>
 					</form>

@@ -13,7 +13,7 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<#include "NavBar.ftl">
+	<#include "../NavBar.ftl">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3" style="background-color: #f2f2f2">

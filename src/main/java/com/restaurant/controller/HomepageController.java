@@ -21,7 +21,9 @@ public class HomepageController extends SpringServletContainerInitializer {
 
 	@RequestMapping("/SignupPage")
 	public String signupPage(Model model) {
-		return "Signup";
+
+		System.out.println("Hello Sign Up page");
+		return "SignUpPages/Signup";
 	}
 
 	@RequestMapping("/forSale")

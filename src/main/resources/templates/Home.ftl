@@ -309,9 +309,7 @@
 						<option value="Raleigh">Raleigh</option>
 					</select>
 				</div>
-				<div class="col-md-4">
-      				  <input class="form-control" id="disabledInput" type="text" placeholder="Chosen Cuisine" disabled>
-				</div>
+				
 			</div>
 			<div class="form-group">
 				<div class="col-md-offset-5 col-md-7">

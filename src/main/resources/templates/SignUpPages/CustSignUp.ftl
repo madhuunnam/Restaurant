@@ -25,31 +25,31 @@
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="Name">FirstName:</label>
 					    <div class="col-md-6">
-					      <input type="required" class="form-control" id="firstName" placeholder="Enter FirstName" required autofocus>
+					      <input type="required" class="form-control" id="firstName" name ="firstName" placeholder="Enter FirstName" required autofocus>
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="Name">MiddleName:</label>
 					    <div class="col-md-6">
-					      <input type="text" class="form-control" id="middleName" placeholder="Enter MiddleName">
+					      <input type="text" class="form-control" name = "middleName" id="middleName" placeholder="Enter MiddleName">
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="Name">LastName:</label>
 					    <div class="col-md-6">
-					      <input type="required" class="form-control" id="lastName" placeholder="Enter LastName">
+					      <input type="required" class="form-control" id="lastName" name ="lastName" placeholder="Enter LastName">
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="email">Email:</label>
 					    <div class="col-md-6">
-					      <input type="email" class="form-control" id="custEmail" placeholder="Enter email">
+					      <input type="email" class="form-control" id="custEmail" name ="custEmail" placeholder="Enter email">
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="pwd">Password:</label>
 					    <div class="col-md-6"> 
-					      <input type="password" class="form-control" id="custPassword" placeholder="Enter password">
+					      <input type="password" class="form-control" id="custPassword" name="custPassword" placeholder="Enter password">
 					    </div>
 					  </div>
 					  <div class="form-group"> 
@@ -87,19 +87,19 @@
 					  <div class="form-group"> 
 					   <label class="control-label col-md-3" for="promoCode">Promo Code:</label>
 					  <div class=" col-md-6">
-					      <input type="text" class="form-control" id="promoCode" placeholder="Enter promocode">
+					      <input type="text" class="form-control" id="promoCode" name ="promoCode" placeholder="Enter promocode">
 					    </div>
 					   </div>
 					   <div class="form-group">
 					    <label class="control-label col-md-3" for="addChannel">Add Channel:</label>
 					    <div class="col-md-6">
-					     <select name="addChannel" id="addChannel" class = "form-control"> 
+					     <select name="addChannel" id="addChannel" name="addChannel" class = "form-control"> 
                             <option value=""/>
-                            <option value="1">Social Media: Facebook, Twitter, WeChat etc. </option>
-                            <option value="2">Sign on Car </option>
-                            <option value="3">Sign in Restaurant </option>
-                            <option value="4">Roadside Sign </option>
-                            <option value="4">By email/Text message </option>
+                            <option value="Social Media">Social Media: Facebook, Twitter, WeChat etc. </option>
+                            <option value="Sign on Car">Sign on Car </option>
+                            <option value="Sign in Restaurant">Sign in Restaurant </option>
+                            <option value="Roadside Sign">Roadside Sign </option>
+                            <option value="By email/Text message">By email/Text message </option>
                         </select> 
 					    </div>
 					    </div>

@@ -45,23 +45,11 @@ public class SignUpController {
 	}
 
 	@RequestMapping("/registerCustomer")
-	public ModelAndView registerCustomer(@RequestParam("firstName") String fName, @RequestParam("middleName") String mName,
-			@RequestParam("lastName") String lName, @RequestParam("custEmail") String email,
-			@RequestParam("custPassword") String pwd, @RequestParam("promoCode") String promoCode,
-			@RequestParam("addChannel") String addChannel) {
-		
-		Customer cust = new Customer();
-		cust.setFirstName(fName);
-		cust.setMiddleName(mName);
-		cust.setLastName(lName);
-		cust.setEmail(email);
-		cust.setPassword(pwd);
-		cust.setPromoCode(promoCode);
-		
-		cust.setAdChannel(addChannel);
-		cust.setInsertDate(new Date());
+	public ModelAndView registerCustomer(@ModelAttribute("customerModel") Customer cust) {
 		
 		RestTemplate restTemplate = new RestTemplate();	
+		
+		cust.setInsertDate(new Date());
 		
 		ResponseEntity<String> insertStatus = restTemplate.postForEntity("http://localhost:8090/signUpCustomer", cust, String.class);
 		System.out.println("The status is " + insertStatus);
@@ -69,14 +57,12 @@ public class SignUpController {
 		ModelAndView model = new ModelAndView("SignUpPages/CustSignUp");
 		model.addObject("showalert", showalert);
 		model.addObject("insertStatus", insertStatus);
-		
 		return model;
 	}
 	
 	@RequestMapping("/registerRestaurant")
 	public ModelAndView registerRestaurant(@ModelAttribute("restaurantModel") Restaurant restaurant){
 		
-		System.out.println(restaurant.getBankName());
 		RestTemplate restTemplate = new RestTemplate();	
 		
 		restaurant.setInsertDate(new Date());
@@ -95,6 +81,11 @@ public class SignUpController {
 	 public Restaurant getNewRestaurant() {
 		Restaurant restaurant = new Restaurant();
 		return restaurant;
+	 }
+	@ModelAttribute("customerModel")
+	 public Customer getNewCustomer() {
+		Customer cust = new Customer();
+		return cust;
 	 }
 	
 }

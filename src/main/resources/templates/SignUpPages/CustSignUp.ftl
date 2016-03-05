@@ -54,13 +54,13 @@
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="email">Email:</label>
 					    <div class="col-md-6">
-					      <input type="email" class="form-control" id="custEmail" name ="custEmail" placeholder="Enter email" required>
+					      <input type="email" class="form-control" id="custEmail" name ="email" placeholder="Enter email" required>
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="pwd">Password:</label>
 					    <div class="col-md-6"> 
-					      <input type="password" class="form-control" id="custPassword" name="custPassword" placeholder="Enter password" required>
+					      <input type="password" class="form-control" id="custPassword" name="password" placeholder="Enter password" required>
 					    </div>
 					  </div>
 					  <div class="form-group"> 
@@ -104,7 +104,7 @@
 					   <div class="form-group">
 					    <label class="control-label col-md-3" for="addChannel">Add Channel:</label>
 					    <div class="col-md-6">
-					     <select name="addChannel" id="addChannel" name="addChannel" class = "form-control"> 
+					     <select name="addChannel" id="addChannel" name="adChannel" class = "form-control"> 
                             <option value=""/>
                             <option value="Social Media">Social Media: Facebook, Twitter, WeChat etc. </option>
                             <option value="Sign on Car">Sign on Car </option>

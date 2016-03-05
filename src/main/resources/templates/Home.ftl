@@ -314,7 +314,7 @@
 			<div class="form-group">
 				<div class="col-md-offset-5 col-md-7">
 				<br />
-					<button type="button" class="btn btn-info btn-md" id="searchBtn"
+					<button type="submit" class="btn btn-info btn-md" id="searchBtn"
 						onclick="onSearch();">
 						<span class="glyphicon glyphicon-search"></span> Search
 					</button>

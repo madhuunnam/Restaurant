@@ -21,7 +21,7 @@
 				style="background-color: #f2f2f2">
 				<form class="form-horizontal" role="form">
 				<div class="form-group" align = "center">
-					    <label class="col-md-12"><h3>Admin Details</h3></label>
+					    <label class="col-md-12"><h3>Admin SignUp</h3></label>
 					  </div>
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="Name">Admin Name:</label>

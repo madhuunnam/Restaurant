@@ -20,7 +20,7 @@
 				<form class="form-group" role="form" id="signUpAsCust" action ="/getCustomerSignUpPage">
 					<h2 class="text-center">SignUp</h2>
 					<br/>
-					<button class="btn btn-lg  btn-info btn-block" type="submit" onclick="onSignUpTypeCust();">Customer SignUp</button>
+					<button class="btn btn-lg  btn-info btn-block" type="submit" >Customer SignUp</button>
 				</form>
 				<br />
 			</div>
@@ -28,7 +28,7 @@
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3" style="background-color: #f2f2f2">
 				<form class="form-group" role="form" id="signUpAsRest" action ="/getRestaurantSignUpPage">
-					<button class="btn btn-lg  btn-info btn-block" type="submit" onclick="signUpTypeRest();">Restaurant SignUp</button>
+					<button class="btn btn-lg  btn-info btn-block" type="submit" >Restaurant SignUp</button>
 				</form>
 				<br />
 			</div>
@@ -36,7 +36,7 @@
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3" style="background-color: #f2f2f2">
 				<form class="form-group" role="form" id="signUpAsAssc" action ="/getAssociateSignUpPage">
-					<button class="btn btn-lg  btn-info btn-block" type="submit" onclick="onSignUpTypeAssc();">Associate SignUp</button>
+					<button class="btn btn-lg  btn-info btn-block" type="submit" >Associate SignUp</button>
 				</form>
 				<br />
 			</div>
@@ -44,7 +44,7 @@
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3" style="background-color: #f2f2f2">
 				<form class="form-group" role="form" id="signUpAsAdmin" action ="/getAdminSignUpPage">
-					<button class="btn btn-lg  btn-info btn-block" type="submit" onclick="onSignUpTypeAdmin();">Admin SignUp</button>
+					<button class="btn btn-lg  btn-info btn-block" type="submit" >Admin SignUp</button>
 				</form>
 				<br />
 			</div>

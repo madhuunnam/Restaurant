@@ -60,6 +60,12 @@ public class Customer {
 	public void setInsertDate(Date insertDate) {
 		this.insertDate = insertDate;
 	}
+	@Override
+	public String toString() {
+		return "Customer [firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName + ", email="
+				+ email + ", password=" + password + ", promoCode=" + promoCode + ", adChannel=" + adChannel
+				+ ", insertDate=" + insertDate + "]";
+	}
 	
 
 }

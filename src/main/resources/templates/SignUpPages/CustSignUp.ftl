@@ -11,21 +11,32 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-</head>
+	
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="vendor/validator.js"></script>
+
 <body>
 	<#include "../NavBar.ftl">
+	
+	<#if (showalert)??>
+	<div class="alert alert-success">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+ 		<strong>Success!</strong>${insertStatus}
+	</div>
+	</#if>
+	
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3"
 				style="background-color: #f2f2f2">
-				<form class="form-horizontal" role="form" action="/registerCustomer">
+				<form data-toggle="validator" class="form-horizontal" role="form" id ="custSignUp" action="/registerCustomer" >
 				<div class="form-group" align="center">
 					    <label class="col-md-12"><h3>Customer SignUp</h3></label>
 					  </div>
-					  <div class="form-group">
+					  <div  class="form-group">
 					    <label class="control-label col-md-3" for="Name">FirstName:</label>
 					    <div class="col-md-6">
-					      <input type="required" class="form-control" id="firstName" name ="firstName" placeholder="Enter FirstName" required autofocus>
+					      <input type="text" class="form-control" id="firstName" name ="firstName" placeholder="Enter FirstName" required autofocus>
 					    </div>
 					  </div>
 					  <div class="form-group">
@@ -37,19 +48,19 @@
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="Name">LastName:</label>
 					    <div class="col-md-6">
-					      <input type="required" class="form-control" id="lastName" name ="lastName" placeholder="Enter LastName">
+					      <input type="text" class="form-control" id="lastName" name ="lastName" placeholder="Enter LastName" required>
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="email">Email:</label>
 					    <div class="col-md-6">
-					      <input type="email" class="form-control" id="custEmail" name ="custEmail" placeholder="Enter email">
+					      <input type="email" class="form-control" id="custEmail" name ="custEmail" placeholder="Enter email" required>
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="pwd">Password:</label>
 					    <div class="col-md-6"> 
-					      <input type="password" class="form-control" id="custPassword" name="custPassword" placeholder="Enter password">
+					      <input type="password" class="form-control" id="custPassword" name="custPassword" placeholder="Enter password" required>
 					    </div>
 					  </div>
 					  <div class="form-group"> 
@@ -113,9 +124,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- /container -->
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+	
 </body>
 </html>
 

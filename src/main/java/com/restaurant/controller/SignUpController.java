@@ -1,14 +1,19 @@
 package com.restaurant.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.restaurant.model.Customer;
+import com.restaurant.model.Restaurant;
 import com.restaurant.service.CustomerService;
 
 @Controller
@@ -40,12 +45,11 @@ public class SignUpController {
 	}
 
 	@RequestMapping("/registerCustomer")
-	public String registerCustomer(@RequestParam("firstName") String fName, @RequestParam("middleName") String mName,
+	public ModelAndView registerCustomer(@RequestParam("firstName") String fName, @RequestParam("middleName") String mName,
 			@RequestParam("lastName") String lName, @RequestParam("custEmail") String email,
 			@RequestParam("custPassword") String pwd, @RequestParam("promoCode") String promoCode,
 			@RequestParam("addChannel") String addChannel) {
 		
-		System.out.println("Testing Customer Registration**");
 		Customer cust = new Customer();
 		cust.setFirstName(fName);
 		cust.setMiddleName(mName);
@@ -53,17 +57,42 @@ public class SignUpController {
 		cust.setEmail(email);
 		cust.setPassword(pwd);
 		cust.setPromoCode(promoCode);
+		
 		cust.setAdChannel(addChannel);
+		cust.setInsertDate(new Date());
 		
+		RestTemplate restTemplate = new RestTemplate();	
+		
+		ResponseEntity<String> insertStatus = restTemplate.postForEntity("http://localhost:8090/signUpCustomer", cust, String.class);
+		System.out.println("The status is " + insertStatus);
+		boolean showalert = true;
 		ModelAndView model = new ModelAndView("SignUpPages/CustSignUp");
-		model.addObject("customer", cust);
+		model.addObject("showalert", showalert);
+		model.addObject("insertStatus", insertStatus);
 		
-		//System.out.println(cust.getFirstName());
-		//System.out.println(fName + mName + lName + email +pwd + promoCode +addChannel);
-		
-		 RestTemplate restTemplate = new RestTemplate();
-         restTemplate.getForObject("http://localhost:8090/ping",Customer.class);
-		return "SignUpPages/CustSignUp";
-      // return model;
+		return model;
 	}
+	
+	@RequestMapping("/registerRestaurant")
+	public ModelAndView registerRestaurant(@ModelAttribute("restaurantModel") Restaurant restaurant){
+		
+		System.out.println(restaurant.getBankName());
+		RestTemplate restTemplate = new RestTemplate();	
+		
+		ResponseEntity<String> restInsertStatus = restTemplate.postForEntity("http://localhost:8090/signUpRestaurant", restaurant, String.class);
+		System.out.println("The status is " + restInsertStatus);
+		boolean showalert = true;
+		ModelAndView model = new ModelAndView("SignUpPages/RestSignUp");
+		//model.addObject("showalert", showalert);
+		//model.addObject("insertStatus", insertStatus);
+		return model;
+		
+	}
+	
+	@ModelAttribute("restaurantModel")
+	 public Restaurant getNewRestaurant() {
+		Restaurant restaurant = new Restaurant();
+		return restaurant;
+	 }
+	
 }

@@ -79,12 +79,14 @@ public class SignUpController {
 		System.out.println(restaurant.getBankName());
 		RestTemplate restTemplate = new RestTemplate();	
 		
+		restaurant.setInsertDate(new Date());
+		
 		ResponseEntity<String> restInsertStatus = restTemplate.postForEntity("http://localhost:8090/signUpRestaurant", restaurant, String.class);
 		System.out.println("The status is " + restInsertStatus);
 		boolean showalert = true;
 		ModelAndView model = new ModelAndView("SignUpPages/RestSignUp");
-		//model.addObject("showalert", showalert);
-		//model.addObject("insertStatus", insertStatus);
+		model.addObject("showalert", showalert);
+		model.addObject("restInsertStatus", restInsertStatus);
 		return model;
 		
 	}

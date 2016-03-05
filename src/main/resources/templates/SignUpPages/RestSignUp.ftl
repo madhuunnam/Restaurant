@@ -15,6 +15,12 @@
 </head>
 <body>
 	<#include "../NavBar.ftl">
+	<#if (showalert)??>
+	<div class="alert alert-success">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+ 		<strong>Success!</strong>${restInsertStatus}
+	</div>
+	</#if>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12"
@@ -151,6 +157,10 @@
 					    <div class="col-sm-2"> 
 					      <input type="text" class="form-control" id="bankAcctNum" name="bankAccNum" placeholder="Enter Bank Account No" >
 					   	</div>
+					   	<label class="control-label col-sm-1" for="hasMenu">Has Menu:</label>
+					    <div class="col-sm-1"> 
+					      <input type="checkbox" class="form-control" id="hasMenu" name="hasMenu">
+					   </div>
 					    </div>
 					    <div class="form-group">
 					    <label class="control-label col-sm-1" for="Delivery">Delivery:</label>

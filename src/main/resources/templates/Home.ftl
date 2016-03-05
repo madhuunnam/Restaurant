@@ -293,7 +293,7 @@
 			</div>
 
 			<div class="form-group">
-				<div class="col-md-4">
+				<div class="col-md-offset-3 col-md-3">
 					<select id="state" class="form-control">
 						<option value="">Select State</option>
 						<option value="NC">NC</option>
@@ -301,7 +301,7 @@
 						<option value="FL">FL</option>
 					</select>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<select id="city" class="form-control">
 						<option value="">Select City</option>
 						<option value="Greensboro">Greensboro</option>

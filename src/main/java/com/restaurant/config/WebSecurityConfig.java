@@ -1,22 +1,20 @@
 package com.restaurant.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
+
+import com.restaurant.authentication.TastyHubAuthenticationProvider;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	private AuthenticationProvider tastyHubAuthProvider ;
+	private TastyHubAuthenticationProvider tastyHubAuthProvider ;
 	
 	
     @Override
@@ -48,20 +46,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
     	
     	System.out.println("inside Configure Global");
-//        auth
-//            .inMemoryAuthentication()
-//                .withUser("user").password("password").roles("USER");
     	
     	auth.authenticationProvider(tastyHubAuthProvider);
     	
     }
 	
-	@Bean
-	public AuthenticationSuccessHandler successHandler() {
-	    SimpleUrlAuthenticationSuccessHandler handler = new SimpleUrlAuthenticationSuccessHandler();
-	    handler.setDefaultTargetUrl("/Homepage");
-	    return handler;
-	}
+//	@Bean
+//	public AuthenticationSuccessHandler successHandler() {
+//	    SimpleUrlAuthenticationSuccessHandler handler = new SimpleUrlAuthenticationSuccessHandler();
+//	    
+//	    
+//	    
+//	    if(SecurityContextHolder.getContext().getAuthentication().isAuthenticated()==false){
+//	    	handler.setUseReferer(true);
+//	    }
+//	    
+//	    return handler;
+//	}
 	
 	
 }

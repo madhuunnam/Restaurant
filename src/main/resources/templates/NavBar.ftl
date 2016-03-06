@@ -42,8 +42,15 @@
 		<li><a href="<@spring.url '/AdminProfile'/> ">AdminProfile</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<@spring.url '/SignupPage'/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="<@spring.url '/LoginPage'/> "><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        
+        <#if Session["SPRING_SECURITY_CONTEXT"]?exists>
+        	<li><a href="<@spring.url '/logout'/>"><span class="glyphicon glyphicon-log-in"></span> Logout </a></li>
+		<#else>
+			<li><a href="<@spring.url '/SignupPage'/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+			<li><a href="<@spring.url '/LoginPage'/>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		</#if>
+
+
       </ul>
     </div>
   </div>

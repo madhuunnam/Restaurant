@@ -1,59 +1,42 @@
 package com.restaurant.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.security.authentication.jaas.SecurityContextLoginModule;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.SpringServletContainerInitializer;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HomepageController extends SpringServletContainerInitializer {
 
-	@RequestMapping("/Homepage")
-	public String homepage(Model model) {
-		System.out.println("Testing Spring Boot Application Test 1");
-		return "Home";
-	}
-
-	@RequestMapping("/LoginPage")
-	public String loginPage(Model model) {
-		return "Login";
-	}
-
-	@RequestMapping("/SignupPage")
-	public String signupPage(Model model) {
-
-		System.out.println("Hello Sign Up page");
-		return "SignUpPages/Signup";
-	}
-
-	@RequestMapping("/forSale")
-	public String forSale(Model model) {
-		return "forSale";
-	}
-	
-	@RequestMapping("/hiring")
-	public String hiring(Model model) {
-		return "hiring";
-	}
-
-	@RequestMapping("/About")
-	public String aboutPage(Model model) {
-		return "About";
-	}
-
-	@RequestMapping("/Contact")
-	public String contactPage(Model model) {
-		return "Contact";
-	}
-	
-	
 	@RequestMapping("/getRestaurantListPage")
 	public String restaurantListPage(Model model) {
 		System.out.println("Testing SearchResult");
-
-		//Connection dbc = DbConnection.getInstance().getDbConnection();
-
 		return "RestList";
+	}
+
+//	@RequestMapping(value = "/login", method = RequestMethod.GET)
+//	public String login(Model model) {
+//		System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
+//		return "Homepage";
+//
+//	}
+
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+		if (auth != null) {
+			new SecurityContextLogoutHandler().logout(request, response, auth);
+		}
+		return "redirect:/Homepage";
 	}
 
 }

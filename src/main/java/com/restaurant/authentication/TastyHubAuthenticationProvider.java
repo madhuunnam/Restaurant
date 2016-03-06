@@ -28,8 +28,10 @@ public class TastyHubAuthenticationProvider implements AuthenticationProvider{
 		
 		System.out.println("Trying to Authenticate");
 		System.out.println("UserName : "+ userName + "Password : " + password);
+		Customer customer = new Customer();
+		customer.setFirstName("HellowUser");
 		
-		return new UsernamePasswordAuthenticationToken(new Customer(),password, authorizations);
+		return new UsernamePasswordAuthenticationToken(customer,password, authorizations);
 	}
 
 	@Override

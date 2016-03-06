@@ -14,21 +14,26 @@
 </head>
 <body>
 	<#include "NavBar.ftl">
+
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6" style="background-color: #f2f2f2">
-				<form class="form-signin">
+				<form class="form-signin"  action="/login"  method="post" >
+				
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<h2 class="form-signin-heading">Please Login</h2>
-					<label for="inputEmail" class="sr-only">Email address</label> <input
-						type="email" id="inputEmail" class="form-control"
-						placeholder="Email address" required autofocus> <label
-						for="inputPassword" class="sr-only">Password</label> <input
-						type="password" id="inputPassword" class="form-control"
-						placeholder="Password" required>
-						<label
-						for="ForgotPassword" class="sr-only">Password</label> 
-						<button type="button" class="btn btn-link">Forgot/Change Password?</button>
+					
+					<label for="email" class="sr-only">Email address</label> 
+					<input type="text" id="email" name="email" class="form-control" placeholder="Email address"  autofocus> 
+						
+					<label for="password" class="sr-only">Password</label> 
+					<input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+						
+						
+					<label for="ForgotPassword" class="sr-only">Password</label> 
+					<button type="button" class="btn btn-link">Forgot/Change Password?</button>
+					
 					<div class="radio">
 						<label> <input type="radio" value="As Customer" name="radio" checked="checked">
 							As Customer
@@ -43,6 +48,7 @@
 							As Admin
 						</label>
 					</div>
+					
 					<button class="btn btn-md  btn-info " type="submit">Login</button>
 					<div>
 					<a href="<@spring.url '/SignupPage'/> ">New User? Create a Free Account</a></div>

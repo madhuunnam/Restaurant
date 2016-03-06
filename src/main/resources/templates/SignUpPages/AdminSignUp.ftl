@@ -11,7 +11,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="vendor/validator.js"></script>
 </head>
 <body>
 	<#include "../NavBar.ftl">
@@ -25,7 +26,7 @@
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3"
 				style="background-color: #f2f2f2">
-				<form class="form-horizontal" role="form" action="/registerAdmin">
+				<form data-toggle="validator" class="form-horizontal" role="form" action="/registerAdmin">
 				<div class="form-group" align = "center">
 					    <label class="col-md-12"><h3>Admin SignUp</h3></label>
 					  </div>
@@ -68,7 +69,7 @@
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="phone1">Phone:</label>
 					    <div class="col-md-6">
-					      <input type="mobile" class="form-control" id="phone1" name="phone" placeholder="Enter Phone Number">
+					      <input type="mobile" class="form-control" id="phone1" name="phone" placeholder="Enter Phone Number" required>
 					    </div>
 					  </div>
 					  <div class="form-group">
@@ -80,7 +81,7 @@
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="secQuest">Security Ques1:</label>
 					    <div class="col-md-6">
-					     <select name="securityQuestion1" id="secQuest" name="secQuest" class = "form-control"> 
+					     <select name="secQuest" id="secQuest" class = "form-control" required> 
                             <option value=""/>
                             <option value="1">Name of your pet </option>
                             <option value="2">Your first car make </option>
@@ -90,7 +91,7 @@
                         </select> 
 					    </div>
 					     <div class="col-md-3">
-					      <input type="required" class="form-control" id="secAns" name="secAns" placeholder="Enter Answer">
+					      <input type="text" class="form-control" id="secAns" name="secAns" placeholder="Enter Answer" required>
 					    </div>
 					  </div>
 					  

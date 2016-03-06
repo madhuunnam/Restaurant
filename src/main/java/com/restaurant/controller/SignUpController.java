@@ -101,7 +101,7 @@ public class SignUpController {
 		RestTemplate restTemplate = new RestTemplate();	
 		
 		admin.setInsertDate(new Date());
-		
+		System.out.println(admin.getSecQuest());
 		ResponseEntity<String> adminInsertStatus = restTemplate.postForEntity("http://localhost:8090/signUpAdmin", admin, String.class);
 		System.out.println("The status is " + adminInsertStatus);
 		boolean showalert = true;

@@ -3,7 +3,6 @@ package com.restaurant.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.security.authentication.jaas.SecurityContextLoginModule;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -21,13 +20,6 @@ public class HomepageController extends SpringServletContainerInitializer {
 		System.out.println("Testing SearchResult");
 		return "RestList";
 	}
-
-//	@RequestMapping(value = "/login", method = RequestMethod.GET)
-//	public String login(Model model) {
-//		System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
-//		return "Homepage";
-//
-//	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {

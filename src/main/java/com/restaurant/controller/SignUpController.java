@@ -14,13 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.restaurant.model.Customer;
 import com.restaurant.model.Restaurant;
-import com.restaurant.service.CustomerService;
 
 @Controller
 public class SignUpController {
 
-	@Autowired
-	private CustomerService customerService;
 
 
 	@RequestMapping("/getCustomerSignUpPage")

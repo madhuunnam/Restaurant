@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.restaurant.model.Associate;
 import com.restaurant.model.Customer;
 import com.restaurant.model.Restaurant;
 import com.restaurant.service.CustomerService;
@@ -77,6 +78,23 @@ public class SignUpController {
 		
 	}
 	
+	@RequestMapping("/registerAssociate")
+	public ModelAndView registerRestaurant(@ModelAttribute("associateModel") Associate associate){
+		
+		RestTemplate restTemplate = new RestTemplate();	
+		
+		associate.setInsertDate(new Date());
+		
+		ResponseEntity<String> assocInsertStatus = restTemplate.postForEntity("http://localhost:8090/signUpAssociate", associate, String.class);
+		System.out.println("The status is " + assocInsertStatus);
+		boolean showalert = true;
+		ModelAndView model = new ModelAndView("SignUpPages/AssocSignUp");
+		model.addObject("showalert", showalert);
+		model.addObject("assocInsertStatus", assocInsertStatus);
+		return model;
+		
+	}
+	
 	@ModelAttribute("restaurantModel")
 	 public Restaurant getNewRestaurant() {
 		Restaurant restaurant = new Restaurant();
@@ -87,5 +105,11 @@ public class SignUpController {
 		Customer cust = new Customer();
 		return cust;
 	 }
+	@ModelAttribute("associateModel")
+	public Associate getNewAssociate() {
+		Associate assoc = new Associate();
+		return assoc;
+	}
+	
 	
 }

@@ -46,6 +46,7 @@ public class HomepageController extends SpringServletContainerInitializer {
 		return "Contact";
 	}
 	
+	
 	@RequestMapping("/getRestaurantListPage")
 	public String restaurantListPage(Model model) {
 		System.out.println("Testing SearchResult");

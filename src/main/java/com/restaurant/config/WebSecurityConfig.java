@@ -28,7 +28,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 		"/javascript/**",
                 		"/vendor/**" ,
                 		"/assets/**",
-                		"/Homepage/**"
+                		"/Homepage/**",
+                		"/AdminProfile/**"
                 ).permitAll()
                 .anyRequest().authenticated()
                 .and()

@@ -30,6 +30,7 @@
          <li><a href="<@spring.url '/hiring'/> ">Hiring</a></li>
 		<li><a href="<@spring.url '/About'/> ">About</a></li>
 		<li><a href="<@spring.url '/Contact'/> ">Contact</a></li>
+		<li><a href="<@spring.url '/AdminProfile'/> ">AdminProfile</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="<@spring.url '/SignupPage'/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

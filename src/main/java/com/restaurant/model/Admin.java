@@ -4,18 +4,25 @@ import java.util.Date;
 
 public class Admin {
 	
-	private String firstName;
-	private String middleName;
-	private String lastName;
-	private String email;
-	private String password;
+	private String adminId;
+	private String firstName = "";
+	private String middleName = "";
+	private String lastName = "";
+	private String email = "";
+	private String password = "";
 	private Date insertDate;
-	private String phone;
-	private String otherPhone;
-	private String secQuest;
-	private String secAns;
-	private String address;
+	private String phone = "";
+	private String otherPhone = "";
+	private String secQuest = "";
+	private String secAns = "";
+	private String address = "";
 	
+	public String getAdminId() {
+		return adminId;
+	}
+	public void setAdminId(String adminId) {
+		this.adminId = adminId;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -84,10 +91,12 @@ public class Admin {
 	}
 	@Override
 	public String toString() {
-		return "Admin [firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName + ", email="
-				+ email + ", password=" + password + ", insertDate=" + insertDate + ", phone=" + phone + ", otherPhone="
-				+ otherPhone + ", secQuest=" + secQuest + ", secAns=" + secAns + ", address=" + address + "]";
+		return "Admin [adminId=" + adminId + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName="
+				+ lastName + ", email=" + email + ", password=" + password + ", insertDate=" + insertDate + ", phone="
+				+ phone + ", otherPhone=" + otherPhone + ", secQuest=" + secQuest + ", secAns=" + secAns + ", address="
+				+ address + "]";
 	}
+	
 	
 	
 }

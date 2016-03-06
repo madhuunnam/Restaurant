@@ -18,8 +18,6 @@ import com.restaurant.model.Restaurant;
 @Controller
 public class SignUpController {
 
-
-
 	@RequestMapping("/getCustomerSignUpPage")
 	public String customerSignUp(Model model) {
 		System.out.println("Testing Customer SignUp PageLoad");
@@ -107,7 +105,6 @@ public class SignUpController {
 		
 	}
 	
-	
 	@ModelAttribute("restaurantModel")
 	 public Restaurant getNewRestaurant() {
 		Restaurant restaurant = new Restaurant();
@@ -128,6 +125,5 @@ public class SignUpController {
 		Admin admin = new Admin();
 		return admin;
 	}
-	
 	
 }

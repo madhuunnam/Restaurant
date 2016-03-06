@@ -64,6 +64,32 @@
 					    </div>
 					  </div>
 					  <div class="form-group"> 
+					  <label class="control-label col-md-3" for="phone">Phone:</label>
+					    <div class="col-md-6"> 
+					      <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number" required>
+					    </div>
+					  </div>
+					  <div class="form-group"> 
+					  <label class="control-label col-md-2" for="Address">Address:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="stAddress" name="stAddress" placeholder="Enter Address" required>
+					    </div>
+					    <label class="control-label col-md-2" for="city">City:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="city" name="city" placeholder="Enter city" required>
+					    </div>
+					  </div>
+					  <div class="form-group"> 
+					  <label class="control-label col-md-2" for="state">State:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="state" name="state" placeholder="Enter State" required>
+					    </div>
+					    <label class="control-label col-md-2" for="zip">Zip:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="zip" name="zip" placeholder="Enter Zip" required>
+					    </div>
+					  </div>
+					  <div class="form-group"> 
 					    <div class="col-md-offset-3 col-md-6">
 					      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#promoInfodialog">Tell Your PromoCode to Earn Store Credits</button>
 					    </div>

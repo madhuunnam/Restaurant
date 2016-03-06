@@ -2,8 +2,8 @@ package com.restaurant.model;
 
 import java.util.Date;
 
-public class Customer {
-	
+public class Associate {
+
 	private String firstName;
 	private String middleName;
 	private String lastName;
@@ -96,14 +96,13 @@ public class Customer {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
+	
 	@Override
 	public String toString() {
-		return "Customer [firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName + ", email="
-				+ email + ", password=" + password + ", promoCode=" + promoCode + ", adChannel=" + adChannel
-				+ ", insertDate=" + insertDate + ", phone=" + phone + ", stAddress=" + stAddress + ", city=" + city
-				+ ", state=" + state + ", zip=" + zip + "]";
+		return "Associate [firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName
+				+ ", email=" + email + ", password=" + password + ", promoCode=" + promoCode + ", adChannel="
+				+ adChannel + ", insertDate=" + insertDate + ", phone=" + phone + ", stAddress=" + stAddress + ", city="
+				+ city + ", state=" + state + ", zip=" + zip + "]";
 	}
 	
-	
-
 }

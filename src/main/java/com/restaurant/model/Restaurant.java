@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Restaurant {
 
+	private String restID;
 	private String restName;
 	private String altName;
 	private String foundYear;
@@ -58,6 +59,14 @@ public class Restaurant {
 	private String mgrPhone;
 	private String mgrEmail;
 	private String mgrPasswd;
+	
+	
+	public String getRestID() {
+		return restID;
+	}
+	public void setRestID(String restID) {
+		this.restID = restID;
+	}
 	public String getRestName() {
 		return restName;
 	}
@@ -352,22 +361,24 @@ public class Restaurant {
 	public void setMgrPasswd(String mgrPasswd) {
 		this.mgrPasswd = mgrPasswd;
 	}
-	
+	@Override
 	public String toString() {
-		return "Restaurant [restName=" + restName + ", altName=" + altName + ", foundYear=" + foundYear
-				+ ", categories=" + categories + ", hasMenu=" + hasMenu + ", telephoneNumber=" + telephoneNumber
-				+ ", otherPhone=" + otherPhone + ", stAddress=" + stAddress + ", city=" + city + ", state=" + state
-				+ ", zip=" + zip + ", email=" + email + ", password=" + password + ", securityQuest=" + securityQuest
-				+ ", secAnswer=" + secAnswer + ", website=" + website + ", openTimes=" + openTimes + ", closedDays="
-				+ closedDays + ", delivery=" + delivery + ", deliBy=" + deliBy + ", deliMin=" + deliMin + ", deliFee="
-				+ deliFee + ", deliPolicy=" + deliPolicy + ", deliRadius=" + deliRadius + ", deliZips=" + deliZips
-				+ ", deliStreets=" + deliStreets + ", pickup=" + pickup + ", dineIn=" + dineIn + ", reserve=" + reserve
-				+ ", forKids=" + forKids + ", forGroup=" + forGroup + ", parking=" + parking + ", wifi=" + wifi
-				+ ", breakfast=" + breakfast + ", lunch=" + lunch + ", dinner=" + dinner + ", lateNight=" + lateNight
-				+ ", coupon=" + coupon + ", bankName=" + bankName + ", bankPhone=" + bankPhone + ", bandAddr="
-				+ bandAddr + ", bankRouteNum=" + bankRouteNum + ", bankAccNum=" + bankAccNum + ", mgrName=" + mgrName
-				+ ", mgrPhone=" + mgrPhone + ", mgrEmail=" + mgrEmail + ", mgrPasswd=" + mgrPasswd + "]";
+		return "Restaurant [restID=" + restID + ", restName=" + restName + ", altName=" + altName + ", foundYear="
+				+ foundYear + ", categories=" + categories + ", insertDate=" + insertDate + ", cancelDate=" + cancelDate
+				+ ", hasMenu=" + hasMenu + ", telephoneNumber=" + telephoneNumber + ", otherPhone=" + otherPhone
+				+ ", stAddress=" + stAddress + ", city=" + city + ", state=" + state + ", zip=" + zip + ", email="
+				+ email + ", password=" + password + ", securityQuest=" + securityQuest + ", secAnswer=" + secAnswer
+				+ ", website=" + website + ", openTimes=" + openTimes + ", closedDays=" + closedDays + ", delivery="
+				+ delivery + ", deliBy=" + deliBy + ", deliMin=" + deliMin + ", deliFee=" + deliFee + ", deliPolicy="
+				+ deliPolicy + ", deliRadius=" + deliRadius + ", deliZips=" + deliZips + ", deliStreets=" + deliStreets
+				+ ", pickup=" + pickup + ", dineIn=" + dineIn + ", reserve=" + reserve + ", forKids=" + forKids
+				+ ", forGroup=" + forGroup + ", parking=" + parking + ", wifi=" + wifi + ", breakfast=" + breakfast
+				+ ", lunch=" + lunch + ", dinner=" + dinner + ", lateNight=" + lateNight + ", coupon=" + coupon
+				+ ", bankName=" + bankName + ", bankPhone=" + bankPhone + ", bandAddr=" + bandAddr + ", bankRouteNum="
+				+ bankRouteNum + ", bankAccNum=" + bankAccNum + ", mgrName=" + mgrName + ", mgrPhone=" + mgrPhone
+				+ ", mgrEmail=" + mgrEmail + ", mgrPasswd=" + mgrPasswd + "]";
 	}
+	
 	
 	
 }

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Associate {
 
+	private String assocID;
 	private String firstName;
 	private String middleName;
 	private String lastName;
@@ -18,6 +19,12 @@ public class Associate {
 	private String state;
 	private String zip;
 	
+	public String getAssocID() {
+		return assocID;
+	}
+	public void setAssocID(String assocID) {
+		this.assocID = assocID;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -96,13 +103,14 @@ public class Associate {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Associate [firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName
-				+ ", email=" + email + ", password=" + password + ", promoCode=" + promoCode + ", adChannel="
-				+ adChannel + ", insertDate=" + insertDate + ", phone=" + phone + ", stAddress=" + stAddress + ", city="
-				+ city + ", state=" + state + ", zip=" + zip + "]";
+		return "Associate [assocID=" + assocID + ", firstName=" + firstName + ", middleName=" + middleName
+				+ ", lastName=" + lastName + ", email=" + email + ", password=" + password + ", promoCode=" + promoCode
+				+ ", adChannel=" + adChannel + ", insertDate=" + insertDate + ", phone=" + phone + ", stAddress="
+				+ stAddress + ", city=" + city + ", state=" + state + ", zip=" + zip + "]";
 	}
+	
 	
 }

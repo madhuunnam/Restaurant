@@ -1,5 +1,6 @@
 package com.restaurant.model;
 
+import java.time.LocalTime;
 import java.util.Date;
 
 public class Restaurant {
@@ -12,19 +13,37 @@ public class Restaurant {
 	private Date insertDate;
 	private Date cancelDate;
 	private String hasMenu;
+	private String inputBy;
+	private String note;
+	
 	private String telephoneNumber;
 	private String otherPhone;
 	private String stAddress;
 	private String city;
 	private String state;
 	private String zip;
+	private float latitude;
+	private float longitude;
 	private String email;
 	private String password;
 	private String securityQuest;
 	private String secAnswer;
 	private String website;
 	
-	private String openTimes;
+	private LocalTime monFrom;
+	private LocalTime monTo;
+	private LocalTime tueFrom;
+	private LocalTime tueTo;
+	private LocalTime wedFrom;
+	private LocalTime wedTo;
+	private LocalTime thuFrom;
+	private LocalTime thuTo;
+	private LocalTime friFrom;
+	private LocalTime friTo;
+	private LocalTime satFrom;
+	private LocalTime satTo;
+	private LocalTime sunFrom;
+	private LocalTime sunTo;
 	private String closedDays;
 	
 	private String delivery;
@@ -59,8 +78,6 @@ public class Restaurant {
 	private String mgrPhone;
 	private String mgrEmail;
 	private String mgrPasswd;
-	
-	
 	public String getRestID() {
 		return restID;
 	}
@@ -109,6 +126,18 @@ public class Restaurant {
 	public void setHasMenu(String hasMenu) {
 		this.hasMenu = hasMenu;
 	}
+	public String getInputBy() {
+		return inputBy;
+	}
+	public void setInputBy(String inputBy) {
+		this.inputBy = inputBy;
+	}
+	public String getNote() {
+		return note;
+	}
+	public void setNote(String note) {
+		this.note = note;
+	}
 	public String getTelephoneNumber() {
 		return telephoneNumber;
 	}
@@ -145,6 +174,18 @@ public class Restaurant {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
+	public float getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(float latitude) {
+		this.latitude = latitude;
+	}
+	public float getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(float longitude) {
+		this.longitude = longitude;
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -175,11 +216,89 @@ public class Restaurant {
 	public void setWebsite(String website) {
 		this.website = website;
 	}
-	public String getOpenTimes() {
-		return openTimes;
+	public LocalTime getMonFrom() {
+		return monFrom;
 	}
-	public void setOpenTimes(String openTimes) {
-		this.openTimes = openTimes;
+	public void setMonFrom(LocalTime monFrom) {
+		this.monFrom = monFrom;
+	}
+	public LocalTime getMonTo() {
+		return monTo;
+	}
+	public void setMonTo(LocalTime monTo) {
+		this.monTo = monTo;
+	}
+	public LocalTime getTueFrom() {
+		return tueFrom;
+	}
+	public void setTueFrom(LocalTime tueFrom) {
+		this.tueFrom = tueFrom;
+	}
+	public LocalTime getTueTo() {
+		return tueTo;
+	}
+	public void setTueTo(LocalTime tueTo) {
+		this.tueTo = tueTo;
+	}
+	public LocalTime getWedFrom() {
+		return wedFrom;
+	}
+	public void setWedFrom(LocalTime wedFrom) {
+		this.wedFrom = wedFrom;
+	}
+	public LocalTime getWedTo() {
+		return wedTo;
+	}
+	public void setWedTo(LocalTime wedTo) {
+		this.wedTo = wedTo;
+	}
+	public LocalTime getThuFrom() {
+		return thuFrom;
+	}
+	public void setThuFrom(LocalTime thuFrom) {
+		this.thuFrom = thuFrom;
+	}
+	public LocalTime getThuTo() {
+		return thuTo;
+	}
+	public void setThuTo(LocalTime thuTo) {
+		this.thuTo = thuTo;
+	}
+	public LocalTime getFriFrom() {
+		return friFrom;
+	}
+	public void setFriFrom(LocalTime friFrom) {
+		this.friFrom = friFrom;
+	}
+	public LocalTime getFriTo() {
+		return friTo;
+	}
+	public void setFriTo(LocalTime friTo) {
+		this.friTo = friTo;
+	}
+	public LocalTime getSatFrom() {
+		return satFrom;
+	}
+	public void setSatFrom(LocalTime satFrom) {
+		this.satFrom = satFrom;
+	}
+	public LocalTime getSatTo() {
+		return satTo;
+	}
+	public void setSatTo(LocalTime satTo) {
+		this.satTo = satTo;
+	}
+	public LocalTime getSunFrom() {
+		return sunFrom;
+	}
+	public void setSunFrom(LocalTime sunFrom) {
+		this.sunFrom = sunFrom;
+	}
+	public LocalTime getSunTo() {
+		return sunTo;
+	}
+	public void setSunTo(LocalTime sunTo) {
+		this.sunTo = sunTo;
 	}
 	public String getClosedDays() {
 		return closedDays;
@@ -365,10 +484,14 @@ public class Restaurant {
 	public String toString() {
 		return "Restaurant [restID=" + restID + ", restName=" + restName + ", altName=" + altName + ", foundYear="
 				+ foundYear + ", categories=" + categories + ", insertDate=" + insertDate + ", cancelDate=" + cancelDate
-				+ ", hasMenu=" + hasMenu + ", telephoneNumber=" + telephoneNumber + ", otherPhone=" + otherPhone
-				+ ", stAddress=" + stAddress + ", city=" + city + ", state=" + state + ", zip=" + zip + ", email="
-				+ email + ", password=" + password + ", securityQuest=" + securityQuest + ", secAnswer=" + secAnswer
-				+ ", website=" + website + ", openTimes=" + openTimes + ", closedDays=" + closedDays + ", delivery="
+				+ ", hasMenu=" + hasMenu + ", inputBy=" + inputBy + ", note=" + note + ", telephoneNumber="
+				+ telephoneNumber + ", otherPhone=" + otherPhone + ", stAddress=" + stAddress + ", city=" + city
+				+ ", state=" + state + ", zip=" + zip + ", latitude=" + latitude + ", longitude=" + longitude
+				+ ", email=" + email + ", password=" + password + ", securityQuest=" + securityQuest + ", secAnswer="
+				+ secAnswer + ", website=" + website + ", monFrom=" + monFrom + ", monTo=" + monTo + ", tueFrom="
+				+ tueFrom + ", tueTo=" + tueTo + ", wedFrom=" + wedFrom + ", wedTo=" + wedTo + ", thuFrom=" + thuFrom
+				+ ", thuTo=" + thuTo + ", friFrom=" + friFrom + ", friTo=" + friTo + ", satFrom=" + satFrom + ", satTo="
+				+ satTo + ", sunFrom=" + sunFrom + ", sunTo=" + sunTo + ", closedDays=" + closedDays + ", delivery="
 				+ delivery + ", deliBy=" + deliBy + ", deliMin=" + deliMin + ", deliFee=" + deliFee + ", deliPolicy="
 				+ deliPolicy + ", deliRadius=" + deliRadius + ", deliZips=" + deliZips + ", deliStreets=" + deliStreets
 				+ ", pickup=" + pickup + ", dineIn=" + dineIn + ", reserve=" + reserve + ", forKids=" + forKids
@@ -378,7 +501,4 @@ public class Restaurant {
 				+ bankRouteNum + ", bankAccNum=" + bankAccNum + ", mgrName=" + mgrName + ", mgrPhone=" + mgrPhone
 				+ ", mgrEmail=" + mgrEmail + ", mgrPasswd=" + mgrPasswd + "]";
 	}
-	
-	
-	
 }

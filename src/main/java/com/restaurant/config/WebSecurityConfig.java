@@ -1,21 +1,24 @@
 package com.restaurant.config;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
-import com.restaurant.authentication.TastyHubAuthenticationProvider;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.ProviderManager;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	private TastyHubAuthenticationProvider tastyHubAuthProvider ;
-	
+	private AuthenticationProvider tastyHubAuthProvider ;
 	
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -45,8 +48,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
     	
-    	System.out.println("inside Configure Global");
-    	
+
+		List<AuthenticationProvider> providers = new ArrayList<AuthenticationProvider>();
+	    providers.add(tastyHubAuthProvider);
+	    
+//	    ProviderManager providerManger = new ProviderManager(providers);
+//    	providerManger.setEraseCredentialsAfterAuthentication(false);
+	    
+	    ProviderManager providerManager = (ProviderManager)this.authenticationManager();
+	    providerManager.setEraseCredentialsAfterAuthentication(false);
     	auth.authenticationProvider(tastyHubAuthProvider);
     	
     }

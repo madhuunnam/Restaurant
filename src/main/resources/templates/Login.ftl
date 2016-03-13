@@ -24,6 +24,17 @@
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<h2 class="form-signin-heading">Please Login</h2>
 					
+					<#if RequestParameters.error ?? >
+						<div class="alert alert-danger">
+  								<strong> Invalid username and password !! </strong>
+						</div>
+					</#if>
+					<#if RequestParameters.logout ??>
+						<div class="alert alert-danger">
+								<strong> You have been logged out </strong>
+						</div>
+					</#if>		
+								
 					<label for="email" class="sr-only">Email address</label> 
 					<input type="text" id="email" name="email" class="form-control" placeholder="Email address"  autofocus> 
 						
@@ -33,6 +44,7 @@
 						
 					<label for="ForgotPassword" class="sr-only">Password</label> 
 					<button type="button" class="btn btn-link">Forgot/Change Password?</button>
+					
 					
 					<div class="radio">
 						<label> <input type="radio" value="As Customer" name="radio" checked="checked">

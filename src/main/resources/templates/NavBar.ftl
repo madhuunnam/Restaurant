@@ -2,15 +2,17 @@
 <#import "spring.ftl" as spring />
 <html lang="en">
 <head>
-<title>TastyHub</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<title>TastyHub</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script>
+    	$(document).ready(function () {
+        	$('.dropdown-toggle').dropdown();
+    	});
+	</script>
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -50,8 +52,6 @@
 			<li><a href="<@spring.url '/SignupPage'/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 			<li><a href="<@spring.url '/LoginPage'/>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 		</#if>
-
-
       </ul>
     </div>
   </div>

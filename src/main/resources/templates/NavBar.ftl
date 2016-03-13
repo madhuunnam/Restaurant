@@ -40,6 +40,7 @@
         	</ul>
      	 </li>
 		<li><a href="<@spring.url '/AdminProfile'/> ">AdminProfile</a></li>
+		<li><a href="<@spring.url '/MenuPage'/> ">Menu</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         

@@ -32,22 +32,59 @@
         <li><a href="<@spring.url '/hiring'/> ">Hiring</a></li>
 		<li><a href="<@spring.url '/About'/> ">About</a></li>
 		<li><a href="<@spring.url '/Contact'/> ">Contact</a></li>
-		<li class="dropdown">
-        	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+		
+     	 <#if Session["SPRING_SECURITY_CONTEXT"]?exists>
+     	 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'customer'>
+     	 <li class="dropdown">
+        	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Customer User ${Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userEmail}
         		<span class="caret"></span></a>
         	<ul class="dropdown-menu">
-          		<li><a href="#">Page 1-1</a></li>
+          		<li><a href="<@spring.url '/CustomerProfile'/> ">Profile</a></li>
           		<li><a href="#">Page 1-2</a></li>
           		<li><a href="#">Page 1-3</a></li> 
         	</ul>
      	 </li>
-		<li><a href="<@spring.url '/AdminProfile'/> ">AdminProfile</a></li>
-		<li><a href="<@spring.url '/MenuPage'/> ">Menu</a></li>
+     	 </#if>
+		 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'restaurant'>
+     	 <li class="dropdown">
+        	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Restaurant User ${Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userEmail}
+        		<span class="caret"></span></a>
+        	<ul class="dropdown-menu">
+          		<li><a href="<@spring.url '/RestaurantProfile'/> ">Profile</a></li>
+          		<li><a href="<@spring.url '/MenuPage'/> ">Menu</a></li>
+          		<li><a href="#">Page 1-3</a></li> 
+        	</ul>
+     	 </li>
+     	 </#if>
+		 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'associate'>
+     	 <li class="dropdown">
+        	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Associate User ${Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userEmail}
+        		<span class="caret"></span></a>
+        	<ul class="dropdown-menu">
+          		<li><a href="<@spring.url '/AssociateProfile'/> ">Profile</a></li>
+          		<li><a href="#">Page 1-2</a></li>
+          		<li><a href="#">Page 1-3</a></li> 
+        	</ul>
+     	 </li>
+     	 </#if>
+		 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'admin'>
+     	 <li class="dropdown">
+        	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin User ${Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userEmail}
+        		<span class="caret"></span></a>
+        	<ul class="dropdown-menu">
+          		<li><a href="<@spring.url '/AdminProfile'/> ">Profile</a></li>
+          		<li><a href="#">Page 1-2</a></li>
+          		<li><a href="#">Page 1-3</a></li> 
+        	</ul>
+     	 </li>
+     	 </#if>
+		</#if>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
         <#if Session["SPRING_SECURITY_CONTEXT"]?exists>
-        	<li><a href="<@spring.url '/logout'/>"><span class="glyphicon glyphicon-log-in"></span> Logout </a></li>
+        	<!-- ${Session["SPRING_SECURITY_CONTEXT"].authentication.details.loggedInAs} -->
+        	<li><a href="<@spring.url '/logout'/>"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
 		<#else>
 			<li><a href="<@spring.url '/SignupPage'/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 			<li><a href="<@spring.url '/LoginPage'/>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

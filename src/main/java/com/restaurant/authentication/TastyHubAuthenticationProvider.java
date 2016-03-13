@@ -50,6 +50,7 @@ public class TastyHubAuthenticationProvider implements AuthenticationProvider {
 					user.setUserEmail(cust.getEmail());
 					user.setPassword(cust.getPassword());
 					user.setUserId(cust.getCustID());
+					user.setUserRole("customer");
 				}
 			} else {
 				System.out.println("Throwing Authentication Exception as Customer is not Found");
@@ -71,6 +72,7 @@ public class TastyHubAuthenticationProvider implements AuthenticationProvider {
 					user.setUserEmail(restaurant.getEmail());
 					user.setPassword(restaurant.getPassword());
 					user.setUserId(restaurant.getRestID());
+					user.setUserRole("restaurant");
 				}
 			} else {
 				System.out.println("Throwing Authentication Exception as Restaurant is not Found");
@@ -92,6 +94,7 @@ public class TastyHubAuthenticationProvider implements AuthenticationProvider {
 					user.setUserEmail(associate.getEmail());
 					user.setPassword(associate.getPassword());
 					user.setUserId(associate.getAssocID());
+					user.setUserRole("associate");
 				}
 			} else {
 				System.out.println("Throwing Authentication Exception as Associate is not Found");
@@ -113,6 +116,7 @@ public class TastyHubAuthenticationProvider implements AuthenticationProvider {
 					user.setUserEmail(admin.getEmail());
 					user.setPassword(admin.getPassword());
 					user.setUserId(admin.getAdminId());
+					user.setUserRole("admin");
 				}
 			} else {
 				System.out.println("Throwing Authentication Exception as Admin is not Found");

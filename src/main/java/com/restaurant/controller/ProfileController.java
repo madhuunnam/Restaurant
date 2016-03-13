@@ -27,8 +27,8 @@ public class ProfileController extends SpringServletContainerInitializer {
 //		works	Customer c = (Customer)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 			
 			
-			Customer c = (Customer)authentication.getPrincipal();
-			System.out.println("User First Name is " + c.getFirstName());
+//			Customer c = (Customer)authentication.getPrincipal();
+//			System.out.println("User First Name is " + c.getFirstName());
 		}
 		return "ProfilePages/AdminProfile";
 	}

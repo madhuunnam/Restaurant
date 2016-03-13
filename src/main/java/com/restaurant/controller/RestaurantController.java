@@ -2,9 +2,9 @@ package com.restaurant.controller;
 
 import java.util.List;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
@@ -13,6 +13,7 @@ import com.restaurant.model.Choice;
 import com.restaurant.model.ChoiceValues;
 import com.restaurant.model.Item;
 import com.restaurant.model.Section;
+import com.restaurant.model.User;
 
 @Controller
 public class RestaurantController {
@@ -27,12 +28,15 @@ public class RestaurantController {
 	}
 	
 	@RequestMapping("/MenuPage")
-	public String getMenuPage(Model model) {
+	public String getMenuPage(Model model,Authentication authentication) {
 		
+		
+		User user = (User)authentication.getPrincipal();
+		System.out.println("Email is " +user.getUserEmail() + "ID is " + user.getUserId());
 		RestTemplate restTemplate = new RestTemplate();
 
 		List<Section> sections = (List<Section>) restTemplate
-				.getForObject("http://localhost:8090/getSectionListForRestaurant/1", List.class);
+				.getForObject("http://localhost:8090/getSectionListForRestaurant/"+user.getUserId(), List.class);
 		
 		System.out.println("MenuSections" +sections);
 

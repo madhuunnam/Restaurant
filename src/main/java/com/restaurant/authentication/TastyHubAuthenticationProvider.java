@@ -13,6 +13,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.web.client.RestTemplate;
 
+import com.restaurant.model.Admin;
 import com.restaurant.model.Associate;
 import com.restaurant.model.Customer;
 import com.restaurant.model.Restaurant;
@@ -51,7 +52,7 @@ public class TastyHubAuthenticationProvider implements AuthenticationProvider {
 					user.setUserId(cust.getCustID());
 				}
 			} else {
-				System.out.println("Throwing Authentication Exception as Customer is null");
+				System.out.println("Throwing Authentication Exception as Customer is not Found");
 				throw new AuthenticationCredentialsNotFoundException("User Not Found");
 			}
 		}else if (loggedInAs != null && loggedInAs.contains("Restaurant")) {
@@ -72,7 +73,7 @@ public class TastyHubAuthenticationProvider implements AuthenticationProvider {
 					user.setUserId(restaurant.getRestID());
 				}
 			} else {
-				System.out.println("Throwing Authentication Exception as Restaurant is null");
+				System.out.println("Throwing Authentication Exception as Restaurant is not Found");
 				throw new AuthenticationCredentialsNotFoundException("User Not Found");
 			}
 		}else if(loggedInAs != null && loggedInAs.contains("Associate")) {
@@ -93,7 +94,28 @@ public class TastyHubAuthenticationProvider implements AuthenticationProvider {
 					user.setUserId(associate.getAssocID());
 				}
 			} else {
-				System.out.println("Throwing Authentication Exception as Associate is null");
+				System.out.println("Throwing Authentication Exception as Associate is not Found");
+				throw new AuthenticationCredentialsNotFoundException("User Not Found");
+			}
+		}else if(loggedInAs != null && loggedInAs.contains("Admin")) {
+
+			System.out.println("Logged in As Admin. Hence calling getAdmin REST service");
+			RestTemplate restTemplate = new RestTemplate();
+			Admin admin= (Admin) restTemplate.getForObject("http://localhost:8090/getAdmin/" + name,
+					Admin.class);
+
+			if (admin != null) {
+
+				if (password != null && (password.equals(admin.getPassword()) == false)) {
+					throw new InsufficientAuthenticationException("Password Doesnt Match");
+				} else {
+					user = new User();
+					user.setUserEmail(admin.getEmail());
+					user.setPassword(admin.getPassword());
+					user.setUserId(admin.getAdminId());
+				}
+			} else {
+				System.out.println("Throwing Authentication Exception as Admin is not Found");
 				throw new AuthenticationCredentialsNotFoundException("User Not Found");
 			}
 		}

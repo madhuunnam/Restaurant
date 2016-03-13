@@ -3,7 +3,6 @@ package com.restaurant.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.SpringServletContainerInitializer;
@@ -12,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.restaurant.authentication.TastyHubAuthenticationDetails;
 import com.restaurant.model.Admin;
-import com.restaurant.model.Customer;
 
 @Controller
 public class ProfileController extends SpringServletContainerInitializer {
@@ -26,7 +25,9 @@ public class ProfileController extends SpringServletContainerInitializer {
 			
 //		works	Customer c = (Customer)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 			
-			
+			System.out.println(((TastyHubAuthenticationDetails)authentication.getDetails()).getLoggedInAs());
+			System.out.println(authentication.getName());
+			System.out.println(authentication.getCredentials());
 //			Customer c = (Customer)authentication.getPrincipal();
 //			System.out.println("User First Name is " + c.getFirstName());
 		}

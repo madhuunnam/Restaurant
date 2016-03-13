@@ -30,5 +30,5 @@ public class HomepageController extends SpringServletContainerInitializer {
 		}
 		return "redirect:/Homepage";
 	}
-
+	
 }

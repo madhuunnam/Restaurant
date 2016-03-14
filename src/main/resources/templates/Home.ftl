@@ -89,6 +89,8 @@
 			</div>
 
 			<div class="form-group">
+			<#if Session["SPRING_SECURITY_CONTEXT"]?exists>
+			<#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'customer'>
 				<div class="col-md-3">
 					<button type="button" class="btn btn-link form-control"
 						data-toggle="modal" data-target="#myAddress">My Saved Addresses</button>
@@ -113,11 +115,13 @@
 						</div>
 					</div>
 				</div>
+				
 				<div class="col-md-3">
 					<button type="button" class="btn btn-link form-control" onclick = "onAddToMyAddress();">Save This
 					Address</button>
 						
 				</div>
+				
 				<div class="col-md-3">
 					<button type="button" class="btn btn-link form-control" data-toggle="modal" data-target="#myFav">My
 						Favorite Restaurants</button>
@@ -142,6 +146,7 @@
 						</div>
 					</div>
 				</div>
+				
 				<div class="col-md-3">
 					<button type="button" class="btn btn-link form-control" data-toggle="modal" data-target="#cuisine">Select Cuisine</button>
 						<div class="modal fade" id="cuisine" role="dialog">
@@ -291,7 +296,9 @@
 					</div>
 				</div>
 			</div>
-
+			</#if>
+			</#if>
+				
 			<div class="form-group">
 				<div class="col-md-offset-3 col-md-3">
 					<select id="state" class="form-control">

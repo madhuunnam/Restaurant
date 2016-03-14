@@ -25,7 +25,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				
 				.antMatchers("/images/**", "/javascript/**", "/vendor/**", "/assets/**", "/Homepage/**",
 						"/SignupPage/**","/Contact/**","/About/**","/forSale/**","/getCustomerSignUpPage/**",
-						"/Hiring/**","/getRestaurantSignUpPage/**","/getAssociateSignUpPage/**","/getAdminSignUpPage/**")
+						"/Hiring/**","/getRestaurantSignUpPage/**","/getAssociateSignUpPage/**", "/getRestaurantListPage/**",
+						"/getAdminSignUpPage/**","/getRestaurantDetailsPage/**")
 				.permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login")
 				.authenticationDetailsSource(new TastyHubAuthenticationDetailsSource())
 				// .successHandler(successHandler())

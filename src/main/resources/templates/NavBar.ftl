@@ -27,7 +27,7 @@
     </div>
     <div class="collapse navbar-collapse " id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="<@spring.url '/Homepage'/>">Home</a></li>
+        <li><a href="<@spring.url '/Homepage'/>"><i class="glyphicon glyphicon-home"></i> Home</a></li>
         <li><a href="<@spring.url '/forSale'/> ">For Sale</a></li>
         <li><a href="<@spring.url '/hiring'/> ">Hiring</a></li>
 		<li><a href="<@spring.url '/About'/> ">About</a></li>
@@ -36,21 +36,22 @@
      	 <#if Session["SPRING_SECURITY_CONTEXT"]?exists>
      	 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'customer'>
      	 <li class="dropdown">
-        	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Customer User ${Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userEmail}
+        	<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> ${Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userEmail}
         		<span class="caret"></span></a>
         	<ul class="dropdown-menu">
-          		<li><a href="<@spring.url '/CustomerProfile'/> ">Profile</a></li>
+          		<li><a href="<@spring.url '/CustomerProfile'/> ">Customer Profile</a></li>
           		<li><a href="#">Page 1-2</a></li>
           		<li><a href="#">Page 1-3</a></li> 
         	</ul>
      	 </li>
+     	 
      	 </#if>
 		 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'restaurant'>
      	 <li class="dropdown">
         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Restaurant User ${Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userEmail}
         		<span class="caret"></span></a>
         	<ul class="dropdown-menu">
-          		<li><a href="<@spring.url '/RestaurantProfile'/> ">Profile</a></li>
+          		<li><a href="<@spring.url '/RestaurantProfile'/> ">Restaurant Profile</a></li>
           		<li><a href="<@spring.url '/MenuPage'/> ">Menu</a></li>
           		<li><a href="#">Page 1-3</a></li> 
         	</ul>
@@ -61,7 +62,7 @@
         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Associate User ${Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userEmail}
         		<span class="caret"></span></a>
         	<ul class="dropdown-menu">
-          		<li><a href="<@spring.url '/AssociateProfile'/> ">Profile</a></li>
+          		<li><a href="<@spring.url '/AssociateProfile'/> ">Associate Profile</a></li>
           		<li><a href="#">Page 1-2</a></li>
           		<li><a href="#">Page 1-3</a></li> 
         	</ul>
@@ -72,7 +73,7 @@
         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin User ${Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userEmail}
         		<span class="caret"></span></a>
         	<ul class="dropdown-menu">
-          		<li><a href="<@spring.url '/AdminProfile'/> ">Profile</a></li>
+          		<li><a href="<@spring.url '/AdminProfile'/> ">Admin Profile</a></li>
           		<li><a href="#">Page 1-2</a></li>
           		<li><a href="#">Page 1-3</a></li> 
         	</ul>
@@ -81,10 +82,14 @@
 		</#if>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+      
+      	<#if Session["SPRING_SECURITY_CONTEXT"]?exists>
+     	  <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'customer'>
+    	 <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Cart </a></li>
+    	  </#if>
+ 		</#if>
         <#if Session["SPRING_SECURITY_CONTEXT"]?exists>
-        	<!-- ${Session["SPRING_SECURITY_CONTEXT"].authentication.details.loggedInAs} -->
-        	<li><a href="<@spring.url '/logout'/>"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        	<li> <a href="<@spring.url '/logout'/>"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
 		<#else>
 			<li><a href="<@spring.url '/SignupPage'/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 			<li><a href="<@spring.url '/LoginPage'/>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

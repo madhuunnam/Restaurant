@@ -4,45 +4,45 @@ import java.util.Date;
 
 public class Customer {
 	
-	private String custID;
-	private Date insertDate;
-	private Date cancelDate;
-	private String firstName;
-	private String middleName;
-	private String lastName;
-	private String nickName;
+	private String custID = "";
+	private Date insertDate = null;
+	private Date cancelDate = null;
+	private String firstName = "";
+	private String middleName = "";
+	private String lastName = "";
+	private String nickName = "";
 	
-	private String phone;
-	private String otherPhone;
-	private String stAddress;
-	private String city;
-	private String state;
-	private String zip;
-	private float latitude;
-	private float longitude;
-	private String email;
-	private String password;
+	private String phone = "";
+	private String otherPhone = "";
+	private String stAddress = "";
+	private String city = "";
+	private String state = "";
+	private String zip = "";
+	private float latitude ;
+	private float longitude ;
+	private String email = "";
+	private String password = "";
 	
-	private String cardNumber;
-	private String cardType;
-	private String cardName;
-	private Date cardExp;
-	private String cardCode;
-	private String billZip;
-	private String billAddr;
-	private String cardNumber1;
-	private String cardType1;
-	private String cardName1;
-	private Date cardExp1;
-	private String cardCode1;
-	private String billZip1;
-	private String billAddr1;
-	private String paypalNum;
+	private String cardNumber = "";
+	private String cardType = "";
+	private String cardName = "";
+	private Date cardExp = null;
+	private String cardCode = "";
+	private String billZip = "";
+	private String billAddr = "";
+	private String cardNumber1 = "";
+	private String cardType1 = "";
+	private String cardName1 = "";
+	private Date cardExp1 = null;
+	private String cardCode1 = "";
+	private String billZip1 = "";
+	private String billAddr1 = "";
+	private String paypalNum = "";
 	
-	private String recomenderID;
-	private String recomType;
-	private String promoCode;
-	private String adChannel;
+	private String recomenderID = "";
+	private String recomType = "";
+	private String promoCode = "";
+	private String adChannel = "";
 	
 	public String getCustID() {
 		return custID;

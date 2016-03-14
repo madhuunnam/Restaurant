@@ -4,40 +4,40 @@ import java.util.Date;
 
 public class Associate {
 
-	private String assocID;
-	private Date insertDate;
-	private Date leaveDate;
+	private String assocID = "" ;
+	private Date insertDate = null ;
+	private Date leaveDate = null ;
 
-	private String firstName;
-	private String middleName;
-	private String lastName;
-	private String nickName;
+	private String firstName = "" ;
+	private String middleName = "" ;
+	private String lastName = "" ;
+	private String nickName = "" ;
 
-	private String phone;
-	private String otherPhone;
-	private String stAddress;
-	private String city;
-	private String state;
-	private String zip;
-	private String email;
-	private String password;
+	private String phone = "" ;
+	private String otherPhone = "" ;
+	private String stAddress = "" ;
+	private String city = "" ;
+	private String state = "" ;
+	private String zip = "" ;
+	private String email = "" ;
+	private String password = "" ;
 
-	private String bankName;
-	private String bankRouteNum;
-	private String bankAccNum;
-	private String comType;
-	private String preTye;
-	private Date chgDate;
+	private String bankName = "" ;
+	private String bankRouteNum = "" ;
+	private String bankAccNum = "" ;
+	private String comType = "" ;
+	private String preTye = "" ;
+	private Date chgDate = null ;
 
-	private String uplineID;
-	private String uplineName;
-	private String gparID;
-	private String gparName;
-	private String ggparID;
-	private String ggparName;
+	private String uplineID = "" ;
+	private String uplineName = "" ;
+	private String gparID = "" ;
+	private String gparName = "" ;
+	private String ggparID = "" ;
+	private String ggparName = "" ;
 
-	private String promoCode;
-	private String adChannel;
+	private String promoCode = "" ;
+	private String adChannel = "" ;
 	
 	public String getAssocID() {
 		return assocID;

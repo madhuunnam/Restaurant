@@ -54,7 +54,7 @@
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="email">Email:</label>
 					    <div class="col-md-6">
-					      <input type="email" class="form-control" id="email" name="email" value= "<#if updateAssocModel.email??>${updateAssocModel.email}</#if>" placeholder="Enter email" required>
+					      <input type="email" class="form-control" id="email" name="email" value= "<#if updateAssocModel.email??>${updateAssocModel.email}</#if>" placeholder="Enter email" required disabled>
 					    </div>
 					  </div>
 					  <div class="form-group">

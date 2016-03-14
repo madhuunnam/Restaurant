@@ -19,14 +19,14 @@
 	<#if (showalert)??>
 	<div class="alert alert-success">
 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
- 		<strong>Success!</strong>${assocInsertStatus}
+ 		<strong>Success!</strong>${showalert}
 	</div>
 	</#if>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3"
 				style="background-color: #f2f2f2">
-				<form data-toggle="validator" class="form-horizontal" role="form" action = "/registerAssociate">
+				<form data-toggle="validator" class="form-horizontal" role="form" action = "/updateAssocProfile">
 				<div class="form-group" align="center">
 					    <label class="col-md-12"><h3>Associate SignUp</h3></label>
 					  </div>

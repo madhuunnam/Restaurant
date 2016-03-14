@@ -24,7 +24,6 @@
   <table class="table">
     <thead>
       <tr>
-        <th>#</th>
         <th>Section Name</th>
         <th>Number of Items</th>
         <th>Create/Update</th>

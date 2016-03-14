@@ -16,12 +16,19 @@
 </head>
 <body>
 	<#include "../NavBar.ftl">
-	
+	<#if (showalert)??>
+	<div class="alert alert-success">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+ 		<strong>Success!</strong>${showalert}
+	</div>
+	</#if>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3"
 				style="background-color: #f2f2f2">
 				<form  class="form-horizontal" role="form" action="/updateAdminProfile">
+				
+				<input type="hidden" name="adminId" value="${updateAdminModel.adminId}" />
 				<div class="form-group" align = "center">
 					    <label class="col-md-12"><h3>Admin Profile</h3></label>
 					  </div>
@@ -91,7 +98,7 @@
 					  </div>
 					  <div class="form-group"> 
 					    <div class="col-md-offset-4 col-md-6">
-					      <button type="submit" class="btn btn-info">Submit</button>
+					      <button type="submit" class="btn btn-info">Update Profile</button>
 					    </div>
 					  </div>
 					</form>

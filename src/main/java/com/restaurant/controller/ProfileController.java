@@ -1,58 +1,186 @@
 package com.restaurant.controller;
 
-
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.SpringServletContainerInitializer;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.restaurant.authentication.TastyHubAuthenticationDetails;
 import com.restaurant.model.Admin;
+import com.restaurant.model.Associate;
+import com.restaurant.model.Customer;
+import com.restaurant.model.Restaurant;
+import com.restaurant.model.User;
 
 @Controller
 public class ProfileController extends SpringServletContainerInitializer {
 
-	@RequestMapping("/AdminProfile")
-	public String getAdminProfilePage(Model model,Authentication authentication) {
-		
-		if(authentication != null){
+	@RequestMapping("/CustomerProfile")
+	public String getCustProfilePage(Model model, Authentication authentication) {
 
-			
-//		works	Customer c = (Customer)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-			
-			System.out.println(((TastyHubAuthenticationDetails)authentication.getDetails()).getLoggedInAs());
-			System.out.println(authentication.getName());
-			System.out.println(authentication.getCredentials());
-//			Customer c = (Customer)authentication.getPrincipal();
-//			System.out.println("User First Name is " + c.getFirstName());
-		}
+		return "ProfilePages/CustProfile";
+	}
+
+	@RequestMapping("/RestaurantProfile")
+	public String getRestProfilePage(Model model, Authentication authentication) {
+
+		return "ProfilePages/RestProfile";
+	}
+
+	@RequestMapping("/AssociateProfile")
+	public String getAssociateProfilePage(Model model, Authentication authentication) {
+
+		return "ProfilePages/AssocProfile";
+	}
+
+	@RequestMapping("/AdminProfile")
+	public String getAdminProfilePage(Model model, Authentication authentication) {
+
 		return "ProfilePages/AdminProfile";
+	}
+
+	@RequestMapping("/updateCustomerProfile")
+	public ModelAndView updateCust(@ModelAttribute("custModel") Customer cust) {
+
+		RestTemplate restTemplate = new RestTemplate();
+		String updateStatus = " Profile Update Successful";
+		try {
+			restTemplate.put("http://localhost:8090/updateCustomerProfile", cust);
+		} catch (RestClientException e) {
+			updateStatus = " Profile Update Failed";
+			e.printStackTrace();
+		}
+
+		ModelAndView model = new ModelAndView("ProfilePages/CustProfile");
+		model.addObject("showalert", updateStatus);
+		return model;
+
+	}
+
+	@RequestMapping("/updateAssocProfile")
+	public ModelAndView updateAssoc(@ModelAttribute("assocModel") Associate assoc) {
+
+		RestTemplate restTemplate = new RestTemplate();
+		String updateStatus = " Profile Update Successful";
+		try {
+			restTemplate.put("http://localhost:8090/updateAssociateProfile", assoc);
+		} catch (RestClientException e) {
+			updateStatus = " Profile Update Failed";
+			e.printStackTrace();
+		}
+
+		ModelAndView model = new ModelAndView("ProfilePages/AssocProfile");
+		model.addObject("showalert", updateStatus);
+		return model;
+
+	}
+
+	@RequestMapping("/updateRestProfile")
+	public ModelAndView updateRestaurant(@ModelAttribute("restModel") Restaurant rest) {
+
+		RestTemplate restTemplate = new RestTemplate();
+		String updateStatus = " Profile Update Successful";
+		try {
+			restTemplate.put("http://localhost:8090/updateRestaurantProfile", rest);
+		} catch (RestClientException e) {
+			updateStatus = " Profile Update Failed";
+			e.printStackTrace();
+		}
+
+		ModelAndView model = new ModelAndView("ProfilePages/RestProfile");
+		model.addObject("showalert", updateStatus);
+		return model;
+
 	}
 
 	@RequestMapping("/updateAdminProfile")
 	public ModelAndView updateAdmin(@ModelAttribute("adminModel") Admin admin) {
 
 		RestTemplate restTemplate = new RestTemplate();
+		String updateStatus = " Profile Update Successful";
+		try {
+			restTemplate.put("http://localhost:8090/updateAdminProfile", admin);
+		} catch (RestClientException e) {
+			updateStatus = " Profile Update Failed";
+			e.printStackTrace();
+		}
 
-		ResponseEntity<String> adminInsertStatus = restTemplate
-				.postForEntity("http://localhost:8090/updateAdminProfile", admin, String.class);
-		System.out.println("The status is " + adminInsertStatus);
-		boolean showalert = true;
-		ModelAndView model = new ModelAndView("SignUpPages/AdminSignUp");
-		model.addObject("showalert", showalert);
-		model.addObject("adminInsertStatus", adminInsertStatus);
+		ModelAndView model = new ModelAndView("ProfilePages/AdminProfile");
+		model.addObject("showalert", updateStatus);
 		return model;
 
 	}
 
+	@ModelAttribute("updateCustModel")
+	public Customer getNewCustomer(Customer cust, Authentication authentication) {
+
+		if (authentication != null
+				&& ((TastyHubAuthenticationDetails) authentication.getDetails()).getLoggedInAs().contains("Customer")) {
+
+			if (cust == null || (cust != null && cust.getCustID() == null)) {
+
+				User user = (User) authentication.getPrincipal();
+				RestTemplate restTemplate = new RestTemplate();
+				cust = (Customer) restTemplate.getForObject("http://localhost:8090/getCustomer/" + user.getUserEmail(),
+						Customer.class);
+			}
+		}
+		return cust;
+	}
+
+	@ModelAttribute("updateRestModel")
+	public Restaurant getNewRestaurant(Restaurant rest, Authentication authentication) {
+
+		if (authentication != null && ((TastyHubAuthenticationDetails) authentication.getDetails()).getLoggedInAs()
+				.contains("Restaurant")) {
+
+			if (rest == null || (rest != null && (rest.getRestID() == null || rest.getRestID().isEmpty()))) {
+
+				User user = (User) authentication.getPrincipal();
+				RestTemplate restTemplate = new RestTemplate();
+				rest = (Restaurant) restTemplate
+						.getForObject("http://localhost:8090/getRestaurant/" + user.getUserEmail(), Restaurant.class);
+			}
+		}
+		return rest;
+	}
+
+	@ModelAttribute("updateAssocModel")
+	public Associate getNewRestaurant(Associate assoc, Authentication authentication) {
+
+		if (authentication != null && ((TastyHubAuthenticationDetails) authentication.getDetails()).getLoggedInAs()
+				.contains("Associate")) {
+
+			if (assoc == null || (assoc != null && assoc.getAssocID() == null)) {
+
+				User user = (User) authentication.getPrincipal();
+				RestTemplate restTemplate = new RestTemplate();
+				assoc = (Associate) restTemplate
+						.getForObject("http://localhost:8090/getAssociate/" + user.getUserEmail(), Associate.class);
+			}
+		}
+		return assoc;
+	}
+
 	@ModelAttribute("updateAdminModel")
-	public Admin getNewAdmin() {
-		Admin admin = new Admin();
+	public Admin getNewAdmin(Admin admin, Authentication authentication) {
+
+		if (authentication != null
+				&& ((TastyHubAuthenticationDetails) authentication.getDetails()).getLoggedInAs().contains("Admin")) {
+
+			if (admin == null || (admin != null && admin.getAdminId() == null)) {
+
+				User user = (User) authentication.getPrincipal();
+				RestTemplate restTemplate = new RestTemplate();
+				admin = (Admin) restTemplate.getForObject("http://localhost:8090/getAdmin/" + user.getUserEmail(),
+						Admin.class);
+			}
+		}
 		return admin;
 	}
 

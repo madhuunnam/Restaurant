@@ -70,31 +70,29 @@ p.oblique {
 						<tr>
 							<th>Logo</th>
 							<th>Restaurant Name</th>
+							<th>Delivery Min</th>
+							<th>Delivery Fee</th>
 							<th>Reviews</th>
 							<th>Yelp Reviews</th>
 							<th>Distance</th>
-							<th>Delivery Min</th>
-							<th>Delivery Fee</th>
 							<th>Price</th>
 							<th>Popularity</th>
 						</tr>
 					</thead>
 					<tbody>
+					  <#list restList as rest>
 						<tr>
-							<td>Image</td>
-							<td>Phoenix</td>
-							<td>100</td>
+							<td><#if rest.restID ??>${rest.restID}</#if></td>
+							<td><#if rest.restName ??>${rest.restName}</#if></td>
+							<td><#if rest.deliMin ??>${rest.deliMin}</#if></td>
+							<td><#if rest.deliFee ??>${rest.deliFee}</#if></td>
+							<td>10</td>
+							<td>3</td>
+							<td>5</td>
+							<td>20</td>
+							<td>3</td>
 						</tr>
-						<tr>
-							<td>Img</td>
-							<td>Agni</td>
-							<td>12</td>
-						</tr>
-						<tr>
-							<td>Image</td>
-							<td>Monterry</td>
-							<td>34</td>
-						</tr>
+					  </#list>
 					</tbody>
 				</table>
 				

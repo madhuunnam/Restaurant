@@ -1,14 +1,10 @@
 package com.restaurant.config;
 
-import org.apache.http.HttpResponse;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpRequest;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
-import com.restaurant.authentication.CustomAuthenticationSuccessHandler;
 import com.restaurant.authentication.TastyHubAuthenticationDetailsSource;
 import com.restaurant.authentication.TastyHubAuthenticationProvider;
 

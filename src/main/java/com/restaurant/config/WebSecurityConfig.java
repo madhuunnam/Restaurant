@@ -1,10 +1,14 @@
 package com.restaurant.config;
 
+import org.apache.http.HttpResponse;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpRequest;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+import com.restaurant.authentication.CustomAuthenticationSuccessHandler;
 import com.restaurant.authentication.TastyHubAuthenticationDetailsSource;
 import com.restaurant.authentication.TastyHubAuthenticationProvider;
 
@@ -29,8 +33,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 						"/getAdminSignUpPage/**","/getRestaurantDetailsPage/**")
 				.permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login")
 				.authenticationDetailsSource(new TastyHubAuthenticationDetailsSource())
-				// .successHandler(successHandler())
+//			    .successHandler(successHandler())
 				.usernameParameter("email").permitAll().and().logout().permitAll();
 	}
+
+//	private AuthenticationSuccessHandler successHandler() {
+//		
+//		CustomAuthenticationSuccessHandler ca = new CustomAuthenticationSuccessHandler();
+//		ca.onAuthenticationSuccess(HttpRequest, HttpResponse, authentication);
+//		return null;
+//	}
+	
 
 }

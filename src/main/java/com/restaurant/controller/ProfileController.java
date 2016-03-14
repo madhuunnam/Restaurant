@@ -122,7 +122,7 @@ public class ProfileController extends SpringServletContainerInitializer {
 		if (authentication != null
 				&& ((TastyHubAuthenticationDetails) authentication.getDetails()).getLoggedInAs().contains("Customer")) {
 
-			if (cust == null || (cust != null && cust.getCustID() == null)) {
+			if (cust == null || (cust != null && (cust.getCustID() == null || cust.getCustID().isEmpty()))) {
 
 				User user = (User) authentication.getPrincipal();
 				RestTemplate restTemplate = new RestTemplate();
@@ -156,7 +156,7 @@ public class ProfileController extends SpringServletContainerInitializer {
 		if (authentication != null && ((TastyHubAuthenticationDetails) authentication.getDetails()).getLoggedInAs()
 				.contains("Associate")) {
 
-			if (assoc == null || (assoc != null && assoc.getAssocID() == null)) {
+			if (assoc == null || (assoc != null && (assoc.getAssocID() == null)  || assoc.getAssocID().isEmpty())) {
 
 				User user = (User) authentication.getPrincipal();
 				RestTemplate restTemplate = new RestTemplate();

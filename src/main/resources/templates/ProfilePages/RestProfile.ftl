@@ -157,7 +157,7 @@
 					      <input type="text" class="form-control" id="bankRouteNum" name="bankRouteNum" value="<#if updateRestModel.bankRouteNum??>${updateRestModel.bankRouteNum}</#if>" placeholder="Enter Bank Route No" >
 					   	</div>
 					   	<label class="control-label col-sm-2" for="bankAcctNum">Bank Account Number:</label>
-					    <div class="col-sm-2"> 
+					    <div class="col-sm-2"> 		
 					      <input type="text" class="form-control" id="bankAcctNum" name="bankAccNum" value="<#if updateRestModel.bankAccNum??>${updateRestModel.bankAccNum}</#if>" placeholder="Enter Bank Account No" >
 					   	</div>
 					   	<label class="control-label col-sm-1" for="hasMenu">Has Menu:</label>
@@ -168,11 +168,9 @@
 					    <div class="form-group">
 					    <label class="control-label col-sm-1" for="Delivery">Delivery:</label>
 					    <div class="col-sm-1"> 
-					    	<#if updateRestModel.delivery == "on" >
-					      		<input type="checkbox" class="form-control" id="delivery" name="delivery" value="<#if updateRestModel.delivery??>${updateRestModel.delivery}</#if>" checked >
-							<#else>
-								<input type="checkbox" class="form-control" id="delivery" name="delivery" value="<#if updateRestModel.delivery??>${updateRestModel.delivery}</#if>" >
-							</#if>	
+					    	
+					    <input type="checkbox" class="form-control" id="delivery" name="delivery" value="<#if updateRestModel.delivery??>${updateRestModel.delivery}</#if>" >
+						
 					   </div>
 					   <label class="control-label col-sm-2" for="DeliveryBy">Delivery By:</label>
 					    <div class="col-sm-1"> 

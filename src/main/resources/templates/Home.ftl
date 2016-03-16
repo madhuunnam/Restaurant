@@ -121,9 +121,8 @@
 					Address</button>
 						
 				</div>
-				
 				<div class="col-md-3">
-					<button type="button" class="btn btn-link form-control" data-toggle="modal" data-target="#myFav">My
+					<button type="button" class="btn btn-link form-control" data-toggle="modal" data-target="#myFav" onclick="myFavorites(${sessionUserId})";>My
 						Favorite Restaurants</button>
 						<div class="modal fade" id="myFav" role="dialog">
 						<div class="modal-dialog">
@@ -136,6 +135,12 @@
 								</div>
 								<div class="modal-body">
 									<p>Select any one of your Favorites</p>
+									<table class="table table-striped table-hover table-responsive" id="favListTable">
+									<tr>
+									<th>RestId</th>
+									<th>Rest Name</th>
+									</tr>
+									</table>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-default"

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 
+import com.restaurant.model.Favorite;
 import com.restaurant.model.Restaurant;
 
 @Controller
@@ -42,5 +43,6 @@ public class HomepageController extends SpringServletContainerInitializer {
 		}
 		return "redirect:/Homepage";
 	}
+	
 	
 }

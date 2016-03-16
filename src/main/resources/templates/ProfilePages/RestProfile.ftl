@@ -67,7 +67,7 @@
 					    </div>
 					    <label class="control-label col-sm-2" for="email">Email:</label>
 					    <div class="col-sm-2">
-					      <input type="email" class="form-control" id="restEmail" name="email" value="<#if updateRestModel.email??>${updateRestModel.email}</#if>" placeholder="Enter email" required disabled>
+					      <input type="email" class="form-control" id="restEmail" name="email" value="<#if updateRestModel.email??>${updateRestModel.email}</#if>" placeholder="Enter email" required >
 					    </div>
 					    <label class="control-label col-sm-2" for="pwd">Password:</label>
 					    <div class="col-sm-2"> 

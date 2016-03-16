@@ -55,7 +55,7 @@
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="email">Email:</label>
 					    <div class="col-md-6">
-					      <input type="email" class="form-control" id="custEmail" name ="email" value = "<#if updateCustModel.email??>${updateCustModel.email}</#if>" placeholder="Enter email" required disabled>
+					      <input type="email" class="form-control" id="custEmail" name ="email" value = "<#if updateCustModel.email??>${updateCustModel.email}</#if>" placeholder="Enter email" required >
 					    </div>
 					  </div>
 					  <div class="form-group">

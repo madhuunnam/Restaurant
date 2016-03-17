@@ -17,6 +17,7 @@
 <body>
 	<#if Session["SPRING_SECURITY_CONTEXT"]?exists>
 		<#assign sessionUserId = Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userId>
+		<#assign sessionUserName = Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userEmail>
 	</#if>
 	<nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -35,6 +36,10 @@
      	 <#if Session["SPRING_SECURITY_CONTEXT"]?exists>
      	 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'customer'>
      	 <li><a href="<@spring.url '/CustomerProfile'/> "><i class="glyphicon glyphicon-user"></i>Customer Profile</a></li>
+     	 <li><a href="<@spring.url '/CustomerProfile'/> ">Orders</a></li>
+     	 <li><a href="<@spring.url '/CustomerProfile'/> ">Reviews</a></li>
+     	 <li><a href="<@spring.url '/CustomerProfile'/> ">Credits</a></li>
+     	 <li><a href="<@spring.url '/CustomerAccount'/> ">Account</a></li>
      	 <li class="dropdown">
         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Other
         		<span class="caret"></span></a>
@@ -48,6 +53,10 @@
 		 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'restaurant'>
 		 <li><a href="<@spring.url '/RestaurantProfile'/> "><i class="glyphicon glyphicon-user"></i>Restaurant Profile</a></li>
 		 <li><a href="<@spring.url '/MenuPage'/> ">Menu</a></li>
+		 <li><a href="<@spring.url '/MenuPage'/> ">Orders</a></li>
+		 <li><a href="<@spring.url '/MenuPage'/> ">Statistics</a></li>
+		 <li><a href="<@spring.url '/RestaurantAccount'/> ">Account</a></li>
+		 <li><a href="<@spring.url '/MenuPage'/> ">Operations</a></li>
      	 <li class="dropdown">
         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Other
         		<span class="caret"></span></a>
@@ -59,6 +68,8 @@
      	 </#if>
 		 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'associate'>
 		 <li><a href="<@spring.url '/AssociateProfile'/> "><i class="glyphicon glyphicon-user"></i>Associate Profile</a></li>
+     	 <li><a href="<@spring.url '/'/> ">Statistics</a></li>
+     	 <li><a href="<@spring.url '/AssociateAccount'/> ">Account</a></li>
      	 <li class="dropdown">
         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Other
         		<span class="caret"></span></a>
@@ -70,6 +81,9 @@
      	 </#if>
 		 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'admin'>
 		 <li><a href="<@spring.url '/AdminProfile'/> "><i class="glyphicon glyphicon-user"></i>Admin Profile</a></li>
+     	 <li><a href="<@spring.url '/'/> ">LookUp</a></li>
+     	 <li><a href="<@spring.url '/'/> ">Statistics</a></li>
+     	 <li><a href="<@spring.url '/AdminAccount'/> ">Account</a></li>
      	 <li class="dropdown">
         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Other
         		<span class="caret"></span></a>

@@ -79,6 +79,8 @@ public class Restaurant {
 	private String mgrEmail = "";
 	private String mgrPasswd = "";
 	
+	RestAdmin restAdmin;
+	
 	public String getRestID() {
 		return restID;
 	}

@@ -44,6 +44,8 @@ public class Customer {
 	private String promoCode = "";
 	private String adChannel = "";
 	
+	CustCredit custCredit;
+	
 	public String getCustID() {
 		return custID;
 	}

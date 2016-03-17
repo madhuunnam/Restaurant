@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.restaurant.model.Admin;
 import com.restaurant.model.Associate;
+import com.restaurant.model.CustCredit;
 import com.restaurant.model.Customer;
 import com.restaurant.model.RestAdmin;
 import com.restaurant.model.Restaurant;
@@ -41,18 +42,22 @@ public class SignUpController {
 	}
 
 	@RequestMapping("/registerCustomer")
-	public ModelAndView registerCustomer(@ModelAttribute("customerModel") Customer cust) {
+	public ModelAndView registerCustomer(@ModelAttribute("customerModel") Customer cust, @ModelAttribute("custCreditModel") CustCredit cCredit) {
 		
 		RestTemplate restTemplate = new RestTemplate();	
 		
 		cust.setInsertDate(new Date());
 		
 		ResponseEntity<String> insertStatus = restTemplate.postForEntity("http://localhost:8090/signUpCustomer", cust, String.class);
+		String custId  = restTemplate.getForObject("http://localhost:8090/getNewCustomerId", String.class);
+		ResponseEntity<String> custCreditInsertStatus = restTemplate.postForEntity("http://localhost:8090/addToCustCredit/"+custId, cCredit, String.class);
+		
 		System.out.println("The status is " + insertStatus);
 		boolean showalert = true;
 		ModelAndView model = new ModelAndView("SignUpPages/CustSignUp");
 		model.addObject("showalert", showalert);
 		model.addObject("insertStatus", insertStatus);
+		model.addObject("custCreditInsertStatus", custCreditInsertStatus);
 		return model;
 	}
 	
@@ -65,7 +70,6 @@ public class SignUpController {
 		
 		ResponseEntity<String> restInsertStatus = restTemplate.postForEntity("http://localhost:8090/signUpRestaurant", restaurant, String.class);
 		String restId  = restTemplate.getForObject("http://localhost:8090/getNewRestaurantId", String.class);
-		System.out.println("NEW RESTAURANT ID IS*** "+restId);
 		ResponseEntity<String> restAdminInsertStatus = restTemplate.postForEntity("http://localhost:8090/addToRestAdmin/"+restId, restAdmin, String.class);
 		
 		System.out.println("The status is " + restInsertStatus+restAdminInsertStatus);
@@ -137,5 +141,10 @@ public class SignUpController {
 	public RestAdmin getNewRestAdmin(){
 		RestAdmin restAdmin = new RestAdmin();
 		return restAdmin;
+	}
+	@ModelAttribute("custCreditModel")
+	public CustCredit getNewCustCredit(){
+		CustCredit custCredit = new CustCredit();
+		return custCredit;
 	}
 }

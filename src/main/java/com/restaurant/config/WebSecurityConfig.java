@@ -10,35 +10,36 @@ import com.restaurant.authentication.TastyHubAuthenticationProvider;
 
 @Configuration
 @EnableWebSecurity
-//@ComponentScan(basePackageClasses = CustomTastyHubUserDetailsService.class)
+// @ComponentScan(basePackageClasses = CustomTastyHubUserDetailsService.class)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-//	@Autowired
-//	private UserDetailsService userDetailsService;
+	// @Autowired
+	// private UserDetailsService userDetailsService;
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http
-				.authenticationProvider(new TastyHubAuthenticationProvider())
-//				.userDetailsService(userDetailsService)
+		http.authenticationProvider(new TastyHubAuthenticationProvider())
+				// .userDetailsService(userDetailsService)
 				.authorizeRequests()
-				
+
 				.antMatchers("/images/**", "/javascript/**", "/vendor/**", "/assets/**", "/Homepage/**",
-						"/SignupPage/**","/Contact/**","/About/**","/forSale/**","/getCustomerSignUpPage/**",
-						"/Hiring/**","/getRestaurantSignUpPage/**","/getAssociateSignUpPage/**", "/getRestaurantListPage/**",
-						"/getAdminSignUpPage/**","/getRestaurantDetailsPage/**")
+						"/SignupPage/**", "/registerCustomer/**", "/Contact/**", "/About/**", "/forSale/**",
+						"/getCustomerSignUpPage/**", "/Hiring/**", "/getRestaurantSignUpPage/**",
+						"/getAssociateSignUpPage/**", "/getRestaurantListPage/**", "/getAdminSignUpPage/**",
+						"/getRestaurantDetailsPage/**", "/registerRestaurant/**", "/registerAssociate/**",
+						"/registerAdmin/**")
 				.permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login")
 				.authenticationDetailsSource(new TastyHubAuthenticationDetailsSource())
-//			    .successHandler(successHandler())
+				// .successHandler(successHandler())
 				.usernameParameter("email").permitAll().and().logout().permitAll();
 	}
 
-//	private AuthenticationSuccessHandler successHandler() {
-//		
-//		CustomAuthenticationSuccessHandler ca = new CustomAuthenticationSuccessHandler();
-//		ca.onAuthenticationSuccess(HttpRequest, HttpResponse, authentication);
-//		return null;
-//	}
-	
+	// private AuthenticationSuccessHandler successHandler() {
+	//
+	// CustomAuthenticationSuccessHandler ca = new
+	// CustomAuthenticationSuccessHandler();
+	// ca.onAuthenticationSuccess(HttpRequest, HttpResponse, authentication);
+	// return null;
+	// }
 
 }

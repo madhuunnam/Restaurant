@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.restaurant.model.Admin;
 import com.restaurant.model.Associate;
 import com.restaurant.model.Customer;
+import com.restaurant.model.RestAdmin;
 import com.restaurant.model.Restaurant;
 
 @Controller
@@ -56,18 +57,24 @@ public class SignUpController {
 	}
 	
 	@RequestMapping("/registerRestaurant")
-	public ModelAndView registerRestaurant(@ModelAttribute("restaurantModel") Restaurant restaurant){
+	public ModelAndView registerRestaurant(@ModelAttribute("restaurantModel") Restaurant restaurant, @ModelAttribute("restAdminModel") RestAdmin restAdmin){
 		
 		RestTemplate restTemplate = new RestTemplate();	
 		
 		restaurant.setInsertDate(new Date());
 		
 		ResponseEntity<String> restInsertStatus = restTemplate.postForEntity("http://localhost:8090/signUpRestaurant", restaurant, String.class);
-		System.out.println("The status is " + restInsertStatus);
+		String restId  = restTemplate.getForObject("http://localhost:8090/getNewRestaurantId", String.class);
+		System.out.println("NEW RESTAURANT ID IS*** "+restId);
+		ResponseEntity<String> restAdminInsertStatus = restTemplate.postForEntity("http://localhost:8090/addToRestAdmin/"+restId, restAdmin, String.class);
+		
+		System.out.println("The status is " + restInsertStatus+restAdminInsertStatus);
 		boolean showalert = true;
+		
 		ModelAndView model = new ModelAndView("SignUpPages/RestSignUp");
 		model.addObject("showalert", showalert);
 		model.addObject("restInsertStatus", restInsertStatus);
+		model.addObject("restAdminInsertStatus", restAdminInsertStatus);
 		return model;
 		
 	}
@@ -125,5 +132,10 @@ public class SignUpController {
 		Admin admin = new Admin();
 		return admin;
 	}
-	
+
+	@ModelAttribute("restAdminModel")
+	public RestAdmin getNewRestAdmin(){
+		RestAdmin restAdmin = new RestAdmin();
+		return restAdmin;
+	}
 }

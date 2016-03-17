@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.restaurant.model.Admin;
+import com.restaurant.model.AssocPerf;
 import com.restaurant.model.Associate;
 import com.restaurant.model.CustCredit;
 import com.restaurant.model.Customer;
@@ -84,18 +85,22 @@ public class SignUpController {
 	}
 	
 	@RequestMapping("/registerAssociate")
-	public ModelAndView registerRestaurant(@ModelAttribute("associateModel") Associate associate){
+	public ModelAndView registerRestaurant(@ModelAttribute("associateModel") Associate associate, @ModelAttribute("assocPerfModel") AssocPerf assocPerf){
 		
 		RestTemplate restTemplate = new RestTemplate();	
 		
 		associate.setInsertDate(new Date());
 		
 		ResponseEntity<String> assocInsertStatus = restTemplate.postForEntity("http://localhost:8090/signUpAssociate", associate, String.class);
+		String assocId  = restTemplate.getForObject("http://localhost:8090/getNewAssociateId", String.class);
+		ResponseEntity<String> assocPerfInsertStatus = restTemplate.postForEntity("http://localhost:8090/addToAssocPerf/"+assocId, assocPerf, String.class);
+		
 		System.out.println("The status is " + assocInsertStatus);
 		boolean showalert = true;
 		ModelAndView model = new ModelAndView("SignUpPages/AssocSignUp");
 		model.addObject("showalert", showalert);
 		model.addObject("assocInsertStatus", assocInsertStatus);
+		model.addObject("assocPerfInsertStatus", assocPerfInsertStatus);
 		return model;
 		
 	}
@@ -146,5 +151,10 @@ public class SignUpController {
 	public CustCredit getNewCustCredit(){
 		CustCredit custCredit = new CustCredit();
 		return custCredit;
+	}
+	@ModelAttribute("assocPerfModel")
+	public AssocPerf getNewAssocPerf(){
+		AssocPerf assocPerf = new AssocPerf();
+		return assocPerf;
 	}
 }

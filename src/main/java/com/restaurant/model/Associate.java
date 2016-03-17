@@ -38,6 +38,7 @@ public class Associate {
 
 	private String promoCode = "" ;
 	private String adChannel = "" ;
+	AssocPerf assocPerf;
 	
 	public String getAssocID() {
 		return assocID;

@@ -5,6 +5,5 @@
 //		
 //	});
 // 
-$(function() {
-    $( "#datepicker" ).datepicker();
-  });
+
+    $( '#date').datepicker({});

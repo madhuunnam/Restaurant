@@ -16,7 +16,9 @@
 <script type="text/javascript" src="vendor/validator.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
+	if ( ${updateCustModel.adChannel} != null ){
 		$('#adChannel').val(${updateCustModel.adChannel});
+		}
 	});
 </script>
 <body>

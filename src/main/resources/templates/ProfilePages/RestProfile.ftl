@@ -13,7 +13,9 @@
 	<script type="text/javascript" src="vendor/validator.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#adChannel').val(${updateRestModel.adChannel});
+	if ( ${updateRestModel.securityQuest} != null ){
+		$('#securityQuest').val(${updateRestModel.securityQuest});
+		}
 	});
 </script>
 </head>

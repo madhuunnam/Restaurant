@@ -15,7 +15,9 @@
 <script type="text/javascript" src="vendor/validator.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#adChannel').val(${updateAssocModel.adChannel});
+		if ( ${updateAssocModel.adChannel} != null ){
+			$('#adChannel').val(${updateAssocModel.adChannel});
+		}
 	});
 </script>
 </head>
@@ -111,7 +113,7 @@
 					   <div class="form-group">
 					    <label class="control-label col-md-3" for="addChannel">Add Channel:</label>
 					    <div class="col-md-6">
-					     <select name="addChannel" id="addChannel" name="adChannel" value= "<#if updateAssocModel.adChannel??>${updateAssocModel.adChannel}</#if>" class = "form-control"> 
+					     <select name="adChannel" id="adChannel"  value= "<#if updateAssocModel.adChannel??>${updateAssocModel.adChannel}</#if>" class = "form-control"> 
                             <option value=""/>
                             <option value="1">Social Media: Facebook, Twitter, WeChat etc. </option>
                             <option value="2">Sign on Car </option>

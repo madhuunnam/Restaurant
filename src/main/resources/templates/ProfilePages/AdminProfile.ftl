@@ -16,7 +16,9 @@
 </head>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#adChannel').val(${updateAdminModel.adChannel});
+	if ( ${updateAdminModel.secQuest} != null ){
+		$('#secQuest').val(${updateAdminModel.secQuest});
+		}
 	});
 </script>
 <body>

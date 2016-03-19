@@ -11,50 +11,39 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+<script type="text/javascript" src="javascript/menuPage.js"></script>
 </head>
 <body>
-<#include "../NavBar.ftl">
-<form role="form">
-  <div class="form-group">
-    
-   
-    <div class="table-responsive"> 
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Section Name</th>
-        <th>Number of Items</th>
-        <th>Create/Update</th>
-      </tr>
-    </thead>
-    <tbody>
-     <#list MenuSections as sec>
-      <tr>
-        <td></td>
-        <td>${sec.secName} </td>
-        <td>${sec.numItem} </td>
-        <td><button type="button" class="btn btn-link">Add/Update Item</button></td>
-      </tr>
-      </#list>
-    </tbody>
-  </table>
-  </div>
-  
-  </div>
-  <div class="form-group">
-    
-    
-    
-  </div>
-   <div class="form-group">
-    
-    
-    
-  </div>
-  <button type="submit" class="btn btn-default">Add Section</button>
-</form>
+	<#include "../NavBar.ftl">
+	<div class="container">
+	<form role="form">
+		<div class="form-group">
+			<div class="table-responsive">
+				<table class="table" id = "sectionTable">
+					<thead>
+						<tr>
+							<th>Section Name</th>
+							<th>Number of Items</th>
+							<th>Create/Update</th>
+						</tr>
+					</thead>
+					<tbody>
+						<#list MenuSections as sec>
+						<tr>
+							<td>${sec.secName}</td>
+							<td>${sec.numItem}</td>
+							<td><button type="button" class="btn btn-link">Add/Update
+									Item</button></td>
+						</tr>
+						</#list>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<button type="button" class="btn btn-default" onclick="addSection();">Add Section</button>
+		<button type="button" class="btn btn-default" onclick="updateSection(${sessionUserId});">Update</button>
+	</form>
+	</div>
 </body>
 </html>
 

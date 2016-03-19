@@ -93,7 +93,7 @@
 			<#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'customer'>
 				<div class="col-md-3">
 					<button type="button" class="btn btn-link form-control"
-						data-toggle="modal" data-target="#myAddress">My Saved Addresses</button>
+						data-toggle="modal" data-target="#myAddress" onclick="onclickMySavedAddress(${sessionUserId});">My Saved Addresses</button>
 					<div class="modal fade" id="myAddress" role="dialog">
 						<div class="modal-dialog">
 
@@ -117,12 +117,12 @@
 				</div>
 				
 				<div class="col-md-3">
-					<button type="button" class="btn btn-link form-control" onclick = "onAddToMyAddress();">Save This
+					<button type="button" class="btn btn-link form-control" onclick = "onclickAddToMyAddress();">Save This
 					Address</button>
 						
 				</div>
 				<div class="col-md-3">
-					<button type="button" class="btn btn-link form-control" data-toggle="modal" data-target="#myFav" onclick="myFavorites(${sessionUserId})";>My
+					<button type="button" class="btn btn-link form-control" data-toggle="modal" data-target="#myFav" onclick="onclickMyFavorites(${sessionUserId})";>My
 						Favorite Restaurants</button>
 						<div class="modal fade" id="myFav" role="dialog">
 						<div class="modal-dialog">

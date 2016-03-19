@@ -37,7 +37,7 @@
      	 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'customer'>
      	 <li><a href="<@spring.url '/CustomerProfile'/> "><i class="glyphicon glyphicon-user"></i>Customer Profile</a></li>
      	 <li><a href="<@spring.url '/CustomerProfile'/> ">Orders</a></li>
-     	 <li><a href="<@spring.url '/CustomerProfile'/> ">Reviews</a></li>
+     	 <li><a href="<@spring.url '/Review'/> ">Reviews</a></li>
      	 <li><a href="<@spring.url '/CustomerProfile'/> ">Credits</a></li>
      	 <li><a href="<@spring.url '/CustomerAccount'/> ">Account</a></li>
      	 <li class="dropdown">

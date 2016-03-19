@@ -131,8 +131,9 @@
 					   <div class="form-group">
 					    <label class="control-label col-md-3" for="adChannel">Add Channel:</label>
 					    <div class="col-md-6">
+					    <p>${updateCustModel.adChannel}</p>
 					     <select  id="adChannel" name="adChannel" value ="<#if updateCustModel.adChannel??>${updateCustModel.adChannel}</#if>" class = "form-control"> 
-                            <option value=""/>
+                            <option value="" />
                             <option value="1">Social Media: Facebook, Twitter, WeChat etc. </option>
                             <option value="2">Sign on Car </option>
                             <option value="3">Sign in Restaurant </option>

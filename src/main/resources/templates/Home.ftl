@@ -104,7 +104,11 @@
 									<h4 class="modal-title">My Saved Addresses</h4>
 								</div>
 								<div class="modal-body">
-									<p>Please select an address.</p>
+									<table class="table  table-hover table-responsive " id = "savedAddressTable">
+									<tr>
+									<th>Select any one of your Saved Address:</th>
+									</tr>
+									</table>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-default"

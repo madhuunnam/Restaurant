@@ -24,16 +24,20 @@ function onclickMyFavorites(sessionUserId){
 
 function onclickMySavedAddress(sessionUserId){
 	 $.ajax({
-	        url: "http://localhost:8090/getSavedAddressForCustomer/"+sessionUserId,
+	        url: "http://localhost:8090/getCustomerById/"+sessionUserId,
 	        type: "GET",
 	        cache: false,
 	        dataType: "json",
 	        crossDomain: true
 	    }).then(function(data) {
-	    	if($('#favListTable tr').length == 1){
-	    		$.each(data, function(index, element) {
-	    			$('#favListTable').append('<tr><td>'+element.restId+'</td>'+'<td>'+element.restName+'</td></tr>');
-	    		});
+	    	if($('#savedAddressTable tr').length == 1){
+	    			$('#savedAddressTable').append('<tr><td>'+data['stAddress']+', '+data['city']+', '+data['state']+', '+data['zip']+'</td></tr>');
+	    			var credits = data['custCredit'];
+	    			$.each(credits, function(index, element) {
+	    				if( (element != null && element != "" ) && (index == "addr2" || index == "addr3" || index == "addr4") ){
+	    					$('#savedAddressTable').append('<tr><td>'+element+'</td></tr>');
+	    				}
+		    		});
 	    	}
 	    });
 }

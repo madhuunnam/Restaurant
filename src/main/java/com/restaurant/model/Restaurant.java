@@ -79,8 +79,15 @@ public class Restaurant {
 	private String mgrEmail = "";
 	private String mgrPasswd = "";
 	
-	RestAdmin restAdmin;
+	RestAdmin restAdmin = new RestAdmin();
 	
+	
+	public RestAdmin getRestAdmin() {
+		return restAdmin;
+	}
+	public void setRestAdmin(RestAdmin restAdmin) {
+		this.restAdmin = restAdmin;
+	}
 	public String getRestID() {
 		return restID;
 	}

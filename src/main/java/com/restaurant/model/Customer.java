@@ -44,8 +44,14 @@ public class Customer {
 	private String promoCode = "";
 	private String adChannel = "";
 	
-	CustCredit custCredit;
+	CustCredit custCredit = new CustCredit();
 	
+	public CustCredit getCustCredit() {
+		return custCredit;
+	}
+	public void setCustCredit(CustCredit custCredit) {
+		this.custCredit = custCredit;
+	}
 	public String getCustID() {
 		return custID;
 	}

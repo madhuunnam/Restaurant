@@ -14,6 +14,11 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script type="text/javascript" src="vendor/validator.js"></script>
 </head>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#adChannel').val(${updateAdminModel.adChannel});
+	});
+</script>
 <body>
 	<#include "../NavBar.ftl">
 	<#if (showalert)??>

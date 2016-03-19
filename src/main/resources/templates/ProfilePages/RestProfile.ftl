@@ -11,7 +11,11 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="vendor/validator.js"></script>
-
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#adChannel').val(${updateRestModel.adChannel});
+	});
+</script>
 </head>
 <body>
 	<#include "../NavBar.ftl">

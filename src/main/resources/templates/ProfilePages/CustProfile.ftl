@@ -14,7 +14,11 @@
 	
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script type="text/javascript" src="vendor/validator.js"></script>
-
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#adChannel').val(${updateCustModel.adChannel});
+	});
+</script>
 <body>
 	<#include "../NavBar.ftl">
 	<#if (showalert)??>
@@ -131,7 +135,6 @@
 					   <div class="form-group">
 					    <label class="control-label col-md-3" for="adChannel">Add Channel:</label>
 					    <div class="col-md-6">
-					    <p>${updateCustModel.adChannel}</p>
 					     <select  id="adChannel" name="adChannel" value ="<#if updateCustModel.adChannel??>${updateCustModel.adChannel}</#if>" class = "form-control"> 
                             <option value="" />
                             <option value="1">Social Media: Facebook, Twitter, WeChat etc. </option>

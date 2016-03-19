@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 						"/getCustomerSignUpPage/**", "/Hiring/**", "/getRestaurantSignUpPage/**",
 						"/getAssociateSignUpPage/**", "/getRestaurantListPage/**", "/getAdminSignUpPage/**",
 						"/getRestaurantDetailsPage/**", "/registerRestaurant/**", "/registerAssociate/**",
-						"/registerAdmin/**")
+						"/registerAdmin/**","/CustomerPages/**")
 				.permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login")
 				.authenticationDetailsSource(new TastyHubAuthenticationDetailsSource())
 				// .successHandler(successHandler())

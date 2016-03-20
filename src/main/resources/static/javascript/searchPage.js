@@ -51,6 +51,13 @@ $(document).ready(function() {
 		document.getElementById("restTableForm").submit();
 	
 	})
+	
+	$('#savedAddressTable > tbody > tr').click(function() {
+		alert("Madu");
+//	    document.getElementById("restTableForm").action = "/getRestaurantDetailsPage/";
+//		document.getElementById("restTableForm").submit();
+	
+	})
 });
 
 

@@ -105,9 +105,13 @@
 								</div>
 								<div class="modal-body">
 									<table class="table  table-hover table-responsive " id = "savedAddressTable">
+									<thead>
 									<tr>
 									<th>Select any one of your Saved Address:</th>
 									</tr>
+									<thead>
+									<tbody>
+									</tbody>
 									</table>
 								</div>
 								<div class="modal-footer">
@@ -139,11 +143,15 @@
 								</div>
 								<div class="modal-body">
 									<p>Select any one of your Favorites</p>
-									<table class="table table-striped table-hover table-responsive" id="favListTable">
+									<table class="table table-hover table-responsive" id="favListTable">
+									<thead>
 									<tr>
 									<th>RestId</th>
 									<th>Rest Name</th>
 									</tr>
+									</thead>
+									<tbody>
+									</tbody>
 									</table>
 								</div>
 								<div class="modal-footer">

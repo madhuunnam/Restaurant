@@ -4,10 +4,18 @@ public class ChoiceValues {
 	
 	private String restId;
 	private String chNum;
+	private String valueId;
 	private String valueName;
 	private float valuePrice;
 	private boolean extra;
 	
+	
+	public String getValueId() {
+		return valueId;
+	}
+	public void setValueId(String valueId) {
+		this.valueId = valueId;
+	}
 	public String getRestId() {
 		return restId;
 	}
@@ -40,8 +48,8 @@ public class ChoiceValues {
 	}
 	@Override
 	public String toString() {
-		return "ChoiceValues [restId=" + restId + ", chNum=" + chNum + ", valueName=" + valueName + ", valuePrice="
-				+ valuePrice + ", extra=" + extra + "]";
+		return "ChoiceValues [restId=" + restId + ", chNum=" + chNum + ", valueId=" + valueId + ", valueName="
+				+ valueName + ", valuePrice=" + valuePrice + ", extra=" + extra + "]";
 	}
-
+	
 }

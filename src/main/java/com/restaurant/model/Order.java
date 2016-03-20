@@ -1,8 +1,10 @@
 package com.restaurant.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-public class Orders {
+public class Order {
 	
 	private String orderNo;
 	private String restId;
@@ -35,6 +37,15 @@ public class Orders {
 	private String agentName;
 	private String notes;
 	
+	List<LineItems> lineItems = new ArrayList<LineItems>();
+	
+	
+	public List<LineItems> getLineItems() {
+		return lineItems;
+	}
+	public void setLineItems(List<LineItems> lineItems) {
+		this.lineItems = lineItems;
+	}
 	public String getOrderNo() {
 		return orderNo;
 	}

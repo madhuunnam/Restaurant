@@ -18,6 +18,7 @@
 	<div class="container">
 		<form role="form">
 			<div class="form-group">
+				<h2>Items Table</h2>
 				<div class="table-responsive">
 					<table class="table table-striped table-hover table-responsive"
 						id="itemsTable">
@@ -46,60 +47,19 @@
 								<#if item.basePrice??>
 								<td id='basePrice-${item.restId}-${item.itemNum}'>${item.basePrice}</td><#else>
 								<td id='basePrice-${item.restId}-${item.itemNum}'></td></#if>
-								<!--	<td id= 'itemId-${item.itemNum}' >
-								<div class="table-responsive">
-									<table class="table table-striped table-hover table-responsive" id = "itemsTable">
-										<thead>
-											<tr>
-												<th>Choice Title</th>
-												<th>Choice Type</th>	
-												<th>Choice Values</th>	
-											</tr>
-										</thead>
-										<tbody>
-											<#list item.choices as choice>
-												<tr>
-													<#if choice.chTitle??><td>${choice.chTitle}</td></#if>
-													<#if choice.chType??><td>${choice.chType}</td></#if>	
-													<td>
-														<div class="table-responsive">
-															<table class="table table-striped table-hover table-responsive" id = "itemsTable">
-																<thead>
-																	<tr>
-																		<th>Value Name</th>
-																		<th>Value Price</th>
-																		<th>Is Extra</th>
-																	</tr>
-																</thead>
-																<tbody>
-																	<#list choice.chValues as choiceValue>
-																		<tr>
-																			<#if choiceValue.valueName??><td>${choiceValue.valueName}</td></#if>
-																			<#if choiceValue.valuePrice??><td>${choiceValue.valuePrice}</td></#if>
-																			<#if choiceValue.valueName??><td>${choiceValue.valueName}</td></#if>
-																		</tr>
-																	</#list>
-																</tbody>
-															</table>
-														</div>
-													</td>
-												</tr>
-											</#list>
-										</tbody>
-									</table>
-								</div>
-							</td> -->
 							</tr>
 							</#list>
 						</tbody>
 
 					</table>
 					<input type="button" value="Update All Items" class="btn btn-info"
-							id='updateAllItems' disabled=true onClick=updateAllItems(); />
+						id='updateAllItems' disabled=true onClick=updateAllMenuItems(); />
 				</div>
 				<div class="form-group">
+					<h2>Choices Table</h2>
 					<div class="table-responsive">
-						<table class="table table-striped table-hover table-responsive" id="choicesTable">
+						<table class="table table-striped table-hover table-responsive"
+							id="choicesTable">
 							<thead>
 								<tr>
 									<th>Item Name</th>
@@ -109,55 +69,60 @@
 								</tr>
 							</thead>
 							<tbody>
-								<#list MenuItems as item>
+								<#list MenuItems as item> 
 									<#list item.choices as choice>
-										<tr>
-										<#if item.itemName??><td id='itemName-${item.restId}-${item.itemNum}-${choice.chNum}' >${item.itemName}</td></#if>
-										<#if choice.chTitle??><td id='chTitle-${item.restId}-${item.itemNum}-${choice.chNum}' >${choice.chTitle}</td></#if>
-										<#if choice.chType??><td id='chType-${item.restId}-${item.itemNum}-${choice.chNum}' >${choice.chType}</td></#if>	
-										<#if choice.required??><td><input type = "checkbox" /></td></#if>
+										<tr id='ChoiceRow-restId-itemID-ChoiceNum-${item.restId}-${item.itemNum}-${choice.chNum}'>
+											<#if item.itemName??><td id='itemName-${item.restId}-${item.itemNum}-${choice.chNum}'>${item.itemName}</td></#if>
+											<#if choice.chTitle??><td id='chTitle-${item.restId}-${item.itemNum}-${choice.chNum}'>${choice.chTitle}</td></#if>
+											<#if choice.chType??><td id='chType-${item.restId}-${item.itemNum}-${choice.chNum}'>${choice.chType}</td></#if>
+											<#if choice.required??><td id='required-${item.restId}-${item.itemNum}-${choice.chNum}'><input type="checkbox" /></td></#if>
 										</tr>
 									</#list>
 								</#list>
 							</tbody>
 						</table>
-						</div>
-					</div>
-					<input type="button" value="Update All Choices" class="btn btn-info"
-							id='updateAllChoices' disabled=true onClick=updateAllChoices(); />
-				</div>
-				<div class="form-group">
-					<div class="table-responsive">
-						<table class="table table-striped table-hover table-responsive" id="choiceValuesTable">
-							<thead>
-								<tr>
-									<th>Choice Title</th>
-									<th>Choice Type</th>
-									<th>Value Name</th>
-									<th>Value Price</th>
-									<th>Is Extra ?</th>
-								</tr>
-							</thead>
-							<tbody>
-								<#list MenuItems as item>
-									<#list item.choices as choice>
-										<#list choice.chValues as choiceValue>
-											<tr>
-												<#if choice.chTitle??><td id="${choice.chTitle}" >${choice.chTitle}</td></#if>
-												<#if choice.chType??><td id="${choice.chType}" >${choice.chType}</td></#if>	
-												<#if choiceValue.valueName??><td>${choiceValue.valueName}</td></#if>
-												<#if choiceValue.valuePrice??><td>${choiceValue.valuePrice}</td></#if>
-												<#if choiceValue.valueName??><td><input type="checkbox" /></td></#if>
-											</tr>
-										</#list>
-									</#list>
-								</#list>
-							</tbody>
-						</table>
-						</div>
 					</div>
 				</div>
-		</form>
+				<input type="button" value="Update All Choices" class="btn btn-info"
+					id='updateAllChoices' disabled=true onClick=udpateChoices(); />
+			</div>
+			<div class="form-group">
+				<h2>Choice Values Table</h2>
+				<div class="table-responsive">
+					<table class="table table-striped table-hover table-responsive"
+						id="choiceValuesTable">
+						<thead>
+							<tr>
+								<th>Choice Title</th>
+								<th>Choice Type</th>
+								<th>Value Name</th>
+								<th>Value Price</th>
+								<th>Is Extra ?</th>
+							</tr>
+						</thead>
+						<tbody>
+							<#list MenuItems as item> 
+								<#list item.choices as choice> 
+									<#list choice.chValues as choiceValue>
+										<tr id='ChoiceValueRow-restId-chNum-valueName-${item.restId}-${choice.chNum}-${choiceValue.valueId}'>
+											<#if choice.chTitle??> <td id='chTitle-${item.restId}-${choice.chNum}-${choiceValue.valueId}'>${choice.chTitle}</td></#if>
+											<#if choice.chType??> <td id='chTitle-${item.restId}-${choice.chNum}-${choiceValue.valueId}'>${choice.chType}</td></#if>
+											<#if choiceValue.valueName??><td id = 'valueName-${item.restId}-${choice.chNum}-${choiceValue.valueId}' >${choiceValue.valueName}</td></#if>
+											<#if choiceValue.valuePrice??><td id='valuePrice-${item.restId}-${choice.chNum}-${choiceValue.valueId}'>${choiceValue.valuePrice}</td></#if>
+											<#if choiceValue.extra??><td id='extra-${item.restId}-${choice.chNum}-${choiceValue.valueId}'><input type="checkbox" /></td></#if>
+										</tr>
+									</#list> 
+								</#list> 
+							</#list>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<input type="button" value="Update All Choice Values"
+				class="btn btn-info" id='updateAllChoiceValues' disabled=true
+				onClick=updateChoiceValues(); />
+	</div>
+	</form>
 	</div>
 </body>
 </html>

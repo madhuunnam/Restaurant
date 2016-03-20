@@ -45,10 +45,12 @@ function onclickMySavedAddress(sessionUserId){
 $(document).ready(function() {
 	
 	$('#restListTable > tbody > tr').click(function() {
-	    document.getElementById("restTableForm").action = "/getRestaurantDetailsPage";
+		
+		$('#selectedRest').val(this.id);
+	    document.getElementById("restTableForm").action = "/getRestaurantDetailsPage/";
 		document.getElementById("restTableForm").submit();
-	});
 	
+	})
 });
 
 

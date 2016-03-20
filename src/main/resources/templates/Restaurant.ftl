@@ -15,59 +15,50 @@
 
 </head>
 <body>
-<#include "NavBar.ftl">
-<div class="jumbotron" >
-  <div class="container text-left">
-    <button type="button" class="btn btn-link"
-						data-toggle="modal" data-target="#restDetails"><h3><i>Restaurant Name</i></h3></button> 
-    <!-- Modal -->
-  <div class="modal fade" id="restDetails" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Restaurant Details</h4>
-        </div>
-        <div class="modal-body">
-          <p>Timings</p>
-          <p>Reviews</p>
-          <p>Yelp Reviews</p>
-          <p>Comments</p>
-          <p>DineIn</p>
-          <p>Delivery</p>
-          <p>PickUp</p>
-          <p>Open Hours</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>   
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading">Menu</div>
-  <div class="panel-body">
-  <p>Sample Menu TODO</p>
-  <p>Sample Menu TODO</p>
-  <p>Sample Menu TODO</p>
-  <p>Sample Menu TODO</p>
-  <p>Sample Menu TODO</p>
-  <p>Sample Menu TODO</p>
-  <p>Sample Menu TODO</p>
-  <p>Sample Menu TODO</p>
-  <p>Sample Menu TODO</p>
-  <p>Sample Menu TODO</p>
-  
-  </div>
-</div>
-  <ul class="pager">
-    <li class="previous"><a href="<@spring.url '/getRestaurantListPage'/>">Back</a></li>
-  </ul>
+	<#include "NavBar.ftl">
+	<div class="jumbotron">
+		<div class="container text-left">
+			<h2>
+				<strong><#if rest.restName ??>${rest.restName}</#if></strong>
+			</h2>
+			<div class="table-responsive">
+				<table class="table table-responsive">
+					<tr>
+						<td>Timings</td>
+						<td>Reviews:<#if rest.restAdmin.numRev
+							??>${rest.restAdmin.numRev}</#if></td>
+						<td>Yelp Reviews:<#if rest.restAdmin.numYelp
+							??>${rest.restAdmin.numYelp}</#if></td>
+						<td>Comments</td>
+						<td>DineIn:<#if rest.dineIn ??>${rest.dineIn}</#if></td>
+						<td>Delivery:<#if rest.delivery ??>${rest.delivery}</#if></td>
+						<td>PickUp:<#if rest.pickup ??>${rest.pickup}</#if></td>
+						<td>Open Hours:</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-primary">
+		<div class="panel-heading">Menu</div>
+		<div class="panel-body">
+			<p>Sample Menu TODO</p>
+			<p>Sample Menu TODO</p>
+			<p>Sample Menu TODO</p>
+			<p>Sample Menu TODO</p>
+			<p>Sample Menu TODO</p>
+			<p>Sample Menu TODO</p>
+			<p>Sample Menu TODO</p>
+			<p>Sample Menu TODO</p>
+			<p>Sample Menu TODO</p>
+			<p>Sample Menu TODO</p>
+
+		</div>
+	</div>
+	<ul class="pager">
+		<li class="previous"><a
+			href="<@spring.url '/getRestaurantListPage'/>">Back</a></li>
+	</ul>
 </body>
 </html>
 

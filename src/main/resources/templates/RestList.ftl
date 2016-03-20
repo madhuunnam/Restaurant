@@ -64,7 +64,8 @@ p.oblique {
 		<br />
 		<div class="row">
 			<div class="col-md-12">
-			<form role="form" id="restTableForm" action = "/getRestaurantDetailsPage">
+			<form role="form" id="restTableForm">
+			<input type = 'hidden' name = 'selectedRest' id='selectedRest' />
 				<table class="table table-striped table-hover table-responsive" id="restListTable">
 					<thead>
 						<tr>
@@ -81,16 +82,16 @@ p.oblique {
 					</thead>
 					<tbody>
 					  <#list restList as rest>
-						<tr>
+						<tr id = "${rest.restID}">
 							<td><#if rest.restID ??>${rest.restID}</#if></td>
 							<td><#if rest.restName ??>${rest.restName}</#if></td>
 							<td><#if rest.deliMin ??>${rest.deliMin}</#if></td>
 							<td><#if rest.deliFee ??>${rest.deliFee}</#if></td>
-							<td>10</td>
-							<td>3</td>
+							<td><#if rest.restAdmin.numRev ??>${rest.restAdmin.numRev}</#if></td>
+							<td><#if rest.restAdmin.numYelp ??>${rest.restAdmin.numYelp}</#if></td>
 							<td>5</td>
-							<td>20</td>
-							<td>3</td>
+							<td><#if rest.restAdmin.priceRange ??>${rest.restAdmin.priceRange}</#if></td>
+							<td><#if rest.restAdmin.popularity ??>${rest.restAdmin.popularity}</#if></td>
 						</tr>
 					  </#list>
 					</tbody>

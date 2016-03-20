@@ -7,11 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import com.restaurant.model.Choice;
 import com.restaurant.model.ChoiceValues;
 import com.restaurant.model.Item;
+import com.restaurant.model.Restaurant;
 import com.restaurant.model.Section;
 import com.restaurant.model.User;
 
@@ -19,8 +21,15 @@ import com.restaurant.model.User;
 public class RestaurantController {
 
 	@RequestMapping("/getRestaurantDetailsPage")
-	public String restaurantPage(Model model) {
+	public String restaurantPage(Model model, @RequestParam("selectedRest") String selRestId) {
 		
+		System.out.println("Selected Restaurant Id "+selRestId);
+		
+		RestTemplate restTemplate = new RestTemplate();
+		Restaurant rest = (Restaurant) restTemplate
+				.getForObject("http://localhost:8090/getRestaurantById/"+ selRestId, Restaurant.class);
+		
+		model.addAttribute("rest",rest);
 		return "Restaurant";
 	}
 	

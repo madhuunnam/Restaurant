@@ -12,11 +12,17 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="javascript/menuPage.js"></script>
+<script type="text/javascript" src="javascript/addMenuItemsOperations.js"></script>
+<script type="text/javascript" src="javascript/addChoicesOperations.js"></script>
+<script type="text/javascript" src="vendor/validator.js"></script>
+
 </head>
 <body>
 	<#include "../NavBar.ftl">
 	<div class="container">
-		<form role="form">
+		<form  data-toggle="validator" role="form">
+		
+				<#include "AddItemsWizards.ftl" >
 				<#include "MenuItemsTable.ftl" >
 				<#include "MenuChoicesTable.ftl" >
 				<#include "MenuChoiceValuesTable.ftl" >

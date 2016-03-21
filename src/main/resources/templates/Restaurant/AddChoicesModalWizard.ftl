@@ -1,4 +1,3 @@
-
 <div id="addChoicesModal" class="modal fade" role="dialog">
 	<div class="modal-dialog">
 
@@ -10,9 +9,10 @@
 					<h4 class="modal-title">Add Choices Wizard</h4>
 				</div>
 				<div class="modal-body" id='addChoicesModalBody'>
-					<label id='addChoicesLabel'><h4>Enter the Number Of Choices You Wish to Add:</h4></label> <input type="text" name='noOfChoicesToAdd' id='noOfChoicesToAdd' /> <input type="button"
-						class='btn btn-info' id='addGivenNoOfChoices' value='Generate Add Choices Form' onClick=generateAddChoiceForm(); />
-
+					<label id='addChoicesLabel'><h4>Enter the Number Of Choices You Wish to Add:</h4></label>
+					<input type="text" name='noOfChoicesToAdd' id='noOfChoicesToAdd' /> 
+					<input type="button" class='btn btn-info' id='addGivenNoOfChoices' value='Generate Add Choices Form' onClick='generateAddChoiceForm();' />
+					
 					<div class="table-responsive">
 						<table class="table table-striped table-hover table-responsive" id="addGeneratedChoicesTable">
 							<thead>
@@ -27,7 +27,7 @@
 							</tbody>
 						</table>
 					</div>
-					<input type="button" class='btn btn-info' id='saveAddedChoices' value='Save Added Choices' onClick='saveAddedChoices(${sessionUserId});' disabled=true />
+					<input type="button" class='btn btn-info' id='saveAddedChoices' value='Save Added Choices' onClick='saveAddedMenuChoices(${sessionUserId});' disabled=true />
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

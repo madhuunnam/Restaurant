@@ -38,7 +38,11 @@
 				<input type="hidden" name="assocID" value= "<#if updateAssocModel.assocID??>${updateAssocModel.assocID}</#if>" />
 					
 				<div class="form-group" align="center">
-					    <label class="col-md-12"><h3>Associate SignUp</h3></label>
+					    <label class="col-md-12"><h3>Associate Profile</h3></label>
+					  </div>
+					  <div class="form-group">
+					  <label class="control-label col-md-4" for="id">AssociateID: <#if updateAssocModel.assocID??>${updateAssocModel.assocID}</#if></label>
+					  <label class="control-label col-md-4" for="promoCode" id="promoCode" name="promoCode">PromoCode: <#if updateAssocModel.promoCode??>${updateAssocModel.promoCode}</#if></label>
 					  </div>
 					  <div class="form-group">
 					    <label class="control-label col-md-3" for="Name">FirstName:</label>
@@ -97,17 +101,46 @@
 					    </div>
 					  </div>
 					  <div class="form-group"> 
-					    <div class="col-md-offset-3 col-md-6">
-					      <button type="button" class="btn btn-info">Tell Your PromoCode to Earn Store Credits</button>
+					  <label class="control-label col-md-4" for="assocTitle" name ="assocTitle" id ="assocTitle">Associate Title: <#if updateAssocModel.assocPerf.assocTitle??>${updateAssocModel.assocPerf.assocTitle}</#if></label>
+					  <label class="control-label col-md-4" for="assocTitle" name ="titleDate" id ="titleDate">Title Date: <#if updateAssocModel.assocPerf.titleDate??>${updateAssocModel.assocPerf.titleDate}</#if></label>
+					  </div>
+					  <div class="form-group"> 
+					  <label class="control-label col-md-3" for="UplineName">Upline Name:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="uplineName" name="uplineName" value= "<#if updateAssocModel.uplineName??>${updateAssocModel.uplineName}</#if>" >
 					    </div>
+					  <label class="control-label col-md-4" for="uplineID" name ="uplineID" id ="uplineID">Upline ID: <#if updateAssocModel.uplineID??>${updateAssocModel.uplineID}</#if></label>
 					  </div>
 					  <div class="form-group"> 
-					  <label class="control-label col-md-11" for="text">(If you have a promocode from others, welcome gift: get $1 off)</label>
-					  </div>
-					  <div class="form-group"> 
-					   <label class="control-label col-md-3" for="promoCode">Promo Code:</label>
-					  <div class=" col-md-6">
-					      <input type="text" class="form-control" id="promoCode" name="promoCode" value= "<#if updateAssocModel.promoCode??>${updateAssocModel.promoCode}</#if>" placeholder="Enter promocode">
+					   <label class="control-label col-md-3" for="comType">Com Type:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="comType" name="comType" value= "<#if updateAssocModel.comType??>${updateAssocModel.comType}</#if>" >
+					    </div>
+					    
+					    <label class="control-label col-md-3" for="runStart">Run Start:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="runStart" name="runStart" value= "<#if updateAssocModel.assocPerf.runStart??>${updateAssocModel.assocPerf.runStart}</#if>" >
+					    </div>
+					   </div>
+					   <div class="form-group">
+					   <label class="control-label col-md-4" for="numCust" name ="numCust" id ="numCust">#Customers: <#if updateAssocModel.assocPerf.numCust??>${updateAssocModel.assocPerf.numCust}</#if></label>
+					   <label class="control-label col-md-4" for="personScore" name ="personScore" id ="personScore">Personal Score: <#if updateAssocModel.assocPerf.personScore??>${updateAssocModel.assocPerf.personScore}</#if></label>
+					   <label class="control-label col-md-4" for="teamScore" name ="teamScore" id ="teamScore">Team Score: <#if updateAssocModel.assocPerf.teamScore??>${updateAssocModel.assocPerf.teamScore}</#if></label>
+					   </div>
+					   <div class="form-group">
+					   <label class="control-label col-md-3" for="bankName">Bank Name</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="bankName" name="bankName" value= "<#if updateAssocModel.bankName??>${updateAssocModel.bankName}</#if>" >
+					    </div>
+					    <label class="control-label col-md-3" for="bankRouteNum">Bank RouteNo:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="bankRouteNum" name="bankRouteNum" value= "<#if updateAssocModel.bankRouteNum??>${updateAssocModel.bankRouteNum}</#if>" >
+					    </div>
+					   </div>
+					   <div class="form-group">
+					   <label class="control-label col-md-4" for="bankAccNum">Bank Account No:</label> 
+					   <div class="col-md-3">
+					      <input type="text" class="form-control" id="bankAccNum" name="bankAccNum" value= "<#if updateAssocModel.bankAccNum??>${updateAssocModel.bankAccNum}</#if>" >
 					    </div>
 					   </div>
 					   <div class="form-group">

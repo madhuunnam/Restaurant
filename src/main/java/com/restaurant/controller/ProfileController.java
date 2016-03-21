@@ -151,7 +151,7 @@ public class ProfileController extends SpringServletContainerInitializer {
 	}
 
 	@ModelAttribute("updateAssocModel")
-	public Associate getNewRestaurant(Associate assoc, Authentication authentication) {
+	public Associate getNewAssociate(Associate assoc, Authentication authentication) {
 
 		if (authentication != null && ((TastyHubAuthenticationDetails) authentication.getDetails()).getLoggedInAs()
 				.contains("Associate")) {

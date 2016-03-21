@@ -19,6 +19,9 @@
 	if ( ${updateCustModel.adChannel} != null ){
 		$('#adChannel').val(${updateCustModel.adChannel});
 		}
+	if ( ${updateCustModel.cardType} != null ){
+		$('#cardType').val(${updateCustModel.cardType});
+		}
 	});
 </script>
 <body>
@@ -40,6 +43,7 @@
 				<div class="form-group" align="center">
 					    <label class="col-md-12"><h3>Customer Profile</h3></label>
 					  </div>
+					   <label class="col-md-12">BASIC INFO:</label>
 					  <div  class="form-group">
 					    <label class="control-label col-md-3" for="Name">FirstName:</label>
 					    <div class="col-md-6">
@@ -96,42 +100,11 @@
 					      <input type="text" class="form-control" id="zip" name="zip" value = "<#if updateCustModel.zip??>${updateCustModel.zip}</#if>" placeholder="Enter Zip" required>
 					    </div>
 					  </div>
-					  <div class="form-group"> 
-					    <div class="col-md-offset-3 col-md-6">
-					      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#promoInfodialog">Tell Your PromoCode to Earn Store Credits</button>
-					    </div>
-					  </div>
-					 	 <div class="modal fade" id="promoInfodialog" role="dialog">
-						    <div class="modal-dialog">
-						      <!-- Modal content-->
-						      <div class="modal-content">
-						        <div class="modal-header">
-						          <button type="button" class="close" data-dismiss="modal">&times;</button>
-						          <h4 class="modal-title">How to get store credits or Free Meals</h4>
-						        </div>
-						        <div class="modal-body">
-						          <p>Your personal promocode is ****. Tell it to others to earn store credits. 
-						          You can always earn the most store credits by introducing a new restaurant to us.
-						          When you become our associate, you can earn cash or even better build your own business
-						          with our help receiving residual income to acheive your financial freedom.
-						          Atleast, you can earn store credits by inviting your friends as our new customers, or
-						          simply by giving your sincere reviews about the restaurants you ordered from.
-						          </p>
-						        </div>
-						        <div class="modal-footer">
-						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						        </div>
-						      </div>
-						      
-						    </div>
-						  </div>
-					  <div class="form-group"> 
-					  <label class="control-label col-md-11" for="text">(If you have a promocode from others, welcome gift: get $1 off)</label>
-					  </div>
+					 
 					  <div class="form-group"> 
 					   <label class="control-label col-md-3" for="promoCode">Promo Code:</label>
 					  <div class=" col-md-6">
-					      <input type="text" class="form-control" id="promoCode" name ="promoCode" value = "<#if updateCustModel.promoCode??>${updateCustModel.promoCode}</#if>" placeholder="Enter promocode">
+					      <input type="text" class="form-control" id="promoCode" name ="promoCode" value = "<#if updateCustModel.promoCode??>${updateCustModel.promoCode}</#if>" disabled>
 					    </div>
 					   </div>
 					   <div class="form-group">
@@ -147,6 +120,96 @@
                         </select> 
 					    </div>
 					    </div>
+					<label class="col-md-12">YOUR CARD INFO:</label>
+					<label class="col-md-12">Card 1:</label>
+					 <div class="form-group">
+					    <label class="control-label col-md-3" for="cardType">Card Type:</label>
+					    <div class="col-md-3">
+					     <select  id="cardType" name="cardType" value ="<#if updateCustModel.cardType??>${updateCustModel.cardType}</#if>" class = "form-control"> 
+                            <option value="" />
+                            <option value="Debit">Debit</option>
+                            <option value="Credit">Credit</option>
+                        </select> 
+					    </div>
+					    <label class="control-label col-md-3" for="cardNumber">Card Number:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="cardNumber" name="cardNumber" value = "<#if updateCustModel.cardNumber??>${updateCustModel.cardNumber}</#if>" >
+					    </div>
+					   </div>
+					  <div class="form-group">
+					   <label class="control-label col-md-3" for="cardName">CardHolder Name:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="cardName" name="cardName" value = "<#if updateCustModel.cardName??>${updateCustModel.cardName}</#if>" >
+					    </div>
+					    <label class="control-label col-md-3" for="cardCode">CVV:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="cardCode" name="cardCode" value = "<#if updateCustModel.cardCode??>${updateCustModel.cardCode}</#if>" >
+					    </div>
+					  </div>
+					  <div class="form-group">
+					   <label class="control-label col-md-3" for="billZip">Billing Zip:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="billZip" name="billZip" value = "<#if updateCustModel.billZip??>${updateCustModel.billZip}</#if>" >
+					    </div>
+					    <label class="control-label col-md-3" for="billAddr">Billing Addr:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="billAddr" name="billAddr" value = "<#if updateCustModel.billAddr??>${updateCustModel.billAddr}</#if>" >
+					    </div>
+					  </div>
+					  <label class="col-md-12">Card 2:</label>
+					  <div class="form-group">
+					    <label class="control-label col-md-3" for="cardType1">Card Type:</label>
+					    <div class="col-md-3">
+					     <select  id="cardType1" name="cardType1" value ="<#if updateCustModel.cardType1??>${updateCustModel.cardType1}</#if>" class = "form-control"> 
+                            <option value="" />
+                            <option value="Debit">Debit</option>
+                            <option value="Credit">Credit</option>
+                        </select> 
+					    </div>
+					    <label class="control-label col-md-3" for="cardNumber1">Card Number:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="cardNumber1" name="cardNumber1" value = "<#if updateCustModel.cardNumber1??>${updateCustModel.cardNumber1}</#if>" >
+					    </div>
+					   </div>
+					  <div class="form-group">
+					   <label class="control-label col-md-3" for="cardName1">CardHolder Name:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="cardName1" name="cardName1" value = "<#if updateCustModel.cardName1??>${updateCustModel.cardName1}</#if>" >
+					    </div>
+					    <label class="control-label col-md-3" for="cardCode1">CVV:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="cardCode1" name="cardCode1" value = "<#if updateCustModel.cardCode1??>${updateCustModel.cardCode1}</#if>" >
+					    </div>
+					  </div>
+					  <div class="form-group">
+					   <label class="control-label col-md-3" for="billZip1">Billing Zip:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="billZip1" name="billZip1" value = "<#if updateCustModel.billZip1??>${updateCustModel.billZip1}</#if>" >
+					    </div>
+					    <label class="control-label col-md-3" for="billAddr1">Billing Addr:</label>
+					    <div class="col-md-3"> 
+					      <input type="text" class="form-control" id="billAddr1" name="billAddr1" value = "<#if updateCustModel.billAddr1??>${updateCustModel.billAddr1}</#if>" >
+					    </div>
+					  </div>
+					  <label class="col-md-12">OTHER ADDRESSES:</label>
+					  <div class="form-group"> 
+					  <label class="control-label col-md-3" for="addr2">Address 2:</label>
+					    <div class="col-md-6"> 
+					      <input type="text" class="form-control" id="addr2" name="addr2" value = "<#if updateCustModel.custCredit.addr2??>${updateCustModel.custCredit.addr2}</#if>" >
+					    </div>
+					  </div>
+					   <div class="form-group"> 
+					  <label class="control-label col-md-3" for="addr3">Address 3:</label>
+					    <div class="col-md-6"> 
+					      <input type="text" class="form-control" id="addr3" name="addr3" value = "<#if updateCustModel.custCredit.addr3??>${updateCustModel.custCredit.addr3}</#if>" >
+					    </div>
+					  </div>
+					   <div class="form-group"> 
+					  <label class="control-label col-md-3" for="addr4">Address 4:</label>
+					    <div class="col-md-6"> 
+					      <input type="text" class="form-control" id="addr4" name="addr4" value = "<#if updateCustModel.custCredit.addr4??>${updateCustModel.custCredit.addr4}</#if>" >
+					    </div>
+					  </div>
 					  <div class="form-group"> 
 					    <div class="col-md-offset-3 col-md-6">
 					      <button type="submit" class="btn btn-info">Update Profile</button>

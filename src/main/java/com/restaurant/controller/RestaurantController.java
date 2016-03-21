@@ -28,6 +28,11 @@ public class RestaurantController {
 		Restaurant rest = (Restaurant) restTemplate
 				.getForObject("http://localhost:8090/getRestaurantById/"+ selRestId, Restaurant.class);
 		
+		Object itemsList =  restTemplate
+				.getForObject("http://localhost:8090/getItemListForRestaurant/"+selRestId, List.class);
+		
+		System.out.println("MenuItems" +itemsList);
+		model.addAttribute("MenuItems",itemsList);
 		model.addAttribute("rest",rest);
 		return "Restaurant";
 	}
@@ -57,9 +62,6 @@ public class RestaurantController {
 		
 		return "Restaurant/Menu";
 	}
-	
-	
-	
 	
 	@ModelAttribute("menuItemModel")
 	public Item getNewItem() {

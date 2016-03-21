@@ -11,7 +11,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="javascript/searchPage.js"></script>
+<script type="text/javascript" src="javascript/restaurantPage.js"></script>
 
 </head>
 <body>
@@ -39,20 +39,34 @@
 			</div>
 		</div>
 	</div>
-	<div class="panel panel-primary">
+	<div class="panel panel-info">
 		<div class="panel-heading">Menu</div>
-		<div class="panel-body">
-			<p>Sample Menu TODO</p>
-			<p>Sample Menu TODO</p>
-			<p>Sample Menu TODO</p>
-			<p>Sample Menu TODO</p>
-			<p>Sample Menu TODO</p>
-			<p>Sample Menu TODO</p>
-			<p>Sample Menu TODO</p>
-			<p>Sample Menu TODO</p>
-			<p>Sample Menu TODO</p>
-			<p>Sample Menu TODO</p>
-
+		<div class="panel-info">
+			<table class="table table-striped table-hover table-responsive" id="restMenuTable">
+			<tbody>
+			<#list MenuItems as item>
+			<tr>
+				<#if item.itemName??>
+				<td id='${item.restId}-${item.itemNum}'>${item.itemName}<#else>
+								<td id='secName-${item.restId}-${item.itemNum}'></td></#if>
+			</tr>
+			</#list>
+			</tbody>
+			</table>
+			
+			<div id="selectYourChoice" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    			<div class="modal-header">
+      			  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      			  <h3 id="myModalLabel">Modal header</h3>
+    			</div>
+   	 <div class="modal-body">
+        <p>One fine body…</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+    </div>
+</div>
 		</div>
 	</div>
 	<ul class="pager">

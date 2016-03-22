@@ -16,13 +16,17 @@
 <script type="text/javascript" src="vendor/validator.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-	if ( ${updateCustModel.adChannel} != null ){
+	if ( '${updateCustModel.adChannel}' != null ){
 		$('#adChannel').val(${updateCustModel.adChannel});
 		}
-	if ( ${updateCustModel.cardType} != null ){
-		$('#cardType').val(${updateCustModel.cardType});
+	if ( '${updateCustModel.cardType}' != null ){
+		$('#cardType').val('${updateCustModel.cardType}');
+		}
+	if ( '${updateCustModel.cardType1}' != null ){
+		$('#cardType1').val('${updateCustModel.cardType1}');
 		}
 	});
+	
 </script>
 <body>
 	<#include "../NavBar.ftl">
@@ -111,6 +115,7 @@
 					    <label class="control-label col-md-3" for="adChannel">Add Channel:</label>
 					    <div class="col-md-6">
 					     <select  id="adChannel" name="adChannel" value ="<#if updateCustModel.adChannel??>${updateCustModel.adChannel}</#if>" class = "form-control"> 
+                           
                             <option value="" />
                             <option value="1">Social Media: Facebook, Twitter, WeChat etc. </option>
                             <option value="2">Sign on Car </option>
@@ -195,19 +200,19 @@
 					  <div class="form-group"> 
 					  <label class="control-label col-md-3" for="addr2">Address 2:</label>
 					    <div class="col-md-6"> 
-					      <input type="text" class="form-control" id="addr2" name="addr2" value = "<#if updateCustModel.custCredit.addr2??>${updateCustModel.custCredit.addr2}</#if>" >
+					      <input type="text" class="form-control" id="addr2" name="custCredit.addr2" value = "<#if updateCustModel.custCredit.addr2??>${updateCustModel.custCredit.addr2}</#if>" >
 					    </div>
 					  </div>
 					   <div class="form-group"> 
 					  <label class="control-label col-md-3" for="addr3">Address 3:</label>
 					    <div class="col-md-6"> 
-					      <input type="text" class="form-control" id="addr3" name="addr3" value = "<#if updateCustModel.custCredit.addr3??>${updateCustModel.custCredit.addr3}</#if>" >
+					      <input type="text" class="form-control" id="addr3" name="custCredit.addr3" value = "<#if updateCustModel.custCredit.addr3??>${updateCustModel.custCredit.addr3}</#if>" >
 					    </div>
 					  </div>
 					   <div class="form-group"> 
 					  <label class="control-label col-md-3" for="addr4">Address 4:</label>
 					    <div class="col-md-6"> 
-					      <input type="text" class="form-control" id="addr4" name="addr4" value = "<#if updateCustModel.custCredit.addr4??>${updateCustModel.custCredit.addr4}</#if>" >
+					      <input type="text" class="form-control" id="addr4" name="custCredit.addr4" value = "<#if updateCustModel.custCredit.addr4??>${updateCustModel.custCredit.addr4}</#if>" >
 					    </div>
 					  </div>
 					  <div class="form-group"> 

@@ -45,8 +45,9 @@ public class ProfileController extends SpringServletContainerInitializer {
 	}
 
 	@RequestMapping("/updateCustomerProfile")
-	public ModelAndView updateCust(@ModelAttribute("custModel") Customer cust) {
+	public ModelAndView updateCust(@ModelAttribute("updateCustModel") Customer cust) {
 
+		cust.getCustCredit().setCustID(cust.getCustID());
 		RestTemplate restTemplate = new RestTemplate();
 		String updateStatus = " Profile Update Successful";
 		try {
@@ -63,7 +64,7 @@ public class ProfileController extends SpringServletContainerInitializer {
 	}
 
 	@RequestMapping("/updateAssocProfile")
-	public ModelAndView updateAssoc(@ModelAttribute("assocModel") Associate assoc) {
+	public ModelAndView updateAssoc(@ModelAttribute("updateAssocModel") Associate assoc) {
 
 		RestTemplate restTemplate = new RestTemplate();
 		String updateStatus = " Profile Update Successful";
@@ -81,7 +82,7 @@ public class ProfileController extends SpringServletContainerInitializer {
 	}
 
 	@RequestMapping("/updateRestProfile")
-	public ModelAndView updateRestaurant(@ModelAttribute("restModel") Restaurant rest) {
+	public ModelAndView updateRestaurant(@ModelAttribute("updateRestModel") Restaurant rest) {
 
 		RestTemplate restTemplate = new RestTemplate();
 		String updateStatus = " Profile Update Successful";
@@ -99,7 +100,7 @@ public class ProfileController extends SpringServletContainerInitializer {
 	}
 
 	@RequestMapping("/updateAdminProfile")
-	public ModelAndView updateAdmin(@ModelAttribute("adminModel") Admin admin) {
+	public ModelAndView updateAdmin(@ModelAttribute("updateAdminModel") Admin admin) {
 
 		RestTemplate restTemplate = new RestTemplate();
 		String updateStatus = " Profile Update Successful";

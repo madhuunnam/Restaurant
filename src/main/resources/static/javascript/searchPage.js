@@ -3,7 +3,10 @@ function onSearch() {
 	document.getElementById("searchForm").submit();
 }
 function onclickAddToMyAddress(){
+	
 	alert("Clicked Add to My Address");
+	var addrToSave = $('#location').val();
+	alert(addrToSave);
 }
 
 function onclickMyFavorites(sessionUserId){
@@ -56,6 +59,13 @@ $(document).ready(function() {
 		alert("Madu");
 //	    document.getElementById("restTableForm").action = "/getRestaurantDetailsPage/";
 //		document.getElementById("restTableForm").submit();
+	
+	})
+	
+	$('#restMenuTable > tbody > tr').click(function() {
+		
+		alert("Menu ITem selected"); 
+	   
 	
 	})
 });

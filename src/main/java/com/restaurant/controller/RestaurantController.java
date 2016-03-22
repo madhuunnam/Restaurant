@@ -34,7 +34,7 @@ public class RestaurantController {
 		System.out.println("MenuItems" +itemsList);
 		model.addAttribute("MenuItems",itemsList);
 		model.addAttribute("rest",rest);
-		return "Restaurant";
+		return "RestaurantDetails";
 	}
 	
 	@RequestMapping("/MenuPage")

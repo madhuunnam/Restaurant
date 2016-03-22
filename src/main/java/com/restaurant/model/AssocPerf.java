@@ -2,12 +2,20 @@ package com.restaurant.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class AssocPerf {
 	
 	private String assocID = "";
-	private Date runStart = null;
+	
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
+	private Date runStart = new Date();
+	
 	private String assocTitle = "";
-	private Date titleDate = null;
+	
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
+	private Date titleDate = new Date();
+	
 	private String downIDs = "";
 	private int numCust;
 	private int numRes;

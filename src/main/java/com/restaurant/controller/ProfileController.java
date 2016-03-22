@@ -64,12 +64,13 @@ public class ProfileController extends SpringServletContainerInitializer {
 	}
 
 	@RequestMapping("/updateAssocProfile")
-	public ModelAndView updateAssoc(@ModelAttribute("updateAssocModel") Associate assoc) {
+	public ModelAndView updateAssoc(@ModelAttribute("updateAssocModel") Associate associate) {
 
+		associate.getAssocPerf().setAssocID(associate.getAssocID());
 		RestTemplate restTemplate = new RestTemplate();
 		String updateStatus = " Profile Update Successful";
 		try {
-			restTemplate.put("http://localhost:8090/updateAssociateProfile", assoc);
+			restTemplate.put("http://localhost:8090/updateAssociateProfile", associate);
 		} catch (RestClientException e) {
 			updateStatus = " Profile Update Failed";
 			e.printStackTrace();
@@ -83,7 +84,8 @@ public class ProfileController extends SpringServletContainerInitializer {
 
 	@RequestMapping("/updateRestProfile")
 	public ModelAndView updateRestaurant(@ModelAttribute("updateRestModel") Restaurant rest) {
-
+		
+		//rest.getRestAdmin().setRestID(rest.getRestID());
 		RestTemplate restTemplate = new RestTemplate();
 		String updateStatus = " Profile Update Successful";
 		try {

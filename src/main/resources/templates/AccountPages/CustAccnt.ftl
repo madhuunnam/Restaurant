@@ -46,7 +46,7 @@
 					</span>
 				</div>
 			</div>
-			<button type="submit" class="btn btn-default">Submit</button>
+			<button type="submit" class="btn btn-default" onclick = "onclickCustAccountPageSubmit(${sessionUserId});">Submit</button>
 		</form>
 		<br /> <br />
 		<div class="col-md-12">

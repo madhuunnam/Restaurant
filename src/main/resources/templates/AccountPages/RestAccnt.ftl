@@ -32,7 +32,7 @@
 			<div class="form-group">
 				<label for="from"> Or From:</label>
 				<div class='input-group date' id='datepicker1'>
-					<input type='text' class="form-control" /> <span
+					<input type='text' class="form-control" id="fromDate"/> <span
 						class="input-group-addon"> <span
 						class="glyphicon glyphicon-calendar"></span>
 					</span>
@@ -41,17 +41,17 @@
 			<div class="form-group">
 				<label for="from"> To</label>
 				<div class='input-group date' id='datepicker2'>
-					<input type='text' class="form-control" /> <span
+					<input type='text' class="form-control" id="toDate"/> <span
 						class="input-group-addon"> <span
 						class="glyphicon glyphicon-calendar"></span>
 					</span>
 				</div>
 			</div>
-			<button type="submit" class="btn btn-default">Submit</button>
+			<button type="submit" class="btn btn-default" onclick = "onclickRestAccountPageSubmit(${sessionUserId});">Submit</button>
 		</form>
 		<br /> <br />
 		<div class="container">
-			<form role="form" id="accntDetailsForm" action="/">
+			<form role="form" id="accntDetailsForm" >
 				<table class="table table-responsive" id="accntDetailsTable">
 					<thead>
 						<tr>

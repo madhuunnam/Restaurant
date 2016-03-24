@@ -5,13 +5,17 @@
 <title>Customer Account</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
- 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+  <script>
+  $(function() {
+     $('#fromDate').datepicker({ dateFormat: 'yy-mm-dd' });
+     $('#toDate').datepicker({ dateFormat: 'yy-mm-dd' });
+  });
+  </script>
 
 <script type="text/javascript" src="javascript/AccountPage.js"></script>
 
@@ -23,6 +27,7 @@
 		<h4>Customer Email: ${sessionUserName}</h4>
 		<br />
 		<form class="form-inline" role="form">
+			
 			<div class="form-group">
 				<label for="mostRecent">Most Recent:</label> <select id="recent"
 					class="form-control">
@@ -34,24 +39,26 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<label for="from"> Or From:</label>
-				<input type = "text" id = "date">
-			</div>
-			<div class="form-group">
-				<label for="from"> To</label>
-				<div class='input-group date' id=''>
-					<input type='text' class="form-control" /> <span
-						class="input-group-addon"> <span
-						class="glyphicon glyphicon-calendar"></span>
+				<label for="from"> OR From</label>
+				<div class='input-group date' >
+					<input type='text' class="form-control"  id='fromDate'/> 
 					</span>
 				</div>
 			</div>
-			<button type="submit" class="btn btn-default" onclick = "onclickCustAccountPageSubmit(${sessionUserId});">Submit</button>
+			<div class="form-group">
+				<label for="To"> To</label>
+				<div class='input-group date' >
+					<input type='text' class="form-control" id='toDate' /> 
+				</div>
+			</div>
+			
+			
+			<button type="button" class="btn btn-default" onclick = "onclickCustAccountPageSubmit(${sessionUserId});">Submit</button>
 		</form>
 		<br /> <br />
 		<div class="col-md-12">
-			<form role="form" id="accntDetailsForm" action="/">
-				<table class="table table-responsive" id="accntDetailsTable">
+			<form role="form" id="accntDetailsForm" >
+				<table class="table table-responsive" id="customerAccntDetailsTable">
 					<thead>
 						<tr>
 							<th>Line#</th>

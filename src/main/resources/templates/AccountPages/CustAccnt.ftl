@@ -57,7 +57,7 @@
 		</form>
 		<br /> <br />
 		<div class="col-md-12">
-			<form role="form" id="accntDetailsForm" >
+			<form role="form" id="customerAccntDetailsForm" >
 				<table class="table table-responsive" id="customerAccntDetailsTable">
 					<thead>
 						<tr>

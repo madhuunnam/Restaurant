@@ -5,12 +5,18 @@
 <title>Admin Account</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+  <script>
+  $(function() {
+     $('#fromDate').datepicker({ dateFormat: 'yy-mm-dd' });
+     $('#toDate').datepicker({ dateFormat: 'yy-mm-dd' });
+  });
+  </script>
+
 <script type="text/javascript" src="javascript/AccountPage.js"></script>
 </head>
 <body>
@@ -30,39 +36,39 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<label for="from"> Or From:</label>
-				<div class='input-group date' id='datepicker1'>
-					<input type='text' class="form-control" /> <span
-						class="input-group-addon"> <span
-						class="glyphicon glyphicon-calendar"></span>
+				<label for="from"> OR From</label>
+				<div class='input-group date' >
+					<input type='text' class="form-control"  id='fromDate'/> 
 					</span>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="from"> To</label>
-				<div class='input-group date' id='datepicker2'>
-					<input type='text' class="form-control" /> <span
-						class="input-group-addon"> <span
-						class="glyphicon glyphicon-calendar"></span>
-					</span>
+				<label for="To"> To</label>
+				<div class='input-group date' >
+					<input type='text' class="form-control" id='toDate' /> 
 				</div>
 			</div>
-			<button type="submit" class="btn btn-default">Submit</button>
+			<button type="button" class="btn btn-default" onclick = "onclickAdminAccountPageSubmit();">Submit</button>
 		</form>
 		<br /> <br />
 		<div class="col-md-12">
-			<form role="form" id="accntDetailsForm" action="/">
-				<table class="table table-responsive" id="accntDetailsTable">
+			<form role="form" id="adminAccntDetailsForm" action="/">
+				<table class="table table-responsive" id="adminAccntDetailsTable">
 					<thead>
 						<tr>
 							<th>Line#</th>
+							<th>LineId</th>
 							<th>Date</th>
-							<th>ResName</th>
+							<th>CustID</td>
 							<th>ResID</th>
+							<th>AssocID</th>
 							<th>Order#</th>
-							<th>Charge Amt</th>
-							<th>Pay Amt</th>
-							<th>Pay Method</th>
+							<th>Income</th>
+							<th>In Method</th>
+							<th>In Note</th>
+							<th>Expense</th>
+							<th>ExpenseMethod</th>
+							<th>ExpenseNote</th>
 							<th>Note</th>
 							<th>Balance</th>
 						</tr>

@@ -53,7 +53,7 @@
 			</div>
 			
 			
-			<button type="button" class="btn btn-default" onclick = "onclickCustAccountPageSubmit(${sessionUserId});">Submit</button>
+			<button type="button" class="btn btn-info" onclick = "onclickCustAccountPageSubmit(${sessionUserId});">Go</button>
 		</form>
 		<br /> <br />
 		<div class="col-md-12">

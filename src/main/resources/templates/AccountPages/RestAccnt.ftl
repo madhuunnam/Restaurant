@@ -49,7 +49,7 @@
 					<input type='text' class="form-control" id='toDate' /> 
 				</div>
 			</div>
-			<button type="button" class="btn btn-default" onclick = "onclickRestAccountPageSubmit(${sessionUserId});">Submit</button>
+			<button type="button" class="btn btn-info" onclick = "onclickRestAccountPageSubmit(${sessionUserId});">Go</button>
 		</form>
 		<br /> <br />
 		<div class="col-md-12">

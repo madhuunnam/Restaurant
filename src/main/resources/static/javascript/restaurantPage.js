@@ -9,3 +9,10 @@ $(document).ready(function() {
 	})
 	
 });
+
+function onclickReserveTable(){
+	var reservePeople = $('#peopleCount').val();
+	var reserveTime = $('#time').val();
+	var nonSmoke = $('#nonsmoke').val();
+	alert(reservePeople+reserveTime+nonSmoke);
+}

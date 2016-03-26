@@ -5,10 +5,21 @@
 <title>Restaurant</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+  <script>
+  $(function() {
+  	 $('#datepicker').datetimepicker();
+     $('#fromDate').datepicker({ dateFormat: 'yy-mm-dd' });
+     $('#toDate').datepicker({ dateFormat: 'yy-mm-dd' });
+  });
+  </script>
+
 <script type="text/javascript" src="/javascript/restaurantPage.js"></script>
+
 </head>
 <body>
 	<#include "NavBar.ftl">
@@ -47,15 +58,59 @@
 					<strong>Open Hours:</strong>
 				</div>
 			</div>
+			<br />
+			<div class="row">
+			<#if Session["SPRING_SECURITY_CONTEXT"]?exists>
+				<div class="col-md-3">
+		     		<#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'customer'>
+						<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#reserveTableModal">Reserve Table</button>
+
+						  <div class="modal fade" id="reserveTableModal" role="dialog">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal">&times;</button>
+						          	<h4 class="modal-title">Please fill the below details:</h4>
+						        </div>
+						        <div class="modal-body">
+						          <form role="form" id = "reserveTableForm">
+									   <div class="form-group">
+									      <label for="peopleCount">Number Of People:</label>
+									      <input type="text" class="form-control" id="peopleCount" placeholder="Enter a number between 1 to 50">
+									   </div>
+									   <div class="form-group">
+									      <label for="time">Reservation Time:</label>
+									      <input type="text" class="form-control" id="time" placeholder="HH:MM">
+									   </div>
+									   <div class="form-group">
+									      <label for="nonsmoke">Non-Smoke:</label> <select id="nonsmoke"
+											class="form-control">
+											<option value="Yes">Yes</option>
+											<option value="No">No</option>
+										</select>
+									   </div>
+ 								 	</form>
+						        </div>
+						        <div class="modal-footer">
+						       	 <button type="button" class="btn btn-default" onclick="onclickReserveTable();">Continue</button>
+						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        </div>
+						      </div>
+						    </div>
+						  </div>
+					</#if>
+				</div>
+			</#if>
+			</div>
 		</div>
 	</div>
 		<div class="panel panel-info">
-			<div class="panel-heading">Menu</div>
+			<div class="panel-heading"><strong>Menu</strong></div>
 			<div class="panel-info">
 				<table class="table table-striped table-hover table-responsive" id="restMenuTable">
 					<tbody>
 						<#list MenuItems as item>
-						<tr>
+						<tr>${item.secName}
 							<#if item.itemName??>
 							<td id='${item.restId}-${item.itemNum}'>${item.itemName}<#else>
 							<td id='secName-${item.restId}-${item.itemNum}'></td></#if>

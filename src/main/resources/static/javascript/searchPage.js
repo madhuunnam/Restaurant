@@ -61,13 +61,7 @@ $(document).ready(function() {
 //		document.getElementById("restTableForm").submit();
 	
 	})
-	
-	$('#restMenuTable > tbody > tr').click(function() {
-		
-		alert("Menu ITem selected"); 
-	   
-	
-	})
+
 });
 
 

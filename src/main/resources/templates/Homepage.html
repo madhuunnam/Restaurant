@@ -1,38 +1,72 @@
-
-<div id="addChoicesModal" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-
-		<!-- Modal content-->
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-
-					<h4 class="modal-title">Add Choices Wizard</h4>
-				</div>
-				<div class="modal-body" id='addChoicesModalBody'>
-					<label id='addChoicesLabel'><h4>Enter the Number Of Choices You Wish to Add:</h4></label> <input type="text" name='noOfChoicesToAdd' id='noOfChoicesToAdd' /> <input type="button"
-						class='btn btn-info' id='addGivenNoOfChoices' value='Generate Add Choices Form' onClick=generateAddChoiceForm(); />
-
-					<div class="table-responsive">
-						<table class="table table-striped table-hover table-responsive" id="addGeneratedChoicesTable">
-							<thead>
-								<tr>
-									<th>Item Name</th>
-									<th>Choice Title</th>
-									<th>Choice Type</th>
-									<th>Is Required</th>
-								</tr>
-							</thead>
-							<tbody>
-							</tbody>
-						</table>
-					</div>
-					<input type="button" class='btn btn-info' id='saveAddedChoices' value='Save Added Choices' onClick='saveAddedChoices(${sessionUserId});' disabled=true />
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<#import "spring.ftl" as spring />
+<html lang="en">
+<head>
+<title>Restaurant</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/javascript/restaurantPage.js"></script>
+</head>
+<body>
+	<#include "NavBar.ftl">
+	<div class="jumbotron">
+		<div class="container text-left">
+			<h2>
+				<strong><#if rest.restName ??>${rest.restName}</#if></strong>
+			</h2>
+			<div class="table-responsive">
+				<table class="table table-responsive">
+					<tr>
+						<td>Timings</td>
+						<td>Reviews:<#if rest.restAdmin.numRev
+							??>${rest.restAdmin.numRev}</#if></td>
+						<td>Yelp Reviews:<#if rest.restAdmin.numYelp
+							??>${rest.restAdmin.numYelp}</#if></td>
+						<td>Comments</td>
+						<td>DineIn:<#if rest.dineIn ??>${rest.dineIn}</#if></td>
+						<td>Delivery:<#if rest.delivery ??>${rest.delivery}</#if></td>
+						<td>PickUp:<#if rest.pickup ??>${rest.pickup}</#if></td>
+						<td>Open Hours:</td>
+					</tr>
+				</table>
 			</div>
 		</div>
 	</div>
-</div>
+	<div class="panel panel-info">
+		<div class="panel-heading">Menu</div>
+		<div class="panel-info">
+			<table class="table table-striped table-hover table-responsive" id="restaurantMenuTable">
+			<tbody>
+			<#list MenuItems as item>
+			<tr id='menuItemRow-${item.itemNum}' >
+				<input type='hidden'  value='menuItem-${item.restId}-${item.itemNum}'>
+				<#if item.itemName??>
+					<td id='RestDetailsPage-${item.restId}-${item.itemNum}'>${item.itemName}</td>
+				<#else>
+					<td id='RestDetailsPage-${item.restId}-${item.itemNum}'></td>
+				</#if>
+			</tr>
+			</#list>
+			</tbody>
+			</table>
+		</div>
+		<#include "Restaurant/AddToCartModalWizard.ftl" >
+		</div>	
+			
+		<ul class="pager">
+			<li class="previous"><a
+				href="<@spring.url '/getRestaurantListPage'/>">Back</a></li>
+		</ul>
+		
+	</div>
+</body>
+</html>
+
+
+
+
+
+

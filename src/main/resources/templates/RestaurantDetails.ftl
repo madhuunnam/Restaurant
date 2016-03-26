@@ -5,19 +5,9 @@
 <title>Restaurant</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  
-  <script>
-  $(function() {
-  	 $('#datepicker').datetimepicker();
-     $('#fromDate').datepicker({ dateFormat: 'yy-mm-dd' });
-     $('#toDate').datepicker({ dateFormat: 'yy-mm-dd' });
-  });
-  </script>
-
 <script type="text/javascript" src="/javascript/restaurantPage.js"></script>
 
 </head>
@@ -104,40 +94,33 @@
 			</div>
 		</div>
 	</div>
-		<div class="panel panel-info">
-			<div class="panel-heading"><strong>Menu</strong></div>
-			<div class="panel-info">
-				<table class="table table-striped table-hover table-responsive" id="restMenuTable">
-					<tbody>
-						<#list MenuItems as item>
-						<tr>${item.secName}
-							<#if item.itemName??>
-							<td id='${item.restId}-${item.itemNum}'>${item.itemName}<#else>
-							<td id='secName-${item.restId}-${item.itemNum}'></td></#if>
-						</tr>
-						</#list>
-					</tbody>
-				</table>
-	
-				<div id="selectYourChoice" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						<h3 id="myModalLabel">Modal header</h3>
-					</div>
-					<div class="modal-body">
-						<p>One fine body…</p>
-					</div>
-					<div class="modal-footer">
-						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-						<button class="btn btn-primary">Save changes</button>
-					</div>
-				</div>
-			</div>
+	<div class="panel panel-info">
+		<div class="panel-heading">Menu</div>
+		<div class="panel-info">
+			<table class="table table-striped table-hover table-responsive" id="restaurantMenuTable">
+			<tbody>
+			<#list MenuItems as item>
+			<tr id='menuItemRow-${item.itemNum}' >
+				<input type='hidden'  value='menuItem-${item.restId}-${item.itemNum}'>
+				<#if item.itemName??>
+					<td id='RestDetailsPage-${item.restId}-${item.itemNum}'>${item.itemName}</td>
+				<#else>
+					<td id='RestDetailsPage-${item.restId}-${item.itemNum}'></td>
+				</#if>
+			</tr>
+			</#list>
+			</tbody>
+			</table>
 		</div>
-
-	<ul class="pager">
-		<li class="previous"><a href="<@spring.url '/getRestaurantListPage'/>">Back</a></li>
-	</ul>
+		<#include "Restaurant/AddToCartModalWizard.ftl" >
+		</div>	
+			
+		<ul class="pager">
+			<li class="previous"><a
+				href="<@spring.url '/getRestaurantListPage'/>">Back</a></li>
+		</ul>
+		
+	</div>	
 </body>
 </html>
 

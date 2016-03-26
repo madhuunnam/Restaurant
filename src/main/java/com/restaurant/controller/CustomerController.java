@@ -9,7 +9,13 @@ public class CustomerController {
 
 	@RequestMapping("/Review")
 	public String getCustomerAccountPage(Model model) {
-		
+
 		return "CustomerPages/Review";
+	}
+
+	@RequestMapping("/CustomerActiveOrder")
+	public String getCustomerOrderPage(Model model) {
+
+		return "CustomerPages/CustActiveOrder";
 	}
 }

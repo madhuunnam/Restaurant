@@ -19,6 +19,7 @@ public class ShoppingCartController {
 	@Autowired
 	Order order;
 	
+	
 	@RequestMapping("/addItemToCart")
 	public String addItemToCart(@RequestParam("addToCartQuantity") String quantity,
 			@RequestParam("specialInstructions") String specialInstructions,
@@ -43,6 +44,17 @@ public class ShoppingCartController {
 		Object itemsList =  restTemplate
 				.getForObject("http://localhost:8090/getItemListForRestaurant/"+restaurantId, List.class);
 		
+		
+		if(order.getRestId() == null || order.getRestId().isEmpty()){
+			order.setRestId(restaurantId);
+			order.setResName(rest.getRestName());
+			
+			if(rest.getDeliFee()!=null){
+				order.setDeliFee(Float.parseFloat(rest.getDeliFee()));
+			}
+			
+		}
+		
 		model.addAttribute("MenuItems",itemsList);
 		model.addAttribute("rest",rest);
 		return "RestaurantDetails";
@@ -50,7 +62,27 @@ public class ShoppingCartController {
 	
 	@RequestMapping("/showCart")
 	public String showCart(Model model){
+		
+		System.out.println(order);
 		return "ShoppingCart/CartSummary";
+	}
+	
+	@RequestMapping("/pickUpOrder")
+	public String pickUpOrder(Model model){
+		Restaurant restaurant = new Restaurant();
+		
+		for(LineItems item : order.getLineItems()){
+			
+			System.out.println(item);
+		}
+		
+		if(order.getRestId() != null){
+			RestTemplate restTemplate = new RestTemplate();
+			restaurant = (Restaurant) restTemplate
+					.getForObject("http://localhost:8090/getRestaurantById/"+ order.getRestId(), Restaurant.class);
+		}
+		model.addAttribute("rest", restaurant);
+		return "ShoppingCart/ReviewOrder";
 	}
 
 }

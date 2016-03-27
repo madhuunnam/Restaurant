@@ -13,6 +13,7 @@
 </head>
 <body>
 	<#include "NavBar.ftl">
+	
 
 	<div class="container text-left">
 		<div class="jumbotron">

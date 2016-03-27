@@ -19,6 +19,7 @@ $(document).ready(function() {
 	    		$('#showChoiceOptionsTab tbody').find("tr").remove();
 	    		$('#showChoiceOptionsTab tbody').append("<tr><th>Price</th></tr>");
 	    		$('#showChoiceOptionsTab tbody').append("<tr><th> $"+data.basePrice+ "</th></tr>");
+	    		$('#showChoiceOptionsTab tbody').append("<input name='chValue' type='hidden' value= "+data.basePrice+" />");
 			}else{
 				$('#showChoiceOptionsTab tbody').find("tr").remove();
 				var choiceTabStr="";
@@ -30,7 +31,12 @@ $(document).ready(function() {
 							choiceTabStr= choiceTabStr+"<tr>";
 
 							choiceTabStr= choiceTabStr+"<td>";
-							choiceTabStr= choiceTabStr+"<input type='radio' name=chValue value="+e.valuePrice +"/> ";
+							if(index ==0){
+								choiceTabStr= choiceTabStr+"<input type='radio' name=chValue value="+e.valuePrice +" checked='checked' /> ";
+							}else{
+								choiceTabStr= choiceTabStr+"<input type='radio' name=chValue value="+e.valuePrice +" /> ";
+							}
+							
 							choiceTabStr= choiceTabStr+"</td>";
 							
 							choiceTabStr= choiceTabStr+"<td>";

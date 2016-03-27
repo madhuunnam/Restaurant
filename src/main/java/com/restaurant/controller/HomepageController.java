@@ -43,5 +43,9 @@ public class HomepageController extends SpringServletContainerInitializer {
 		return "redirect:/Homepage";
 	}
 	
+	@RequestMapping(value = "/Homepage", method = RequestMethod.GET)
+	public String homePage() {
+		return "Home";
+	}
 	
 }

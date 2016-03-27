@@ -112,7 +112,12 @@
       
       	<#if Session["SPRING_SECURITY_CONTEXT"]?exists>
      	  <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'customer'>
-    	 <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Cart </a></li>
+    	 <li>
+    	 	<a href="<@spring.url '/showCart'/>">
+    	 		<span class="glyphicon glyphicon-shopping-cart"></span>Cart(<#if order?exists>${order.lineItems?size}<#else> 0 </#if>) 
+    	 	</a>
+    	 	
+    	 </li>
     	  </#if>
  		</#if>
         <#if Session["SPRING_SECURITY_CONTEXT"]?exists>

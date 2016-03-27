@@ -10,7 +10,7 @@ public class LineItems {
 	private String itemName="";
 	private String choiceText="";
 	private Integer quantity;
-	private Float price;
+	private Float price=0.0f;
 	private String note="";
 
 	public String getRestId() {

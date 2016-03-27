@@ -2,7 +2,6 @@ package com.restaurant.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,15 +13,11 @@ import org.springframework.web.client.RestTemplate;
 import com.restaurant.model.Choice;
 import com.restaurant.model.ChoiceValues;
 import com.restaurant.model.Item;
-import com.restaurant.model.Order;
 import com.restaurant.model.Restaurant;
 import com.restaurant.model.User;
 
 @Controller
 public class RestaurantController {
-	
-	@Autowired
-	private Order order;
 
 	@RequestMapping("/getRestaurantDetailsPage")
 	public String restaurantPage(Model model, @RequestParam("selectedRest") String selRestId) {
@@ -39,7 +34,6 @@ public class RestaurantController {
 		System.out.println("MenuItems" +itemsList);
 		model.addAttribute("MenuItems",itemsList);
 		model.addAttribute("rest",rest);
-		model.addAttribute("order",order);
 		return "RestaurantDetails";
 	}
 	

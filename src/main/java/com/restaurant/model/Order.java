@@ -4,38 +4,45 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.WebApplicationContext;
+
+@Component
+@Scope(proxyMode=ScopedProxyMode.TARGET_CLASS,value=WebApplicationContext.SCOPE_SESSION)
 public class Order {
 	
-	private String orderNo;
-	private String restId;
+	private String orderNo="12345";
+	private String restId="";
 	
-	private String custId;
-	private String custName;
-	private String resName;
-	private String orderType;
-	private Date orderTime;
-	private Integer numberOfLines;
-	private String itemName;
-	private Float subTot;
-	private Float discountPercentage;
-	private Float taxRatePercent;
-	private Float taxAmount;
-	private Float tip;
-	private Float deliFee;
-	private Float totPrice;
-	private String receiverName;
-	private String deliAddr;
-	private String status;
-	private String msgToCust;
-	private String msgToRes;
-	private Boolean nonSmoke;
-	private String resTable;
+	private String custId="";
+	private String custName="";
+	private String resName="";
+	private String orderType="";
+	private Date orderTime=new Date();
+	private Integer numberOfLines=0;
+	private String itemName="";
+	private Float subTot=0.0f;
+	private Float discountPercentage=0.0f;
+	private Float taxRatePercent=0.0f;
+	private Float taxAmount=0.0f;
+	private Float tip=0.0f;
+	private Float deliFee=0.0f;
+	private Float totPrice=0.0f;
+	private String receiverName="";
+	private String deliAddr="";
+	private String status="";
+	private String msgToCust="";
+	private String msgToRes="";
+	private Boolean nonSmoke=false;
+	private String resTable="";
 	private Byte resPeople;
-	private Date resTime;
-	private Date pickTime;
-	private Date arriveTime;
-	private String agentName;
-	private String notes;
+	private Date resTime=new Date();
+	private Date pickTime=new Date();
+	private Date arriveTime=new Date();
+	private String agentName="";
+	private String notes="";
 	
 	List<LineItems> lineItems = new ArrayList<LineItems>();
 	

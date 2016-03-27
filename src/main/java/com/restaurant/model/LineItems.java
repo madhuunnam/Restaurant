@@ -2,16 +2,16 @@ package com.restaurant.model;
 
 public class LineItems {
 
-	private String restId;
+	private String restId="";
 	private int orderNo;
 	private int lineNum;
 
 	private Integer itemNum;
-	private String itemName;
-	private String choiceText;
+	private String itemName="";
+	private String choiceText="";
 	private Integer quantity;
 	private Float price;
-	private String note;
+	private String note="";
 
 	public String getRestId() {
 		return restId;

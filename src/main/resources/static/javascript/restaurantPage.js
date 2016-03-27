@@ -17,8 +17,8 @@ $(document).ready(function() {
 	    	var choiceObjs = data.choices;
 	    	if((choiceObjs.length)==0){
 	    		$('#showChoiceOptionsTab tbody').find("tr").remove();
-	    		$('#showChoiceOptionsTab tbody').append("<tr><th>Base Price</th></tr>");
-	    		$('#showChoiceOptionsTab tbody').append("<tr><th>"+data.basePrice+ "</th></tr>");
+	    		$('#showChoiceOptionsTab tbody').append("<tr><th>Price</th></tr>");
+	    		$('#showChoiceOptionsTab tbody').append("<tr><th> $"+data.basePrice+ "</th></tr>");
 			}else{
 				$('#showChoiceOptionsTab tbody').find("tr").remove();
 				var choiceTabStr="";
@@ -57,6 +57,12 @@ $(document).ready(function() {
 	$('#addToCartModal').on('hidden.bs.modal', function () {
 		 location.reload();
 	})
+	
+	$('#addtoCardButton').click(function () {
+		$('#addItemToCartForm').submit();
+	})
+	
+	
 	
 	function onclickReserveTable(){
 		var reservePeople = $('#peopleCount').val();

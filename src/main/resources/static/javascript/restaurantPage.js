@@ -14,14 +14,18 @@ $(document).ready(function() {
 	        dataType: "json",
 	        crossDomain: true
 	    }).then(function(data) {
+//	    	alert(JSON.stringify(data));
 	    	var choiceObjs = data.choices;
 	    	if((choiceObjs.length)==0){
 	    		$('#showChoiceOptionsTab tbody').find("tr").remove();
+	    		$('#showChoiceOptionsTab tbody').find("input").remove();
 	    		$('#showChoiceOptionsTab tbody').append("<tr><th>Price</th></tr>");
 	    		$('#showChoiceOptionsTab tbody').append("<tr><th> $"+data.basePrice+ "</th></tr>");
 	    		$('#showChoiceOptionsTab tbody').append("<input name='chValue' type='hidden' value= "+data.basePrice+" />");
 			}else{
 				$('#showChoiceOptionsTab tbody').find("tr").remove();
+				$('#showChoiceOptionsTab tbody').find("input").remove();
+				
 				var choiceTabStr="";
 				$.each(choiceObjs , function(index , element){
 					if(element.chValues.length !=0){
@@ -55,6 +59,7 @@ $(document).ready(function() {
 				});
 				$('#showChoiceOptionsTab tbody').append(choiceTabStr);
 			}
+	    	$('#showChoiceOptionsTab tbody').append("<input name='itemName' type='hidden' value= "+data.itemName+" />");
 	    });
 		$('#addToCartModal').modal();
 		

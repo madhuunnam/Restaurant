@@ -24,10 +24,12 @@ public class ShoppingCartController {
 			@RequestParam("specialInstructions") String specialInstructions,
 			@RequestParam("restaurantId") String restaurantId,
 			@RequestParam("chValue") String chValue,
+			@RequestParam("itemName") String itemName,
 			Model model) {
 		
 		LineItems lineItem = new LineItems();
-		
+		System.out.println("Item Name is " + itemName);
+		lineItem.setItemName(itemName);
 		lineItem.setQuantity(Integer.parseInt(quantity));
 		lineItem.setNote(specialInstructions);
 		lineItem.setPrice(Float.parseFloat(chValue));

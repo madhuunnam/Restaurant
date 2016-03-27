@@ -36,6 +36,7 @@ function updateChoiceValues(){
 		    cache: false,
 		    data: JSON.stringify(JSONObject),
 		    contentType: "application/json",
+		    async: false,
 		    crossDomain: true,
 		}).then(function(result,status,jqXHR ){
 //		      alert(result);
@@ -78,6 +79,7 @@ function udpateChoices(){
 		    cache: false,
 		    data: JSON.stringify(JSONObject),
 		    contentType: "application/json",
+		    async: false,
 		    crossDomain: true,
 		}).then(function(result,status,jqXHR ){
 //		      alert(result);
@@ -121,13 +123,14 @@ function updateAllMenuItems(){
 				"basePrice":basePrice
 			};
 		
-		//alert(JSON.stringify(JSONObject));
+//		alert(JSON.stringify(JSONObject));
 		$.ajax({
 		    url: "http://localhost:8090/updateItem",
 		    method: "PUT",
 		    cache: false,
 		    data: JSON.stringify(JSONObject),
 		    contentType: "application/json",
+		    async: false,
 		    crossDomain: true,
 		}).then(function(result,status,jqXHR ){
 //		      alert(result);
@@ -148,6 +151,7 @@ function updateSection(sessionUserId){
 		    url: "http://localhost:8090/addSection",
 		    method: "POST",
 		    cache: false,
+		    async: false,
 		    data: JSON.stringify(JSONObject),
 		    contentType: "application/json",
 		    crossDomain: true,

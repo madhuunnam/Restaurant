@@ -12,12 +12,20 @@
 		<div class="panel-info">
 			<table class="table table-striped table-hover table-responsive" id="summaryCartTable">
 			<thead>
-				<th>Line Item Quantity</th>
+				<th>Line Item </th>
+				<th>Quantity</th>
 				<th>Price</th>
 			</thead>
 			<tbody>
 			<#list order.lineItems as lineItem>
 			<tr>
+			
+				<#if lineItem.itemName??>
+					<td>${lineItem.itemName}</td>
+				<#else>
+					<td></td>
+				</#if>
+				
 				<#if lineItem.quantity??>
 					<td>${lineItem.quantity}</td>
 				<#else>

@@ -40,9 +40,9 @@
 						</table>
 					</div> <!--panel-info -->
 					<div class="row">
-						<div class="col-md-offset-4">
-						<button type="submit" class="btn btn-info  btn-lg col-md-2" id='orderPickUpButton' >Pick Up</button>
-						<button type="button" class="btn btn-info btn-lg col-md-2 col-md-offset-1  btn-md">Delivery</button>
+						<div class="col-md-offset-1">
+						<button type="submit" class="btn btn-info  btn-lg col-md-5" id='orderPickUpButton' >Review Your Order For Pick Up</button>
+						<button type="button" class="btn btn-info btn-lg col-md-5 col-md-offset-1  btn-md">Review Your Order For Delivery</button>
 						</div>
 					</div> <!--row -->
 				</div><!--panel panel-info -->

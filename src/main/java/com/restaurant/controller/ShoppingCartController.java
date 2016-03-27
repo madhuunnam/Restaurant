@@ -3,15 +3,18 @@ package com.restaurant.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
+import com.restaurant.model.Customer;
 import com.restaurant.model.LineItems;
 import com.restaurant.model.Order;
 import com.restaurant.model.Restaurant;
+import com.restaurant.model.User;
 
 @Controller
 public class ShoppingCartController {
@@ -83,6 +86,24 @@ public class ShoppingCartController {
 		}
 		model.addAttribute("rest", restaurant);
 		return "ShoppingCart/ReviewOrder";
+	}
+	
+	@RequestMapping("/checkOut")
+	public String checkout(Model model,Authentication authentication){
+		
+		String custId= "";
+		if(authentication!=null){
+			User user = (User) authentication.getPrincipal();
+			custId = user.getUserId();
+		}
+		
+		RestTemplate restTemplate = new RestTemplate();
+		Customer customer = (Customer) restTemplate
+				.getForObject("http://localhost:8090/getCustomerById/"+ custId, Customer.class);
+		
+		System.out.println("Customer object is "+ customer);
+		model.addAttribute("customer",customer);
+		return "ShoppingCart/Checkout";
 	}
 
 }

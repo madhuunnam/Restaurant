@@ -54,7 +54,7 @@
 					<div class="panel-heading">You Dont Have Any Items In Your Cart. </div>
 				</div>
 			</#if>
-			<button type="button" class="btn btn-info btn-lg col-md-2 col-md-offset-3">CheckOut</button>
+			<button type="submit" class="btn btn-info btn-lg col-md-2 col-md-offset-3">CheckOut</button>
 			<button type="button" class="btn btn-info btn-lg col-md-2 col-md-offset-1">Cancel Order</button>
 		</form>
 	</div><!--container -->

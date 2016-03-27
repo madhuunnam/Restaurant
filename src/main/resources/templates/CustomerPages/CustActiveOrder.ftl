@@ -15,8 +15,16 @@
 </head>
 <body>
 	<#include "../NavBar.ftl">	
- <div class="container-fluid">
- 
+ <div class="container">
+	 <table class = "responsive">
+		 <#list custActiveOrders as orderList>
+			 <tbody>
+			 <tr>
+			 <#if orderList.orderNo ??>${orderList.orderNo}</#if>
+			</tr>
+			</tbody>
+		</#list>
+	</table>
  </div>
 </body>
 </html>

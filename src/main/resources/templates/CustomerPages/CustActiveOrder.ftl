@@ -58,7 +58,7 @@ footer {
 	<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="col-sm-2 sidenav">
-				<h4>Click any Order to view Details</h4>
+				<h4>Your Orders</h4>
 				<table class="responsive">
 					<#list custActiveOrders as activeOrder>
 					<tbody>
@@ -97,11 +97,12 @@ footer {
 						</div>
 						<div class="row">
 							<label class="col-md-2">Your Order: </label> <label class="col-md-4" id="yourOrder"></label> 
-							<label class="col-md-2">Order Instructions: </label> <label class="col-md-4" id="orderInstruc"></label>
-						</div>
-						<div class="row">
 							<label class="col-md-2">Order Status: </label> <label class="col-md-4" id="orderStatus"></label>
 						</div>
+						<div class="row">
+							<label class="col-md-2">Order Instructions: </label> <label class="col-md-4" id="orderInstruc"></label>
+						</div>
+						<br />
 						<div class="row">
 							<label class="col-md-3">Message to Restaurant: </label>
 							<textarea class="col-md-6" cols="40" id="msgToRest" name="textarea" rows="2"></textarea>

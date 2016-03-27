@@ -13,15 +13,19 @@
 	<#include "../NavBar.ftl">
 	<div class="container">
 		<div class='jumbotron'>
-			Restaurant Details
+			<div class="row">
+				<#if rest.restName??>
+					<h1><span class="label label-default">${rest.restName}</span></h1>
+				</#if>
+			</div>
 		</div>
 		
 		<form id='reviewOrderForm' action='/checkOut'>
 			<#if (order.lineItems?size > 0) >
 				<div class="panel panel-info">
-					<div class="panel-heading">Reivew Order</div>
+					<div class="panel-heading"><h4>Reivew Order</h4></div>
 					<div class="panel-info">
-						<table class="table table-striped table-hover table-responsive" id="orderReviewTable">
+						<table class="table table-striped table-hover table-responsive" id="reviewOrderTable">
 							<thead>
 								<th>Selected Item</th>
 								<th>Quantity</th>

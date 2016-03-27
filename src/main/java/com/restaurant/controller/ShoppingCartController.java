@@ -45,7 +45,7 @@ public class ShoppingCartController {
 				.getForObject("http://localhost:8090/getItemListForRestaurant/"+restaurantId, List.class);
 		
 		
-		if(order.getRestId() == null){
+		if(order.getRestId() == null || order.getRestId().isEmpty()){
 			order.setRestId(restaurantId);
 			order.setResName(rest.getRestName());
 			
@@ -70,6 +70,12 @@ public class ShoppingCartController {
 	@RequestMapping("/pickUpOrder")
 	public String pickUpOrder(Model model){
 		Restaurant restaurant = new Restaurant();
+		
+		for(LineItems item : order.getLineItems()){
+			
+			System.out.println(item);
+		}
+		
 		if(order.getRestId() != null){
 			RestTemplate restTemplate = new RestTemplate();
 			restaurant = (Restaurant) restTemplate

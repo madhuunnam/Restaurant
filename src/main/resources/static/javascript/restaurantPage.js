@@ -59,7 +59,7 @@ $(document).ready(function() {
 				});
 				$('#showChoiceOptionsTab tbody').append(choiceTabStr);
 			}
-	    	$('#showChoiceOptionsTab tbody').append("<input name='itemName' type='hidden' value= "+data.itemName+" />");
+	    	$('#showChoiceOptionsTab tbody').append("<input name='itemName' type='hidden' value=' "+data.itemName+"' />");
 	    });
 		$('#addToCartModal').modal();
 		

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<title>Cart Summary</title>
+<title>Review Order</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -12,12 +12,16 @@
 <body>
 	<#include "../NavBar.ftl">
 	<div class="container">
-		<form id='cartSummaryForm' action='/pickUpOrder'>
+		<div class='jumbotron'>
+			Restaurant Details
+		</div>
+		
+		<form id='reviewOrderForm' action='/checkOut'>
 			<#if (order.lineItems?size > 0) >
 				<div class="panel panel-info">
-					<div class="panel-heading">Cart Summary</div>
+					<div class="panel-heading">Reivew Order</div>
 					<div class="panel-info">
-						<table class="table table-striped table-hover table-responsive" id="summaryCartTable">
+						<table class="table table-striped table-hover table-responsive" id="orderReviewTable">
 							<thead>
 								<th>Selected Item</th>
 								<th>Quantity</th>
@@ -39,13 +43,6 @@
 							</tbody>
 						</table>
 					</div> <!--panel-info -->
-					<div class="row">
-						<div class="col-md-offset-4">
-						<button type="submit" class="btn btn-info  btn-md" id='orderPickUpButton' >Pick Up</button>
-						<label class="control-label col-md-offset-1"> OR </label>
-						<button type="button" class="btn btn-info col-md-offset-1  btn-md">Delivery</button>
-						</div>
-					</div> <!--row -->
 				</div><!--panel panel-info -->
 			<#else>
 				<div class="panel panel-info ">

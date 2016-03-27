@@ -60,7 +60,7 @@
 		 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'restaurant'>
 		 <li><a href="<@spring.url '/RestaurantProfile'/> "><i class="glyphicon glyphicon-user"></i>Restaurant Profile</a></li>
 		 <li><a href="<@spring.url '/MenuPage'/> ">Menu</a></li>
-		 <li><a href="<@spring.url '/'/> ">Orders</a></li>
+		 <li><a href="<@spring.url '/RestaurantActiveOrder'/> ">Orders</a></li>
 		 <li><a href="<@spring.url '/RestaurantStatistics'/> ">Statistics</a></li>
 		 <li><a href="<@spring.url '/RestaurantAccount'/> ">Account</a></li>
 		 <li><a href="<@spring.url '/'/> ">Operations</a></li>

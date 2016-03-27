@@ -63,6 +63,19 @@ public class RestaurantController {
 		return "Restaurant/Menu";
 	}
 	
+	@RequestMapping("/RestaurantActiveOrder")
+	public String getCustomerOrderPage(Model model,Authentication authentication) {
+		
+		User user = (User)authentication.getPrincipal();
+		RestTemplate restTemplate = new RestTemplate();
+		Object ordersList =  restTemplate
+				.getForObject("http://localhost:8090/getOrderListForRestaurant/"+user.getUserId(), List.class);
+		
+		model.addAttribute("restActiveOrders",ordersList);
+		return "Restaurant/RestaurantActiveOrder";
+		
+	}
+	
 	@ModelAttribute("menuItemModel")
 	public Item getNewItem() {
 		Item item = new Item();

@@ -2,7 +2,7 @@
 <#import "/spring.ftl" as spring />
 <html lang="en">
 <head>
-<title>Customer Active Orders</title>
+<title>Restaurant Active Orders</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -55,7 +55,7 @@
     <div class="col-sm-2 sidenav">
     <h4>Click any Order to view Details</h4>
       <table class = "responsive">
-		 <#list custActiveOrders as orderList>
+		 <#list restActiveOrders as orderList>
 			 <tbody>
 			 <td>
 				<button type="button" class="btn btn-link btn-lg">OrderId <#if orderList.orderNo ??>${orderList.orderNo}</#if></button>

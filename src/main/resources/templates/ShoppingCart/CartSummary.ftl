@@ -32,7 +32,7 @@
 					<td></td>
 				</#if>
 				<#if lineItem.price??>
-					<td>${lineItem.price}</td>
+					<td>${lineItem.price * lineItem.quantity}</td>
 				<#else>
 					<td></td>
 				</#if>

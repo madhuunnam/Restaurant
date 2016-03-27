@@ -12,18 +12,19 @@
 <body>
 	<#include "../NavBar.ftl">
 	<div class="container">
-		<div class='jumbotron'>
-			<div class="row">
-				<#if rest.restName??>
-					<h1><span class="label label-default">${rest.restName}</span></h1>
-				</#if>
-			</div>
+		<div class="text-center">
+			<h2>Your Order</h2>
+			<h2><span class="label label-default">${rest.restName} Restaurant</span></h2>
+			<label >Restaurant Address: </label> <label  id="restAdd"></label> 
+			<label >Phone: </label> <label  id="restPhone"></label> 
+			<hr>
 		</div>
-		
+	<div>
+	<div class="container">
 		<form id='reviewOrderForm' action='/checkOut'>
 			<#if (order.lineItems?size > 0) >
 				<div class="panel panel-info">
-					<div class="panel-heading"><h4>Reivew Order</h4></div>
+					<div class="panel-heading"><h4><strong>Reivew Order</strong></h4></div>
 					<div class="panel-info">
 						<table class="table table-striped table-hover table-responsive" id="reviewOrderTable">
 							<thead>
@@ -53,6 +54,8 @@
 					<div class="panel-heading">You Dont Have Any Items In Your Cart. </div>
 				</div>
 			</#if>
+			<button type="button" class="btn btn-info btn-lg col-md-2 col-md-offset-3">CheckOut</button>
+			<button type="button" class="btn btn-info btn-lg col-md-2 col-md-offset-1">Cancel Order</button>
 		</form>
 	</div><!--container -->
 </body>

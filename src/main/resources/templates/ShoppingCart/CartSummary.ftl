@@ -15,7 +15,7 @@
 		<form id='cartSummaryForm' action='/pickUpOrder'>
 			<#if (order.lineItems?size > 0) >
 				<div class="panel panel-info">
-					<div class="panel-heading">Cart Summary</div>
+					<div class="panel-heading"><h4><strong>Cart Summary</strong></h4></div>
 					<div class="panel-info">
 						<table class="table table-striped table-hover table-responsive" id="summaryCartTable">
 							<thead>
@@ -41,9 +41,8 @@
 					</div> <!--panel-info -->
 					<div class="row">
 						<div class="col-md-offset-4">
-						<button type="submit" class="btn btn-info  btn-md" id='orderPickUpButton' >Pick Up</button>
-						<label class="control-label col-md-offset-1"> OR </label>
-						<button type="button" class="btn btn-info col-md-offset-1  btn-md">Delivery</button>
+						<button type="submit" class="btn btn-info  btn-lg col-md-2" id='orderPickUpButton' >Pick Up</button>
+						<button type="button" class="btn btn-info btn-lg col-md-2 col-md-offset-1  btn-md">Delivery</button>
 						</div>
 					</div> <!--row -->
 				</div><!--panel panel-info -->

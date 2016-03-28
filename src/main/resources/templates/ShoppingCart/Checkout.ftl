@@ -12,72 +12,60 @@
 <body>
 	<#include "../NavBar.ftl">
 	<div class="container">
-		  <div class="row">
-		   <div class="col-md-6 col-sm-6 col-xs-12">
-		    <form method="post">
-		     <div class="form-group ">
-		      <label class="control-label requiredField" for="firstName">
-		       FirstName
-		       <span class="asteriskField">*</span>
-		      </label>
-		      <input class="form-control" id="firstName" name="firstName" placeholder="Your FirstName" type="text" value='<#if customer.firstName ??>${customer.firstName}</#if>'/>
-		     </div>
-		     <div class="form-group ">
-		      <label class="control-label " for="middleName">
-		       MiddleName
-		      </label>
-		      <input class="form-control" id="middleName" name="middleName" placeholder="Your MiddleName" type="text" value='<#if customer.middleName ??>${customer.middleName}</#if>'/>
-		     </div>
-		     <div class="form-group ">
-		      <label class="control-label requiredField" for="lastName">
-		       LastName
-		       <span class="asteriskField">*</span>
-		      </label>
-		      <input class="form-control" id="lastName" name="lastName" placeholder="Your LastName" type="text" value='<#if customer.lastName ??>${customer.lastName}</#if>' />
-		     </div>
-		     <div class="form-group ">
-		      <label class="control-label " for="displayName">
-		       NickName
-		      </label>
-		      <input class="form-control" id="displayName" name="displayName" placeholder="Your DisplayName" type="text" value='<#if customer.nickName ??>${customer.nickName}</#if>'/>
-		     </div>
-		     <div class="form-group ">
-		      <label class="control-label " for="phone">
-		       Phone 
-		      </label>
-		      <input class="form-control" id="phone" name="phone" placeholder="Your phone" type="text" value='<#if customer.phone ??>${customer.phone}</#if>'/>
-		     </div>
-		     <div class="btn-group">
-				  <button type="button" class="btn btn-info">CreditCard</button>
-				  <button type="button" class="btn btn-info">Cash</button>
-				  <button type="button" class="btn btn-info">StoreCredit</button>
+		<div class="row">
+			<h2 align="center">Confirm Order</h2>
+			<hr>
+		</div>
+	</div>
+	<div class="container">
+		<form role="form" method="post">
+			<h4>Basic Information: </h4>
+			<div class="row">
+				<label class="col-md-2">FirstName: </label> <label class="col-md-4" id="firstName"><#if customer.firstName ??>${customer.firstName}</#if></label> 
+				<label class="col-md-2">MiddleName: </label> <label class="col-md-4" id="middleName"><#if customer.middleName ??>${customer.middleName}</#if></label>
+			</div>
+			<div class="row">
+				<label class="col-md-2">LastName: </label> <label class="col-md-4" id="lastName"><#if customer.lastName ??>${customer.lastName}</#if></label> 
+				<label class="col-md-2">NickName: </label> <labelclass="col-md-4" id="nickName"><#if customer.nickName ??>${customer.nickName}</#if></label>
+			</div>
+			<div class="row ">
+				<label class="col-md-2">Phone: </label> <label class="col-md-4" id="phone"><#if customer.phone ??>${customer.phone}</#if></label>
+			</div>
+			<hr>
+			<h4>Payment Information: </h4>
+			<br />
+			<div class="row">
+				<div class="col-md-6 ">
+					 <div class="form-group" align="center"> 
+						 <label class="control-label col-md-3 col-md-offset-3" for="cardNumber1">Card Number: </label>
+							 <div class="col-md-6 "> 
+							     <input type="text" class="form-control" id="cardNumber1" name="cardNumber1" value = "<#if customer.cardNumber1??>${customer.cardNumber1}</#if>" placeholder="Card Number" >
+							 </div>
+					 </div>
+					 <div class="form-group" align="center"> 
+						 <label class="control-label col-md-3 col-md-offset-3" for="cardExp1">Card Exp: </label>
+							 <div class="col-md-6"> 
+							     <input type="text" class="form-control" id="cardExp1" name="cardExp1" value = "<#if customer.cardExp1??>${customer.cardExp1}</#if>" placeholder="MM/YYYY" >
+							 </div>
+					 </div>
+					 <div class="form-group" align="center"> 
+						 <label class="control-label col-md-3 col-md-offset-3" for="cardCode1">CVV:</label>
+							 <div class="col-md-6"> 
+							     <input type="text" class="form-control" id="cardCode1" name="cardCode1" value = "<#if customer.cardCode1??>${customer.cardCode1}</#if>" placeholder="cvv" >
+							 </div>
+					 </div>
+					  <div class="form-group" align="center"> 
+						 <label class="control-label col-md-3 col-md-offset-3" for="cardCode1">Billing Zip: </label>
+							 <div class="col-md-6"> 
+							     <input type="text" class="form-control" id="billZip1" name="billZip1" value = "<#if customer.billZip1??>${customer.billZip1}</#if>" placeholder="Zip" >
+							 </div>
+					 </div>
+			 	</div>
 			 </div>
-			  <div class="form-group ">
-		      <label class="control-label " for="cardNumber1">
-		       Card Number
-		      </label>
-		      <input class="form-control" id="cardNumber1" name="cardNumber1" placeholder="Card Number" type="text" value='<#if customer.cardNumber1 ??>${customer.cardNumber1}</#if>'/>
-		     </div>
-			 <div class="form-group ">
-		      <label class="control-label " for="cardExp1">
-		       Card Exp
-		      </label>
-		      <input class="form-control" id="cardExp1" name="cardExp1" placeholder="MM/YYYY" type="text" value='<#if customer.cardExp1 ??>${customer.cardExp1}</#if>'/>
-		     </div>
-		      <div class="form-group ">
-		      <label class="control-label " for="cardCode1">
-		       CVV
-		      </label>
-		      <input class="form-control" id="cardCode1" name="cardCode1" placeholder="cvv" type="text" value='<#if customer.cardCode1 ??>${customer.cardCode1}</#if>'/>
-		     </div>
-		     <div class="form-group ">
-		      <label class="control-label " for="billZip1">
-		       Billing Zip
-		      </label>
-		      <input class="form-control" id="billZip1" name="billZip1" placeholder="Zip" type="text" value='<#if customer.billZip1 ??>${customer.billZip1}</#if>'/>
-		     </div>
-		    </form>
-		   </div>
-		  </div>
-	</div><!--container -->
+			<br /><br />
+			<div class="form-group"> 
+				<button type="button" class="btn btn-info btn-lg col-md-3 col-md-offset-4" id='confirmOrderButton' >Pay and Confirm Order</button>
+			</div>
+		</form>
+	</div>
 </body>

@@ -45,65 +45,64 @@
      	 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'customer'>
      	 <li><a href="<@spring.url '/CustomerProfile'/> "><i class="glyphicon glyphicon-user"></i>Customer Profile</a></li>
      	 <li><a href="<@spring.url '/CustomerActiveOrder'/> ">Orders</a></li>
-     	 <li><a href="<@spring.url '/Review'/> ">Reviews</a></li>
-     	 <li><a href="<@spring.url '/'/> ">Credits</a></li>
+  <!--   <li><a href="<@spring.url '/Review'/> ">Reviews</a></li> 		-->
      	 <li><a href="<@spring.url '/CustomerAccount'/> ">Account</a></li>
-     	 <li class="dropdown">
+   <!--  <li class="dropdown">
         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Other
         		<span class="caret"></span></a>
         	<ul class="dropdown-menu">
           		<li><a href="#">Page 1-2</a></li>
           		<li><a href="#">Page 1-3</a></li> 
         	</ul>
-     	 </li>
+     	 </li>   -->
      	 
      	 </#if>
 		 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'restaurant'>
 		 <li><a href="<@spring.url '/RestaurantProfile'/> "><i class="glyphicon glyphicon-user"></i>Restaurant Profile</a></li>
 		 <li><a href="<@spring.url '/MenuPage'/> ">Menu</a></li>
 		 <li><a href="<@spring.url '/RestaurantActiveOrder'/> ">Orders</a></li>
-		 <li><a href="<@spring.url '/RestaurantStatistics'/> ">Statistics</a></li>
+	<!-- <li><a href="<@spring.url '/RestaurantStatistics'/> ">Statistics</a></li> 		-->
 		 <li><a href="<@spring.url '/RestaurantAccount'/> ">Account</a></li>
 		 <li><a href="<@spring.url '/'/> ">Operations</a></li>
-     	 <li class="dropdown">
+   <!--  <li class="dropdown">
         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Other
         		<span class="caret"></span></a>
         	<ul class="dropdown-menu">
           		<li><a href="#">Page 1-1</a></li>
           		<li><a href="#">Page 1-3</a></li> 
         	</ul>
-     	 </li>
+     	 </li>   -->
      	 </#if>
 		 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'associate'>
 		 <li><a href="<@spring.url '/AssociateProfile'/> "><i class="glyphicon glyphicon-user"></i>Associate Profile</a></li>
-     	 <li><a href="<@spring.url '/AssociateStatistics'/> ">Statistics</a></li>
+   <!--  <li><a href="<@spring.url '/AssociateStatistics'/> ">Statistics</a></li>
      	 <li><a href="<@spring.url '/AssociateAccount'/> ">Account</a></li>
-     	 <li class="dropdown">
+  <!--   <li class="dropdown">
         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Other
         		<span class="caret"></span></a>
         	<ul class="dropdown-menu">
           		<li><a href="#">Page 1-2</a></li>
           		<li><a href="#">Page 1-3</a></li> 
         	</ul>
-     	 </li>
+     	 </li>    -->
      	 </#if>
 		 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'admin'>
 		 <li><a href="<@spring.url '/AdminProfile'/> "><i class="glyphicon glyphicon-user"></i>Admin Profile</a></li>
      	 <li><a href="<@spring.url '/AdminLookUp'/> ">LookUp</a></li>
-     	 <li><a href="<@spring.url '/AdminStatistics'/> ">Statistics</a></li>
+  <!--   <li><a href="<@spring.url '/AdminStatistics'/> ">Statistics</a></li>   -->
      	 <li><a href="<@spring.url '/AdminAccount'/> ">Account</a></li>
-     	 <li class="dropdown">
+ <!--    <li class="dropdown">
         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Other
         		<span class="caret"></span></a>
         	<ul class="dropdown-menu">
           		<li><a href="#">Page 1-2</a></li>
           		<li><a href="#">Page 1-3</a></li> 
         	</ul>
-     	 </li>
+     	 </li>    -->
      	 </#if>
 		<#else>
- 		<li><a href="<@spring.url '/forSale'/> ">For Sale</a></li>
-        <li><a href="<@spring.url '/hiring'/> ">Hiring</a></li>
+<!-- 	<li><a href="<@spring.url '/forSale'/> ">For Sale</a></li>   -->
+<!--    <li><a href="<@spring.url '/hiring'/> ">Hiring</a></li>		-->
 		<li><a href="<@spring.url '/About'/> ">About</a></li>
 		<li><a href="<@spring.url '/Contact'/> ">Contact</a></li>
 		</#if>

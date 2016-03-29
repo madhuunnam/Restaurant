@@ -59,7 +59,7 @@
 						</div>
 						<label class="control-label col-md-2" for="nickName">DisplayName: </label>
 						<div class="col-md-2">
-							<input type="text" class="form-control" id="nickName" name="nickName" value="<#if updateCustModel.nickName??>${updateCustModel.nickName}</#if>" placeholder="Enter LastName" required>
+							<input type="text" class="form-control" id="nickName" name="nickName" value="<#if updateCustModel.nickName??>${updateCustModel.nickName}</#if>" placeholder="Enter DisplayName">
 						</div>
 					</div>
 					<hr style="width: 100%; color: #D3D3D3; height: 1px; background-color: #D3D3D3;">

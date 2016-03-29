@@ -9,6 +9,15 @@
 					<h4 class="modal-title">Add Choices Wizard</h4>
 				</div>
 				<div class="modal-body" id='addChoicesModalBody'>
+					<input type='hidden' value='' id='selectedItemNumHidden' />
+					<div class="form-group">
+  						<label id='selectItemLabel'>Select An Item To Add Choices :</label>
+					 	<select class="form-control" id="itemSelected">
+						   	<#list MenuItems as item>
+						   		<#if item.itemName??><option value=${item.itemNum}>${item.itemName}</option></#if>
+							</#list>
+					  	</select>
+					</div>
 					<label id='addChoicesLabel'><h4>Enter the Number Of Choices You Wish to Add:</h4></label>
 					<input type="text" name='noOfChoicesToAdd' id='noOfChoicesToAdd' /> 
 					<input type="button" class='btn btn-info' id='addGivenNoOfChoices' value='Generate Add Choices Form' onClick='generateAddChoiceForm();' />

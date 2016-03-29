@@ -7,17 +7,20 @@ $(document).ready(function() {
 });
 
 function generateAddChoiceForm(){
+	var itemSelected = $('#itemSelected').find("option:selected").text();
+	var itemNumForSelectedItem = $('#itemSelected').val();
 	
+	$('#selectedItemNumHidden').val(itemNumForSelectedItem);
 	
-//	for (var counter = 0; counter < itemNamesArray.length; counter++) {
-//		console.log(itemNamesArray[counter]);
-//	}
 	var noOfChoicesToGenerate = $('#noOfChoicesToAdd').val();
+	
 	$('#addChoicesLabel').remove();
 	$('#noOfChoicesToAdd').remove();
 	$('#addGivenNoOfChoices').remove();
+	$('#itemSelected').remove();
+	$('#selectItemLabel').remove();
 	
-	var itemNameInputTd = "<td><input class='form-control' type='text' required /></td>";
+	var itemNameInputTd = "<td><label>"+itemSelected+"</label>";
 	var ChoiceTitleInputTd = "<td><input class='form-control' type='text' required /></td>";
 	var ChoiceTypeInputTd = "<td><input class='form-control' type='text' required /></td>";
 	var isRequiredTd = "<td><input type='checkbox' /></td>";
@@ -31,7 +34,9 @@ function generateAddChoiceForm(){
 }
 
 function saveAddedMenuChoices(restId){
-	alert("Adding Choices");
+	
+	var itemNum = $('#selectedItemNumHidden').val();
+	
 	$('#addGeneratedChoicesTable tbody').find("tr").each(function(){
 		
 		var addChoiceRowTDs= [];
@@ -44,31 +49,27 @@ function saveAddedMenuChoices(restId){
 		choiceType = addChoiceRowTDs[2];
 		isRequired = addChoiceRowTDs[3];
 		
+		var JSONObject= 
+		{   "restId":restId, 
+			"itemNum": itemNum, 
+			"chTitle":choiceTitle,
+			"chType":choiceType,
+//			"required":isRequired
+		};
+		$.ajax({
+		    url: "http://localhost:8090/addChoice",
+		    method: "POST",
+		    cache: false,
+		    data: JSON.stringify(JSONObject),
+		    contentType: "application/json",
+		    crossDomain: true,
+		}).then(function(result,status,jqXHR ){
+		      alert(result);
+		});
 		
-//		var JSONObject= 
-//		{   "restId":restId, 
-//			"secName": secName, 
-//			"itemName":itemName ,
-//			"description":description,
-//			"basePrice":basePrice,
-//			"numChoice":0
-//		};
-//		
-//		$.ajax({
-//		    url: "http://localhost:8090/addItem",
-//		    method: "POST",
-//		    cache: false,
-//		    data: JSON.stringify(JSONObject),
-//		    contentType: "application/json",
-//		    crossDomain: true,
-//		}).then(function(result,status,jqXHR ){
-//		      alert(result);
-//		});
-		
-//		alert(secName +itemName+description +basePrice);
 	})
 	
-	$('#saveAddedItems').prop('disabled', true);
+	$('#saveAddedChoices').prop('disabled', true);
 }
 
 

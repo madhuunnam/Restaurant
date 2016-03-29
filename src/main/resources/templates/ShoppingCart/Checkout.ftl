@@ -26,7 +26,7 @@
 			</div>
 			<div class="row">
 				<label class="col-md-2">LastName: </label> <label class="col-md-4" id="lastName"><#if customer.lastName ??>${customer.lastName}</#if></label> 
-				<label class="col-md-2">NickName: </label> <labelclass="col-md-4" id="nickName"><#if customer.nickName ??>${customer.nickName}</#if></label>
+				<label class="col-md-2">NickName: </label> <label class="col-md-4" id="nickName"><#if customer.nickName ??>${customer.nickName}</#if></label>
 			</div>
 			<div class="row ">
 				<label class="col-md-2">Phone: </label> <label class="col-md-4" id="phone"><#if customer.phone ??>${customer.phone}</#if></label>

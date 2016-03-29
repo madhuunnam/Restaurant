@@ -75,7 +75,7 @@
      	 </#if>
 		 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'associate'>
 		 <li><a href="<@spring.url '/AssociateProfile'/> "><i class="glyphicon glyphicon-user"></i>Associate Profile</a></li>
-   <!--  <li><a href="<@spring.url '/AssociateStatistics'/> ">Statistics</a></li>
+   <!--  <li><a href="<@spring.url '/AssociateStatistics'/> ">Statistics</a></li>  -->	
      	 <li><a href="<@spring.url '/AssociateAccount'/> ">Account</a></li>
   <!--   <li class="dropdown">
         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Other

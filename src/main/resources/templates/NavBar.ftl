@@ -63,7 +63,6 @@
 		 <li><a href="<@spring.url '/RestaurantActiveOrder'/> ">Orders</a></li>
 	<!-- <li><a href="<@spring.url '/RestaurantStatistics'/> ">Statistics</a></li> 		-->
 		 <li><a href="<@spring.url '/RestaurantAccount'/> ">Account</a></li>
-		 <li><a href="<@spring.url '/'/> ">Operations</a></li>
    <!--  <li class="dropdown">
         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Other
         		<span class="caret"></span></a>

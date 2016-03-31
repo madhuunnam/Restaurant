@@ -42,7 +42,37 @@
 					<div class="row">
 						<div class="col-md-offset-1">
 						<button type="submit" class="btn btn-info  btn-lg col-md-5" id='orderPickUpButton' >Review Your Order For Pick Up</button>
-						<button type="button" class="btn btn-info btn-lg col-md-5 col-md-offset-1  btn-md">Review Your Order For Delivery</button>
+						<button type="button" class="btn btn-info btn-lg col-md-5 col-md-offset-1  btn-md" id='orderDeliveryButton' data-toggle="modal" data-target="#deliveryDetails">Review Your Order For Delivery</button>
+							<div id="deliveryDetails" class="modal fade" role="dialog">
+							  <div class="modal-dialog">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <button type="button" class="close" data-dismiss="modal">&times;</button>
+							        <h4 class="modal-title">Modal Header</h4>
+							      </div>
+							      <div class="modal-body">
+							        <div class="row">
+							        	<label class="control-label col-sm-3" for="deliAddr"> Delivery Address: </label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="deliAddr" name="deliAddr"  placeholder="Enter Delivery Address" required>
+										</div>
+							        </div>
+							        <br />
+							        <div class="row">
+							        	<label class="control-label col-sm-3" for="receiverName"> Receiver Name: </label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="receiverName" name="receiverName"  placeholder="Enter Receiver Name" >
+										</div>
+							        </div>
+							      </div>
+							      <div class="modal-footer">
+							      	<button type="button" class="btn btn-default" data-dismiss="modal" onclick="onclickDeliveryAddressSubmission()">Continue</button>
+							        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							      </div>
+							    </div>
+							
+							  </div>
+							</div>
 						</div>
 					</div> <!--row -->
 				</div><!--panel panel-info -->

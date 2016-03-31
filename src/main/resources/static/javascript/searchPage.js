@@ -1,4 +1,11 @@
 function onSearch() {
+	
+	var enteredLocation = $('#location').val();
+	var enteredCuisine = $('#cuisine').val();
+	var enteredState = $('#state').val();
+	var enteredCity = $('#city').val();
+	alert(enteredLocation+"----"+enteredCuisine+"----"+enteredState+"----"+enteredCity);
+	
 	document.getElementById("searchForm").action = "/getRestaurantListPage";
 	document.getElementById("searchForm").submit();
 }

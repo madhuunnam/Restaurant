@@ -75,3 +75,11 @@ $(document).ready(function() {
 	
 	
 });
+
+
+function onclickDeliveryAddressSubmission(){
+	
+	var deliAddress = $('deliveryDetails deliAddr').val();
+	var receiverName = $('receiverName').val();
+	alert(deliAddress+"Madhu"+receiverName);
+}

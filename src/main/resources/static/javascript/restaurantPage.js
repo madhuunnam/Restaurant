@@ -82,4 +82,66 @@ $(document).ready(function() {
 		alert(reservePeople+reserveTime+nonSmoke);
 	}
 	
+	
 });
+
+
+function onRestaurantSignUp() {
+	
+	var enteredStAddress = $('#stAddress').val();
+	var enteredCity = $('#city').val();
+	var enteredState = $('#state').val();
+	var enteredZip = $('#zip').val();
+	
+	var address = enteredStAddress+","+enteredCity+","+enteredState+","+enteredZip;
+	
+	
+	var geocoder =  new google.maps.Geocoder();
+	alert(address);
+    geocoder.geocode( 
+    		{ 'address': address }, 
+    		function(results, status) {
+    				alert("Subhash 1");
+    				if (status == google.maps.GeocoderStatus.OK) {
+    					alert("location : " + results[0].geometry.location.lat() + " " +results[0].geometry.location.lng());
+    					$('#latitude').val(results[0].geometry.location.lat());
+    					$('#longitude').val(results[0].geometry.location.lng());
+    					alert($('#latitude').val());
+    					alert($('#longitude').val());
+    					document.getElementById("restSignUp").action = "/registerRestaurant";
+    					document.getElementById("restSignUp").submit();
+    				} else {
+    					alert("Enter a Valid Address " + status);
+    				}
+    		});
+}
+
+function onRestaurantProfileUpdate() {
+	
+	var enteredStAddress = $('#stAddress').val();
+	var enteredCity = $('#city').val();
+	var enteredState = $('#state').val();
+	var enteredZip = $('#zip').val();
+	
+	var address = enteredStAddress+","+enteredCity+","+enteredState+","+enteredZip;
+	
+	
+	var geocoder =  new google.maps.Geocoder();
+	alert(address);
+    geocoder.geocode( 
+    		{ 'address': address }, 
+    		function(results, status) {
+    				alert("Subhash 1");
+    				if (status == google.maps.GeocoderStatus.OK) {
+    					alert("location : " + results[0].geometry.location.lat() + " " +results[0].geometry.location.lng());
+    					$('#latitude').val(results[0].geometry.location.lat());
+    					$('#longitude').val(results[0].geometry.location.lng());
+    					alert($('#latitude').val());
+    					alert($('#longitude').val());
+    					document.getElementById("updateRestaurantProfile").action = "/updateRestProfile";
+    					document.getElementById("updateRestaurantProfile").submit();
+    				} else {
+    					alert("Enter a Valid Address " + status);
+    				}
+    		});
+}

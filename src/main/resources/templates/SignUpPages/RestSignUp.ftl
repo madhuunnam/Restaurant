@@ -5,12 +5,13 @@
 <title>Restaurant SignUp</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript" src="vendor/validator.js"></script>
+	<script type="text/javascript" src="javascript/restaurantPage.js"></script>
 
 </head>
 <body>
@@ -25,7 +26,10 @@
 		<div class="row">
 			<div class="col-sm-12"
 				style="background-color: #f2f2f2">
-				<form class="form-horizontal"  role="form" id ="restSignUp" action = "/registerRestaurant">
+				<form class="form-horizontal"  role="form" id ="restSignUp" >
+				
+					<input type='hidden' id='latitude' name='latitude' value='' />
+					<input type='hidden' id='longitude' name='longitude' value='' />
 					<div class="form-group" align="center">
 					    <label class="col-sm-12"><h3>Restaurant SignUp</h3></label>
 					  </div>
@@ -253,7 +257,7 @@
 					  <div class="form-group"> 
 					    <div class="col-sm-offset-5 col-sm-4">
 					     <br />
-					      <button type="submit" class="btn btn-info">Create My Restaurant</button>
+					      <button type="button" class="btn btn-info" onClick="onRestaurantSignUp();" >Create My Restaurant</button>
 					    </div>
 					  </div>
 					</form>

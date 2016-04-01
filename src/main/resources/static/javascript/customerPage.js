@@ -6,7 +6,7 @@ function onclickCustOrderDetails(sessionUserId, orderId) {
 	
 	$.ajax(
 			{
-				url : "http://localhost:8090/getOrderbyOrderNumForCustomer/"
+				url : "http://"+getServicesHost()+"/getOrderbyOrderNumForCustomer/"
 						+ sessionUserId + "/" + orderId,
 				type : "GET",
 				cache : false,

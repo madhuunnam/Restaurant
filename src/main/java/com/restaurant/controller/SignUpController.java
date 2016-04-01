@@ -69,6 +69,9 @@ public class SignUpController {
 		
 		restaurant.setInsertDate(new Date());
 		
+		System.out.println("LATITUDE -- " + restaurant.getLatitude());
+		System.out.println("LONGITUDE -- " + restaurant.getLongitude());
+		
 		ResponseEntity<String> restInsertStatus = restTemplate.postForEntity("http://localhost:8090/signUpRestaurant", restaurant, String.class);
 		String restId  = restTemplate.getForObject("http://localhost:8090/getNewRestaurantId", String.class);
 		ResponseEntity<String> restAdminInsertStatus = restTemplate.postForEntity("http://localhost:8090/addToRestAdmin/"+restId, restAdmin, String.class);

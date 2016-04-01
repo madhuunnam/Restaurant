@@ -9,7 +9,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="vendor/validator.js"></script>
+<script type="text/javascript" src="javascript/restaurantPage.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 	if ( ${updateRestModel.securityQuest} != null ){
@@ -27,8 +29,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12" style="background-color: #f2f2f2">
-				<form class="form-horizontal" role="form" id="restSignUp" action="/updateRestProfile">
-
+				<form class="form-horizontal" role="form" id="updateRestaurantProfile">
+				
+					<input type='hidden' id='latitude' name='latitude' value="<#if updateRestModel.latitude??>${updateRestModel.latitude}</#if>" />
+					<input type='hidden' id='longitude' name='longitude' value="<#if updateRestModel.longitude??>${updateRestModel.longitude}</#if>"  />
 					<input type="hidden" name="restID" value="<#if updateRestModel.restID??>${updateRestModel.restID}</#if>" />
 
 					<div class="form-group" align="center">
@@ -380,7 +384,7 @@
 					<div class="form-group">
 						<div class="col-sm-offset-5 col-sm-4">
 							<br />
-							<button type="submit" class="btn btn-info">Update Restaurant</button>
+							<button type="button" class="btn btn-info" onClick="onRestaurantProfileUpdate()";>Update Restaurant</button>
 						</div>
 					</div>
 				</form>

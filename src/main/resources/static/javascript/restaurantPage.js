@@ -8,7 +8,7 @@ $(document).ready(function() {
 		var itemNum = restidItemNum.substr(restidItemNum.lastIndexOf("-")+1);
 		
 		$.ajax({
-	        url: "http://localhost:8090/getItemDetailsById/"+restId+"/"+itemNum,
+	        url: "http://"+getServicesHost()+"/getItemDetailsById/"+restId+"/"+itemNum,
 	        type: "GET",
 	        cache: false,
 	        dataType: "json",

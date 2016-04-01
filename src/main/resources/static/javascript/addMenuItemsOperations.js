@@ -51,7 +51,7 @@ function saveAddedMenuItems(restId){
 		};
 		
 		$.ajax({
-		    url: "http://localhost:8090/addItem",
+		    url: "http://"+getServicesHost()+"/addItem",
 		    method: "POST",
 		    cache: false,
 		    data: JSON.stringify(JSONObject),

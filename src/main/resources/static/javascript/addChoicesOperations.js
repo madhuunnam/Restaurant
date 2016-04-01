@@ -57,7 +57,7 @@ function saveAddedMenuChoices(restId){
 //			"required":isRequired
 		};
 		$.ajax({
-		    url: "http://localhost:8090/addChoice",
+		    url: "http://"+getServicesHost()+"/addChoice",
 		    method: "POST",
 		    cache: false,
 		    data: JSON.stringify(JSONObject),

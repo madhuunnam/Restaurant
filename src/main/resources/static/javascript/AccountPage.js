@@ -6,7 +6,7 @@ function onclickRestAccountPageSubmit(sessionUserId){
 	var tillDate = $('#toDate').val();	
 	
 	$.ajax({
-        url: "http://localhost:8090/getRestLedgerListForRest/"+sessionUserId+"/"+fromDate+"/"+tillDate,
+        url: "http://"+getServicesHost()+"/getRestLedgerListForRest/"+sessionUserId+"/"+fromDate+"/"+tillDate,
         type: "GET",
         cache: false,
         dataType: "json",
@@ -30,7 +30,7 @@ function onclickCustAccountPageSubmit(sessionUserId){
 	var tillDate = $('#toDate').val();	
 	
 	$.ajax({
-        url: "http://localhost:8090/getCustLedgerListForCustomer/"+sessionUserId+"/"+fromDate+"/"+tillDate,
+        url: "http://"+getServicesHost()+"/getCustLedgerListForCustomer/"+sessionUserId+"/"+fromDate+"/"+tillDate,
         type: "GET",
         cache: false,
         dataType: "json",
@@ -54,7 +54,7 @@ function onclickAssocAccountPageSubmit(sessionUserId){
 	var tillDate = $('#toDate').val();	
 	
 	$.ajax({
-        url: "http://localhost:8090/getAssocLedgerListForAssociate/"+sessionUserId+"/"+fromDate+"/"+tillDate,
+        url: "http://"+getServicesHost()+"/getAssocLedgerListForAssociate/"+sessionUserId+"/"+fromDate+"/"+tillDate,
         type: "GET",
         cache: false,
         dataType: "json",
@@ -78,7 +78,7 @@ function onclickAdminAccountPageSubmit(){
 	var tillDate = $('#toDate').val();	 
 	
 	$.ajax({
-        url: "http://localhost:8090/getAdminLedgerList/"+fromDate+"/"+tillDate,
+        url: "http://"+getServicesHost()+"/getAdminLedgerList/"+fromDate+"/"+tillDate,
         type: "GET",
         cache: false,
         dataType: "json",

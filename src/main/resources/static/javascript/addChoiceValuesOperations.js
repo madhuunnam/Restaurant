@@ -62,7 +62,7 @@ function saveAddedChoiceValuess(restId){
 //			"extra": true
 		};
 		$.ajax({
-		    url: "http://localhost:8090/addChoiceValues",
+		    url: "http://"+getServicesHost()+"/addChoiceValues",
 		    method: "POST",
 		    cache: false,
 		    data: JSON.stringify(JSONObject),

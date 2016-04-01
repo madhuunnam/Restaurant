@@ -4,6 +4,13 @@ function onSearch() {
 	var enteredCuisine = $('#cuisine').val();
 	var enteredState = $('#state').val();
 	var enteredCity = $('#city').val();
+	
+	$('#cuisine').find("input").each( function (){
+		if($(this).is(':checked')){
+			alert($(this).val());
+		}
+		
+	});
 	alert(enteredLocation+"----"+enteredCuisine+"----"+enteredState+"----"+enteredCity);
 	
 	document.getElementById("searchForm").action = "/getRestaurantListPage";
@@ -18,7 +25,7 @@ function onclickAddToMyAddress(){
 
 function onclickMyFavorites(sessionUserId){
 	 $.ajax({
-	        url: "http://localhost:8090/getFavRestaurantsForCustomer/"+sessionUserId,
+	        url: "http://"+getServicesHost()+"/getFavRestaurantsForCustomer/"+sessionUserId,
 	        type: "GET",
 	        cache: false,
 	        dataType: "json",
@@ -34,7 +41,7 @@ function onclickMyFavorites(sessionUserId){
 
 function onclickMySavedAddress(sessionUserId){
 	 $.ajax({
-	        url: "http://localhost:8090/getCustomerById/"+sessionUserId,
+	        url: "http://"+getServicesHost()+"/getCustomerById/"+sessionUserId,
 	        type: "GET",
 	        cache: false,
 	        dataType: "json",

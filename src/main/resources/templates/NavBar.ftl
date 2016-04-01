@@ -20,9 +20,19 @@
     	$(document).ready(function () {
         	$('.dropdown-toggle').dropdown();
     	});
+    	
+    	function getServicesHost(){
+    		servicesHost = $('#servicesHost').val();
+			if(servicesHost == "" ){ 
+				servicesHost='localhost';
+			}
+			return servicesHost.trim()+":8090";
+			
+    	}
 	</script>
 </head>
 <body>
+	<input type='hidden' id='servicesHost' value="<#if servicesHost??>${servicesHost} </#if>" />
 	<#if Session["SPRING_SECURITY_CONTEXT"]?exists>
 		<#assign sessionUserId = Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userId>
 		<#assign sessionUserName = Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userEmail>
@@ -39,6 +49,7 @@
     </div>
     <div class="collapse navbar-collapse " id="myNavbar">
       <ul class="nav navbar-nav">
+      	
         <li><a href="<@spring.url '/Homepage'/>"><i class="glyphicon glyphicon-home"></i> Home</a></li>
 		
      	 <#if Session["SPRING_SECURITY_CONTEXT"]?exists>
@@ -47,6 +58,8 @@
      	 <li><a href="<@spring.url '/CustomerActiveOrder'/> ">Orders</a></li>
   <!--   <li><a href="<@spring.url '/Review'/> ">Reviews</a></li> 		-->
      	 <li><a href="<@spring.url '/CustomerAccount'/> ">Account</a></li>
+     	 
+     	 
    <!--  <li class="dropdown">
         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Other
         		<span class="caret"></span></a>
@@ -103,6 +116,7 @@
 <!-- 	<li><a href="<@spring.url '/forSale'/> ">For Sale</a></li>   -->
 <!--    <li><a href="<@spring.url '/hiring'/> ">Hiring</a></li>		-->
 		<li><a href="<@spring.url '/About'/> ">About</a></li>
+		
 		<li><a href="<@spring.url '/Contact'/> ">Contact</a></li>
 		</#if>
       </ul>

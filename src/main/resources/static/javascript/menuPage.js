@@ -31,7 +31,7 @@ function updateChoiceValues(){
 		
 //		alert(JSON.stringify(JSONObject));
 		$.ajax({
-		    url: "http://localhost:8090/updateChoiceValues",
+		    url: "http://"+getServicesHost()+"/updateChoiceValues",
 		    method: "PUT",
 		    cache: false,
 		    data: JSON.stringify(JSONObject),
@@ -74,7 +74,7 @@ function udpateChoices(){
 			};
 		
 		$.ajax({
-		    url: "http://localhost:8090/updateChoice",
+		    url: "http://"+getServicesHost()+"/updateChoice",
 		    method: "PUT",
 		    cache: false,
 		    data: JSON.stringify(JSONObject),
@@ -90,6 +90,13 @@ function udpateChoices(){
 }
 
 function updateAllMenuItems(){
+	
+//	servicesHost = $('#servicesHost').val();
+//	if(servicesHost == "" ){ 
+//		servicesHost='localhost';
+//	}
+//	alert(servicesHost);
+//	alert(getServicesHost());
 	$('#itemsTable tbody').find("tr").each(function() {
 		
 		var menuItemRowId = $(this).attr("id");
@@ -122,10 +129,9 @@ function updateAllMenuItems(){
 				"description":description,
 				"basePrice":basePrice
 			};
-		
 //		alert(JSON.stringify(JSONObject));
 		$.ajax({
-		    url: "http://localhost:8090/updateItem",
+		    url: "http://"+getServicesHost()+"/updateItem",
 		    method: "PUT",
 		    cache: false,
 		    data: JSON.stringify(JSONObject),
@@ -148,7 +154,7 @@ function updateSection(sessionUserId){
 		
 		var JSONObject= {"restId":sessionUserId, "secName": secName, "numItem":numItem };
 		$.ajax({
-		    url: "http://localhost:8090/addSection",
+		    url: "http://"+getServicesHost()+"/addSection",
 		    method: "POST",
 		    cache: false,
 		    async: false,
@@ -258,7 +264,7 @@ function toggleChoices(restId , itemId){
 		$(buttonID).val("Hide Choices");
 		
 		$.ajax({
-		    url: "http://localhost:8090/getChoiceListForItemOfRestaurant/"+restId+"/"+itemId,
+		    url: "http://"+getServicesHost()+"/getChoiceListForItemOfRestaurant/"+restId+"/"+itemId,
 		    method: "GET",
 		    contentType: "application/json",
 		    cache: false,

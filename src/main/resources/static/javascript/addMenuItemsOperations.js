@@ -58,10 +58,9 @@ function saveAddedMenuItems(restId){
 		    contentType: "application/json",
 		    crossDomain: true,
 		}).then(function(result,status,jqXHR ){
-//		      alert(result);
+		      alert(result);
 		});
 		
-//		alert(secName +itemName+description +basePrice);
 	})
 	
 	$('#saveAddedItems').prop('disabled', true);

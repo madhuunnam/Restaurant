@@ -35,9 +35,7 @@ function generateAddChoiceValuesForm(){
 
 function saveAddedChoiceValuess(restId){
 	
-	alert(restId);
 	var chNum = $('#selectedChNumHidden').val();
-	alert(chNum);
 	$('#addGeneratedChoiceValuesTable tbody').find("tr").each(function(){
 		
 		var addChoiceValueRowTDs= [];
@@ -50,10 +48,6 @@ function saveAddedChoiceValuess(restId){
 		valuePrice = addChoiceValueRowTDs[2];
 		isExtra = addChoiceValueRowTDs[3];
 		
-//		alert(choiceTitle);
-//		alert(valueName);
-//		alert(valuePrice);
-//		
 		var JSONObject= 
 		{   "restId":restId, 
 			"chNum": chNum, 

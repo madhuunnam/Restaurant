@@ -97,17 +97,12 @@ function onRestaurantSignUp() {
 	
 	
 	var geocoder =  new google.maps.Geocoder();
-	alert(address);
     geocoder.geocode( 
     		{ 'address': address }, 
     		function(results, status) {
-    				alert("Subhash 1");
     				if (status == google.maps.GeocoderStatus.OK) {
-    					alert("location : " + results[0].geometry.location.lat() + " " +results[0].geometry.location.lng());
     					$('#latitude').val(results[0].geometry.location.lat());
     					$('#longitude').val(results[0].geometry.location.lng());
-    					alert($('#latitude').val());
-    					alert($('#longitude').val());
     					document.getElementById("restSignUp").action = "/registerRestaurant";
     					document.getElementById("restSignUp").submit();
     				} else {
@@ -127,17 +122,12 @@ function onRestaurantProfileUpdate() {
 	
 	
 	var geocoder =  new google.maps.Geocoder();
-	alert(address);
     geocoder.geocode( 
     		{ 'address': address }, 
     		function(results, status) {
-    				alert("Subhash 1");
     				if (status == google.maps.GeocoderStatus.OK) {
-    					alert("location : " + results[0].geometry.location.lat() + " " +results[0].geometry.location.lng());
     					$('#latitude').val(results[0].geometry.location.lat());
     					$('#longitude').val(results[0].geometry.location.lng());
-    					alert($('#latitude').val());
-    					alert($('#longitude').val());
     					document.getElementById("updateRestaurantProfile").action = "/updateRestProfile";
     					document.getElementById("updateRestaurantProfile").submit();
     				} else {

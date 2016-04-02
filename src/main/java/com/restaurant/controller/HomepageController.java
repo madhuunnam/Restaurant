@@ -24,6 +24,15 @@ import com.restaurant.model.Restaurant;
 
 @Controller
 public class HomepageController extends SpringServletContainerInitializer {
+	
+	@RequestMapping("/LoginPage")
+	public String loginPage(Authentication auth ){
+		if(!auth.isAuthenticated()){
+			return "Login";
+		}else{
+			return "Homepage";
+		}
+	}
 
 	@RequestMapping("/getRestaurantListPage")
 	public String restaurantListPage(Model model, 

@@ -70,8 +70,8 @@
 		</h3>
 		<form class="form-horizontal" role="form" id="searchForm" >
 		
-			<input type='hidden' id='latitude' name='latitude' value='' />
-			<input type='hidden' id='longitude' name='longitude' value='' />
+			<input type='hidden' id='latitude' name='latitude' value='0' />
+			<input type='hidden' id='longitude' name='longitude' value='0' />
 			
 			<div class="form-group">
 				<label class="control-label col-md-2" for="location"></label>

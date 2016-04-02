@@ -1,24 +1,47 @@
+function setCurrentGPSCoordinates(position){
+	
+	$('#latitude').val(position.coords.latitude);
+	$('#longitude').val(position.coords.longitude);
+	document.getElementById("searchForm").action = "/getRestaurantListPage";
+	document.getElementById("searchForm").submit();
+	
+}
+function error(){
+	$('#latitude').val(0);
+	$('#longitude').val(0);
+	document.getElementById("searchForm").action = "/getRestaurantListPage";
+	document.getElementById("searchForm").submit();
+}
+
 function onSearch() {
 	
-//	alert($('#state').val());
-//	alert($('#city').val());
 	
-	// Get Latitude and Longitude if Location is Entered
+	if($('#location').val()!=""){
+		var geocoder =  new google.maps.Geocoder();
+	    geocoder.geocode( 
+	    		{ 'address': $('#location').val() }, 
+	    		function(results, status) {
+	    				if (status == google.maps.GeocoderStatus.OK) {
+	    					$('#latitude').val(results[0].geometry.location.lat());
+	    					$('#longitude').val(results[0].geometry.location.lng());
+	    					
+	    					document.getElementById("searchForm").action = "/getRestaurantListPage";
+	    					document.getElementById("searchForm").submit();
+	    				} else {
+	    					alert("Enter a Valid Address " + status);
+	    				}
+	    		});
+	    
+	}
 	
-	var geocoder =  new google.maps.Geocoder();
-    geocoder.geocode( 
-    		{ 'address': $('#location').val() }, 
-    		function(results, status) {
-    				if (status == google.maps.GeocoderStatus.OK) {
-    					$('#latitude').val(results[0].geometry.location.lat());
-    					$('#longitude').val(results[0].geometry.location.lng());
-    					
-    					document.getElementById("searchForm").action = "/getRestaurantListPage";
-    					document.getElementById("searchForm").submit();
-    				} else {
-    					alert("Enter a Valid Address " + status);
-    				}
-    		});
+	if($('#location').val()==""){
+		if (navigator.geolocation) {
+	       navigator.geolocation.getCurrentPosition(setCurrentGPSCoordinates,error);
+	    } else {
+	        alert("Geolocation is not supported by this browser.");
+	    }
+	}
+	
 }
 
 function onclickAddToMyAddress(sessionUserId){

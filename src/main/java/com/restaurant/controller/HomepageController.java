@@ -51,9 +51,9 @@ public class HomepageController extends SpringServletContainerInitializer {
 			}
 		}
 		calculateDistanceFromSearchLocation(restList,latitude,longitude);
-//		filterBasedOnState(restList,state);
-//		filterBasedOnCity(restList,city);
-//		filterBasedOnCuisines(restList,cuisinesSelected);
+		restList = filterBasedOnState(restList,state);
+		restList = filterBasedOnCity(restList,city);
+		restList = filterBasedOnCuisines(restList,cuisinesSelected);
 		
 		Collections.sort(restList);
 		
@@ -64,48 +64,55 @@ public class HomepageController extends SpringServletContainerInitializer {
 		
 	}
 
-	private void filterBasedOnCuisines(List<Restaurant> restList, String[] cuisinesSelected) {
-		List<Restaurant> tempList = new ArrayList<Restaurant>();
-		if(cuisinesSelected !=null && cuisinesSelected.length >0 ){
+	private List<Restaurant>  filterBasedOnCuisines(List<Restaurant> restList, String[] cuisinesSelected) {
+		List<Restaurant> filteredList = new ArrayList<Restaurant>();
+		if(cuisinesSelected !=null && cuisinesSelected.length > 1 ){
 			
 			List<String> cuisines = Arrays.asList(cuisinesSelected);
 			for(int i=0;i<restList.size();i++){
 				Restaurant rest = restList.get(i);
 				if(rest.getCategories()!=null && !rest.getCategories().isEmpty() && cuisines.contains(rest.getCategories())){
 					System.out.println("Adding Cuisine " + rest.getCategories());
-					tempList.add(rest);
+					filteredList.add(rest);
 				}
 			}
-			restList = new ArrayList<Restaurant>(tempList);
+			return filteredList;
+		}else{
+			return restList;
 		}
 		
 	}
 
-	private void filterBasedOnState(List<Restaurant> restList, String state) {
+	private List<Restaurant>  filterBasedOnState(List<Restaurant> restList, String state) {
 		
-		List<Restaurant> tempList = new ArrayList<Restaurant>();
+		List<Restaurant> filteredList = new ArrayList<Restaurant>();
 		if(state !=null && !state.isEmpty()){
 			for(int i=0;i<restList.size();i++){
 				Restaurant rest = restList.get(i);
 				if(rest.getState()!=null && !rest.getState().isEmpty() && state.equalsIgnoreCase(rest.getState())){
 					System.out.println("Adding state " + rest.getState());
-					tempList.add(rest);
+					filteredList.add(rest);
 				}
 			}
+			return filteredList;
+		}else{
+			return restList;
 		}
 	}
 	
-	private void filterBasedOnCity(List<Restaurant> restList, String city) {
-		List<Restaurant> tempList = new ArrayList<Restaurant>();
+	private List<Restaurant>  filterBasedOnCity(List<Restaurant> restList, String city) {
+		List<Restaurant> filteredList = new ArrayList<Restaurant>();
 		if(city !=null && !city.isEmpty()){
 			for(int i=0;i<restList.size();i++){
 				Restaurant rest = restList.get(i);
 				if(rest.getCity()!=null && !rest.getCity().isEmpty() && city.equalsIgnoreCase(rest.getCity())){
 					System.out.println("Adding City " + rest.getCity());
-					tempList.add(rest);
+					filteredList.add(rest);
 				}
 			}
-			restList = new ArrayList<Restaurant>(tempList);
+			return filteredList;
+		}else{
+			return restList;
 		}
 		
 	}

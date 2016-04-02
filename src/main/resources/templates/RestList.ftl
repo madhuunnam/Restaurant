@@ -89,7 +89,7 @@ p.oblique {
 							<td><#if rest.deliFee ??>${rest.deliFee}</#if></td>
 							<td><#if rest.restAdmin.numRev ??>${rest.restAdmin.numRev}</#if></td>
 							<td><#if rest.restAdmin.numYelp ??>${rest.restAdmin.numYelp}</#if></td>
-							<td>5</td>
+							<td><#if rest.distanceFromSearchLocation ??>${rest.distanceFromSearchLocation}</#if></td>
 							<td><#if rest.restAdmin.priceRange ??>${rest.restAdmin.priceRange}</#if></td>
 							<td><#if rest.restAdmin.popularity ??>${rest.restAdmin.popularity}</#if></td>
 						</tr>

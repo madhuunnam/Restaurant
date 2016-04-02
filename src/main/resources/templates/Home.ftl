@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="javascript/searchPage.js"></script>
 <style>
 .peopleCarouselImg img {
@@ -67,8 +68,11 @@
 		<h3 align='center'>
 			<i>Hungry? Enter your location or click links below!</i>
 		</h3>
-		<form class="form-horizontal" role="form" id="searchForm" action="/getRestaurantListPage">
-
+		<form class="form-horizontal" role="form" id="searchForm" >
+		
+			<input type='hidden' id='latitude' name='latitude' value='' />
+			<input type='hidden' id='longitude' name='longitude' value='' />
+			
 			<div class="form-group">
 				<label class="control-label col-md-2" for="location"></label>
 				<div class="col-md-8">
@@ -109,7 +113,7 @@
 				</div>
 
 				<div class="col-md-3">
-					<button type="button" class="btn btn-link form-control" onclick="onclickAddToMyAddress();">Save This Address</button>
+					<button type="button" class="btn btn-link form-control" onclick="onclickAddToMyAddress(${sessionUserId});">Save This Address</button>
 				</div>
 				<div class="col-md-3">
 					<button type="button" class="btn btn-link form-control" data-toggle="modal" data-target="#myFav" onclick="onclickMyFavorites(${sessionUserId})";>My Favorite Restaurants</button>
@@ -159,124 +163,127 @@
 								<div class="modal-body">
 									<form role="form">
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="American">American</label>
+											<label><input name='cuisine' type="checkbox" checked='true' value="All">All</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Asian">Asian</label>
+											<label><input name='cuisine' type="checkbox" value="American">American</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Bagels">Bagels</label>
+											<label><input name='cuisine'  type="checkbox" value="Asian">Asian</label>
+										</div>
+										<div class="checkbox col-sm-3">
+											<label><input name='cuisine'  type="checkbox" value="Bagels">Bagels</label>
 										</div>
 										<div class="checkbox col-sm-3"">
-											<label><input type="checkbox" value="Bakery">Bakery</label>
+											<label><input name='cuisine'  type="checkbox" value="Bakery">Bakery</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="BBQ">BBQ</label>
+											<label><input  name='cuisine' type="checkbox" value="BBQ">BBQ</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Catonese">Catonese</label>
+											<label><input name='cuisine'  type="checkbox" value="Catonese">Catonese</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Chinese">Chinese</label>
+											<label><input name='cuisine'  type="checkbox" value="Chinese">Chinese</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Caribbean">Caribbean</label>
+											<label><input name='cuisine'  type="checkbox" value="Caribbean">Caribbean</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="CoffeeTea">Coffee & Tea</label>
+											<label><input name='cuisine'  type="checkbox" value="CoffeeTea">Coffee & Tea</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Deli">Deli</label>
+											<label><input name='cuisine'  type="checkbox" value="Deli">Deli</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Dessert">Dessert</label>
+											<label><input name='cuisine'  type="checkbox" value="Dessert">Dessert</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Greek">Greek</label>
+											<label><input name='cuisine'  type="checkbox" value="Greek">Greek</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Grill">Grill</label>
+											<label><input name='cuisine'  type="checkbox" value="Grill">Grill</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Hamburgers">Hamburgers</label>
+											<label><input name='cuisine'  type="checkbox" value="Hamburgers">Hamburgers</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Healthy">Healthy</label>
+											<label><input name='cuisine'  type="checkbox" value="Healthy">Healthy</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Indian">Indian</label>
+											<label><input name='cuisine'  type="checkbox" value="Indian">Indian</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Italian">Italian</label>
+											<label><input name='cuisine'  type="checkbox" value="Italian">Italian</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Japanese">Japanese</label>
+											<label><input name='cuisine'  type="checkbox" value="Japanese">Japanese</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="LatinAmerican">LatinAmerican</label>
+											<label><input name='cuisine'  type="checkbox" value="LatinAmerican">LatinAmerican</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="LateNight">LateNight</label>
+											<label><input name='cuisine'  type="checkbox" value="LateNight">LateNight</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="LunchSpecials">LunchSpecials</label>
+											<label><input name='cuisine'  type="checkbox" value="LunchSpecials">LunchSpecials</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Mediterranean">Mediterranean</label>
+											<label><input name='cuisine'  type="checkbox" value="Mediterranean">Mediterranean</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Mexican">Mexican</label>
+											<label><input name='cuisine'  type="checkbox" value="Mexican">Mexican</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="MiddleEastern">MiddleEastern</label>
+											<label><input name='cuisine'  type="checkbox" value="MiddleEastern">MiddleEastern</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Noodles">Noodles</label>
+											<label><input name='cuisine'  type="checkbox" value="Noodles">Noodles</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Pasta">Pasta</label>
+											<label><input name='cuisine'  type="checkbox" value="Pasta">Pasta</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Pizza">Pizza</label>
+											<label><input name='cuisine'  type="checkbox" value="Pizza">Pizza</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Salads">Salads</label>
+											<label><input name='cuisine'  type="checkbox" value="Salads">Salads</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Sandwich">Sandwich</label>
+											<label><input name='cuisine'  type="checkbox" value="Sandwich">Sandwich</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Seafood">Sea food</label>
+											<label><input name='cuisine'  type="checkbox" value="Seafood">Sea food</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Smoothies">Smoothies</label>
+											<label><input name='cuisine'  type="checkbox" value="Smoothies">Smoothies</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Soup">Soup</label>
+											<label><input name='cuisine'  type="checkbox" value="Soup">Soup</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Szechwan">Szechwan</label>
+											<label><input name='cuisine'  type="checkbox" value="Szechwan">Szechwan</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Steak">Steak</label>
+											<label><input name='cuisine'  type="checkbox" value="Steak">Steak</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Subs">Subs</label>
+											<label><input name='cuisine'  type="checkbox" value="Subs">Subs</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Sushi">Sushi</label>
+											<label><input name='cuisine'  type="checkbox" value="Sushi">Sushi</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Vegetarian">Vegetarian</label>
+											<label><input name='cuisine'  type="checkbox" value="Vegetarian">Vegetarian</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Vietnamese">Vietnamese</label>
+											<label><input name='cuisine'  type="checkbox" value="Vietnamese">Vietnamese</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Wings">Wings</label>
+											<label><input name='cuisine'  type="checkbox" value="Wings">Wings</label>
 										</div>
 										<div class="checkbox col-sm-3">
-											<label><input type="checkbox" value="Wraps">Wraps</label>
+											<label><input name='cuisine'  type="checkbox" value="Wraps">Wraps</label>
 										</div>
 									</form>
 								</div>
@@ -292,7 +299,7 @@
 					</div>
 				</div>
 				<div class=" col-md-3">
-					<select id="state" class="form-control">
+					<select name='state' id="state" class="form-control">
 						<option value="">Select State</option>
 						<option value="NC">NC</option>
 						<option value="SC">SC</option>
@@ -300,7 +307,7 @@
 					</select>
 				</div>
 				<div class="col-md-3">
-					<select id="city" class="form-control">
+					<select name='city' id="city" class="form-control">
 						<option value="">Select City</option>
 						<option value="Greensboro">Greensboro</option>
 						<option value="Charlotte">Charlotte</option>
@@ -312,7 +319,7 @@
 			<div class="form-group">
 				<div class="col-md-offset-5 col-md-7">
 					<br />
-					<button type="submit" class="btn btn-info btn-md" id="searchBtn" onclick="onSearch();">
+					<button type="button" class="btn btn-info btn-md" id="searchBtn" onclick="onSearch();">
 						<span class="glyphicon glyphicon-search"></span> Search
 					</button>
 				</div>

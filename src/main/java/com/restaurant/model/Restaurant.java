@@ -3,7 +3,7 @@ package com.restaurant.model;
 import java.time.LocalTime;
 import java.util.Date;
 
-public class Restaurant {
+public class Restaurant implements Comparable{
 
 	private String restID="" ;
 	private String restName = "";
@@ -13,6 +13,8 @@ public class Restaurant {
 	private Date insertDate = null;
 	private Date cancelDate = null;
 	private String hasMenu = "";
+	private float distanceFromSearchLocation = 0.0f;
+	
 	private String inputBy = "";
 	private String note = "";
 	
@@ -490,6 +492,12 @@ public class Restaurant {
 	public void setMgrPasswd(String mgrPasswd) {
 		this.mgrPasswd = mgrPasswd;
 	}
+	public float getDistanceFromSearchLocation() {
+		return distanceFromSearchLocation;
+	}
+	public void setDistanceFromSearchLocation(float distanceFromSearchLocation) {
+		this.distanceFromSearchLocation = distanceFromSearchLocation;
+	}
 	@Override
 	public String toString() {
 		return "Restaurant [restID=" + restID + ", restName=" + restName + ", altName=" + altName + ", foundYear="
@@ -510,5 +518,19 @@ public class Restaurant {
 				+ ", bankName=" + bankName + ", bankPhone=" + bankPhone + ", bandAddr=" + bandAddr + ", bankRouteNum="
 				+ bankRouteNum + ", bankAccNum=" + bankAccNum + ", mgrName=" + mgrName + ", mgrPhone=" + mgrPhone
 				+ ", mgrEmail=" + mgrEmail + ", mgrPasswd=" + mgrPasswd + "]";
+	}
+	
+	@Override
+	public int compareTo(Object rest) {
+		
+		Restaurant restaurant =(Restaurant)rest;
+		float difference = this.distanceFromSearchLocation - restaurant.getDistanceFromSearchLocation();
+		
+		if(difference < 0){
+			return -1;
+		}else if(difference ==0 ){
+			return 0;
+		}
+		return 1;
 	}
 }

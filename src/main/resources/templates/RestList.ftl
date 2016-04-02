@@ -75,7 +75,7 @@ p.oblique {
 							<th>Delivery Fee</th>
 							<th>Reviews</th>
 							<th>Yelp Reviews</th>
-							<th>Distance</th>
+							<th>Distance( Miles )</th>
 							<th>Price</th>
 							<th>Popularity</th>
 						</tr>

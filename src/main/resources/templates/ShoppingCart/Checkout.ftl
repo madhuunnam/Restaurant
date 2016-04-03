@@ -18,7 +18,7 @@
 		</div>
 	</div>
 	<div class="container">
-		<form role="form" method="post">
+		<form role="form" action ='/confirmOrder'>
 			<h4>Basic Information: </h4>
 			<div class="row">
 				<label class="col-md-2">FirstName: </label> <label class="col-md-4" id="firstName"><#if customer.firstName ??>${customer.firstName}</#if></label> 
@@ -64,7 +64,7 @@
 			 </div>
 			<br /><br />
 			<div class="form-group"> 
-				<button type="button" class="btn btn-info btn-lg col-md-3 col-md-offset-4" id='confirmOrderButton' >Pay and Confirm Order</button>
+				<button type="submit" class="btn btn-info btn-lg col-md-3 col-md-offset-4" id='confirmOrderButton' >Pay and Confirm Order</button>
 			</div>
 		</form>
 	</div>

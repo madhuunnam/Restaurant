@@ -44,13 +44,13 @@ public class Order {
 	private String agentName = "";
 	private String notes = "";
 
-	private List<LineItems> lineItems = new ArrayList<LineItems>();
+	private List<LineItem> lineItems = new ArrayList<LineItem>();
 
-	public List<LineItems> getLineItems() {
+	public List<LineItem> getLineItems() {
 		return lineItems;
 	}
 
-	public void setLineItems(List<LineItems> lineItems) {
+	public void setLineItems(List<LineItem> lineItems) {
 		this.lineItems = lineItems;
 	}
 

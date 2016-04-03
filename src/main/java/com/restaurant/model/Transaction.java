@@ -39,13 +39,13 @@ public class Transaction {
 	private String agentName;
 	private String notes;
 	
-	List<LineItems> lineItems = new ArrayList<LineItems>();
+	List<LineItem> lineItems = new ArrayList<LineItem>();
 	
 	
-	public List<LineItems> getLineItems() {
+	public List<LineItem> getLineItems() {
 		return lineItems;
 	}
-	public void setLineItems(List<LineItems> lineItems) {
+	public void setLineItems(List<LineItem> lineItems) {
 		this.lineItems = lineItems;
 	}
 	public String getOrderNo() {

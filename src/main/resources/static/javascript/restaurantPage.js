@@ -14,7 +14,7 @@ $(document).ready(function() {
 	        dataType: "json",
 	        crossDomain: true
 	    }).then(function(data) {
-//	    	alert(JSON.stringify(data));
+	    //	alert(JSON.stringify(data));
 	    	var choiceObjs = data.choices;
 	    	if((choiceObjs.length)==0){
 	    		$('#showChoiceOptionsTab tbody').find("tr").remove();
@@ -22,6 +22,7 @@ $(document).ready(function() {
 	    		$('#showChoiceOptionsTab tbody').append("<tr><th>Price</th></tr>");
 	    		$('#showChoiceOptionsTab tbody').append("<tr><th> $"+data.basePrice+ "</th></tr>");
 	    		$('#showChoiceOptionsTab tbody').append("<input name='chValue' type='hidden' value= "+data.basePrice+" />");
+	    		
 			}else{
 				$('#showChoiceOptionsTab tbody').find("tr").remove();
 				$('#showChoiceOptionsTab tbody').find("input").remove();
@@ -59,7 +60,8 @@ $(document).ready(function() {
 				});
 				$('#showChoiceOptionsTab tbody').append(choiceTabStr);
 			}
-	    	$('#showChoiceOptionsTab tbody').append("<input name='itemName' type='hidden' value=' "+data.itemName+"' />");
+	    	$('#showChoiceOptionsTab tbody').append("<input name='itemName' type='hidden' value='"+data.itemName+"' />");
+	    	$('#showChoiceOptionsTab tbody').append("<input name='itemNum' type='hidden' value='"+data.itemNum+"' />");
 	    });
 		$('#addToCartModal').modal();
 		

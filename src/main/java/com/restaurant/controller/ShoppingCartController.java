@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import com.restaurant.model.Customer;
-import com.restaurant.model.LineItems;
+import com.restaurant.model.LineItem;
 import com.restaurant.model.Order;
 import com.restaurant.model.Restaurant;
 import com.restaurant.model.User;
@@ -28,13 +28,14 @@ public class ShoppingCartController {
 	public String addItemToCart(@RequestParam("addToCartQuantity") String quantity,
 			@RequestParam("specialInstructions") String specialInstructions,
 			@RequestParam("restaurantId") String restaurantId, @RequestParam("chValue") String chValue,
-			@RequestParam("itemName") String itemName, Model model) {
+			@RequestParam("itemName") String itemName, @RequestParam("itemNum") String itemNum, Model model) {
 
-		LineItems lineItem = new LineItems();
+		LineItem lineItem = new LineItem();
 		lineItem.setItemName(itemName);
 		lineItem.setQuantity(Integer.parseInt(quantity));
 		lineItem.setNote(specialInstructions);
 		lineItem.setPrice(Float.parseFloat(chValue));
+		lineItem.setItemNum(Integer.parseInt(itemNum));
 
 		order.getLineItems().add(lineItem);
 		order.setNumberOfLines(order.getLineItems().size());
@@ -138,7 +139,7 @@ public class ShoppingCartController {
 
 		Object ordersList = restTemplate
 				.getForObject("http://localhost:8090/getOrderListForCustomer/" + order.getCustId(), List.class);
-
+		
 		model.addAttribute("custActiveOrders", ordersList);
 		return "CustomerPages/CustActiveOrder";
 	}

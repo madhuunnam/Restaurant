@@ -1,10 +1,10 @@
 package com.restaurant.model;
 
-public class LineItems {
+public class LineItem {
 
 	private String restId="";
-	private int orderNo;
-	private int lineNum;
+	private String orderNo;
+	private String lineNum;
 
 	private Integer itemNum;
 	private String itemName="";
@@ -21,19 +21,19 @@ public class LineItems {
 		this.restId = restId;
 	}
 
-	public int getOrderNo() {
+	public String getOrderNo() {
 		return orderNo;
 	}
 
-	public void setOrderNo(int orderNo) {
+	public void setOrderNo(String orderNo) {
 		this.orderNo = orderNo;
 	}
 
-	public int getLineNum() {
+	public String getLineNum() {
 		return lineNum;
 	}
 
-	public void setLineNum(int lineNum) {
+	public void setLineNum(String lineNum) {
 		this.lineNum = lineNum;
 	}
 

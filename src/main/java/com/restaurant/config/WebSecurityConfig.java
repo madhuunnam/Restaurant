@@ -10,16 +10,12 @@ import com.restaurant.authentication.TastyHubAuthenticationProvider;
 
 @Configuration
 @EnableWebSecurity
-// @ComponentScan(basePackageClasses = CustomTastyHubUserDetailsService.class)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-	// @Autowired
-	// private UserDetailsService userDetailsService;
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authenticationProvider(new TastyHubAuthenticationProvider())
-				// .userDetailsService(userDetailsService)
 				.authorizeRequests()
 
 				.antMatchers("/images/**", "/javascript/**", "/vendor/**", "/assets/**", "/Homepage/**",
@@ -30,16 +26,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 						"/registerAdmin/**","/CustomerPages/**")
 				.permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login")
 				.authenticationDetailsSource(new TastyHubAuthenticationDetailsSource())
-				// .successHandler(successHandler())
 				.usernameParameter("email").permitAll().and().logout().permitAll();
 	}
 
-	// private AuthenticationSuccessHandler successHandler() {
-	//
-	// CustomAuthenticationSuccessHandler ca = new
-	// CustomAuthenticationSuccessHandler();
-	// ca.onAuthenticationSuccess(HttpRequest, HttpResponse, authentication);
-	// return null;
-	// }
-
+	
 }

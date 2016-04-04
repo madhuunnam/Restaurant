@@ -2,6 +2,8 @@ package com.restaurant.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Customer {
 	
 	private String custID = "";
@@ -26,6 +28,8 @@ public class Customer {
 	private String cardNumber = "";
 	private String cardType = "";
 	private String cardName = "";
+	
+	@DateTimeFormat(pattern = "MM/yyyy")
 	private Date cardExp = null;
 	private String cardCode = "";
 	private String billZip = "";
@@ -33,6 +37,8 @@ public class Customer {
 	private String cardNumber1 = "";
 	private String cardType1 = "";
 	private String cardName1 = "";
+	
+	@DateTimeFormat(pattern = "MM/yyyy")
 	private Date cardExp1 = null;
 	private String cardCode1 = "";
 	private String billZip1 = "";

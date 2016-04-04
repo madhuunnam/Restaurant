@@ -1,7 +1,12 @@
 package com.restaurant.controller;
 
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -112,7 +117,6 @@ public class ShoppingCartController {
 		RestTemplate restTemplate = new RestTemplate();
 		Customer customer = (Customer) restTemplate.getForObject("http://localhost:8090/getCustomerById/" + custId,
 				Customer.class);
-
 		if (order.getCustId() == null || order.getCustId().isEmpty()) {
 			order.setCustId(custId);
 			order.setCustName(customer.getFirstName());
@@ -122,11 +126,32 @@ public class ShoppingCartController {
 	}
 
 	@RequestMapping("/confirmOrder")
-	public String confirmOrder(Model model) {
-
+	public String confirmOrder(@RequestParam("cardName") String cardName, @RequestParam("cardType") String cardType, @RequestParam("cardExp") String cardExp, 
+			@RequestParam("cardNumber") String cardNo, @RequestParam("cardCode") String cardCode, @RequestParam("billZip") String billZip, @RequestParam("billAddr") String billAddr, Model model) {
+		
 		order.setStatus("New");
-
+		
 		RestTemplate restTemplate = new RestTemplate();
+		
+		Customer customer = (Customer) restTemplate.getForObject("http://localhost:8090/getCustomerById/" + order.getCustId(),
+				Customer.class);
+		DateFormat format = new SimpleDateFormat("MM/yyyy", Locale.ENGLISH);
+		Date cardExpdate = null;
+		try {
+			cardExpdate = format.parse(cardExp);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		customer.setCardName(cardName);
+		customer.setCardType(cardType);
+		customer.setCardNumber(cardNo);
+		customer.setCardExp(cardExpdate);
+		customer.setCardCode(cardCode);
+		customer.setBillZip(billZip);
+		customer.setBillAddr(billAddr);
+		
+		restTemplate.put("http://localhost:8090/updateCustomerProfile", customer);
 
 		String orderNum = restTemplate.getForObject("http://localhost:8090/getNewOrderIdToInsert/" + order.getRestId(),
 				String.class);

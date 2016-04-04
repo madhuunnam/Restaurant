@@ -8,6 +8,14 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="javascript/shoppingCart.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	if ( '${customer.cardType}' != null ){
+		$('#cardType').val('${customer.cardType}');
+		}
+	});
+	
+</script>
 </head>
 <body>
 	<#include "../NavBar.ftl">
@@ -35,29 +43,51 @@
 			<h4>Payment Information: </h4>
 			<br />
 			<div class="row">
-				<div class="col-md-6 ">
-					 <div class="form-group" align="center"> 
-						 <label class="control-label col-md-3 col-md-offset-3" for="cardNumber1">Card Number: </label>
-							 <div class="col-md-6 "> 
-							     <input type="text" class="form-control" id="cardNumber1" name="cardNumber1" value = "<#if customer.cardNumber1??>${customer.cardNumber1}</#if>" placeholder="Card Number" >
+				<div class="col-md-12 ">
+					<div class="form-group" align="center">
+					<label class="control-label col-md-2 " for="cardType">Card Type: </label>
+						<div class="col-md-2">
+							<select id="cardType" name="cardType" value="<#if customer.cardType??>${customer.cardType}</#if>" class="form-control">
+								<option value="" />
+								<option value="Debit">Debit</option>
+								<option value="Credit">Credit</option>
+							</select>
+						</div>
+					
+						 <label class="control-label col-md-2 " for="cardName">Name on Card: </label>
+							 <div class="col-md-3 "> 
+							     <input type="text" class="form-control" id="cardName" name="cardName" value = "<#if customer.cardName??>${customer.cardName}</#if>" placeholder="Card Number" >
 							 </div>
 					 </div>
+					 <br /><br />
 					 <div class="form-group" align="center"> 
-						 <label class="control-label col-md-3 col-md-offset-3" for="cardExp1">Card Exp: </label>
-							 <div class="col-md-6"> 
-							     <input type="text" class="form-control" id="cardExp1" name="cardExp1" value = "<#if customer.cardExp1??>${customer.cardExp1}</#if>" placeholder="MM/YYYY" >
+						 <label class="control-label col-md-2 " for="cardNumber">Card Number: </label>
+							 <div class="col-md-2 "> 
+							     <input type="text" class="form-control" id="cardNumber" name="cardNumber" value = "<#if customer.cardNumber??>${customer.cardNumber}</#if>" placeholder="Card Number" >
+							 </div>
+					 
+						 <label class="control-label col-md-2 " for="cardExp">Card Exp: </label>
+							 <div class="col-md-3"> 
+							     <input type="text" class="form-control" id="cardExp" name="cardExp" value = "<#if customer.cardExp??>${customer.cardExp?date?string["MM/yyyy"]}</#if>" placeholder="MM/YYYY" >
 							 </div>
 					 </div>
+					 <br /><br />
 					 <div class="form-group" align="center"> 
-						 <label class="control-label col-md-3 col-md-offset-3" for="cardCode1">CVV:</label>
-							 <div class="col-md-6"> 
-							     <input type="text" class="form-control" id="cardCode1" name="cardCode1" value = "<#if customer.cardCode1??>${customer.cardCode1}</#if>" placeholder="cvv" >
+						 <label class="control-label col-md-2" for="cardCode">CVV:</label>
+							 <div class="col-md-2"> 
+							     <input type="text" class="form-control" id="cardCode" name="cardCode" value = "<#if customer.cardCode??>${customer.cardCode}</#if>" placeholder="cvv" >
+							 </div>
+					 
+						 <label class="control-label col-md-2" for="billZip">Billing Zip: </label>
+							 <div class="col-md-3"> 
+							     <input type="text" class="form-control" id="billZip" name="billZip" value = "<#if customer.billZip??>${customer.billZip}</#if>" placeholder="Zip" >
 							 </div>
 					 </div>
+					 <br /><br />
 					  <div class="form-group" align="center"> 
-						 <label class="control-label col-md-3 col-md-offset-3" for="cardCode1">Billing Zip: </label>
+						 <label class="control-label col-md-2 " for="billAddr">Billing Zip: </label>
 							 <div class="col-md-6"> 
-							     <input type="text" class="form-control" id="billZip1" name="billZip1" value = "<#if customer.billZip1??>${customer.billZip1}</#if>" placeholder="Zip" >
+							     <input type="text" class="form-control" id="billAddr" name="billAddr" value = "<#if customer.billAddr??>${customer.billAddr}</#if>" placeholder="Street Address, City, State" >
 							 </div>
 					 </div>
 			 	</div>

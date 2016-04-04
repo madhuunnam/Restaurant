@@ -134,6 +134,12 @@
 						</div>
 					</div>
 					<div class="form-group">
+					<label class="control-label col-md-3 " for="cardExp">Card Exp: </label>
+						<div class="col-md-3"> 
+							 <input type="text" class="form-control" id="cardExp" name="cardExp" value = "<#if updateCustModel.cardExp??>${updateCustModel.cardExp?date?string["MM/yyyy"]}</#if>" placeholder="MM/YYYY" >
+						</div>
+					</div>
+					<div class="form-group">
 						<label class="control-label col-md-3" for="billZip">Billing Zip: </label>
 						<div class="col-md-3">
 							<input type="text" class="form-control" id="billZip" name="billZip" value="<#if updateCustModel.billZip??>${updateCustModel.billZip}</#if>">
@@ -166,6 +172,12 @@
 						<label class="control-label col-md-3" for="cardCode1">CVV: </label>
 						<div class="col-md-3">
 							<input type="text" class="form-control" id="cardCode1" name="cardCode1" value="<#if updateCustModel.cardCode1??>${updateCustModel.cardCode1}</#if>">
+						</div>
+					</div>
+					<div class="form-group">
+					<label class="control-label col-md-3 " for="cardExp1">Card Exp: </label>
+						<div class="col-md-3"> 
+							 <input type="text" class="form-control" id="cardExp1" name="cardExp1" value = "<#if updateCustModel.cardExp1??>${updateCustModel.cardExp1?date?string["MM/yyyy"]}</#if>" placeholder="MM/YYYY" >
 						</div>
 					</div>
 					<div class="form-group">

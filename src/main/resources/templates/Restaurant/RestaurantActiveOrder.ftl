@@ -8,8 +8,7 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="javascript/AccountPage.js"></script>
-
+<script type="text/javascript" src="javascript/OrdersPage.js"></script>
 </head>
 <body>
 	<#include "../NavBar.ftl">
@@ -19,7 +18,7 @@
 		<hr>
 		<div class="row">
 			<div class="col-md-12">
-				<form role="form" id="restOrderForm">
+				<form role="form" id="restOrderForm" >
 					<table class="table table-striped table-hover table-responsive" id="restOrdersTable">
 						<thead>
 							<tr>
@@ -27,7 +26,6 @@
 								<th>Order Date</th>
 								<th>Customer Name</th>
 								<th>#Lines</th>
-								<th>Items</th>
 								<th>Price</th>
 								<th>Type</th>
 								<th>Reservation</th>
@@ -41,21 +39,26 @@
 						</thead>
 						<tbody>
 							<#list restActiveOrders as restOrder>
-							<tr>
+							<tr id='restOrderRow-${restOrder.orderNo}'>
+							<input type='hidden'  value='${restOrder.orderNo}'>
 								<td><#if restOrder.orderNo ??>${restOrder.orderNo}</#if></td>
 								<td><#if restOrder.orderTime ??>${restOrder.orderTime}</#if></td>
 								<td><#if restOrder.custName ??>${restOrder.custName}</#if></td>
 								<td><#if restOrder.numberOfLines ??>${restOrder.numberOfLines}</#if></td>
-								<td><#if restOrder.itemName ??>${restOrder.itemName}</#if></td>
 								<td><#if restOrder.totPrice ??>${restOrder.totPrice}</#if></td>
 								<td><#if restOrder.orderType ??>${restOrder.orderType}</#if></td>
 								<td><#if restOrder.resTime ??>${restOrder.resTime}</#if></td>
 								<td><#if restOrder.pickTime ??>${restOrder.pickTime}</#if></td>
 								<td><#if restOrder.arriveTime ??>${restOrder.arriveTime}</#if></td>
 								<td><#if restOrder.msgToRes ??>${restOrder.msgToRes}</#if></td>
-								<td><input type="text" class="form-control" value="<#if restOrder.msgToCust ??>${restOrder.msgToCust}</#if>" /></td>
-								<td><#if restOrder.status ??>${restOrder.status}</#if></td>	
-								<td> <button type="button" class="btn btn-info btn-sm" onclick="onclickUpdateOrder();">Update</button></td>
+								<td><input type="text" class="form-control" name="msgToCust" value="<#if restOrder.msgToCust ??>${restOrder.msgToCust}</#if>" /></td>
+								<td>
+									<select id="status" name="status" value="<#if restOrder.status ??>${restOrder.status}</#if>" class="form-control">
+										<option value="New">New</option>
+										<option value="Completed">Completed</option>
+									</select>
+								</td>	
+								<td> <button type="button" name="updateOrder" class="btn btn-info btn-sm" onclick="onclickOrderUpdate(${sessionUserId});">Update</button></td>
 								
 							</tr>
 							</#list>

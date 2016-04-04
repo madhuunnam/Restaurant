@@ -23,7 +23,7 @@ $(document).ready(function(){
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
-	height: 450px
+	height: 100%
 }
 
 /* Set gray background color and 100% height */
@@ -56,7 +56,7 @@ footer {
 	<#include "../NavBar.ftl">
 
 	<div class="container-fluid text-center">
-		<div class="row content">
+		<div class="row content" >
 			<div class="col-sm-2 sidenav">
 				<h4>Your Orders</h4>
 				<table class="responsive">

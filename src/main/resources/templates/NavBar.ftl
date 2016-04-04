@@ -74,7 +74,7 @@
 		 <li><a href="<@spring.url '/RestaurantProfile'/> "><i class="glyphicon glyphicon-user"></i>Restaurant Profile</a></li>
 		 <li><a href="<@spring.url '/MenuPage'/> ">Menu</a></li>
 		 <li><a href="<@spring.url '/RestaurantActiveOrder'/> ">Orders</a></li>
-	<!-- <li><a href="<@spring.url '/RestaurantStatistics'/> ">Statistics</a></li> 		-->
+	     <li><a href="<@spring.url '/RestaurantStatistics'/> ">Statistics</a></li> 
 		 <li><a href="<@spring.url '/RestaurantAccount'/> ">Account</a></li>
    <!--  <li class="dropdown">
         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Other
@@ -101,7 +101,7 @@
 		 <#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'admin'>
 		 <li><a href="<@spring.url '/AdminProfile'/> "><i class="glyphicon glyphicon-user"></i>Admin Profile</a></li>
      	 <li><a href="<@spring.url '/AdminLookUp'/> ">LookUp</a></li>
-  <!--   <li><a href="<@spring.url '/AdminStatistics'/> ">Statistics</a></li>   -->
+         <li><a href="<@spring.url '/AdminStatistics'/> ">Statistics</a></li>   
      	 <li><a href="<@spring.url '/AdminAccount'/> ">Account</a></li>
  <!--    <li class="dropdown">
         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Other

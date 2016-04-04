@@ -93,6 +93,9 @@ public class ShoppingCartController {
 	public String pickUpOrder(Model model) {
 
 		order.setOrderType("PickUp");
+		order.setResTime(null);
+		order.setPickTime(null);
+		order.setArriveTime(null);
 
 		Restaurant restaurant = new Restaurant();
 
@@ -126,15 +129,17 @@ public class ShoppingCartController {
 	}
 
 	@RequestMapping("/confirmOrder")
-	public String confirmOrder(@RequestParam("cardName") String cardName, @RequestParam("cardType") String cardType, @RequestParam("cardExp") String cardExp, 
-			@RequestParam("cardNumber") String cardNo, @RequestParam("cardCode") String cardCode, @RequestParam("billZip") String billZip, @RequestParam("billAddr") String billAddr, Model model) {
-		
+	public String confirmOrder(@RequestParam("cardName") String cardName, @RequestParam("cardType") String cardType,
+			@RequestParam("cardExp") String cardExp, @RequestParam("cardNumber") String cardNo,
+			@RequestParam("cardCode") String cardCode, @RequestParam("billZip") String billZip,
+			@RequestParam("billAddr") String billAddr, Model model) {
+
 		order.setStatus("New");
-		
+
 		RestTemplate restTemplate = new RestTemplate();
-		
-		Customer customer = (Customer) restTemplate.getForObject("http://localhost:8090/getCustomerById/" + order.getCustId(),
-				Customer.class);
+
+		Customer customer = (Customer) restTemplate
+				.getForObject("http://localhost:8090/getCustomerById/" + order.getCustId(), Customer.class);
 		DateFormat format = new SimpleDateFormat("MM/yyyy", Locale.ENGLISH);
 		Date cardExpdate = null;
 		try {
@@ -150,14 +155,14 @@ public class ShoppingCartController {
 		customer.setCardCode(cardCode);
 		customer.setBillZip(billZip);
 		customer.setBillAddr(billAddr);
-		
+
 		restTemplate.put("http://localhost:8090/updateCustomerProfile", customer);
 
 		String orderNum = "0";
 		orderNum = restTemplate.getForObject("http://localhost:8090/getNewOrderIdToInsert/" + order.getRestId(),
 				String.class);
-		if( orderNum == null || orderNum.isEmpty()){
-			 orderNum = "0";
+		if (orderNum == null || orderNum.isEmpty()) {
+			orderNum = "0";
 		}
 		order.setOrderNo(String.valueOf(Integer.parseInt(orderNum) + 1));
 
@@ -168,9 +173,26 @@ public class ShoppingCartController {
 
 		Object ordersList = restTemplate
 				.getForObject("http://localhost:8090/getOrderListForCustomer/" + order.getCustId(), List.class);
-		
+
 		model.addAttribute("custActiveOrders", ordersList);
 		return "CustomerPages/CustActiveOrder";
+	}
+
+	@RequestMapping("/orderCommit")
+	public String orderCommit(@RequestParam("msgToCust") String msgToCust, @RequestParam("status") String status,
+			Model model, Authentication authentication) {
+
+		System.out.println("MSG*****" + msgToCust);
+		System.out.println("STATUS*****" + status);
+
+		User user = (User) authentication.getPrincipal();
+		RestTemplate restTemplate = new RestTemplate();
+		Object ordersList = restTemplate
+				.getForObject("http://localhost:8090/getOrderListForRestaurant/" + user.getUserId(), List.class);
+
+		model.addAttribute("restActiveOrders", ordersList);
+		return "Restaurant/RestaurantActiveOrder";
+
 	}
 
 	private Order extractSessionOrderObj(Order sessionOrderObj) {

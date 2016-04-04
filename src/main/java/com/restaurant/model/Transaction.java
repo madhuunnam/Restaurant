@@ -27,7 +27,7 @@ public class Transaction {
 	private String deliAddr;
 	private String status;
 	private String msgToCust;
-	private String msgToStore;
+	private String msgToRes;
 	private Boolean nonSmoke;
 	private Boolean groupOrder;
 	private Boolean paySeperate;
@@ -168,11 +168,11 @@ public class Transaction {
 	public void setMsgToCust(String msgToCust) {
 		this.msgToCust = msgToCust;
 	}
-	public String getMsgToStore() {
-		return msgToStore;
+	public String getMsgToRes() {
+		return msgToRes;
 	}
-	public void setMsgToStore(String msgToStore) {
-		this.msgToStore = msgToStore;
+	public void setMsgToRes(String msgToRes) {
+		this.msgToRes = msgToRes;
 	}
 	public Boolean getNonSmoke() {
 		return nonSmoke;
@@ -242,7 +242,7 @@ public class Transaction {
 				+ ", discountPercentage=" + discountPercentage + ", taxRatePercent=" + taxRatePercent + ", taxAmount="
 				+ taxAmount + ", tip=" + tip + ", deliFee=" + deliFee + ", totPrice=" + totPrice + ", receiverName="
 				+ receiverName + ", deliAddr=" + deliAddr + ", status=" + status + ", msgToCust=" + msgToCust
-				+ ", msgToStore=" + msgToStore + ", nonSmoke=" + nonSmoke + ", groupOrder=" + groupOrder
+				+ ", msgToStore=" + msgToRes + ", nonSmoke=" + nonSmoke + ", groupOrder=" + groupOrder
 				+ ", paySeperate=" + paySeperate + ", resTable=" + resTable + ", resPeople=" + resPeople + ", resTime="
 				+ resTime + ", pickTime=" + pickTime + ", arriveTime=" + arriveTime + ", agentName=" + agentName
 				+ ", notes=" + notes + "]";

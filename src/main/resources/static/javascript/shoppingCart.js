@@ -37,7 +37,7 @@ $(document).ready(function() {
 			subTotal = subTotal + parseFloat($(this).html());
 		});
 		
-		tax = 0.056 * subTotal ;
+		tax = 0.0525 * subTotal ;
 		
 		total = subTotal +tax ;
 		

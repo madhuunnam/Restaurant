@@ -153,8 +153,12 @@ public class ShoppingCartController {
 		
 		restTemplate.put("http://localhost:8090/updateCustomerProfile", customer);
 
-		String orderNum = restTemplate.getForObject("http://localhost:8090/getNewOrderIdToInsert/" + order.getRestId(),
+		String orderNum = "0";
+		orderNum = restTemplate.getForObject("http://localhost:8090/getNewOrderIdToInsert/" + order.getRestId(),
 				String.class);
+		if( orderNum == null || orderNum.isEmpty()){
+			 orderNum = "0";
+		}
 		order.setOrderNo(String.valueOf(Integer.parseInt(orderNum) + 1));
 
 		Order orderObj = extractSessionOrderObj(order);

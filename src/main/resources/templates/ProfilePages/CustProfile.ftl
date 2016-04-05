@@ -13,15 +13,21 @@
 <script type="text/javascript" src="vendor/validator.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
+	<#if updateCustModel.adChannel??>
 	if ( '${updateCustModel.adChannel}' != null ){
-		$('#adChannel').val(${updateCustModel.adChannel});
+		$('#adChannel').val('${updateCustModel.adChannel}');
 		}
+	</#if>
+	<#if updateCustModel.cardType??>
 	if ( '${updateCustModel.cardType}' != null ){
 		$('#cardType').val('${updateCustModel.cardType}');
 		}
+	</#if>
+	<#if updateCustModel.cardType1??>
 	if ( '${updateCustModel.cardType1}' != null ){
 		$('#cardType1').val('${updateCustModel.cardType1}');
 		}
+	</#if>
 	});
 	
 </script>

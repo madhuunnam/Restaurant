@@ -16,9 +16,11 @@
 </head>
 <script type="text/javascript">
 	$(document).ready(function() {
+	<#if updateAdminModel.secQuest??>
 	if ( ${updateAdminModel.secQuest} != null ){
 		$('#secQuest').val(${updateAdminModel.secQuest});
 		}
+	</#if>
 	});
 </script>
 <body>

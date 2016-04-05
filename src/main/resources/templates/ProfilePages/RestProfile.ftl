@@ -14,9 +14,11 @@
 <script type="text/javascript" src="javascript/restaurantPage.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
+	<#if updateRestModel.securityQuest??>
 	if ( ${updateRestModel.securityQuest} != null ){
 		$('#securityQuest').val(${updateRestModel.securityQuest});
 		}
+	</#if>
 	});
 </script>
 </head>

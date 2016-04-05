@@ -15,9 +15,11 @@
 <script type="text/javascript" src="vendor/validator.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
+	<#if updateAssocModel.adChannel??>
 		if ( ${updateAssocModel.adChannel} != null ){
 			$('#adChannel').val(${updateAssocModel.adChannel});
 		}
+	</#if>
 	});
 </script>
 </head>

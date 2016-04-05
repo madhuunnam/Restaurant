@@ -6,8 +6,11 @@ import java.util.List;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Component
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS, value = WebApplicationContext.SCOPE_SESSION)
@@ -38,6 +41,9 @@ public class Order {
 	private Boolean nonSmoke = false;
 	private String resTable = "";
 	private Integer resPeople = 0;
+	
+	@JsonFormat(pattern = "HH:mm:ss")
+	@DateTimeFormat(pattern = "HH:mm:ss")
 	private Date resTime = new Date();
 	private Date pickTime = new Date();
 	private Date arriveTime = new Date();

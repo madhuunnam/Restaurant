@@ -64,17 +64,19 @@
 						          	<h4 class="modal-title">Please fill the below details:</h4>
 						        </div>
 						        <div class="modal-body">
-						          <form role="form" id = "reserveTableForm">
+						          <form role="form" id ="reserveTableForm">
+						          <input type='hidden' name='restId' id='restId' value='<#if rest.restID ??>${rest.restID}</#if>' />
+						          <input type='hidden' name='restName' id='restName' value='<#if rest.restName ??>${rest.restName}</#if>' />
 									   <div class="form-group">
 									      <label for="peopleCount">Number Of People:</label>
-									      <input type="text" class="form-control" id="peopleCount" placeholder="Enter a number between 1 to 50">
+									      <input type="text" class="form-control" id="peopleCount" name="peopleCount" placeholder="Enter a number between 1 to 50">
 									   </div>
 									   <div class="form-group">
 									      <label for="time">Reservation Time:</label>
-									      <input type="text" class="form-control" id="time" placeholder="HH:MM">
+									      <input type="text" class="form-control" id="time" name="time" placeholder="HH:MM">
 									   </div>
 									   <div class="form-group">
-									      <label for="nonsmoke">Non-Smoke:</label> <select id="nonsmoke"
+									      <label for="nonsmoke">Non-Smoke:</label> <select id="nonsmoke" name = "nonsmoke"
 											class="form-control">
 											<option value="Yes">Yes</option>
 											<option value="No">No</option>
@@ -83,8 +85,8 @@
  								 	</form>
 						        </div>
 						        <div class="modal-footer">
-						       	 <button type="button" class="btn btn-default" onclick="onclickReserveTable();">Continue</button>
-						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						       	 	<button type="button" id ="contineBtn" class="btn btn-default" >Continue</button>
+						          	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 						        </div>
 						      </div>
 						    </div>

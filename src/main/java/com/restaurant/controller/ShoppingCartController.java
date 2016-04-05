@@ -183,23 +183,16 @@ public class ShoppingCartController {
 			@RequestParam("orderStatusToUpdate") String status, @RequestParam("orderNoToUpdate") String orderNum,
 			Model model, Authentication authentication) {
 
-		System.out.println("MSG*****" + msgToCust);
-		System.out.println("STATUS*****" + status);
-		System.out.println("ORDERNUM****" + orderNum);
-
 		User user = (User) authentication.getPrincipal();
 		RestTemplate restTemplate = new RestTemplate();
 
-		System.out.println("RESTID****" + user.getUserId());
 		Order orderFromDb = (Order) restTemplate.getForObject(
 				"http://localhost:8090/getOrderbyOrderNumForRestaurant/" + orderNum + "/" + user.getUserId(),
 				Order.class);
-
 		if (status == null) {
 			status = "";
 		}
 		if (!msgToCust.equals(orderFromDb.getMsgToCust())) {
-			System.out.println("msgTOCUST **** are not EQUAL");
 			if (!orderFromDb.getMsgToCust().equals("")) {
 				orderFromDb.setMsgToCust(orderFromDb.getMsgToCust() + "; " + msgToCust);
 			} else {
@@ -207,7 +200,6 @@ public class ShoppingCartController {
 			}
 		}
 		if (status.equals("Complete")) {
-			System.out.println("STATUS IS COMPLETE****");
 			ResponseEntity<String> insertStatus = restTemplate.postForEntity("http://localhost:8090/addTransaction",
 					orderFromDb, String.class);
 
@@ -216,7 +208,6 @@ public class ShoppingCartController {
 					String.class);
 
 		} else if (status.equals("New")) {
-			System.out.println("STATUS IS NEW****");
 			restTemplate.put("http://localhost:8090/updateOrder", orderFromDb);
 		}
 
@@ -226,6 +217,72 @@ public class ShoppingCartController {
 		model.addAttribute("restActiveOrders", ordersList);
 		return "Restaurant/RestaurantActiveOrder";
 
+	}
+
+	@RequestMapping("/reserveTable")
+	public String tableReservation(@RequestParam("peopleCount") String noOfPeople,
+			@RequestParam("time") String reserveTime, @RequestParam("nonsmoke") String nonSmoke,
+			@RequestParam("restId") String restaurantId, @RequestParam("restName") String restName, Model model,
+			Authentication authentication) {
+
+		User user = (User) authentication.getPrincipal();
+		RestTemplate restTemplate = new RestTemplate();
+
+		order.setStatus("New");
+		order.setOrderType("Reservation");
+		order.setRestId(restaurantId);
+		order.setResName(restName);
+		order.setResPeople(Integer.parseInt(noOfPeople));
+		order.setArriveTime(null);
+		order.setPickTime(null);
+
+		boolean nonSmokeValue = false;
+		if (nonSmoke.equals("Yes")) {
+			nonSmokeValue = true;
+		} else {
+			nonSmokeValue = false;
+		}
+		order.setNonSmoke(nonSmokeValue);
+
+		DateFormat format = new SimpleDateFormat("HH:mm", Locale.ENGLISH);
+		Date reservationTime = null;
+		try {
+			reservationTime = format.parse(reserveTime);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		order.setResTime(reservationTime);
+
+		String orderNum = "0";
+		orderNum = restTemplate.getForObject("http://localhost:8090/getNewOrderIdToInsert/" + order.getRestId(),
+				String.class);
+		if (orderNum == null || orderNum.isEmpty()) {
+			orderNum = "0";
+		}
+
+		order.setOrderNo(String.valueOf(Integer.parseInt(orderNum) + 1));
+
+		Customer customer = (Customer) restTemplate
+				.getForObject("http://localhost:8090/getCustomerById/" + user.getUserId(), Customer.class);
+		if (order.getCustId() == null || order.getCustId().isEmpty()) {
+			order.setCustId(customer.getCustID());
+			order.setCustName(customer.getFirstName());
+		}
+
+		order.setMsgToCust("Table Reserved");
+
+		System.out.println(order);
+
+		Order orderObj = extractSessionOrderObj(order);
+
+		ResponseEntity<String> insertStatus = restTemplate.postForEntity("http://localhost:8090/addOrder", orderObj,
+				String.class);
+
+		Object ordersList = restTemplate
+				.getForObject("http://localhost:8090/getOrderListForCustomer/" + user.getUserId(), List.class);
+
+		model.addAttribute("custActiveOrders", ordersList);
+		return "CustomerPages/CustActiveOrder";
 	}
 
 	private Order extractSessionOrderObj(Order sessionOrderObj) {

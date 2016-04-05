@@ -1,5 +1,11 @@
 $(document).ready(function() {
 	
+	$(document).on("click", "#contineBtn", function(event){
+
+		document.getElementById("reserveTableForm").action = "/reserveTable";
+		document.getElementById("reserveTableForm").submit();
+	});	
+	
 	$('#restaurantMenuTable > tbody > tr ').click(function() {
 		
 		var menuItem = $(this).find("input").val();
@@ -74,16 +80,7 @@ $(document).ready(function() {
 	$('#addtoCardButton').click(function () {
 		$('#addItemToCartForm').submit();
 	})
-	
-	
-	
-	function onclickReserveTable(){
-		var reservePeople = $('#peopleCount').val();
-		var reserveTime = $('#time').val();
-		var nonSmoke = $('#nonsmoke').val();
-		alert(reservePeople+reserveTime+nonSmoke);
-	}
-	
+
 	
 });
 

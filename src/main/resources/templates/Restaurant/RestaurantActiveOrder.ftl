@@ -18,8 +18,8 @@
 		<hr>
 		<div class="row">
 			<div class="col-md-12">
-				<form role="form" id="restOrderForm" >
-					<table class="table table-striped table-hover table-responsive" id="restOrdersTable">
+				<form role="form" id="restOrderForm"  >
+					<table class="table table-striped table-hover table-responsive" id="restOrdersTable" >
 						<thead>
 							<tr>
 								<th>Order No</th>
@@ -40,7 +40,6 @@
 						<tbody>
 							<#list restActiveOrders as restOrder>
 							<tr id='restOrderRow-${restOrder.orderNo}'>
-							<input type='hidden'  value='${restOrder.orderNo}'>
 								<td><#if restOrder.orderNo ??>${restOrder.orderNo}</#if></td>
 								<td><#if restOrder.orderTime ??>${restOrder.orderTime}</#if></td>
 								<td><#if restOrder.custName ??>${restOrder.custName}</#if></td>
@@ -55,13 +54,15 @@
 								<td>
 									<select id="status" name="status" value="<#if restOrder.status ??>${restOrder.status}</#if>" class="form-control">
 										<option value="New">New</option>
-										<option value="Completed">Completed</option>
+										<option value="Complete">Complete</option>
 									</select>
 								</td>	
-								<td> <button type="button" name="updateOrder" class="btn btn-info btn-sm" onclick="onclickOrderUpdate(${sessionUserId});">Update</button></td>
-								
+								<td> <button id='updateButton-${restOrder.orderNo}' type="button" name="updateOrder" class="btn btn-info btn-sm" onClick="onclickOrderUpdate(${restOrder.orderNo});">Process Order</button></td>
 							</tr>
 							</#list>
+							<input type='hidden' name='orderNoToUpdate' id='orderNoToUpdate' value=''/>
+							<input type='hidden' name='orderStatusToUpdate' id='orderStatusToUpdate' value=''/>
+							<input type='hidden' name='msgToCustToUpdate' id='msgToCustToUpdate' value=''/>
 						</tbody>
 					</table>
 				</form>

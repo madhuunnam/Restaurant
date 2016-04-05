@@ -1,12 +1,14 @@
 
-function onclickOrderUpdate(sessionUserId){
+function onclickOrderUpdate(orderNo){
 	
-	$('#restOrdersTable > tbody > tr ').click(function(){
-	var orderNo = $(this).find("input").val();
-	alert(orderNo+"****"+sessionUserId);
-	})
+	var orderStatusToUpdate = $('#restOrderRow-'+orderNo).find("select").val();
+	var msgToCustToUpdate = $('#restOrderRow-'+orderNo).find("input[name=msgToCust]").val();
 	
-//	document.getElementById("restOrderForm").action = "/orderCommit";
-//	document.getElementById("restOrderForm").submit();
+	$('#orderNoToUpdate').val(orderNo);
+	$('#orderStatusToUpdate').val(orderStatusToUpdate);
+	$('#msgToCustToUpdate').val(msgToCustToUpdate);
+	
+	document.getElementById("restOrderForm").action = "/processOrderUpdate";
+	document.getElementById("restOrderForm").submit();
 	
 }

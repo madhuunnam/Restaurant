@@ -178,15 +178,48 @@ public class ShoppingCartController {
 		return "CustomerPages/CustActiveOrder";
 	}
 
-	@RequestMapping("/orderCommit")
-	public String orderCommit(@RequestParam("msgToCust") String msgToCust, @RequestParam("status") String status,
+	@RequestMapping("/processOrderUpdate")
+	public String orderCommit(@RequestParam("msgToCustToUpdate") String msgToCust,
+			@RequestParam("orderStatusToUpdate") String status, @RequestParam("orderNoToUpdate") String orderNum,
 			Model model, Authentication authentication) {
 
 		System.out.println("MSG*****" + msgToCust);
 		System.out.println("STATUS*****" + status);
+		System.out.println("ORDERNUM****" + orderNum);
 
 		User user = (User) authentication.getPrincipal();
 		RestTemplate restTemplate = new RestTemplate();
+
+		System.out.println("RESTID****" + user.getUserId());
+		Order orderFromDb = (Order) restTemplate.getForObject(
+				"http://localhost:8090/getOrderbyOrderNumForRestaurant/" + orderNum + "/" + user.getUserId(),
+				Order.class);
+
+		if (status == null) {
+			status = "";
+		}
+		if (!msgToCust.equals(orderFromDb.getMsgToCust())) {
+			System.out.println("msgTOCUST **** are not EQUAL");
+			if (!orderFromDb.getMsgToCust().equals("")) {
+				orderFromDb.setMsgToCust(orderFromDb.getMsgToCust() + "; " + msgToCust);
+			} else {
+				orderFromDb.setMsgToCust(msgToCust);
+			}
+		}
+		if (status.equals("Complete")) {
+			System.out.println("STATUS IS COMPLETE****");
+			ResponseEntity<String> insertStatus = restTemplate.postForEntity("http://localhost:8090/addTransaction",
+					orderFromDb, String.class);
+
+			String deleteOrderStatus = restTemplate.getForObject(
+					"http://localhost:8090/deleteOrderForRestaurant/" + user.getUserId() + "/" + orderNum,
+					String.class);
+
+		} else if (status.equals("New")) {
+			System.out.println("STATUS IS NEW****");
+			restTemplate.put("http://localhost:8090/updateOrder", orderFromDb);
+		}
+
 		Object ordersList = restTemplate
 				.getForObject("http://localhost:8090/getOrderListForRestaurant/" + user.getUserId(), List.class);
 

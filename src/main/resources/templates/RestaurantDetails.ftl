@@ -97,8 +97,9 @@
 			</div>
 		</div>
 	</div>
+	<div class = "container">
 	<div class="panel panel-info">
-		<div class="panel-heading">Menu</div>
+		<div class="panel-heading text-center"><strong><i>MENU</i></strong></div>
 		<div class="panel-info">
 			<table class="table table-striped table-hover table-responsive" id="restaurantMenuTable">
 			<tbody>
@@ -107,6 +108,7 @@
 				<input type='hidden'  value='menuItem-${item.restId}-${item.itemNum}'>
 				<#if item.itemName??>
 					<td id='RestDetailsPage-${item.restId}-${item.itemNum}'>${item.itemName}</td>
+					<td>${item.basePrice}</td>
 				<#else>
 					<td id='RestDetailsPage-${item.restId}-${item.itemNum}'></td>
 				</#if>
@@ -117,11 +119,12 @@
 		</div>
 		<#include "Restaurant/AddToCartModalWizard.ftl" >
 		</div>	
+	</div>
 			
-		<ul class="pager">
+	<!--	<ul class="pager">
 			<li class="previous"><a
 				href="<@spring.url '/getRestaurantListPage'/>">Back</a></li>
-		</ul>
+		</ul>  -->
 		
 	</div>	
 </body>

@@ -159,7 +159,7 @@ public class ShoppingCartController {
 		restTemplate.put("http://localhost:8090/updateCustomerProfile", customer);
 
 		String orderNum = "0";
-		orderNum = restTemplate.getForObject("http://localhost:8090/getNewOrderIdToInsert/" + order.getRestId(),
+		orderNum = restTemplate.getForObject("http://localhost:8090/getNewOrderIdToInsert",
 				String.class);
 		if (orderNum == null || orderNum.isEmpty()) {
 			orderNum = "0";
@@ -254,7 +254,7 @@ public class ShoppingCartController {
 		order.setResTime(reservationTime);
 
 		String orderNum = "0";
-		orderNum = restTemplate.getForObject("http://localhost:8090/getNewOrderIdToInsert/" + order.getRestId(),
+		orderNum = restTemplate.getForObject("http://localhost:8090/getNewOrderIdToInsert",
 				String.class);
 		if (orderNum == null || orderNum.isEmpty()) {
 			orderNum = "0";

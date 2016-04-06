@@ -20,7 +20,7 @@ $(document).ready(function() {
 	        dataType: "json",
 	        crossDomain: true
 	    }).then(function(data) {
-	    //	alert(JSON.stringify(data));
+//	    	alert(JSON.stringify(data));
 	    	var choiceObjs = data.choices;
 	    	if((choiceObjs.length)==0){
 	    		$('#showChoiceOptionsTab tbody').find("tr").remove();
@@ -34,8 +34,11 @@ $(document).ready(function() {
 				$('#showChoiceOptionsTab tbody').find("input").remove();
 				
 				var choiceTabStr="";
+				var flag=false;
 				$.each(choiceObjs , function(index , element){
+					
 					if(element.chValues.length !=0){
+						flag=true;
 						choiceTabStr= choiceTabStr+"<tr><th>"+element.chTitle+"</th></tr>";
 						var chValObjs = element.chValues;
 						$.each(chValObjs , function(index , e){
@@ -64,6 +67,12 @@ $(document).ready(function() {
 						});
 					}
 				});
+				
+				if(flag ==false){
+					$('#showChoiceOptionsTab tbody').append("<tr><th>Price</th></tr>");
+					$('#showChoiceOptionsTab tbody').append("<tr><th> $"+data.basePrice+ "</th></tr>");
+		    		$('#showChoiceOptionsTab tbody').append("<input name='chValue' type='hidden' value= "+data.basePrice+" />");
+				}
 				$('#showChoiceOptionsTab tbody').append(choiceTabStr);
 			}
 	    	$('#showChoiceOptionsTab tbody').append("<input name='itemName' type='hidden' value='"+data.itemName+"' />");

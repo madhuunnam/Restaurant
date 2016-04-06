@@ -8,7 +8,7 @@ public class RestLedger {
 	
 	private String restId;
 	private String ledgerNum;
-	private Integer orderNum;
+	private String orderNum;
 	private String resName;
 	
 	@DateTimeFormat(pattern = "MM/dd/yyyy")
@@ -33,10 +33,10 @@ public class RestLedger {
 	public void setLedgerNum(String ledgerNum) {
 		this.ledgerNum = ledgerNum;
 	}
-	public Integer getOrderNum() {
+	public String getOrderNum() {
 		return orderNum;
 	}
-	public void setOrderNum(Integer orderNum) {
+	public void setOrderNum(String orderNum) {
 		this.orderNum = orderNum;
 	}
 	public String getResName() {

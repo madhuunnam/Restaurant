@@ -34,7 +34,7 @@ p.oblique {
     <h3>Pick a Restaurant of your choice!</h3>      
   </div>
 </div>
-<div class="row">
+<!-- <div class="row">
 			<div class="col-md-6 text-info">
 				<div class="checkbox">
 					<label><input type="checkbox" value="HasMenuOnly">HasMenuOnly</label>
@@ -60,7 +60,7 @@ p.oblique {
 					<option value="50M">50 Miles</option>
 				</select>
 			</div>
-		</div>
+		</div> -->
 		<br />
 		<div class="row">
 			<div class="col-md-12">

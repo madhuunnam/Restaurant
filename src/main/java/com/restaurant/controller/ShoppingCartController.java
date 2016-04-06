@@ -8,6 +8,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.aop.scope.ScopedObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -17,9 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
+import com.restaurant.model.AdminLedger;
+import com.restaurant.model.CustLedger;
 import com.restaurant.model.Customer;
 import com.restaurant.model.LineItem;
 import com.restaurant.model.Order;
+import com.restaurant.model.RestLedger;
 import com.restaurant.model.Restaurant;
 import com.restaurant.model.User;
 
@@ -32,7 +38,8 @@ public class ShoppingCartController {
 	@RequestMapping("/addItemToCart")
 	public String addItemToCart(@RequestParam("addToCartQuantity") String quantity,
 			@RequestParam("specialInstructions") String specialInstructions,
-			@RequestParam("restaurantId") String restaurantId, @RequestParam("chValue") String chValue,
+			@RequestParam("restaurantId") String restaurantId,
+			@RequestParam(name = "chValue", defaultValue = "0.0") String chValue,
 			@RequestParam("itemName") String itemName, @RequestParam("itemNum") String itemNum, Model model) {
 
 		LineItem lineItem = new LineItem();
@@ -132,7 +139,7 @@ public class ShoppingCartController {
 	public String confirmOrder(@RequestParam("cardName") String cardName, @RequestParam("cardType") String cardType,
 			@RequestParam("cardExp") String cardExp, @RequestParam("cardNumber") String cardNo,
 			@RequestParam("cardCode") String cardCode, @RequestParam("billZip") String billZip,
-			@RequestParam("billAddr") String billAddr, Model model) {
+			@RequestParam("billAddr") String billAddr, Model model, HttpServletRequest request) {
 
 		order.setStatus("New");
 
@@ -159,8 +166,7 @@ public class ShoppingCartController {
 		restTemplate.put("http://localhost:8090/updateCustomerProfile", customer);
 
 		String orderNum = "0";
-		orderNum = restTemplate.getForObject("http://localhost:8090/getNewOrderIdToInsert",
-				String.class);
+		orderNum = restTemplate.getForObject("http://localhost:8090/getNewOrderIdToInsert", String.class);
 		if (orderNum == null || orderNum.isEmpty()) {
 			orderNum = "0";
 		}
@@ -175,6 +181,7 @@ public class ShoppingCartController {
 				.getForObject("http://localhost:8090/getOrderListForCustomer/" + order.getCustId(), List.class);
 
 		model.addAttribute("custActiveOrders", ordersList);
+		((ScopedObject) order).removeFromScope();
 		return "CustomerPages/CustActiveOrder";
 	}
 
@@ -202,6 +209,9 @@ public class ShoppingCartController {
 		if (status.equals("Complete")) {
 			ResponseEntity<String> insertStatus = restTemplate.postForEntity("http://localhost:8090/addTransaction",
 					orderFromDb, String.class);
+
+			addCustLegder(orderFromDb);
+			addRestLegder(orderFromDb);
 
 			String deleteOrderStatus = restTemplate.getForObject(
 					"http://localhost:8090/deleteOrderForRestaurant/" + user.getUserId() + "/" + orderNum,
@@ -254,8 +264,7 @@ public class ShoppingCartController {
 		order.setResTime(reservationTime);
 
 		String orderNum = "0";
-		orderNum = restTemplate.getForObject("http://localhost:8090/getNewOrderIdToInsert",
-				String.class);
+		orderNum = restTemplate.getForObject("http://localhost:8090/getNewOrderIdToInsert", String.class);
 		if (orderNum == null || orderNum.isEmpty()) {
 			orderNum = "0";
 		}
@@ -282,7 +291,106 @@ public class ShoppingCartController {
 				.getForObject("http://localhost:8090/getOrderListForCustomer/" + user.getUserId(), List.class);
 
 		model.addAttribute("custActiveOrders", ordersList);
+
+		((ScopedObject) order).removeFromScope();
 		return "CustomerPages/CustActiveOrder";
+	}
+
+	private void addCustLegder(Order order) {
+
+		RestTemplate restTemplate = new RestTemplate();
+
+		String ledgerNum = "0";
+		ledgerNum = restTemplate.getForObject("http://localhost:8090/getMaxCustLedgerId", String.class);
+		if (ledgerNum == null || ledgerNum.isEmpty()) {
+			ledgerNum = "0";
+		}
+		CustLedger ledgerObject = new CustLedger();
+		ledgerObject.setCustId(order.getCustId());
+		ledgerObject.setLedgerNum(String.valueOf(Integer.parseInt(ledgerNum) + 1));
+		ledgerObject.setCustName(order.getCustName());
+		ledgerObject.setLedgerDate(order.getOrderTime());
+		ledgerObject.setResId(order.getRestId());
+		ledgerObject.setResName(order.getResName());
+		ledgerObject.setOrderNum(order.getOrderNo());
+		ledgerObject.setChargeAmt(order.getTotPrice());
+		ledgerObject.setPayAmt(order.getTotPrice());
+		ledgerObject.setPayMethod("Card");
+		ledgerObject.setNote(order.getNotes());
+		ledgerObject.setBalance(order.getTotPrice() - order.getTotPrice());
+
+		ResponseEntity<String> insertStatus = restTemplate.postForEntity("http://localhost:8090/addToCustLedger",
+				ledgerObject, String.class);
+
+	}
+
+	private void addRestLegder(Order order) {
+
+		RestTemplate restTemplate = new RestTemplate();
+
+		String ledgerNum = "0";
+		ledgerNum = restTemplate.getForObject("http://localhost:8090/getMaxRestLedgerId", String.class);
+		if (ledgerNum == null || ledgerNum.isEmpty()) {
+			ledgerNum = "0";
+		}
+		RestLedger ledgerObject = new RestLedger();
+		ledgerObject.setRestId(order.getRestId());
+		ledgerObject.setOrderNum(order.getOrderNo());
+		ledgerObject.setResName(order.getResName());
+		ledgerObject.setLedgerNum(String.valueOf(Integer.parseInt(ledgerNum) + 1));
+		ledgerObject.setLedgerDate(order.getOrderTime());
+		ledgerObject.setCustName(order.getCustName());
+		ledgerObject.setChargeAmt(order.getTotPrice());
+		ledgerObject.setPayAmt(order.getTotPrice());
+		ledgerObject.setPayMethod("Card");
+		ledgerObject.setCheckNum("");
+		ledgerObject.setNote(order.getNotes());
+		ledgerObject.setBalance(order.getTotPrice() - order.getTotPrice());
+
+		ResponseEntity<String> insertStatus = restTemplate.postForEntity("http://localhost:8090/addToRestLedger",
+				ledgerObject, String.class);
+
+	}
+
+	// private void addAdminLegder() {
+	//
+	// RestTemplate restTemplate = new RestTemplate();
+	//
+	// AdminLedger ledgerObject = new AdminLedger();
+	//
+	// ledgerObject.setCustId(order.getCustId());
+	// ledgerObject.setCustName(order.getCustName());
+	// ledgerObject.setResId(order.getRestId());
+	// ledgerObject.setResName(order.getResName());
+	// ledgerObject.setOrderNum(order.getOrderNo());
+	//
+	// ledgerObject.setLedgerDate(order.getOrderTime());
+	// ledgerObject.setAssocId("");
+	// ledgerObject.setAssocName("");
+	//
+	//
+	//
+	//
+	// ledgerObject.setChargeAmt(order.getTotPrice());
+	// ledgerObject.setPayAmt(order.getTotPrice());
+	// ledgerObject.setPayMethod("Card");
+	// ledgerObject.setCheckNum("");
+	// ledgerObject.setNote(order.getNotes());
+	// ledgerObject.setBalance(order.getTotPrice() - order.getTotPrice());
+	//
+	// ResponseEntity<String> insertStatus =
+	// restTemplate.postForEntity("http://localhost:8090/addToRestLedger",
+	// ledgerObject,
+	// String.class);
+	//
+	// }
+
+	@RequestMapping("/cancelOrder")
+	public String tableReservation(Model model) {
+
+		((ScopedObject) order).removeFromScope();
+
+		return "Home";
 	}
 
 	private Order extractSessionOrderObj(Order sessionOrderObj) {

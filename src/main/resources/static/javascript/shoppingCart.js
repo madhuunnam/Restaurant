@@ -82,3 +82,14 @@ function onclickDeliveryAddressSubmission(){
 	var receiverName = $('receiverName').val();
 	alert(deliAddress+"Madhu"+receiverName);
 }
+
+function onclickCancelOrderBtn(){
+	
+	document.getElementById("reviewOrderForm").action = "/cancelOrder";
+	document.getElementById("reviewOrderForm").submit();
+	
+}
+
+
+
+

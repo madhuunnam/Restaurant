@@ -104,22 +104,20 @@ footer {
 						</div>
 						<br />
 						<div class="row">
+							<label class="col-md-2">Message from Restaurant: </label> <label class="col-md-4" id="msgFromRest"></label>
+						</div>
+						<br />
+						<div class="row">
 							<label class="col-md-3">Message to Restaurant: </label>
 							<textarea class="col-md-6" cols="40" id="msgToRest" name="textarea" rows="2"></textarea>
 							<button type="button" class="btn btn-info btn-sm col-sm-1 ">Send</button>
 						</div>
-						<br />
-						<div class="row">
-							<label class="col-md-3">Message from Restaurant: </label>
-							<textarea class="col-md-6" cols="40" id="msgFromRest" name="textarea" rows="2"></textarea>
-							<button type="button" class="btn btn-info btn-sm col-sm-1 ">Send</button>
-						</div>
-						<br /> <br />
+						<!-- <br /> <br />
 						<div class="row">
 							<button type="button" class="btn btn-info btn-md col-md-4 col-md-offset-3" data-toggle="tooltip" 
 							data-placement="bottom" title="You can earn credits for next meal by writing a Review!">Write
 								a Review about this Restaurant</button>
-						</div>
+						</div>  -->
 					</div>
 				</div>
 			</div>

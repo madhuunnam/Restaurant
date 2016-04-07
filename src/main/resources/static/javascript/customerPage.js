@@ -27,7 +27,7 @@ function onclickCustOrderDetails(sessionUserId, orderId) {
 				$('#orderInstruc').html(data.notes);
 				$('#orderStatus').html(data.status);
 				$('#msgToRest').html(data.msgToRes);
-				$('#msgFromRest').html(data.msgToCust);
+				$('#msgFromRest').html(data.msgFromRest);
 
 	});
 }

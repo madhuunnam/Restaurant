@@ -16,8 +16,6 @@ public class RestAdmin {
 	private int recomenderID ;
 	private String recomType = "";
 	private String commissionType = "";
-	private String promoCode = "";
-	private String adChannel = "";
 	private int numCust;
 	private int numRes;
 	
@@ -106,18 +104,6 @@ public class RestAdmin {
 	public void setCommissionType(String commissionType) {
 		this.commissionType = commissionType;
 	}
-	public String getPromoCode() {
-		return promoCode;
-	}
-	public void setPromoCode(String promoCode) {
-		this.promoCode = promoCode;
-	}
-	public String getAdChannel() {
-		return adChannel;
-	}
-	public void setAdChannel(String adChannel) {
-		this.adChannel = adChannel;
-	}
 	public int getNumCust() {
 		return numCust;
 	}
@@ -136,9 +122,9 @@ public class RestAdmin {
 				+ popularity + ", likes=" + likes + ", dislikes=" + dislikes + ", numRev=" + numRev + ", avgStar="
 				+ avgStar + ", numYelp=" + numYelp + ", yelpStar=" + yelpStar + ", priceRange=" + priceRange
 				+ ", recomenderID=" + recomenderID + ", recomType=" + recomType + ", commissionType=" + commissionType
-				+ ", promoCode=" + promoCode + ", adChannel=" + adChannel + ", numCust=" + numCust + ", numRes="
-				+ numRes + "]";
+				+ ", numCust=" + numCust + ", numRes=" + numRes + "]";
 	}
+	
 
 	
 	

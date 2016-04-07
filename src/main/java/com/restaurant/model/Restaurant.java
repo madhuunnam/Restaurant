@@ -81,9 +81,23 @@ public class Restaurant implements Comparable{
 	private String mgrEmail = "";
 	private String mgrPasswd = "";
 	
+	private String promoCode = "";
+	private String adChannel = "";
+	
 	RestAdmin restAdmin = new RestAdmin();
-	
-	
+
+	public String getPromoCode() {
+		return promoCode;
+	}
+	public void setPromoCode(String promoCode) {
+		this.promoCode = promoCode;
+	}
+	public String getAdChannel() {
+		return adChannel;
+	}
+	public void setAdChannel(String adChannel) {
+		this.adChannel = adChannel;
+	}
 	public RestAdmin getRestAdmin() {
 		return restAdmin;
 	}

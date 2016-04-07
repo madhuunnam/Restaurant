@@ -114,6 +114,31 @@ public class ShoppingCartController {
 		model.addAttribute("rest", restaurant);
 		return "ShoppingCart/ReviewOrder";
 	}
+	
+	@RequestMapping("/deliveryOrder")
+	public String deliveryOrder(@RequestParam("deliAddr") String deliveryAdd, @RequestParam("receiverName") String receiverName, Model model) {
+
+		order.setOrderType("Delivery");
+		order.setDeliAddr(deliveryAdd);
+		order.setReceiverName(receiverName);
+		order.setResTime(null);
+		order.setPickTime(null);
+		order.setArriveTime(null);
+		order.setResTime(null);
+		order.setPickTime(null);
+		order.setArriveTime(null);
+		
+		System.out.println("Delivery ORDER***"+order);
+		Restaurant restaurant = new Restaurant();
+
+		if (order.getRestId() != null) {
+			RestTemplate restTemplate = new RestTemplate();
+			restaurant = (Restaurant) restTemplate
+					.getForObject("http://localhost:8090/getRestaurantById/" + order.getRestId(), Restaurant.class);
+		}
+		model.addAttribute("rest", restaurant);
+		return "ShoppingCart/ReviewOrder";
+	}
 
 	@RequestMapping("/checkOut")
 	public String checkout(Model model, Authentication authentication) {
@@ -139,7 +164,7 @@ public class ShoppingCartController {
 	public String confirmOrder(@RequestParam("cardName") String cardName, @RequestParam("cardType") String cardType,
 			@RequestParam("cardExp") String cardExp, @RequestParam("cardNumber") String cardNo,
 			@RequestParam("cardCode") String cardCode, @RequestParam("billZip") String billZip,
-			@RequestParam("billAddr") String billAddr, Model model, HttpServletRequest request) {
+			@RequestParam("billAddr") String billAddr, Model model) {
 
 		order.setStatus("New");
 

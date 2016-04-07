@@ -78,9 +78,11 @@ $(document).ready(function() {
 
 function onclickDeliveryAddressSubmission(){
 	
-	var deliAddress = $('deliveryDetails deliAddr').val();
-	var receiverName = $('receiverName').val();
-	alert(deliAddress+"Madhu"+receiverName);
+	var deliAddress = $('#deliAddr').val();
+	var receiverName = $('#receiverName').val();
+	document.getElementById("cartSummaryForm").action = "/deliveryOrder";
+	document.getElementById("cartSummaryForm").submit();
+	
 }
 
 function onclickCancelOrderBtn(){

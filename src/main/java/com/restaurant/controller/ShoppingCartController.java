@@ -212,10 +212,10 @@ public class ShoppingCartController {
 
 			addCustLegder(orderFromDb);
 			addRestLegder(orderFromDb);
-
-			String deleteOrderStatus = restTemplate.getForObject(
-					"http://localhost:8090/deleteOrderForRestaurant/" + user.getUserId() + "/" + orderNum,
-					String.class);
+			
+			orderFromDb.setStatus("Inactive");
+			
+			restTemplate.put("http://localhost:8090/updateOrder", orderFromDb);
 
 		} else if (status.equals("New")) {
 			restTemplate.put("http://localhost:8090/updateOrder", orderFromDb);

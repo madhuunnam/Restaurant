@@ -84,6 +84,14 @@ function onclickDeliveryAddressSubmission(){
 	document.getElementById("cartSummaryForm").submit();
 	
 }
+function reviewOrderForPickUp(){
+	
+	alert("Helow");
+	document.getElementById("cartSummaryForm").action = "/pickUpOrder";
+	document.getElementById("cartSummaryForm").submit();
+	
+}
+
 
 function onclickCancelOrderBtn(){
 	

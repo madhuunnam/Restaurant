@@ -12,7 +12,7 @@
 <body>
 	<#include "../NavBar.ftl">
 	<div class="container">
-		<form id='cartSummaryForm' action='/pickUpOrder'>
+		<form id='cartSummaryForm'>
 			<#if (order.lineItems?size > 0) >
 				<div class="panel panel-info">
 					<div class="panel-heading"><h4><strong>Cart Summary</strong></h4></div>
@@ -41,7 +41,7 @@
 					</div> <!--panel-info -->
 					<div class="row">
 						<div class="col-md-offset-1">
-						<button type="submit" class="btn btn-info  btn-lg col-md-5" id='orderPickUpButton' >Review Your Order For Pick Up</button>
+						<button type="button" class="btn btn-info  btn-lg col-md-5" id='orderPickUpButton' onClick="reviewOrderForPickUp();" >Review Your Order For Pick Up</button>
 						<button type="button" class="btn btn-info btn-lg col-md-5 col-md-offset-1  btn-md" id='orderDeliveryButton' data-toggle="modal" data-target="#deliveryDetails">Review Your Order For Delivery</button>
 							<div id="deliveryDetails" class="modal fade" role="dialog">
 							  <div class="modal-dialog">
@@ -52,7 +52,7 @@
 							      </div>
 							      <div class="modal-body">
 							        <div class="row">
-							        	<label class="control-label col-sm-3" for="deliAddr"> Delivery Address: </label>
+							        	<label class="control-label col-sm-3" > Delivery Address: </label>
 										<div class="col-sm-6">
 											<input type="text" class="form-control" id="deliAddr" name="deliAddr"  placeholder="Enter Delivery Address" required>
 										</div>

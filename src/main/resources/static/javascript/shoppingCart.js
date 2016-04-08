@@ -86,7 +86,6 @@ function onclickDeliveryAddressSubmission(){
 }
 function reviewOrderForPickUp(){
 	
-	alert("Helow");
 	document.getElementById("cartSummaryForm").action = "/pickUpOrder";
 	document.getElementById("cartSummaryForm").submit();
 	

@@ -31,7 +31,6 @@ function updateChoiceValues(){
 			}
 		}
 		
-		alert(isExtra);
 		
 		var JSONObject= 
 			{   "restId":restId, 

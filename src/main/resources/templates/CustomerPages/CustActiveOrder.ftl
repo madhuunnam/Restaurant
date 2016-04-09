@@ -75,6 +75,7 @@ footer {
 				<hr>
 				<div class="container-fluid">
 					<div id="custOrderDetailsDiv">
+						
 						<div class="row">
 							<label class="col-md-2">Customer Name: </label> <label class="col-md-4" id="custName"></label> 
 							<label class="col-md-2">Order ID: </label> <label class="col-md-4" id="orderId"></label>
@@ -99,18 +100,31 @@ footer {
 							<label class="col-md-2">Your Order: </label> <label class="col-md-4" id="yourOrder"></label> 
 							<label class="col-md-2">Order Status: </label> <label class="col-md-4" id="orderStatus"></label>
 						</div>
+						<div class="row col-sm-5">
+							<table class="table table-striped table-hover table-responsive" id="orderDetailsTable">
+								<thead>
+									<th>Selected Item</th>
+									<th>Quantity</th>
+									<th>Price</th>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
+						
 						<div class="row">
 							<label class="col-md-2">Order Instructions: </label> <label class="col-md-4" id="orderInstruc"></label>
 						</div>
 						<br />
 						<div class="row">
-							<label class="col-md-2">Message from Restaurant: </label> <label class="col-md-4" id="msgFromRest"></label>
+							<label class="col-md-2">Message from Restaurant: </label> <label class="col-md-4" id="msgToCust"></label>
 						</div>
 						<br />
 						<div class="row">
 							<label class="col-md-3">Message to Restaurant: </label>
-							<textarea class="col-md-6" cols="40" id="msgToRest" name="textarea" rows="2"></textarea>
-							<button type="button" class="btn btn-info btn-sm col-sm-1 ">Send</button>
+							<textarea class="col-md-6" cols="40" id="msgToRes" name="msgToRes" rows="2"></textarea>
+							<button type="button" class="btn btn-info btn-sm col-sm-1" onclick="onclickSendBtn(${sessionUserId});">Send</button>
 						</div>
 						<!-- <br /> <br />
 						<div class="row">
@@ -119,6 +133,8 @@ footer {
 								a Review about this Restaurant</button>
 						</div>  -->
 					</div>
+					
+					
 				</div>
 			</div>
 		</div>

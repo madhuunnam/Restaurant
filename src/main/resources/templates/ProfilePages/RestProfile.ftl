@@ -326,7 +326,7 @@
 					<div class="form-group">
 						<label class="control-label col-sm-1" for="wifi">Wifi:</label>
 						<div class="col-sm-1">
-							<input type="checkbox" class="form-control" id="wifi" name="wifi" value="<#if updateRestModel.wifi??>${updateRestModel.wifi}</#if>">
+							<input type="checkbox" class="form-control" id="wifi" name="wifi" value="<#if updateRestModel.wifi??>${updateRestModel.wifi}</#if>" <#if (updateRestModel.wifi == 'true')> checked=true </#if> >
 						</div>
 						<label class="control-label col-sm-1" for="breakfast">Breakfast:</label>
 						<div class="col-sm-1">
@@ -354,7 +354,7 @@
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="Delivery">Delivery Available:</label>
 						<div class="col-sm-1">
-							<input type="checkbox" class="form-control" id="delivery" name="delivery" value="<#if updateRestModel.delivery??>${updateRestModel.delivery}</#if>">
+							<input type="checkbox" class="form-control" id="delivery" name="delivery" value="<#if updateRestModel.delivery??>${updateRestModel.delivery}</#if>" <#if (updateRestModel.delivery == 'true')> checked=true </#if> >
 						</div>
 					</div>
 					<div class="form-group">

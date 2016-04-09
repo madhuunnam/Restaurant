@@ -97,22 +97,24 @@ footer {
 							<label class="col-md-2">NonSmoke: </label> <label class="col-md-4" id="nonSmoke"></label>
 						</div>
 						<div class="row">
-							<label class="col-md-2">Your Order: </label> <label class="col-md-4" id="yourOrder"></label> 
+							<label class="col-md-2">Your Order: </label>  
+							<div class ="row col-md-6">
+								<table class="table table-striped table-hover table-responsive table-bordered text-center" id="orderDetailsTable">
+									<thead>
+										<th>Selected Item</th>
+										<th>Quantity</th>
+										<th>Price</th>
+									</thead>
+									<tbody>
+										
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<br />
+						<div class="row">
 							<label class="col-md-2">Order Status: </label> <label class="col-md-4" id="orderStatus"></label>
 						</div>
-						<div class="row col-sm-5">
-							<table class="table table-striped table-hover table-responsive" id="orderDetailsTable">
-								<thead>
-									<th>Selected Item</th>
-									<th>Quantity</th>
-									<th>Price</th>
-								</thead>
-								<tbody>
-									
-								</tbody>
-							</table>
-						</div>
-						
 						<div class="row">
 							<label class="col-md-2">Order Instructions: </label> <label class="col-md-4" id="orderInstruc"></label>
 						</div>

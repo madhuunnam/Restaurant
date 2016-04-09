@@ -13,7 +13,7 @@ function onclickCustOrderDetails(sessionUserId, orderId) {
 				dataType : "json",
 				crossDomain : true
 			}).then(function(data) {
-				alert(JSON.stringify(data));
+//				alert(JSON.stringify(data));
 				$('#custName').html(data.custName);
 				$('#orderDate').html(data.orderTime);
 				$('#orderId').html(data.orderNo);
@@ -24,7 +24,7 @@ function onclickCustOrderDetails(sessionUserId, orderId) {
 				$('#reservTime').html(data.resTime);
 				$('#noOfPeople').html(data.resPeople);
 				$('#nonSmoke').html(data.nonSmoke);
-				$('#yourOrder').html(data.numberOfLines);
+//				$('#yourOrder').html(data.numberOfLines);
 				$('#orderInstruc').html(data.notes);
 				$('#orderStatus').html(data.status);
 				$('#msgToRes').html(data.msgToRes);

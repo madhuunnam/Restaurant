@@ -13,6 +13,7 @@ function updateChoiceValues(){
 		
 		var valueNameId = "#valueName-" + restIdChoiceNumValueId;
 		var valuePriceId = "#valuePrice-" + restIdChoiceNumValueId;
+		var isExtraId = "#extra-" + restIdChoiceNumValueId; 
 		
 		if((valueName = $(valueNameId).text())== ""){
 			valueName = $(valueNameId).find("input").val();
@@ -20,13 +21,25 @@ function updateChoiceValues(){
 		if((valuePrice = $(valuePriceId).text())== ""){
 			valuePrice = $(valuePriceId).find("input").val();
 		}
-
+		
+		if((isExtra = $(isExtraId).text())== ""){
+			isExtraChkBox = $(isExtraId).find("input");
+			if(isExtraChkBox.prop('checked')){
+				isExtra = isExtraChkBox.val();
+			}else{
+				isExtra = false;
+			}
+		}
+		
+		alert(isExtra);
+		
 		var JSONObject= 
 			{   "restId":restId, 
 				"chNum": chNum, 
 				"valueId" : valueId,
 				"valueName":valueName ,
-				"valuePrice":valuePrice
+				"valuePrice":valuePrice,
+				"extra" : isExtra
 			};
 		
 //		alert(JSON.stringify(JSONObject));
@@ -57,6 +70,7 @@ function udpateChoices(){
 		
 		var choiceTitleId = "#chTitle-" + restIdItemIdChoiceNum;
 		var choiceTypeId = "#chType-" + restIdItemIdChoiceNum;
+		var isRequiredId = "#required-" + restIdItemIdChoiceNum; 
 		
 		if((choiceTitle = $(choiceTitleId).text())== ""){
 			choiceTitle = $(choiceTitleId).find("input").val();
@@ -64,13 +78,22 @@ function udpateChoices(){
 		if((choiceType = $(choiceTypeId).text())== ""){
 			choiceType = $(choiceTypeId).find("input").val();
 		}
+		if((isRequired = $(isRequiredId).text())== ""){
+			isRequiredChkBox = $(isRequiredId).find("input");
+			if(isRequiredChkBox.prop('checked')){
+				isRequired = isRequiredChkBox.val();
+			}else{
+				isRequired = false;
+			}
+		}
 
 		var JSONObject= 
 			{   "restId":restId, 
 				"itemNum": itemId, 
 				"chNum":choiceNum ,
 				"chTitle":choiceTitle,
-				"chType":choiceType
+				"chType":choiceType,
+				"required" : isRequired
 			};
 		
 		$.ajax({
@@ -193,6 +216,12 @@ $(document).ready(function() {
 						temp =true;
 					}
 			}
+			
+			if(choiceTDId !=null && choiceTDId.indexOf("required") >-1){
+				$(this).find("input").removeAttr("onClick");
+				temp =true;
+			}
+			
 			if(temp == true){
 				$('#updateAllChoices').prop('disabled', false);
 			}
@@ -218,6 +247,11 @@ $(document).ready(function() {
 						temp =true;
 					}
 			}
+			if(choiceValTDId !=null && choiceValTDId.indexOf("extra") >-1){
+				$(this).find("input").removeAttr("onClick");
+				temp =true;
+			}
+			
 			if(temp == true){
 				$('#updateAllChoiceValues').prop('disabled', false);
 			}

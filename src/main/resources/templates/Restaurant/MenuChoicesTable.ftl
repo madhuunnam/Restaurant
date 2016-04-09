@@ -18,7 +18,7 @@
 							<#if item.itemName??><td id='itemName-${item.restId}-${item.itemNum}-${choice.chNum}'>${item.itemName}</td></#if>
 							<#if choice.chTitle??><td id='chTitle-${item.restId}-${item.itemNum}-${choice.chNum}'>${choice.chTitle}</td></#if>
 							<#if choice.chType??><td id='chType-${item.restId}-${item.itemNum}-${choice.chNum}'>${choice.chType}</td></#if>
-							<#if choice.required??><td id='required-${item.restId}-${item.itemNum}-${choice.chNum}'><input type="checkbox" /></td></#if>
+							<#if choice.required??><td id='required-${item.restId}-${item.itemNum}-${choice.chNum}'><input type="checkbox" onCLick="return false"  value='true' <#if (choice.required) > checked=true </#if> /></td></#if>
 						</tr>
 					</#list>
 				</#list>

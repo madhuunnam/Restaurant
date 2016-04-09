@@ -14,11 +14,21 @@
 <script type="text/javascript" src="javascript/restaurantPage.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-	<#if updateRestModel.securityQuest??>
-	if ( ${updateRestModel.securityQuest} != null ){
-		$('#securityQuest').val(${updateRestModel.securityQuest});
-		}
-	</#if>
+		<#if updateRestModel.securityQuest??>
+		if ( ${updateRestModel.securityQuest} != null ){
+			$('#securityQuest').val(${updateRestModel.securityQuest});
+			}
+		</#if>
+	
+		$('input:checkbox').change(function() {
+		
+        	if($(this).is(':checked') == true){
+        		$(this).val('true');
+        	}else{
+        		$(this).val('false');
+        	}
+        	
+   		});
 	});
 </script>
 </head>
@@ -284,33 +294,33 @@
 					<div class="form-group">
 						<label class="control-label col-sm-1" for="hasMenu">Has Menu:</label>
 						<div class="col-sm-1">
-							<input type="checkbox" class="form-control" id="hasMenu" name="hasMenu" value="<#if updateRestModel.hasMenu??>${updateRestModel.hasMenu}</#if>">
+							<input type="checkbox" class="form-control" id="hasMenu" name="hasMenu" value="<#if updateRestModel.hasMenu??>${updateRestModel.hasMenu}" <#if (updateRestModel.hasMenu == 'true')> checked=true </#if> </#if>">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-1" for="PickUp">PickUp:</label>
 						<div class="col-sm-1">
-							<input type="checkbox" class="form-control" id="pickUp" name="pickup" value="<#if updateRestModel.pickup??>${updateRestModel.pickup}</#if>">
+							<input type="checkbox" class="form-control" id="pickUp" name="pickup" value="<#if updateRestModel.pickup??>${updateRestModel.pickup}" <#if (updateRestModel.pickup == 'true')> checked=true </#if>  </#if>">
 						</div>
 						<label class="control-label col-sm-1" for="DineIn">DineIn:</label>
 						<div class="col-sm-1">
-							<input type="checkbox" class="form-control" id="dineIn" name="dineIn" value="<#if updateRestModel.dineIn??>${updateRestModel.dineIn}</#if>">
+							<input type="checkbox" class="form-control" id="dineIn" name="dineIn" value="<#if updateRestModel.dineIn??>${updateRestModel.dineIn}" <#if (updateRestModel.dineIn == 'true')> checked=true </#if>  </#if>">
 						</div>
 						<label class="control-label col-sm-1" for="reserve">Reserve:</label>
 						<div class="col-sm-1">
-							<input type="checkbox" class="form-control" id="reserve" name="reserve" value="<#if updateRestModel.reserve??>${updateRestModel.reserve}</#if>">
+							<input type="checkbox" class="form-control" id="reserve" name="reserve" <#if updateRestModel.reserve??>value="${updateRestModel.reserve}" <#if (updateRestModel.reserve == 'true')> checked=true </#if> </#if> >
 						</div>
 						<label class="control-label col-sm-1" for="forKids">For Kids:</label>
 						<div class="col-sm-1">
-							<input type="checkbox" class="form-control" id="forKids" name="forKids" value="<#if updateRestModel.forKids??>${updateRestModel.forKids}</#if>">
+							<input type="checkbox" class="form-control" id="forKids" name="forKids" <#if updateRestModel.forKids??> value="${updateRestModel.forKids}" <#if (updateRestModel.forKids == 'true')> checked=true </#if> </#if>  >
 						</div>
 						<label class="control-label col-sm-1" for="forGroup">For Group:</label>
 						<div class="col-sm-1">
-							<input type="checkbox" class="form-control" id="forGroup" name="forGroup" value="<#if updateRestModel.forGroup??>${updateRestModel.forGroup}</#if>">
+							<input type="checkbox" class="form-control" id="forGroup" name="forGroup" value="<#if updateRestModel.forGroup??>${updateRestModel.forGroup}" <#if (updateRestModel.forGroup == 'true')> checked=true </#if> </#if>">
 						</div>
 						<label class="control-label col-sm-1" for="parking">Parking:</label>
 						<div class="col-sm-1">
-							<input type="checkbox" class="form-control" id="parking" name="parking" value="<#if updateRestModel.parking??>${updateRestModel.parking}</#if>">
+							<input type="checkbox" class="form-control" id="parking" name="parking" value="<#if updateRestModel.parking??>${updateRestModel.parking}" <#if (updateRestModel.parking == 'true')> checked=true </#if> </#if>">
 						</div>
 					</div>
 					<div class="form-group">
@@ -320,23 +330,23 @@
 						</div>
 						<label class="control-label col-sm-1" for="breakfast">Breakfast:</label>
 						<div class="col-sm-1">
-							<input type="checkbox" class="form-control" id="breakfast" name="breakfast" value="<#if updateRestModel.breakfast??>${updateRestModel.breakfast}</#if>">
+							<input type="checkbox" class="form-control" id="breakfast" name="breakfast" value="<#if updateRestModel.breakfast??>${updateRestModel.breakfast}" <#if (updateRestModel.breakfast == 'true')> checked=true </#if> </#if>">
 						</div>
 						<label class="control-label col-sm-1" for="lunch">Lunch:</label>
 						<div class="col-sm-1">
-							<input type="checkbox" class="form-control" id="lunch" name="lunch" value="<#if updateRestModel.lunch??>${updateRestModel.lunch}</#if>">
+							<input type="checkbox" class="form-control" id="lunch" name="lunch" value="<#if updateRestModel.lunch??>${updateRestModel.lunch}" <#if (updateRestModel.lunch == 'true')> checked=true </#if> </#if>">
 						</div>
 						<label class="control-label col-sm-1" for="dinner">Dinner:</label>
 						<div class="col-sm-1">
-							<input type="checkbox" class="form-control" id="dinner" name="dinner" value="<#if updateRestModel.dinner??>${updateRestModel.dinner}</#if>">
+							<input type="checkbox" class="form-control" id="dinner" name="dinner" value="<#if updateRestModel.dinner??>${updateRestModel.dinner}" <#if (updateRestModel.dinner == 'true')> checked=true </#if>  </#if>">
 						</div>
 						<label class="control-label col-sm-1" for="lateNight">LateNight:</label>
 						<div class="col-sm-1">
-							<input type="checkbox" class="form-control" id="lateNight" name="lateNight" value="<#if updateRestModel.lateNight??>${updateRestModel.lateNight}</#if>">
+							<input type="checkbox" class="form-control" id="lateNight" name="lateNight" value="<#if updateRestModel.lateNight??>${updateRestModel.lateNight}" <#if (updateRestModel.lateNight == 'true')> checked=true </#if> </#if>">
 						</div>
 						<label class="control-label col-sm-1" for="coupon">Coupon:</label>
 						<div class="col-sm-1">
-							<input type="checkbox" class="form-control" id="coupon" name="coupon" value="<#if updateRestModel.coupon??>${updateRestModel.coupon}</#if>">
+							<input type="checkbox" class="form-control" id="coupon" name="coupon" value="<#if updateRestModel.coupon??>${updateRestModel.coupon}" <#if (updateRestModel.coupon == 'true')> checked=true </#if>  </#if>">
 						</div>
 					</div>
 					<hr style="width: 100%; color: #D3D3D3; height: 1px; background-color: #D3D3D3;">

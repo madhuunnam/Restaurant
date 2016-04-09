@@ -52,21 +52,7 @@ public class ShoppingCartController {
 		order.getLineItems().add(lineItem);
 		order.setNumberOfLines(order.getLineItems().size());
 
-		float subtotal = 0;
-		for (int i = 0; i < order.getLineItems().size(); i++) {
-			subtotal = subtotal + order.getLineItems().get(i).getPrice();
-		}
-
-		order.setSubTot(subtotal);
-		order.setTaxRatePercent(5.25f);
-		order.setTaxAmount(subtotal * (order.getTaxRatePercent() / 100));
-		float totalPrice = order.getSubTot() + order.getTaxAmount();
-
-		BigDecimal bd = new BigDecimal(Float.toString(totalPrice));
-		bd = bd.setScale(2, BigDecimal.ROUND_HALF_UP);
-		totalPrice = bd.floatValue();
-
-		order.setTotPrice(totalPrice);
+		calculateOrderTotal();
 
 		RestTemplate restTemplate = new RestTemplate();
 		Restaurant rest = (Restaurant) restTemplate
@@ -90,6 +76,7 @@ public class ShoppingCartController {
 		return "RestaurantDetails";
 	}
 
+
 	@RequestMapping("/showCart")
 	public String showCart(Model model) {
 
@@ -103,7 +90,10 @@ public class ShoppingCartController {
 		order.setResTime(null);
 		order.setPickTime(null);
 		order.setArriveTime(null);
-
+		order.setDeliAddr("");
+		
+		calculateOrderTotal();
+		
 		Restaurant restaurant = new Restaurant();
 
 		if (order.getRestId() != null) {
@@ -128,6 +118,8 @@ public class ShoppingCartController {
 		order.setPickTime(null);
 		order.setArriveTime(null);
 		
+		calculateOrderTotal();
+		
 		System.out.println("Delivery ORDER***"+order);
 		Restaurant restaurant = new Restaurant();
 
@@ -137,6 +129,7 @@ public class ShoppingCartController {
 					.getForObject("http://localhost:8090/getRestaurantById/" + order.getRestId(), Restaurant.class);
 		}
 		model.addAttribute("rest", restaurant);
+		model.addAttribute("isDelivery", "Y");
 		return "ShoppingCart/ReviewOrder";
 	}
 
@@ -454,6 +447,34 @@ public class ShoppingCartController {
 		order.setLineItems(sessionOrderObj.getLineItems());
 
 		return order;
+	}
+	
+	private void calculateOrderTotal() {
+		float subtotal = 0;
+		for (int i = 0; i < order.getLineItems().size(); i++) {
+			subtotal = subtotal + order.getLineItems().get(i).getPrice();
+		}
+
+		order.setSubTot(subtotal);
+		order.setTaxRatePercent(5.25f);
+		order.setTaxAmount(subtotal * (order.getTaxRatePercent() / 100));
+		float totalPrice = order.getSubTot() + order.getTaxAmount();
+		
+		if(order.getDeliAddr() != null && ! order.getDeliAddr().isEmpty()){
+			totalPrice = totalPrice + order.getDeliFee();
+		}
+
+		BigDecimal bd = new BigDecimal(Float.toString(totalPrice));
+		bd = bd.setScale(2, BigDecimal.ROUND_HALF_UP);
+		totalPrice = bd.floatValue();
+		
+		BigDecimal bdTax = new BigDecimal(Float.toString(order.getTaxAmount()));
+		bdTax = bdTax.setScale(2, BigDecimal.ROUND_HALF_UP);
+		order.setTaxAmount(bdTax.floatValue());
+		
+		
+
+		order.setTotPrice(totalPrice);
 	}
 
 }

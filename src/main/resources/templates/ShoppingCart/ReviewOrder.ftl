@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
 <title>Review Order</title>
@@ -45,6 +45,13 @@
 									<td></td> </#if>
 								</tr>
 								</#list>
+								<#if order.subTot??> <tr><td></td><td><strong>Sub Total</strong></td><td><strong>${order.subTot}</strong></td></tr></#if>
+								<#if order.taxAmount??> <tr><td></td><td><strong>Tax</strong></td><td><strong>${order.taxAmount}</strong></td></tr></#if>
+								<#if (order.deliAddr != "") >		
+									<#if order.deliFee??> <tr><td></td><td><strong>Delivery Fee</strong></td><td><strong>${order.deliFee}</strong></td></tr></#if>
+								</#if>
+								<#if order.totPrice??> <tr><td></td><td><strong>Order Total</strong></td><td><strong>${order.totPrice}</strong></td></tr></#if>
+								
 							</tbody>
 						</table>
 					</div> <!--panel-info -->

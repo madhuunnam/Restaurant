@@ -3,6 +3,10 @@ package com.restaurant.model;
 import java.time.LocalTime;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Restaurant implements Comparable{
 
 	private String restID="" ;
@@ -32,20 +36,63 @@ public class Restaurant implements Comparable{
 	private String secAnswer = "";
 	private String website = "";
 	
-	private LocalTime monFrom = null;
-	private LocalTime monTo = null;
-	private LocalTime tueFrom = null;
-	private LocalTime tueTo = null;
-	private LocalTime wedFrom = null;
-	private LocalTime wedTo = null;
-	private LocalTime thuFrom = null;
-	private LocalTime thuTo = null;
-	private LocalTime friFrom = null;
-	private LocalTime friTo = null;
-	private LocalTime satFrom = null;
-	private LocalTime satTo = null;
-	private LocalTime sunFrom = null;
-	private LocalTime sunTo = null;
+	@JsonFormat(pattern = "h:mm a")
+	@DateTimeFormat(pattern = "h:mm a")
+	private Date monFrom = null;
+	
+	@JsonFormat(pattern = "h:mm a")
+	@DateTimeFormat(pattern = "h:mm a")
+	private Date monTo = null;
+	
+	@JsonFormat(pattern = "h:mm a")
+	@DateTimeFormat(pattern = "h:mm a")
+	private Date tueFrom = null;
+	
+	@JsonFormat(pattern = "h:mm a")
+	@DateTimeFormat(pattern = "h:mm a")
+	private Date tueTo = null;
+	
+	@JsonFormat(pattern = "h:mm a")
+	@DateTimeFormat(pattern = "h:mm a")
+	private Date wedFrom = null;
+	
+	@JsonFormat(pattern = "h:mm a")
+	@DateTimeFormat(pattern = "h:mm a")
+	private Date wedTo = null;
+	
+	@JsonFormat(pattern = "h:mm a")
+	@DateTimeFormat(pattern = "h:mm a")
+	private Date thuFrom = null;
+	
+	@JsonFormat(pattern = "h:mm a")
+	@DateTimeFormat(pattern = "h:mm a")
+	private Date thuTo = null;
+	
+	@JsonFormat(pattern = "h:mm a")
+	@DateTimeFormat(pattern = "h:mm a")
+	private Date friFrom = null;
+	
+	@JsonFormat(pattern = "h:mm a")
+	@DateTimeFormat(pattern = "h:mm a")
+	private Date friTo = null;
+	
+	@JsonFormat(pattern = "h:mm a")
+	@DateTimeFormat(pattern = "h:mm a")
+	private Date satFrom = null;
+	
+	@JsonFormat(pattern = "h:mm a")
+	@DateTimeFormat(pattern = "h:mm a")
+	private Date satTo = null;
+	
+	@JsonFormat(pattern = "h:mm a")
+	@DateTimeFormat(pattern = "h:mm a")
+	private Date sunFrom = null;
+	
+	@JsonFormat(pattern = "h:mm a")
+	@DateTimeFormat(pattern = "h:mm a")
+	private Date sunTo = null;
+	
+	
 	private String closedDays = null;
 	
 	private String delivery = "";
@@ -242,88 +289,88 @@ public class Restaurant implements Comparable{
 	public void setWebsite(String website) {
 		this.website = website;
 	}
-	public LocalTime getMonFrom() {
+	public Date getMonFrom() {
 		return monFrom;
 	}
-	public void setMonFrom(LocalTime monFrom) {
+	public void setMonFrom(Date monFrom) {
 		this.monFrom = monFrom;
 	}
-	public LocalTime getMonTo() {
+	public Date getMonTo() {
 		return monTo;
 	}
-	public void setMonTo(LocalTime monTo) {
+	public void setMonTo(Date monTo) {
 		this.monTo = monTo;
 	}
-	public LocalTime getTueFrom() {
+	public Date getTueFrom() {
 		return tueFrom;
 	}
-	public void setTueFrom(LocalTime tueFrom) {
+	public void setTueFrom(Date tueFrom) {
 		this.tueFrom = tueFrom;
 	}
-	public LocalTime getTueTo() {
+	public Date getTueTo() {
 		return tueTo;
 	}
-	public void setTueTo(LocalTime tueTo) {
+	public void setTueTo(Date tueTo) {
 		this.tueTo = tueTo;
 	}
-	public LocalTime getWedFrom() {
+	public Date getWedFrom() {
 		return wedFrom;
 	}
-	public void setWedFrom(LocalTime wedFrom) {
+	public void setWedFrom(Date wedFrom) {
 		this.wedFrom = wedFrom;
 	}
-	public LocalTime getWedTo() {
+	public Date getWedTo() {
 		return wedTo;
 	}
-	public void setWedTo(LocalTime wedTo) {
+	public void setWedTo(Date wedTo) {
 		this.wedTo = wedTo;
 	}
-	public LocalTime getThuFrom() {
+	public Date getThuFrom() {
 		return thuFrom;
 	}
-	public void setThuFrom(LocalTime thuFrom) {
+	public void setThuFrom(Date thuFrom) {
 		this.thuFrom = thuFrom;
 	}
-	public LocalTime getThuTo() {
+	public Date getThuTo() {
 		return thuTo;
 	}
-	public void setThuTo(LocalTime thuTo) {
+	public void setThuTo(Date thuTo) {
 		this.thuTo = thuTo;
 	}
-	public LocalTime getFriFrom() {
+	public Date getFriFrom() {
 		return friFrom;
 	}
-	public void setFriFrom(LocalTime friFrom) {
+	public void setFriFrom(Date friFrom) {
 		this.friFrom = friFrom;
 	}
-	public LocalTime getFriTo() {
+	public Date getFriTo() {
 		return friTo;
 	}
-	public void setFriTo(LocalTime friTo) {
+	public void setFriTo(Date friTo) {
 		this.friTo = friTo;
 	}
-	public LocalTime getSatFrom() {
+	public Date getSatFrom() {
 		return satFrom;
 	}
-	public void setSatFrom(LocalTime satFrom) {
+	public void setSatFrom(Date satFrom) {
 		this.satFrom = satFrom;
 	}
-	public LocalTime getSatTo() {
+	public Date getSatTo() {
 		return satTo;
 	}
-	public void setSatTo(LocalTime satTo) {
+	public void setSatTo(Date satTo) {
 		this.satTo = satTo;
 	}
-	public LocalTime getSunFrom() {
+	public Date getSunFrom() {
 		return sunFrom;
 	}
-	public void setSunFrom(LocalTime sunFrom) {
+	public void setSunFrom(Date sunFrom) {
 		this.sunFrom = sunFrom;
 	}
-	public LocalTime getSunTo() {
+	public Date getSunTo() {
 		return sunTo;
 	}
-	public void setSunTo(LocalTime sunTo) {
+	public void setSunTo(Date sunTo) {
 		this.sunTo = sunTo;
 	}
 	public String getClosedDays() {

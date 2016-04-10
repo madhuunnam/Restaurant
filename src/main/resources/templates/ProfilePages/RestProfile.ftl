@@ -29,10 +29,12 @@
         	}
         	
    		});
+   		$('.restaurantTimes').timepicker({defaultTime:false});
 	});
 </script>
 </head>
 <body>
+	
 	<#include "../NavBar.ftl"> <#if (showalert)??>
 	<div class="alert alert-success">
 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Success!</strong>${showalert}
@@ -138,7 +140,7 @@
 						</div>
 						<label class="control-label col-sm-2" for="ans">Answer:</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="answer" name="secAnswer" value="<#if updateRestModel.secAnswer??> ${updateRestModel.secAnswer}</#if>" placeholder="Enter Answer" required>
+							<input type="text" class="form-control" id="secAnswer" name="secAnswer" value="<#if updateRestModel.secAnswer??>${updateRestModel.secAnswer}</#if>" placeholder="Enter Answer" required>
 						</div>
 					</div>
 					<hr style="width: 100%; color: #D3D3D3; height: 1px; background-color: #D3D3D3;">
@@ -207,72 +209,101 @@
 					<h4>Open Hours:</h4>
 					<div class="form-group">
 						<label class="control-label col-sm-2">MONDAY</label> <label class="control-label col-sm-2">From:</label>
+						
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="monFrom" name="monFrom" value="<#if updateRestModel.monFrom??>${updateRestModel.monFrom}</#if>" placeholder="HH:MM">
+							<div class="input-group bootstrap-timepicker timepicker">
+								<input type="text" class="form-control restaurantTimes" id="monFrom" name="monFrom" value="<#if updateRestModel.monFrom??>${updateRestModel.monFrom?date?string["h:mm a"]}</#if>" placeholder="HH:MM AM/PM">
+							</div>
 						</div>
 						<label class="control-label col-sm-2">To:</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="monTo" name="monTo" value="<#if updateRestModel.monTo??>${updateRestModel.monTo}</#if>" placeholder="HH:MM">
+							<div class="input-group bootstrap-timepicker timepicker">
+								<input type="text" class="form-control restaurantTimes" id="monTo" name="monTo" value="<#if updateRestModel.monTo??>${updateRestModel.monTo?date?string["h:mm a"]}</#if>" placeholder="HH:MM AM/PM">
+							</div>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-2">TUESDAY </label> <label class="control-label col-sm-2">From:</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="tueFrom" name="tueFrom" value="<#if updateRestModel.tueFrom??>${updateRestModel.tueFrom}</#if>" placeholder="HH:MM">
+							<div class="input-group bootstrap-timepicker timepicker">
+								<input type="text" class="form-control restaurantTimes" id="tueFrom" name="tueFrom" value="<#if updateRestModel.tueFrom??>${updateRestModel.tueFrom?date?string["h:mm a"]}</#if>" placeholder="HH:MM AM/PM">
+							</div>								
 						</div>
 						<label class="control-label col-sm-2">To:</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="tueTo" name="tueTo" value="<#if updateRestModel.tueTo??>${updateRestModel.tueTo}</#if>" placeholder="HH:MM">
+							<div class="input-group bootstrap-timepicker timepicker">
+								<input type="text" class="form-control restaurantTimes" id="tueTo" name="tueTo" value="<#if updateRestModel.tueTo??>${updateRestModel.tueTo?date?string["h:mm a"]}</#if>" placeholder="HH:MM AM/PM">
+							</div>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-2">WEDNESDAY</label> <label class="control-label col-sm-2">From:</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="wedFrom" name="wedFrom" value="<#if updateRestModel.wedFrom??>${updateRestModel.wedFrom}</#if>" placeholder="HH:MM">
+							<div class="input-group bootstrap-timepicker timepicker">
+								<input type="text" class="form-control restaurantTimes" id="wedFrom" name="wedFrom" value="<#if updateRestModel.wedFrom??>${updateRestModel.wedFrom?date?string["h:mm a"]}</#if>" placeholder="HH:MM AM/PM">
+							</div>
 						</div>
 						<label class="control-label col-sm-2">To:</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="wedTo" name="wedTo" value="<#if updateRestModel.wedTo??>${updateRestModel.wedTo}</#if>" placeholder="HH:MM">
+							<div class="input-group bootstrap-timepicker timepicker">
+								<input type="text" class="form-control restaurantTimes" id="wedTo" name="wedTo" value="<#if updateRestModel.wedTo??>${updateRestModel.wedTo?date?string["h:mm a"]}</#if>" placeholder="HH:MM AM/PM">
+							</div>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-2">THURSDAY</label> <label class="control-label col-sm-2">From:</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="thuFrom" name="thuFrom" value="<#if updateRestModel.thuFrom??>${updateRestModel.thuFrom}</#if>" placeholder="HH:MM">
+							<div class="input-group bootstrap-timepicker timepicker">
+								<input type="text" class="form-control restaurantTimes" id="thuFrom" name="thuFrom" value="<#if updateRestModel.thuFrom??>${updateRestModel.thuFrom?date?string["h:mm a"]}</#if>" placeholder="HH:MM AM/PM">
+							</div>
 						</div>
 						<label class="control-label col-sm-2">To:</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="thuTo" name="thuTo" value="<#if updateRestModel.thuTo??>${updateRestModel.thuTo}</#if>" placeholder="HH:MM">
+							<div class="input-group bootstrap-timepicker timepicker">
+								<input type="text" class="form-control restaurantTimes" id="thuTo" name="thuTo" value="<#if updateRestModel.thuTo??>${updateRestModel.thuTo?date?string["h:mm a"]}</#if>" placeholder="HH:MM AM/PM">
+							</div>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-2">FRIDAY</label> <label class="control-label col-sm-2">From:</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="friFrom" name="friFrom" value="<#if updateRestModel.friFrom??>${updateRestModel.friFrom}</#if>" placeholder="HH:MM">
+							<div class="input-group bootstrap-timepicker timepicker">
+								<input type="text" class="form-control restaurantTimes" id="friFrom" name="friFrom" value="<#if updateRestModel.friFrom??>${updateRestModel.friFrom?date?string["h:mm a"]}</#if>" placeholder="HH:MM AM/PM">
+							</div>
 						</div>
 						<label class="control-label col-sm-2">To:</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="friTo" name="friTo" value="<#if updateRestModel.friTo??>${updateRestModel.friTo}</#if>" placeholder="HH:MM">
+							<div class="input-group bootstrap-timepicker timepicker">
+								<input type="text" class="form-control restaurantTimes" id="friTo" name="friTo" value="<#if updateRestModel.friTo??>${updateRestModel.friTo?date?string["h:mm a"]}</#if>" placeholder="HH:MM AM/PM">
+							</div>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-2">SATURDAY</label> <label class="control-label col-sm-2">From:</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="satFrom" name="satFrom" value="<#if updateRestModel.satFrom??>${updateRestModel.satFrom}</#if>" placeholder="HH:MM">
+							<div class="input-group bootstrap-timepicker timepicker">
+								<input type="text" class="form-control restaurantTimes" id="satFrom" name="satFrom" value="<#if updateRestModel.satFrom??>${updateRestModel.satFrom?date?string["h:mm a"]}</#if>" placeholder="HH:MM AM/PM">
+							</div>
 						</div>
 						<label class="control-label col-sm-2">To:</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="satTo" name="satTo" value="<#if updateRestModel.satTo??>${updateRestModel.satTo}</#if>" placeholder="HH:MM">
+							<div class="input-group bootstrap-timepicker timepicker">
+								<input type="text" class="form-control restaurantTimes" id="satTo" name="satTo" value="<#if updateRestModel.satTo??>${updateRestModel.satTo?date?string["h:mm a"]}</#if>" placeholder="HH:MM AM/PM">
+							</div>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-2">SUNDAY</label> <label class="control-label col-sm-2">From:</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="sunFrom" name="sunFrom" value="<#if updateRestModel.sunFrom??>${updateRestModel.sunFrom}</#if>" placeholder="HH:MM">
+							<div class="input-group bootstrap-timepicker timepicker">
+								<input type="text" class="form-control restaurantTimes" id="sunFrom" name="sunFrom" value="<#if updateRestModel.sunFrom??>${updateRestModel.sunFrom?date?string["h:mm a"]}</#if>" placeholder="HH:MM AM/PM">
+							</div>
 						</div>
 						<label class="control-label col-sm-2">To:</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="sunTo" name="sunTo" value="<#if updateRestModel.sunTo??>${updateRestModel.sunTo}</#if>" placeholder="HH:MM">
+							<div class="input-group bootstrap-timepicker timepicker">
+								<input type="text" class="form-control restaurantTimes" id="sunTo" name="sunTo" value="<#if updateRestModel.sunTo??>${updateRestModel.sunTo?date?string["h:mm a"]}</#if>" placeholder="HH:MM AM/PM">
+							</div>
 						</div>
 					</div>
 					<div class="form-group">

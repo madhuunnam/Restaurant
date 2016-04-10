@@ -9,7 +9,11 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/javascript/restaurantPage.js"></script>
-
+<script type="text/javascript">
+	$(document).ready(function() {
+   		$('.restaurantTimes').timepicker({defaultTime:false});
+	});
+</script>
 </head>
 <body>
 	<#include "NavBar.ftl">
@@ -64,20 +68,23 @@
 						          	<h4 class="modal-title">Please fill the below details:</h4>
 						        </div>
 						        <div class="modal-body">
-						          <form role="form" id ="reserveTableForm">
+						          <form role="form" id ="reserveTableForm"  data-toggle="validator"  >
 						          <input type='hidden' name='restId' id='restId' value='<#if rest.restID ??>${rest.restID}</#if>' />
 						          <input type='hidden' name='restName' id='restName' value='<#if rest.restName ??>${rest.restName}</#if>' />
 									   <div class="form-group">
 									      <label for="peopleCount">Number Of People:</label>
-									      <input type="text" class="form-control" id="peopleCount" name="peopleCount" placeholder="Enter a number between 1 to 50">
+									      <input type="text" class="form-control" id="peopleCount" name="peopleCount" placeholder="Enter a number between 1 to 50" required  >
 									   </div>
 									   <div class="form-group">
 									      <label for="time">Reservation Time:</label>
-									      <input type="text" class="form-control" id="time" name="time" placeholder="HH:MM">
+									      <div class="input-group bootstrap-timepicker timepicker">
+									      	<input type="text" class="form-control restaurantTimes" id="time" name="time" placeholder="HH:MM AM/PM" required >
+									      </div>
 									   </div>
 									   <div class="form-group">
-									      <label for="nonsmoke">Non-Smoke:</label> <select id="nonsmoke" name = "nonsmoke"
-											class="form-control">
+									      <label for="nonsmoke">Non-Smoke:</label> 
+									      <select id="nonsmoke" name = "nonsmoke"
+											class="form-control" required >
 											<option value="Yes">Yes</option>
 											<option value="No">No</option>
 										</select>

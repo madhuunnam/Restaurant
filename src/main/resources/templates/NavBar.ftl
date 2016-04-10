@@ -12,8 +12,8 @@
 	
   	<script src="http://code.jquery.com/jquery-1.12.0.js"></script>
   	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  	<script type="text/javascript" src="vendor/bootstrap-timepicker.min.js"></script>
-  	<script type="text/javascript" src="vendor/validator.js"></script>
+  	<script type="text/javascript" src="/vendor/bootstrap-timepicker.min.js"></script>
+  	<script type="text/javascript" src="/vendor/validator.js"></script>
   	
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">

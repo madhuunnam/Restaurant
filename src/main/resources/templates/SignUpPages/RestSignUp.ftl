@@ -13,6 +13,8 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="javascript/restaurantPage.js"></script>
 <script type="text/javascript" src="vendor/validator.js"></script>
 
 <body>
@@ -30,6 +32,8 @@
 			<div class="col-md-6 col-md-offset-3"
 				style="background-color: #f2f2f2">
 				<form  data-toggle="validator" class="form-horizontal" role="form" id ="restSignUp" action="/registerRestaurant" >
+				<input type='hidden' id='latitude' name='latitude' value='' />
+				<input type='hidden' id='longitude' name='longitude' value='' />
 				<div class="form-group" align="center">
 					    <label class="col-md-12"><h3>Restaurant SignUp</h3></label>
 					  </div>
@@ -152,7 +156,7 @@
 					    </div>
 					  <div class="form-group"> 
 					    <div class="col-md-offset-3 col-md-6">
-					      <button type="submit" class="btn btn-info">Create My Restaurant Account</button>
+					      <button type="button" class="btn btn-info" onClick="onRestaurantSignUp();" >Create My Restaurant Account</button>
 					    </div>
 					  </div>
 					</form>

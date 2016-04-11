@@ -1,5 +1,5 @@
 <div class="form-group">
-	<h2>Choices Table</h2>
+	<h2>Menu Item Choices</h2>
 	<div class="table-responsive">
 		<table class="table table-striped table-hover table-responsive"
 			id="choicesTable">

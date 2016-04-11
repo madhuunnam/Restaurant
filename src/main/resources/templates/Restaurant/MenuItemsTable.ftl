@@ -1,5 +1,5 @@
 <div class="form-group">
-	<h2>Items Table</h2>
+	<h2>Menu Items</h2>
 	<div class="table-responsive">
 		<table class="table table-striped table-hover table-responsive"
 			id="itemsTable">

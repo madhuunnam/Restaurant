@@ -12,7 +12,6 @@ public class AdminLedger {
 	private String assocId;
 	private String assocName;
 	private String orderNum;
-	private String ledgerNum;
 	private Date ledgerDate;
 	private Float income;
 	private String inMethod;
@@ -70,12 +69,6 @@ public class AdminLedger {
 	}
 	public void setOrderNum(String orderNum) {
 		this.orderNum = orderNum;
-	}
-	public String getLedgerNum() {
-		return ledgerNum;
-	}
-	public void setLedgerNum(String ledgerNum) {
-		this.ledgerNum = ledgerNum;
 	}
 	public Date getLedgerDate() {
 		return ledgerDate;
@@ -135,7 +128,7 @@ public class AdminLedger {
 	public String toString() {
 		return "AdminLedger [ledgerId=" + ledgerId + ", custId=" + custId + ", custName=" + custName + ", resId="
 				+ resId + ", resName=" + resName + ", assocId=" + assocId + ", assocName=" + assocName + ", orderNum="
-				+ orderNum + ", ledgerNum=" + ledgerNum + ", ledgerDate=" + ledgerDate + ", income=" + income
+				+ orderNum + ", ledgerDate=" + ledgerDate + ", income=" + income
 				+ ", inMethod=" + inMethod + ", inNote=" + inNote + ", expense=" + expense + ", exMethod=" + exMethod
 				+ ", exNote=" + exNote + ", note=" + note + ", balance=" + balance + "]";
 	}

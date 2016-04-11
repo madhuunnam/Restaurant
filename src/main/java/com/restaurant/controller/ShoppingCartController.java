@@ -230,6 +230,7 @@ public class ShoppingCartController {
 
 			addCustLegder(orderFromDb);
 			addRestLegder(orderFromDb);
+			addAdminLegder(orderFromDb);
 			
 			orderFromDb.setStatus("Inactive");
 			
@@ -370,38 +371,38 @@ public class ShoppingCartController {
 
 	}
 
-	// private void addAdminLegder() {
-	//
-	// RestTemplate restTemplate = new RestTemplate();
-	//
-	// AdminLedger ledgerObject = new AdminLedger();
-	//
-	// ledgerObject.setCustId(order.getCustId());
-	// ledgerObject.setCustName(order.getCustName());
-	// ledgerObject.setResId(order.getRestId());
-	// ledgerObject.setResName(order.getResName());
-	// ledgerObject.setOrderNum(order.getOrderNo());
-	//
-	// ledgerObject.setLedgerDate(order.getOrderTime());
-	// ledgerObject.setAssocId("");
-	// ledgerObject.setAssocName("");
-	//
-	//
-	//
-	//
-	// ledgerObject.setChargeAmt(order.getTotPrice());
-	// ledgerObject.setPayAmt(order.getTotPrice());
-	// ledgerObject.setPayMethod("Card");
-	// ledgerObject.setCheckNum("");
-	// ledgerObject.setNote(order.getNotes());
-	// ledgerObject.setBalance(order.getTotPrice() - order.getTotPrice());
-	//
-	// ResponseEntity<String> insertStatus =
-	// restTemplate.postForEntity("http://localhost:8090/addToRestLedger",
-	// ledgerObject,
-	// String.class);
-	//
-	// }
+	 private void addAdminLegder(Order order) {
+	
+	 RestTemplate restTemplate = new RestTemplate();
+	
+	 AdminLedger ledgerObject = new AdminLedger();
+	
+	 ledgerObject.setCustId(order.getCustId());
+	 ledgerObject.setCustName(order.getCustName());
+	 ledgerObject.setResId(order.getRestId());
+	 ledgerObject.setResName(order.getResName());
+	 ledgerObject.setAssocId(null);
+	 ledgerObject.setAssocName("");
+	 ledgerObject.setOrderNum(order.getOrderNo());
+	 ledgerObject.setLedgerDate(order.getOrderTime());
+	
+	 ledgerObject.setIncome(null);
+	 ledgerObject.setInMethod(null);
+	 ledgerObject.setInNote(null);
+	 
+	 ledgerObject.setExpense(null);
+	 ledgerObject.setExMethod(null);
+	 ledgerObject.setExNote(null);
+	 
+	 ledgerObject.setNote("");
+	 ledgerObject.setBalance(null);
+	
+	 ResponseEntity<String> insertStatus =
+	 restTemplate.postForEntity("http://localhost:8090/addToAdminLedger",
+	 ledgerObject,
+	 String.class);
+	
+	 }
 
 	@RequestMapping("/cancelOrder")
 	public String tableReservation(Model model) {

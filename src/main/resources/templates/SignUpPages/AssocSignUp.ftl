@@ -19,7 +19,7 @@
 	<#if (showalert)??>
 	<div class="alert alert-success">
 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
- 		<strong>Success!</strong>${assocInsertStatus}
+ 		<strong>Associate SignUp Success!</strong>
 	</div>
 	</#if>
 	<div class="container">

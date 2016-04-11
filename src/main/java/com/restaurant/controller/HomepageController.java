@@ -5,9 +5,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -25,6 +30,9 @@ import com.restaurant.model.Restaurant;
 @Controller
 public class HomepageController extends SpringServletContainerInitializer {
 	
+	@Autowired
+    private JavaMailSender javaMailSender;
+	
 	@RequestMapping("/LoginPage")
 	public String loginPage(Authentication auth ){
 		if(!auth.isAuthenticated()){
@@ -32,6 +40,24 @@ public class HomepageController extends SpringServletContainerInitializer {
 		}else{
 			return "Homepage";
 		}
+	}
+	
+	@RequestMapping(value="/ForgotPasswordEmail",method = RequestMethod.POST )
+	public String sendEmailForPassword(Authentication auth ){
+		
+		MimeMessage mail = javaMailSender.createMimeMessage();
+        try {
+            MimeMessageHelper helper = new MimeMessageHelper(mail, true);
+            helper.setTo("madhuunnam@gmail.com");
+            helper.setSubject("Lorem ipsum");
+            helper.setText("Lorem ipsum dolor sit amet [...]");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        } finally {}
+        javaMailSender.send(mail);
+        
+        return "/LoginPage";
+		
 	}
 
 	@RequestMapping("/getRestaurantListPage")

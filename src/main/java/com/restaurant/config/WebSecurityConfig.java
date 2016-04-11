@@ -18,7 +18,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authenticationProvider(new TastyHubAuthenticationProvider())
 				.authorizeRequests()
 
-				.antMatchers("/images/**", "/javascript/**", "/vendor/**", "/assets/**", "/Homepage/**",
+				.antMatchers("/images/**", "/javascript/**", "/vendor/**", "/assets/**", "/Homepage/**","/ForgotPasswordEmail/**",
 						"/SignupPage/**", "/registerCustomer/**", "/Contact/**", "/About/**", "/forSale/**",
 						"/getCustomerSignUpPage/**", "/Hiring/**", "/getRestaurantSignUpPage/**",
 						"/getAssociateSignUpPage/**", "/getRestaurantListPage/**", "/getAdminSignUpPage/**",

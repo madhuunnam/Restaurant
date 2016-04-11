@@ -11,6 +11,15 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#forgotPwdBtn').click(function(){
+			document.getElementById("form-signin").action = "/ForgotPasswordEmail";
+			document.getElementById("form-signin").submit();
+		});
+	});
+</script>	
 </head>
 <body>
 	<#include "NavBar.ftl">
@@ -19,7 +28,7 @@
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6" style="background-color: #f2f2f2">
-				<form class="form-signin"  action="/login"  method="post" >
+				<form id="form-signin" class="form-signin"  action="/login"  method="post" >
 				
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<h2 class="form-signin-heading">Please Login</h2>
@@ -43,7 +52,7 @@
 						
 						
 					<label for="ForgotPassword" class="sr-only">Password</label> 
-					<button type="button" class="btn btn-link">Forgot/Change Password?</button>
+					<button type="button" id="forgotPwdBtn" class="btn btn-link">Forgot/Change Password?</button>
 					
 					
 					<div class="radio">

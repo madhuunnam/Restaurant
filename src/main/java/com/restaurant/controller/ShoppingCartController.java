@@ -410,7 +410,7 @@ public class ShoppingCartController {
 	 }
 
 	@RequestMapping("/cancelOrder")
-	public String tableReservation(Model model) {
+	public String cancelOrder(Model model) {
 
 		((ScopedObject) order).removeFromScope();
 

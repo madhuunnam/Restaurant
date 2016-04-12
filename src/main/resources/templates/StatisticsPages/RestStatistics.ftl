@@ -23,7 +23,8 @@
 	<#include "../NavBar.ftl">
 	<br />
 	<div class="container">
-		<form class="form-inline" role="form">
+	<div class="jumbotron" style="background-image: url(images/statistics.jpg); background-size: 30%;">
+		<form class="form-inline" role="form" action="/getRestaurantStatistics">
 			
 			<div class="form-group">
 				 <select id="restStats"
@@ -48,21 +49,43 @@
 					<input type='text' class="form-control" id='toDate' /> 
 				</div>
 			</div>
-			<button type="button" class="btn btn-info" onclick = "onclickRestStatisticsPageSubmit(${sessionUserId});">Go</button>
+			<button type="submit" class="btn btn-info" >Go</button>
 		</form>
+	</div>
 		<br /> <br />
 		<div class="col-md-12">
 			<form role="form" id="restaurantStatDetailsForm" >
-				<table class="table table-responsive" id="restaurantStatDetailsTable">
+				<table class="table table-responsive table-bordered" id="restaurantStatDetailsTable">
 					<thead>
 						<tr>
 							<th>Type</th>
-							<th>Orders#</th>
+							<th>Number of Orders</th>
 							<th>Amount</th>
 						</tr>
 					</thead>
 					<tbody>
-
+					<#if restStats ??>
+						<tr>
+							<td>PickUp Orders</td>
+							<td><button type="button" class="btn btn-link " onclick="onclickPickUpOrders();"><#if restStats.noOfPickUpOrders ??>${restStats.noOfPickUpOrders}</#if></button></td>
+							<td><#if restStats.sumOfPickUpOrders ??>${restStats.sumOfPickUpOrders}</#if></td>
+						</tr>
+						<tr>
+							<td>Delivery Orders</td>
+							<td><button type="button" class="btn btn-link " onclick="onclickPickUpOrders();"><#if restStats.noOfDeliveryOrders ??>${restStats.noOfDeliveryOrders}</#if></button></td>
+							<td><#if restStats.sumOfDeliveryOrders ??>${restStats.sumOfDeliveryOrders}</#if></td>
+						</tr>
+						<tr>
+							<td>Reservation Orders</td>
+							<td><button type="button" class="btn btn-link " onclick="onclickPickUpOrders();"><#if restStats.noOfReservationOrders ??>${restStats.noOfReservationOrders}</#if></button></td>
+							<td><#if restStats.sumOfReservationOrders ??>${restStats.sumOfReservationOrders}</#if></td>
+						</tr>
+						<tr>
+							<td>Total Orders</td>
+							<td><button type="button" class="btn btn-link " onclick="onclickPickUpOrders();"><#if restStats.totalOrders ??>${restStats.totalOrders}</#if></button></td>
+							<td><#if restStats.totalOrdersSum ??>${restStats.totalOrdersSum}</#if></td>
+						</tr>
+					</#if>
 					</tbody>
 				</table>
 			</form>

@@ -1,5 +1,7 @@
 package com.restaurant.controller;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.security.core.Authentication;
@@ -13,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import com.restaurant.model.Choice;
 import com.restaurant.model.ChoiceValues;
 import com.restaurant.model.Item;
+import com.restaurant.model.RestStatistics;
 import com.restaurant.model.Restaurant;
 import com.restaurant.model.User;
 
@@ -76,6 +79,51 @@ public class RestaurantController {
 		
 	}
 	
+	@RequestMapping("/getRestaurantStatistics")
+	public String getRestaurantStatistics(Model model,Authentication authentication) {
+		
+		RestStatistics restStats = new RestStatistics();
+		User user = (User)authentication.getPrincipal();
+		RestTemplate restTemplate = new RestTemplate();
+		String pickUpTotal =  restTemplate
+				.getForObject("http://localhost:8090/getPickUpOrdersTotalPrice/"+user.getUserId(), String.class);
+		
+		String noOfPickUpOrders =  restTemplate
+				.getForObject("http://localhost:8090/getNumberOfPickUpOrders/"+user.getUserId(), String.class);
+		
+		String deliveryTotal =  restTemplate
+				.getForObject("http://localhost:8090/getDeliveryOrdersTotalPrice/"+user.getUserId(), String.class);
+		
+		String noOfDeliveryOrders =  restTemplate
+				.getForObject("http://localhost:8090/getNumberOfDeliveryOrders/"+user.getUserId(), String.class);
+		
+		String reservationTotal =  restTemplate
+				.getForObject("http://localhost:8090/getReservationOrdersTotalPrice/"+user.getUserId(), String.class);
+		
+		String noOfReservationOrders =  restTemplate
+				.getForObject("http://localhost:8090/getNumberOfReservationOrders/"+user.getUserId(), String.class);
+		
+		String totalSum =  restTemplate
+				.getForObject("http://localhost:8090/getOrdersTotalPrice/"+user.getUserId(), String.class);
+		
+		String totalNoOfOrders =  restTemplate
+				.getForObject("http://localhost:8090/getNumberOfOrders/"+user.getUserId(), String.class);
+		
+		restStats.setNoOfPickUpOrders(noOfPickUpOrders);
+		restStats.setSumOfPickUpOrders(pickUpTotal);
+		restStats.setNoOfDeliveryOrders(noOfDeliveryOrders);
+		restStats.setSumOfDeliveryOrders(deliveryTotal);
+		restStats.setNoOfReservationOrders(noOfReservationOrders);
+		restStats.setSumOfReservationOrders(reservationTotal);
+		restStats.setTotalOrders(totalNoOfOrders);
+		restStats.setTotalOrdersSum(totalSum);
+		
+		model.addAttribute("restStats",restStats);
+		return "StatisticsPages/RestStatistics";
+		
+	}
+	
+
 	@ModelAttribute("menuItemModel")
 	public Item getNewItem() {
 		Item item = new Item();

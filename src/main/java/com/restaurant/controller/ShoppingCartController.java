@@ -51,7 +51,7 @@ public class ShoppingCartController {
 
 		order.getLineItems().add(lineItem);
 		order.setNumberOfLines(order.getLineItems().size());
-
+		order.setItemName(itemName);
 		calculateOrderTotal();
 
 		RestTemplate restTemplate = new RestTemplate();

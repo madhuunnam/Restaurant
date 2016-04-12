@@ -95,3 +95,79 @@ function onclickAdminAccountPageSubmit(){
     	}
     });
 }
+
+
+function onclickPickUpOrders(sessionUserId){
+	
+	$.ajax({
+        url: "http://"+getServicesHost()+"/getPickUpOrderList/"+sessionUserId,
+        type: "GET",
+        cache: false,
+        dataType: "json",
+        crossDomain: true
+    }).then(function(data) {
+    	if($('#pickUpOrdersTable tr').length == 1){
+    		$.each(data, function(index, element) {
+    			$('#pickUpOrdersTable').append("<tr><td>"+element.orderNo+"</td><td>"+element.orderTime+"</td>" +
+        			"<td>"+element.numberOfLines+"</td><td>"+element.custName+"</td><td>"+element.itemName+"</td><td>"+element.totPrice+"</td></tr>");
+        		});
+    	}
+    });
+}
+
+function onclickDeliveryOrders(sessionUserId){
+	$.ajax({
+        url: "http://"+getServicesHost()+"/getDeliveryOrderList/"+sessionUserId,
+        type: "GET",
+        cache: false,
+        dataType: "json",
+        crossDomain: true
+    }).then(function(data) {
+    	if($('#deliveryOrdersTable tr').length == 1){
+    		$.each(data, function(index, element) {
+    			$('#deliveryOrdersTable').append("<tr><td>"+element.orderNo+"</td><td>"+element.orderTime+"</td>" +
+        			"<td>"+element.numberOfLines+"</td><td>"+element.custName+"</td><td>"+element.itemName+"</td><td>"+element.totPrice+"</td></tr>");
+        		});
+    	}
+    });
+}
+
+function onclickReservationOrders(sessionUserId){
+	$.ajax({
+        url: "http://"+getServicesHost()+"/getReservationOrderList/"+sessionUserId,
+        type: "GET",
+        cache: false,
+        dataType: "json",
+        crossDomain: true
+    }).then(function(data) {
+    	if($('#reservationOrdersTable tr').length == 1){
+    		$.each(data, function(index, element) {
+    			$('#reservationOrdersTable').append("<tr><td>"+element.orderNo+"</td><td>"+element.orderTime+"</td>" +
+        			"<td>"+element.numberOfLines+"</td><td>"+element.custName+"</td><td>"+element.totPrice+"</td></tr>");
+        		});
+    	}
+    });
+}
+
+function onclickTotalOrders(sessionUserId){
+	$.ajax({
+        url: "http://"+getServicesHost()+"/getTotalOrderList/"+sessionUserId,
+        type: "GET",
+        cache: false,
+        dataType: "json",
+        crossDomain: true
+    }).then(function(data) {
+    	if($('#totalOrdersTable tr').length == 1){
+    		$.each(data, function(index, element) {
+    			$('#totalOrdersTable').append("<tr><td>"+element.orderNo+"</td><td>"+element.orderTime+"</td>" +
+        			"<td>"+element.numberOfLines+"</td><td>"+element.custName+"</td><td>"+element.itemName+"</td><td>"+element.totPrice+"</td></tr>");
+        		});
+    	}
+    });
+}
+
+
+
+
+
+

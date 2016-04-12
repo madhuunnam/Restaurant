@@ -67,22 +67,149 @@
 					<#if restStats ??>
 						<tr>
 							<td>PickUp Orders</td>
-							<td><button type="button" class="btn btn-link " onclick="onclickPickUpOrders();"><#if restStats.noOfPickUpOrders ??>${restStats.noOfPickUpOrders}</#if></button></td>
+							<td><button type="button" class="btn btn-link " data-toggle="modal" data-target="#pickUp" onclick="onclickPickUpOrders(${sessionUserId});"><#if restStats.noOfPickUpOrders ??>${restStats.noOfPickUpOrders}</#if></button>
+								<div class="modal fade" id="pickUp" role="dialog">
+									<div class="modal-dialog">
+			
+										<!-- Modal content-->
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h4 class="modal-title">PickUp Orders</h4>
+											</div>
+											<div class="modal-body">
+												<table class="table  table-hover table-responsive " id="pickUpOrdersTable">
+													<thead>
+														<tr>
+															<th>Tid</th>
+															<th>OrderDate</th>
+															<th>#Lines</th>
+															<th>CustomerName</th>
+															<th>Item1</th>
+															<th>TotalPrice</th>
+														</tr>
+													<thead>
+													<tbody>
+													</tbody>
+												</table>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</td>
 							<td><#if restStats.sumOfPickUpOrders ??>${restStats.sumOfPickUpOrders}</#if></td>
 						</tr>
 						<tr>
 							<td>Delivery Orders</td>
-							<td><button type="button" class="btn btn-link " onclick="onclickPickUpOrders();"><#if restStats.noOfDeliveryOrders ??>${restStats.noOfDeliveryOrders}</#if></button></td>
+							<td><button type="button" class="btn btn-link " data-toggle="modal" data-target="#delivery" onclick="onclickDeliveryOrders(${sessionUserId});"><#if restStats.noOfDeliveryOrders ??>${restStats.noOfDeliveryOrders}</#if></button>
+								<div class="modal fade" id="delivery" role="dialog">
+										<div class="modal-dialog">
+				
+											<!-- Modal content-->
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal">&times;</button>
+													<h4 class="modal-title"Delivery Orders</h4>
+												</div>
+												<div class="modal-body">
+													<table class="table  table-hover table-responsive " id="deliveryOrdersTable">
+														<thead>
+															<tr>
+															<th>Tid</th>
+															<th>OrderDate</th>
+															<th>#Lines</th>
+															<th>CustomerName</th>
+															<th>Item1</th>
+															<th>TotalPrice</th>
+														</tr>
+														<thead>
+														<tbody>
+														</tbody>
+													</table>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+												</div>
+											</div>
+										</div>
+									</div>
+							</td>
 							<td><#if restStats.sumOfDeliveryOrders ??>${restStats.sumOfDeliveryOrders}</#if></td>
 						</tr>
 						<tr>
 							<td>Reservation Orders</td>
-							<td><button type="button" class="btn btn-link " onclick="onclickPickUpOrders();"><#if restStats.noOfReservationOrders ??>${restStats.noOfReservationOrders}</#if></button></td>
+							<td><button type="button" class="btn btn-link " data-toggle="modal" data-target="#reservation" onclick="onclickReservationOrders(${sessionUserId});"><#if restStats.noOfReservationOrders ??>${restStats.noOfReservationOrders}</#if></button>
+								<div class="modal fade" id="reservation" role="dialog">
+											<div class="modal-dialog">
+					
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h4 class="modal-title"Delivery Orders</h4>
+													</div>
+													<div class="modal-body">
+														<table class="table  table-hover table-responsive " id="reservationOrdersTable">
+															<thead>
+																<tr>
+																<th>Tid</th>
+																<th>OrderDate</th>
+																<th>#Lines</th>
+																<th>CustomerName</th>
+																<th>TotalPrice</th>
+															</tr>
+															<thead>
+															<tbody>
+															</tbody>
+														</table>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+													</div>
+												</div>
+											</div>
+										</div>
+							</td>
 							<td><#if restStats.sumOfReservationOrders ??>${restStats.sumOfReservationOrders}</#if></td>
 						</tr>
 						<tr>
 							<td>Total Orders</td>
-							<td><button type="button" class="btn btn-link " onclick="onclickPickUpOrders();"><#if restStats.totalOrders ??>${restStats.totalOrders}</#if></button></td>
+							<td><button type="button" class="btn btn-link " data-toggle="modal" data-target="#total" onclick="onclickTotalOrders(${sessionUserId});"><#if restStats.totalOrders ??>${restStats.totalOrders}</#if></button>
+								<div class="modal fade" id="total" role="dialog">
+											<div class="modal-dialog">
+					
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h4 class="modal-title"Delivery Orders</h4>
+													</div>
+													<div class="modal-body">
+														<table class="table  table-hover table-responsive " id="totalOrdersTable">
+															<thead>
+																<tr>
+																<th>Tid</th>
+																<th>OrderDate</th>
+																<th>#Lines</th>
+																<th>CustomerName</th>
+																<th>Item1</th>
+																<th>TotalPrice</th>
+															</tr>
+															<thead>
+															<tbody>
+															</tbody>
+														</table>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+													</div>
+												</div>
+											</div>
+										</div>
+							</td>
 							<td><#if restStats.totalOrdersSum ??>${restStats.totalOrdersSum}</#if></td>
 						</tr>
 					</#if>

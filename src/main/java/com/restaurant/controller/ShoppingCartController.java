@@ -225,6 +225,11 @@ public class ShoppingCartController {
 			}
 		}
 		if (status.equals("Complete")) {
+			if(orderFromDb.getOrderType().equals("PickUp")){
+			orderFromDb.setPickTime(new Date());
+			}else if( orderFromDb.getOrderType().equals("Reservation")){
+			orderFromDb.setArriveTime(new Date());
+			}
 			ResponseEntity<String> insertStatus = restTemplate.postForEntity("http://localhost:8090/addTransaction",
 					orderFromDb, String.class);
 

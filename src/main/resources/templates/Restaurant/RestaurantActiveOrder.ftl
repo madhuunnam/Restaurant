@@ -29,8 +29,8 @@
 								<th>Price</th>
 								<th>Type</th>
 								<th>Reservation</th>
-								<th>PickTime</th>
-								<th>Arrive Time</th>
+								<!--<th>PickTime</th>
+								<th>Arrive Time</th> -->
 								<th>MsgFromCustomer</th>
 								<th>MsgToCustomer</th>
 								<th>Status</th>
@@ -47,8 +47,8 @@
 								<td><#if restOrder.totPrice ??>${restOrder.totPrice}</#if></td>
 								<td><#if restOrder.orderType ??>${restOrder.orderType}</#if></td>
 								<td><#if restOrder.resTime ??>${restOrder.resTime}</#if></td>
-								<td><#if restOrder.pickTime ??>${restOrder.pickTime}</#if></td>
-								<td><#if restOrder.arriveTime ??>${restOrder.arriveTime}</#if></td>
+								<!-- <td><#if restOrder.pickTime ??>${restOrder.pickTime}</#if></td>
+								<td><#if restOrder.arriveTime ??>${restOrder.arriveTime}</#if></td> -->
 								<td><#if restOrder.msgToRes ??>${restOrder.msgToRes}</#if></td>
 								<td><input type="text" class="form-control" name="msgToCust" value="<#if restOrder.msgToCust ??>${restOrder.msgToCust}</#if>" /></td>
 								<td>

@@ -1,5 +1,11 @@
 package com.restaurant.model;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class RestStatistics {
 	
 	private String noOfPickUpOrders;
@@ -10,7 +16,27 @@ public class RestStatistics {
 	private String sumOfReservationOrders;
 	private String totalOrders;
 	private String totalOrdersSum;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date toDate;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date fromDate;
+	private String to;
+	private String from;
 	
+	public String getTo() {
+		return to;
+	}
+	public void setTo(String to) {
+		this.to = to;
+	}
+	public String getFrom() {
+		return from;
+	}
+	public void setFrom(String from) {
+		this.from = from;
+	}
 	public String getNoOfPickUpOrders() {
 		return noOfPickUpOrders;
 	}
@@ -58,6 +84,19 @@ public class RestStatistics {
 	}
 	public void setTotalOrdersSum(String totalOrdersSum) {
 		this.totalOrdersSum = totalOrdersSum;
+	}
+	
+	public Date getToDate() {
+		return toDate;
+	}
+	public void setToDate(Date toDate) {
+		this.toDate = toDate;
+	}
+	public Date getFromDate() {
+		return fromDate;
+	}
+	public void setFromDate(Date fromDate) {
+		this.fromDate = fromDate;
 	}
 	@Override
 	public String toString() {

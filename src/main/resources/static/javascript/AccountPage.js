@@ -97,10 +97,10 @@ function onclickAdminAccountPageSubmit(){
 }
 
 
-function onclickPickUpOrders(sessionUserId){
-	
+function onclickPickUpOrders(sessionUserId, toDate, fromDate){
+
 	$.ajax({
-        url: "http://"+getServicesHost()+"/getPickUpOrderList/"+sessionUserId,
+        url: "http://"+getServicesHost()+"/getPickUpOrderList/"+sessionUserId+"/"+toDate+"/"+fromDate,
         type: "GET",
         cache: false,
         dataType: "json",
@@ -115,9 +115,9 @@ function onclickPickUpOrders(sessionUserId){
     });
 }
 
-function onclickDeliveryOrders(sessionUserId){
+function onclickDeliveryOrders(sessionUserId, toDate, fromDate){
 	$.ajax({
-        url: "http://"+getServicesHost()+"/getDeliveryOrderList/"+sessionUserId,
+        url: "http://"+getServicesHost()+"/getDeliveryOrderList/"+sessionUserId+"/"+toDate+"/"+fromDate,
         type: "GET",
         cache: false,
         dataType: "json",
@@ -132,9 +132,9 @@ function onclickDeliveryOrders(sessionUserId){
     });
 }
 
-function onclickReservationOrders(sessionUserId){
+function onclickReservationOrders(sessionUserId, toDate, fromDate){
 	$.ajax({
-        url: "http://"+getServicesHost()+"/getReservationOrderList/"+sessionUserId,
+        url: "http://"+getServicesHost()+"/getReservationOrderList/"+sessionUserId+"/"+toDate+"/"+fromDate,
         type: "GET",
         cache: false,
         dataType: "json",
@@ -149,9 +149,9 @@ function onclickReservationOrders(sessionUserId){
     });
 }
 
-function onclickTotalOrders(sessionUserId){
+function onclickTotalOrders(sessionUserId, toDate, fromDate){
 	$.ajax({
-        url: "http://"+getServicesHost()+"/getTotalOrderList/"+sessionUserId,
+        url: "http://"+getServicesHost()+"/getTotalOrderList/"+sessionUserId+"/"+toDate+"/"+fromDate,
         type: "GET",
         cache: false,
         dataType: "json",

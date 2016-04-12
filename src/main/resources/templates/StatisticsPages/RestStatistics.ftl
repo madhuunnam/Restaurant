@@ -39,16 +39,17 @@
 			<div class="form-group">
 				<label for="from">History OR From</label>
 				<div class='input-group date' >
-					<input type='text' class="form-control"  id='fromDate'/> 
+					<input type='text' class="form-control"  id='fromDate' name ="fromDate" value='<#if restStats ??><#if restStats.fromDate ??>${restStats.fromDate?date?string["yyyy-MM-dd"]}</#if></#if>'/> 
 					</span>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="To"> To</label>
 				<div class='input-group date' >
-					<input type='text' class="form-control" id='toDate' /> 
+					<input type='text' class="form-control" id='toDate' name="toDate" value='<#if restStats ??><#if restStats.toDate ??>${restStats.toDate?date?string["yyyy-MM-dd"]}</#if></#if>'/> 
 				</div>
 			</div>
+			
 			<button type="submit" class="btn btn-info" >Go</button>
 		</form>
 	</div>
@@ -67,7 +68,7 @@
 					<#if restStats ??>
 						<tr>
 							<td>PickUp Orders</td>
-							<td><button type="button" class="btn btn-link " data-toggle="modal" data-target="#pickUp" onclick="onclickPickUpOrders(${sessionUserId});"><#if restStats.noOfPickUpOrders ??>${restStats.noOfPickUpOrders}</#if></button>
+							<td><button type="button" class="btn btn-link " data-toggle="modal" data-target="#pickUp" onclick="onclickPickUpOrders(${sessionUserId}, '${restStats.to}', '${restStats.from}');"><#if restStats.noOfPickUpOrders ??>${restStats.noOfPickUpOrders}</#if></button>
 								<div class="modal fade" id="pickUp" role="dialog">
 									<div class="modal-dialog">
 			
@@ -104,7 +105,7 @@
 						</tr>
 						<tr>
 							<td>Delivery Orders</td>
-							<td><button type="button" class="btn btn-link " data-toggle="modal" data-target="#delivery" onclick="onclickDeliveryOrders(${sessionUserId});"><#if restStats.noOfDeliveryOrders ??>${restStats.noOfDeliveryOrders}</#if></button>
+							<td><button type="button" class="btn btn-link " data-toggle="modal" data-target="#delivery" onclick="onclickDeliveryOrders(${sessionUserId}, '${restStats.to}', '${restStats.from}');"><#if restStats.noOfDeliveryOrders ??>${restStats.noOfDeliveryOrders}</#if></button>
 								<div class="modal fade" id="delivery" role="dialog">
 										<div class="modal-dialog">
 				
@@ -141,7 +142,7 @@
 						</tr>
 						<tr>
 							<td>Reservation Orders</td>
-							<td><button type="button" class="btn btn-link " data-toggle="modal" data-target="#reservation" onclick="onclickReservationOrders(${sessionUserId});"><#if restStats.noOfReservationOrders ??>${restStats.noOfReservationOrders}</#if></button>
+							<td><button type="button" class="btn btn-link " data-toggle="modal" data-target="#reservation" onclick="onclickReservationOrders(${sessionUserId}, '${restStats.to}', '${restStats.from}');"><#if restStats.noOfReservationOrders ??>${restStats.noOfReservationOrders}</#if></button>
 								<div class="modal fade" id="reservation" role="dialog">
 											<div class="modal-dialog">
 					
@@ -177,7 +178,7 @@
 						</tr>
 						<tr>
 							<td>Total Orders</td>
-							<td><button type="button" class="btn btn-link " data-toggle="modal" data-target="#total" onclick="onclickTotalOrders(${sessionUserId});"><#if restStats.totalOrders ??>${restStats.totalOrders}</#if></button>
+							<td><button type="button" class="btn btn-link " data-toggle="modal" data-target="#total" onclick="onclickTotalOrders(${sessionUserId}, '${restStats.to}', '${restStats.from}');"><#if restStats.totalOrders ??>${restStats.totalOrders}</#if></button>
 								<div class="modal fade" id="total" role="dialog">
 											<div class="modal-dialog">
 					

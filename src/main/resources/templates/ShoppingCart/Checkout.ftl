@@ -10,11 +10,12 @@
 <script type="text/javascript" src="javascript/shoppingCart.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
+	<#if customer.cardType ??>
 	if ( '${customer.cardType}' != null ){
 		$('#cardType').val('${customer.cardType}');
 		}
 	});
-	
+	</#if>
 </script>
 </head>
 <body>

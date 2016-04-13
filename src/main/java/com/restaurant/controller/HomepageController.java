@@ -25,8 +25,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.restaurant.model.Admin;
+import com.restaurant.model.Associate;
 import com.restaurant.model.Customer;
 import com.restaurant.model.Restaurant;
+import com.restaurant.model.User;
 
 @Controller
 public class HomepageController extends SpringServletContainerInitializer {
@@ -44,22 +47,37 @@ public class HomepageController extends SpringServletContainerInitializer {
 	}
 	
 	@RequestMapping(value="/ForgotPasswordEmail",method = RequestMethod.POST )
-	public String sendEmailForPassword(Authentication auth, @RequestParam("email") String userEmail){
+	public String sendEmailForPassword(Authentication auth, @RequestParam("email") String userEmail, @RequestParam("radio") String userType){
 		
 		System.out.println("EMAIL GIVEN****"+userEmail);
-		
+		System.out.println("User Role****"+userType);
+		User user = new User();
 		RestTemplate restTemplate = new RestTemplate();
-		
-		Customer cust = (Customer) restTemplate.getForObject("http://localhost:8090/getCustomer/" + userEmail,
+		if(userType.equals("As Customer")){
+			Customer cust = (Customer) restTemplate.getForObject("http://localhost:8090/getCustomer/" + userEmail,
 				Customer.class);
-		if (cust != null){
+			user.setPassword(cust.getPassword());
+		}else if (userType.equals("As Restaurant Partner")){
+			Restaurant rest = (Restaurant) restTemplate.getForObject("http://localhost:8090/getRestaurant/" + userEmail,
+					Restaurant.class);
+			user.setPassword(rest.getPassword());
+		}else if (userType.equals("As Associate")){
+			Associate assoc = (Associate) restTemplate.getForObject("http://localhost:8090/getAssociate/" + userEmail,
+					Associate.class);
+			user.setPassword(assoc.getPassword());
+		}else if (userType.equals("As Admin")){
+			Admin admin = (Admin) restTemplate.getForObject("http://localhost:8090/getAdmin/" + userEmail,
+					Admin.class);
+			user.setPassword(admin.getPassword());
+		}
+		if ((!user.getPassword().equals("")) || (!user.getPassword().equals(""))){
 			System.out.println("USER EXISTS %%%%%");
 			MimeMessage mail = javaMailSender.createMimeMessage();
 	        try {
 	            MimeMessageHelper helper = new MimeMessageHelper(mail, true);
 	            helper.setTo(userEmail);
 	            helper.setSubject("Password Request");
-	            helper.setText("Your profile password is "+cust.getPassword()+". We recommend you to login and change your password in your profile screen!");
+	            helper.setText("Your profile password is "+user.getPassword()+". We recommend you to login and change your password in your profile screen!");
 	        } catch (MessagingException e) {
 	            e.printStackTrace();
 	        } finally {}

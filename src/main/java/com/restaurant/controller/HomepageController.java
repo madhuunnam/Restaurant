@@ -39,7 +39,7 @@ public class HomepageController extends SpringServletContainerInitializer {
 	
 	@RequestMapping("/LoginPage")
 	public String loginPage(Authentication auth ){
-		if(!auth.isAuthenticated()){
+		if( auth!=null && !auth.isAuthenticated()){
 			return "Login";
 		}else{
 			return "Homepage";
@@ -86,7 +86,7 @@ public class HomepageController extends SpringServletContainerInitializer {
 		else {
 			System.out.println("User does not exist &&&&&&&");
 		}
-        return "/LoginPage";
+        return "/Login";
 		
 	}
 

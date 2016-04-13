@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  
-  <script>
+
+<script>
   $(function() {
      $('#fromDate').datepicker({ dateFormat: 'yy-mm-dd' });
      $('#toDate').datepicker({ dateFormat: 'yy-mm-dd' });
@@ -23,36 +23,63 @@
 	<#include "../NavBar.ftl">
 	<div class="container">
 		<br />
+		<br />
+		<div class='jumbotron'>
 		<form class="form-inline" role="form">
-			<div class="form-group">
-				 <select id="adminStats"
-					class="form-control">
+			<div class="row col-md-3">
+				<input type='text' class="form-control" id='custName' placeholder="Customer Name" /><br /> <br /> 
+				<input type='text' class="form-control" id='custName' placeholder="Restaurant Name" /><br /> <br />
+				<input type='text' class="form-control" id='custName' placeholder="Associate Name" /><br /> <br />
+			</div>
+			<div class="form-group col-md-9">
+			<label for="lookUp">Look For</label>
+				<select id="lookUp" class="form-control ">
 					<option value="">Select</option>
-					<option value="Weekly">Weekly</option>
-					<option value="Monthly">Monthly</option>
-					<option value="Quaterly">Quaterly</option>
-					<option value="Annually">Annually</option> 
+					<option value="Customers">Customers</option>
+					<option value="Restaurants">Restaurants</option>
+					<option value="Associates">Associates</option>
+					<option value="Favorites">Favorites</option>
+					<option value="Orders">Orders</option>
+					<option value="Items">Items</option>
+					<option value="Choices">Choices</option>
+					<option value="ChoiceValues">ChoiceValues</option>
 				</select>
 			</div>
-			<div class="form-group">
-				<label for="from">History OR From</label>
-				<div class='input-group date' >
-					<input type='text' class="form-control"  id='fromDate'/> 
-					</span>
+			<br /> <br /> 
+			<div class="form-group ">
+				<label for="from">Date From</label>
+				<div class='input-group date'>
+					<input type='text' class="form-control" id='fromDate' /> </span>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="To"> To</label>
-				<div class='input-group date' >
-					<input type='text' class="form-control" id='toDate' /> 
+				<div class='input-group date'>
+					<input type='text' class="form-control" id='toDate' />
 				</div>
 			</div>
-			<button type="button" class="btn btn-info" onclick = "onclickAdminStatisticsPageSubmit();">Go</button>
+			<br /> <br /> 
+			<div class="form-group col-md-9">
+			<label for="recent">Or Most Recent</label>
+				<select id="adminStats" class="form-control">
+					<option value="">Select</option>
+					<option value="Week">Week</option>
+					<option value="Month">Month</option>
+					<option value="Quarter">Quarter</option>
+					<option value="Year">Year</option>
+				</select>
+			</div>
+			<br /> <br /> 
+			<div class="row col-md-offset-4 col-md-6">
+				<button type="button" class="btn btn-info col-md-3" onclick="onclickAdminStatisticsPageSubmit();">Go</button>
+			</div>
 		</form>
+		<br /> <br />
+		</div>
 		<br /> <br />
 		<div class="col-md-12">
 			<form role="form" id="adminStatisticsDetailsForm" action="/">
-				<table class="table table-responsive" id="adminStatisticsDetailsTable">
+				<table class="table table-responsive table-bordered" id="adminStatisticsDetailsTable">
 					<thead>
 						<tr>
 							<th>Line#</th>

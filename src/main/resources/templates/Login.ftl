@@ -15,8 +15,14 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#forgotPwdBtn').click(function(){
-			document.getElementById("form-signin").action = "/ForgotPasswordEmail";
-			document.getElementById("form-signin").submit();
+			var userEmail = $('#email').val();
+			if(userEmail == null || userEmail == ""){
+				alert('Please enter your Email Address to request password !');
+			}
+			else{
+				document.getElementById("form-signin").action = "/ForgotPasswordEmail";
+				document.getElementById("form-signin").submit();
+			}
 		});
 	});
 </script>	

@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.restaurant.model.Customer;
 import com.restaurant.model.Restaurant;
 
 @Controller
@@ -43,19 +44,30 @@ public class HomepageController extends SpringServletContainerInitializer {
 	}
 	
 	@RequestMapping(value="/ForgotPasswordEmail",method = RequestMethod.POST )
-	public String sendEmailForPassword(Authentication auth ){
+	public String sendEmailForPassword(Authentication auth, @RequestParam("email") String userEmail){
 		
-		MimeMessage mail = javaMailSender.createMimeMessage();
-        try {
-            MimeMessageHelper helper = new MimeMessageHelper(mail, true);
-            helper.setTo("madhuunnam@gmail.com");
-            helper.setSubject("Lorem ipsum");
-            helper.setText("Lorem ipsum dolor sit amet [...]");
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        } finally {}
-        javaMailSender.send(mail);
-        
+		System.out.println("EMAIL GIVEN****"+userEmail);
+		
+		RestTemplate restTemplate = new RestTemplate();
+		
+		Customer cust = (Customer) restTemplate.getForObject("http://localhost:8090/getCustomer/" + userEmail,
+				Customer.class);
+		if (cust != null){
+			System.out.println("USER EXISTS %%%%%");
+			MimeMessage mail = javaMailSender.createMimeMessage();
+	        try {
+	            MimeMessageHelper helper = new MimeMessageHelper(mail, true);
+	            helper.setTo(userEmail);
+	            helper.setSubject("Password Request");
+	            helper.setText("Your profile password is "+cust.getPassword()+". We recommend you to login and change your password in your profile screen!");
+	        } catch (MessagingException e) {
+	            e.printStackTrace();
+	        } finally {}
+	        javaMailSender.send(mail);
+			}
+		else {
+			System.out.println("User does not exist &&&&&&&");
+		}
         return "/LoginPage";
 		
 	}

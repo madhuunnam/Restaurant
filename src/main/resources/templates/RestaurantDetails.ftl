@@ -20,7 +20,7 @@
 	<div class="container text-left">
 		<div class="jumbotron">
 			<div class="col-md-2">
-			<img src="/images/restimages/${rest.restID}" class="img-rounded" alt="Icon" width="100" height="100">
+			<img src="/images/restimages/${rest.restID}" class="img-rounded" alt="Icon" width="150" height="150">
 			</div>
 			<div class="col-md-6">
 				<h2>
@@ -112,6 +112,7 @@
 			<#if Session["SPRING_SECURITY_CONTEXT"]?exists>
 				<div class="col-md-3">
 		     		<#if Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userRole == 'customer'>
+		     			<button type="button" class="btn btn-info btn-sm" onclick="onclickAddToFav(${rest.restID},'${rest.restName}',${sessionUserId});">Add to Favorites</button>
 						<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#reserveTableModal">Reserve Table</button>
 
 						  <div class="modal fade" id="reserveTableModal" role="dialog">
@@ -122,7 +123,7 @@
 						          	<h4 class="modal-title">Please fill the below details:</h4>
 						        </div>
 						        <div class="modal-body">
-						          <form role="form" id ="reserveTableForm"  data-toggle="validator"  >
+						          <form role="form" id ="reserveTableForm"  data-toggle="validator">
 						          <input type='hidden' name='restId' id='restId' value='<#if rest.restID ??>${rest.restID}</#if>' />
 						          <input type='hidden' name='restName' id='restName' value='<#if rest.restName ??>${rest.restName}</#if>' />
 									   <div class="form-group">

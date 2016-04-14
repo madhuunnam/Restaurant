@@ -147,3 +147,26 @@ function onRestaurantProfileUpdate() {
 function onclickUploadImage(){
 	alert("Hi you are about to upload the image");
 }
+function onclickAddToFav(restId, restName, sessionUserId){
+	
+	var JSONObject= 
+	{   "custId":sessionUserId, 
+		"restId": restId, 
+		"restName":restName
+	};
+	$.ajax({
+        url: "http://"+getServicesHost()+"/addFavorite",
+        method: "POST",
+        cache: false,
+        data: JSON.stringify(JSONObject),
+        contentType: "application/json",
+        async: false,
+        crossDomain: true,
+    }).then(function(result,status,jqXHR ){
+    	if(result=="Fav SetUp Failed"){
+    		alert("It is already one of your Favorite Restaurants!");
+    	}else{
+    		alert("Added to Favorite Restaurants!");
+    	}
+    });
+}

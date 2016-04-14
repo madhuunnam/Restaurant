@@ -19,40 +19,91 @@
 	<#include "NavBar.ftl">
 	<div class="container text-left">
 		<div class="jumbotron">
-			<div class="col-md-3">
-			<img src="/images/restimages/${rest.restID}" class="img-rounded" alt="Icon" width="200" height="200">
+			<div class="col-md-2">
+			<img src="/images/restimages/${rest.restID}" class="img-rounded" alt="Icon" width="100" height="100">
 			</div>
-			<div class="col-md-9">
+			<div class="col-md-6">
 				<h2>
 					<strong><#if rest.restName ??>${rest.restName}</#if></strong>
 				</h2>
 				<div class="row">
 					<div class="col-md-3">
-						<strong>Number of Reviews:<#if rest.restAdmin.numRev??>${rest.restAdmin.numRev}</#if></strong>
+						<strong>Reviews:<#if rest.restAdmin.numRev??>${rest.restAdmin.numRev}</#if></strong>
 					</div>
 					<div class="col-md-3">
-						<strong>Number of Yelp:<#if rest.restAdmin.numYelp??>${rest.restAdmin.numYelp}</#if></strong>
+						<strong>Yelp:<#if rest.restAdmin.numYelp??>${rest.restAdmin.numYelp}</#if></strong>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-3">
-						<strong>Dine In:<#if rest.dineIn ??>${rest.dineIn}</#if></strong>
+						<strong>Dine In: </strong><#if rest.dineIn ??>${rest.dineIn}</#if>
 					</div>
-					<div class="col-md-3">
+					<!--<div class="col-md-3">
 						<strong>Comments:</strong>
+					</div>-->
+					<div class="col-md-3">
+						<strong>Pick Up: </strong><#if rest.pickup ??>${rest.pickup}</#if>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-3">
-						<strong>Delivery:<#if rest.delivery ??>${rest.delivery}</#if></strong>
+						<strong>Delivery: </strong><#if rest.delivery ??>${rest.delivery}</#if>
 					</div>
-					<div class="col-md-3">
-						<strong>Pick Up:<#if rest.pickup ??>${rest.pickup}</#if></strong>
+				</div>
+			 </div>
+			 <div class="col-md-4">
+				<div class="row">
+					<div class="col-md-6">
+						<strong>Open Hours: </strong>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
-						<strong>Open Hours:</strong>
+					<div class="col-md-12">
+						<#if rest.monFrom ??><#else><i>Mon: Closed</i></#if><#if rest.monTo ??>
+						<i>Mon From: </i>${rest.monFrom?date?string["h:mm a"]}<i> To: </i>${rest.monTo?date?string["h:mm a"]}
+						</#if>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+					<#if rest.tueFrom ??><#else><i>Tue: Closed</i></#if><#if rest.tueTo ??>
+						<i>Tue From: </i>${rest.tueFrom?date?string["h:mm a"]}<i> To: </i>${rest.tueTo?date?string["h:mm a"]}
+					</#if>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+					<#if rest.wedFrom ??><#else><i>Wed: Closed</i></#if><#if rest.wedTo ??>
+						<i>Wed From: </i>${rest.wedFrom?date?string["h:mm a"]}<i> To: </i>${rest.wedTo?date?string["h:mm a"]}
+					</#if>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+					<#if rest.thuFrom ??><#else><i>Thu: Closed</i></#if><#if rest.thuTo ??>
+						<i>Thu From: </i>${rest.thuFrom?date?string["h:mm a"]}<i> To: </i>${rest.thuTo?date?string["h:mm a"]}
+					</#if>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+					<#if rest.friFrom ??><#else><i>Fri: Closed</i></#if><#if rest.friTo ??>
+						<i>Fri From: </i>${rest.friFrom?date?string["h:mm a"]}<i> To: </i>${rest.friTo?date?string["h:mm a"]}
+					</#if>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+					<#if rest.satFrom ??><#else><i>Sat: Closed</i></#if><#if rest.satTo ??>
+						<i>Sat From: </i>${rest.satFrom?date?string["h:mm a"]}<i> To: </i>${rest.satTo?date?string["h:mm a"]}
+					</#if>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+					<#if rest.sunFrom ??><#else><i>Sun: Closed</i></#if><#if rest.sunTo ??>
+						<i>Sun From: </i>${rest.sunFrom?date?string["h:mm a"]}<i> To: </i>${rest.sunTo?date?string["h:mm a"]}
+					</#if>
 					</div>
 				</div>
 			</div>

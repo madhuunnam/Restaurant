@@ -143,3 +143,7 @@ function onRestaurantProfileUpdate() {
     				}
     		});
 }
+
+function onclickUploadImage(){
+	alert("Hi you are about to upload the image");
+}

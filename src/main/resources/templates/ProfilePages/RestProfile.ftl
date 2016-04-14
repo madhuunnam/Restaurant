@@ -75,11 +75,155 @@
 						</div>
 						<label class="control-label col-sm-2" for="category">Category:</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="category" name="categories" value="<#if updateRestModel.categories??>${updateRestModel.categories}</#if>" placeholder="Enter Category" required>
-						</div>
+							<!--<input type="text" class="form-control" id="category" name="categories" value="<#if updateRestModel.categories??>${updateRestModel.categories}</#if>" placeholder="Enter Category" required>-->
+							<button type="button" class="btn btn-default form-control" data-toggle="modal" data-target="#category">Select Cuisine</button>
+							<div class="modal fade" id="category" role="dialog">
+								<div class="modal-dialog">
+		
+									<!-- Modal content-->
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title">Select Cuisine</h4>
+										</div>
+										<div class="modal-body">
+											<form role="form">
+												<div class="checkbox col-sm-3">
+													<label><input name='categories' type="checkbox" checked='true' value="All">All</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories' type="checkbox" value="American">American</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Asian">Asian</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Bagels">Bagels</label>
+												</div>
+												<div class="checkbox col-sm-3"">
+													<label><input name='categories'  type="checkbox" value="Bakery">Bakery</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input  name='categories' type="checkbox" value="BBQ">BBQ</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Catonese">Catonese</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Chinese">Chinese</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Caribbean">Caribbean</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="CoffeeTea">Coffee & Tea</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Deli">Deli</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Dessert">Dessert</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Greek">Greek</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Grill">Grill</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Hamburgers">Hamburgers</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Healthy">Healthy</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Indian">Indian</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Italian">Italian</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Japanese">Japanese</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="LatinAmerican">LatinAmerican</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="LateNight">LateNight</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="LunchSpecials">LunchSpecials</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Mediterranean">Mediterranean</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Mexican">Mexican</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="MiddleEastern">MiddleEastern</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Noodles">Noodles</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Pasta">Pasta</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Pizza">Pizza</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Salads">Salads</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Sandwich">Sandwich</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Seafood">Sea food</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Smoothies">Smoothies</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Soup">Soup</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Szechwan">Szechwan</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Steak">Steak</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Subs">Subs</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Sushi">Sushi</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Vegetarian">Vegetarian</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Vietnamese">Vietnamese</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Wings">Wings</label>
+												</div>
+												<div class="checkbox col-sm-3">
+													<label><input name='categories'  type="checkbox" value="Wraps">Wraps</label>
+												</div>
+											</form>
+										</div>
+										<div class="modal-footer">
+											<br />
+											<button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+										</div>
+									</div>
+								</div>
+							</div>
 					</div>
+					<br/><br/>
 					<hr style="width: 100%; color: #D3D3D3; height: 1px; background-color: #D3D3D3;">
-					<h4>Contact Information:</h4>
+					<h4>&nbsp;&nbsp;Contact Information:</h4>
 					<div class="form-group">
 						<label class="control-label col-sm-2 " for="address">Address:</label>
 						<div class="col-sm-5">
@@ -148,7 +292,7 @@
 								<option value="Wyoming">Wyoming</option>
 							</select>
 						</div>
-						<label class="control-label col-sm-2" for="pwd">Zip:</label>
+						<label class="control-label col-sm-1" for="pwd">Zip:</label>
 						<div class="col-sm-2">
 							<input type="text" class="form-control" id="zip" name="zip" value="<#if updateRestModel.zip??>${updateRestModel.zip}</#if>" placeholder="Zip" required>
 						</div>
@@ -171,7 +315,7 @@
 						</div>
 					</div>
 					<hr style="width: 100%; color: #D3D3D3; height: 1px; background-color: #D3D3D3;">
-					<h4>Login Information:</h4>
+					<h4>&nbsp;&nbsp;Login Information:</h4>
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="email">Email:</label>
 						<div class="col-sm-5">
@@ -202,7 +346,7 @@
 						</div>
 					</div>
 					<hr style="width: 100%; color: #D3D3D3; height: 1px; background-color: #D3D3D3;">
-					<h4>Manager Information:</h4>
+					<h4>&nbsp;&nbsp;Manager Information:</h4>
 					<div class="form-group">
 						<label class="control-label col-sm-2 col-md-offset-2" for="ManagerName">Manager Name:</label>
 						<div class="col-sm-2">
@@ -224,7 +368,7 @@
 						</div>
 					</div>
 					<hr style="width: 100%; color: #D3D3D3; height: 1px; background-color: #D3D3D3;">
-					<h4>Promo Information:</h4>
+					<h4>&nbsp;&nbsp;Promo Information:</h4>
 					<div class="form-group">
 						<div class="col-sm-6 col-md-offset-2">
 							<label class="control-label " for="promoCode">Your permanent personal PromoCode is :<#if updateRestModel.restAdmin.promoCode??>${updateRestModel.restAdmin.promoCode}</#if></label>
@@ -241,7 +385,7 @@
 						</div>
 					</div>
 					<hr style="width: 100%; color: #D3D3D3; height: 1px; background-color: #D3D3D3;">
-					<h4>Bank Information:</h4>
+					<h4>&nbsp;&nbsp;Bank Information:</h4>
 					<div class="form-group">
 						<label class="control-label col-sm-2 col-md-offset-2" for="bankName">Bank Name:</label>
 						<div class="col-sm-4">
@@ -261,10 +405,10 @@
 						</div>
 					</div>
 					<p>
-						<i> We will automatically deposit the money for the meals that we have bought from you. Thanks !</i>
+						<i> &nbsp;&nbsp;We will automatically deposit the money for the meals that we have bought from you. Thanks !</i>
 					</p>
 					<hr style="width: 100%; color: #D3D3D3; height: 1px; background-color: #D3D3D3;">
-					<h4>Open Hours:</h4>
+					<h4>&nbsp;&nbsp;Open Hours:</h4>
 					<div class="form-group">
 						<label class="control-label col-sm-2">MONDAY</label> <label class="control-label col-sm-2">From:</label>
 						
@@ -379,7 +523,7 @@
 						</div>
 					</div>
 					<hr style="width: 100%; color: #D3D3D3; height: 1px; background-color: #D3D3D3;">
-					<h4>Can choose more than one:</h4>
+					<h4>&nbsp;&nbsp;Can choose more than one:</h4>
 					<div class="form-group">
 						<label class="control-label col-sm-1" for="hasMenu">Has Menu:</label>
 						<div class="col-sm-1">
@@ -439,7 +583,7 @@
 						</div>
 					</div>
 					<hr style="width: 100%; color: #D3D3D3; height: 1px; background-color: #D3D3D3;">
-					<h4>Delivery Details:</h4>
+					<h4>&nbsp;&nbsp;Delivery Details:</h4>
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="Delivery">Delivery Available:</label>
 						<div class="col-sm-1">

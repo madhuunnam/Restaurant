@@ -17,9 +17,13 @@ public class BaseControllerAdvice {
 	@Value("${com.restaurant.services.hostname}")
 	private String servicesHostName;
 	
+	@Value("${com.restaurant.images.path}")
+	private String imagePathName;
+	
 	@ModelAttribute("order")
 	public Order initializeSessionVariableOrder(Model model){
 		model.addAttribute("servicesHost",servicesHostName);
+		model.addAttribute("imagePath", imagePathName);
 		return order;
 	}
 

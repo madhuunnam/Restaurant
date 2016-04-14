@@ -17,40 +17,43 @@
 </head>
 <body>
 	<#include "NavBar.ftl">
-	
-
 	<div class="container text-left">
 		<div class="jumbotron">
-			<h2>
-				<strong><#if rest.restName ??>${rest.restName}</#if></strong>
-			</h2>
-			<div class="row">
-				<div class="col-md-3">
-					<strong>Number of Reviews:<#if rest.restAdmin.numRev??>${rest.restAdmin.numRev}</#if></strong>
-				</div>
-				<div class="col-md-3">
-					<strong>Number of Yelp:<#if rest.restAdmin.numYelp??>${rest.restAdmin.numYelp}</#if></strong>
-				</div>
+			<div class="col-md-3">
+			<img src="/images/restimages/${rest.restID}" class="img-rounded" alt="Icon" width="200" height="200">
 			</div>
-			<div class="row">
-				<div class="col-md-3">
-					<strong>Dine In:<#if rest.dineIn ??>${rest.dineIn}</#if></strong>
+			<div class="col-md-9">
+				<h2>
+					<strong><#if rest.restName ??>${rest.restName}</#if></strong>
+				</h2>
+				<div class="row">
+					<div class="col-md-3">
+						<strong>Number of Reviews:<#if rest.restAdmin.numRev??>${rest.restAdmin.numRev}</#if></strong>
+					</div>
+					<div class="col-md-3">
+						<strong>Number of Yelp:<#if rest.restAdmin.numYelp??>${rest.restAdmin.numYelp}</#if></strong>
+					</div>
 				</div>
-				<div class="col-md-3">
-					<strong>Comments:</strong>
+				<div class="row">
+					<div class="col-md-3">
+						<strong>Dine In:<#if rest.dineIn ??>${rest.dineIn}</#if></strong>
+					</div>
+					<div class="col-md-3">
+						<strong>Comments:</strong>
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3">
-					<strong>Delivery:<#if rest.delivery ??>${rest.delivery}</#if></strong>
+				<div class="row">
+					<div class="col-md-3">
+						<strong>Delivery:<#if rest.delivery ??>${rest.delivery}</#if></strong>
+					</div>
+					<div class="col-md-3">
+						<strong>Pick Up:<#if rest.pickup ??>${rest.pickup}</#if></strong>
+					</div>
 				</div>
-				<div class="col-md-3">
-					<strong>Pick Up:<#if rest.pickup ??>${rest.pickup}</#if></strong>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3">
-					<strong>Open Hours:</strong>
+				<div class="row">
+					<div class="col-md-3">
+						<strong>Open Hours:</strong>
+					</div>
 				</div>
 			</div>
 			<br />

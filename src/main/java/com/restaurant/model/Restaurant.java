@@ -1,6 +1,5 @@
 package com.restaurant.model;
 
-import java.time.LocalTime;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;

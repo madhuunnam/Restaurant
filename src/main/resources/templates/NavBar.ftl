@@ -37,6 +37,7 @@
 </head>
 <body>
 	<input type='hidden' id='servicesHost' value="<#if servicesHost??>${servicesHost} </#if>" />
+	<input type='hidden' id='imagePath' value="<#if imagePath??>${imagePath} </#if>" />
 	<#if Session["SPRING_SECURITY_CONTEXT"]?exists>
 		<#assign sessionUserId = Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userId>
 		<#assign sessionUserName = Session["SPRING_SECURITY_CONTEXT"].authentication.principal.userEmail>

@@ -57,6 +57,17 @@
 					<div class="form-group" align="center">
 						<label class="col-sm-12"><h3>Restaurant Profile</h3></label>
 					</div>
+					<h4>Restaurant Image:</h4>
+					<div class="form-group row col-md-12 ">
+							<label class="control-label col-sm-2 col-md-offset-2" for="image">Upload Image:</label>
+							<div class="col-sm-3">
+								<input type="file" class="form Control" name="file">
+							</div>
+							<div class="row col-md-2">
+								<input class="form Control btn btn-sm btn-info" type="button" onclick="onclickUploadImage();" value="Upload Image">
+							</div>
+					</div>
+					<hr style="width: 100%; color: #D3D3D3; height: 1px; background-color: #D3D3D3;">
 					<h4>Basic Information:</h4>
 					<div class="form-group">
 						<label class="control-label col-sm-2 col-md-offset-2" for="restName">Restaurant Name:</label>
@@ -87,7 +98,6 @@
 											<h4 class="modal-title">Select Cuisine</h4>
 										</div>
 										<div class="modal-body">
-											<form role="form">
 												<div class="checkbox col-sm-3">
 													<label><input name='categories' type="checkbox" checked='true' value="All">All</label>
 												</div>
@@ -211,7 +221,6 @@
 												<div class="checkbox col-sm-3">
 													<label><input name='categories'  type="checkbox" value="Wraps">Wraps</label>
 												</div>
-											</form>
 										</div>
 										<div class="modal-footer">
 											<br />

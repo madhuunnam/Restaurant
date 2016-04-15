@@ -69,7 +69,7 @@ p.oblique {
 				<table class="table table-striped table-hover table-responsive" id="restListTable">
 					<thead>
 						<tr>
-							<th>Logo</th>
+							<th>RestId</th>
 							<th>Restaurant Name</th>
 							<th>Delivery Min</th>
 							<th>Delivery Fee</th>

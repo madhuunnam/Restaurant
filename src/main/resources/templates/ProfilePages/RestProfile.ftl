@@ -517,7 +517,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-group">
+		<!--        <div class="form-group">
 						<label class="control-label col-sm-2" for="closedDays">Closed Days:</label>
 						<div class="col-sm-3">
 							<select multiple class="form-control" id="closedDays">
@@ -530,7 +530,7 @@
 								<option>Sunday</option>
 							</select>
 						</div>
-					</div>
+					</div>    -->
 					<hr style="width: 100%; color: #D3D3D3; height: 1px; background-color: #D3D3D3;">
 					<h4>&nbsp;&nbsp;Can choose more than one:</h4>
 					<div class="form-group">

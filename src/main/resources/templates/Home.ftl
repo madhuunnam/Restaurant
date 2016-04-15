@@ -127,7 +127,7 @@
 									<h4 class="modal-title">My Favorites</h4>
 								</div>
 								<div class="modal-body">
-									<p>Select any one of your Favorites</p>
+									<p>Your Favorite Restarants</p>
 									<table class="table table-hover table-responsive" id="favListTable">
 										<thead>
 											<tr>

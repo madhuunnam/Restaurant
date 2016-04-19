@@ -119,10 +119,10 @@
      	 </#if>
 		<#else>
 <!-- 	<li><a href="<@spring.url '/forSale'/> ">For Sale</a></li>   -->
-<!--    <li><a href="<@spring.url '/hiring'/> ">Hiring</a></li>		-->
+<!--    <li><a href="<@spring.url '/hiring'/> ">Hiring</a></li>	-->	
 		<li><a href="<@spring.url '/About'/> ">About</a></li>
 		
-		<li><a href="<@spring.url '/Contact'/> ">Contact</a></li>
+<!--	<li><a href="<@spring.url '/Contact'/> ">Contact</a></li>-->
 		</#if>
       </ul>
       <ul class="nav navbar-nav navbar-right">

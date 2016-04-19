@@ -27,7 +27,7 @@
 		</div>
 	</div>
 	<div class="container">
-		<form role="form" action ='/confirmOrder'>
+		<form role="form" data-toggle="validator" action ='/confirmOrder'>
 			<h4>Basic Information: </h4>
 			<div class="row">
 				<label class="col-md-2">FirstName: </label> <label class="col-md-4" id="firstName"><#if customer.firstName ??>${customer.firstName}</#if></label> 
@@ -48,7 +48,7 @@
 					<div class="form-group" align="center">
 					<label class="control-label col-md-2 " for="cardType">Card Type: </label>
 						<div class="col-md-2">
-							<select id="cardType" name="cardType" value="<#if customer.cardType??>${customer.cardType}</#if>" class="form-control">
+							<select id="cardType" name="cardType" value="<#if customer.cardType??>${customer.cardType}</#if>" class="form-control" required>
 								<option value="" />
 								<option value="Debit">Debit</option>
 								<option value="Credit">Credit</option>
@@ -57,38 +57,38 @@
 					
 						 <label class="control-label col-md-2 " for="cardName">Name on Card: </label>
 							 <div class="col-md-3 "> 
-							     <input type="text" class="form-control" id="cardName" name="cardName" value = "<#if customer.cardName??>${customer.cardName}</#if>" placeholder="Card Number" >
+							     <input type="text" class="form-control" id="cardName" name="cardName" value = "<#if customer.cardName??>${customer.cardName}</#if>" placeholder="Card Number" required>
 							 </div>
 					 </div>
 					 <br /><br />
 					 <div class="form-group" align="center"> 
 						 <label class="control-label col-md-2 " for="cardNumber">Card Number: </label>
 							 <div class="col-md-2 "> 
-							     <input type="text" class="form-control" id="cardNumber" name="cardNumber" value = "<#if customer.cardNumber??>${customer.cardNumber}</#if>" placeholder="Card Number" >
+							     <input type="text" class="form-control" id="cardNumber" name="cardNumber" value = "<#if customer.cardNumber??>${customer.cardNumber}</#if>" placeholder="Card Number" required>
 							 </div>
 					 
 						 <label class="control-label col-md-2 " for="cardExp">Card Exp: </label>
 							 <div class="col-md-3"> 
-							     <input type="text" class="form-control" id="cardExp" name="cardExp" value = "<#if customer.cardExp??>${customer.cardExp?date?string["MM/yyyy"]}</#if>" placeholder="MM/YYYY" >
+							     <input type="text" class="form-control" id="cardExp" name="cardExp" value = "<#if customer.cardExp??>${customer.cardExp?date?string["MM/yyyy"]}</#if>" placeholder="MM/YYYY" required>
 							 </div>
 					 </div>
 					 <br /><br />
 					 <div class="form-group" align="center"> 
 						 <label class="control-label col-md-2" for="cardCode">CVV:</label>
 							 <div class="col-md-2"> 
-							     <input type="text" class="form-control" id="cardCode" name="cardCode" value = "<#if customer.cardCode??>${customer.cardCode}</#if>" placeholder="cvv" >
+							     <input type="text" class="form-control" id="cardCode" name="cardCode" value = "<#if customer.cardCode??>${customer.cardCode}</#if>" placeholder="cvv" required>
 							 </div>
 					 
 						 <label class="control-label col-md-2" for="billZip">Billing Zip: </label>
 							 <div class="col-md-3"> 
-							     <input type="text" class="form-control" id="billZip" name="billZip" value = "<#if customer.billZip??>${customer.billZip}</#if>" placeholder="Zip" >
+							     <input type="text" class="form-control" id="billZip" name="billZip" value = "<#if customer.billZip??>${customer.billZip}</#if>" placeholder="Zip" required>
 							 </div>
 					 </div>
 					 <br /><br />
 					  <div class="form-group" align="center"> 
 						 <label class="control-label col-md-2 " for="billAddr">Billing Zip: </label>
 							 <div class="col-md-6"> 
-							     <input type="text" class="form-control" id="billAddr" name="billAddr" value = "<#if customer.billAddr??>${customer.billAddr}</#if>" placeholder="Street Address, City, State" >
+							     <input type="text" class="form-control" id="billAddr" name="billAddr" value = "<#if customer.billAddr??>${customer.billAddr}</#if>" placeholder="Street Address, City, State" required>
 							 </div>
 					 </div>
 			 	</div>

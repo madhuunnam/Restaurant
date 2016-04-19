@@ -86,12 +86,10 @@
 						</div>
 						<label class="control-label col-sm-2" for="category">Category:</label>
 						<div class="col-sm-2">
-							<!--<input type="text" class="form-control" id="category" name="categories" value="<#if updateRestModel.categories??>${updateRestModel.categories}</#if>" placeholder="Enter Category" required>-->
-							<button type="button" class="btn btn-default form-control" data-toggle="modal" data-target="#category">Select Cuisine</button>
+							<input type="text" class="form-control" id="category" name="categories" value="<#if updateRestModel.categories??>${updateRestModel.categories}</#if>" placeholder="Enter Category" required>
+							<!--<button type="button" class="btn btn-default form-control" data-toggle="modal" data-target="#category">Select Cuisine</button>
 							<div class="modal fade" id="category" role="dialog">
 								<div class="modal-dialog">
-		
-									<!-- Modal content-->
 									<div class="modal-content">
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -227,10 +225,10 @@
 											<button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
 										</div>
 									</div>
-								</div>
+								</div> -->
 							</div>
 					</div>
-					<br/><br/>
+					<!-- <br/><br/>  -->
 					<hr style="width: 100%; color: #D3D3D3; height: 1px; background-color: #D3D3D3;">
 					<h4>&nbsp;&nbsp;Contact Information:</h4>
 					<div class="form-group">

@@ -15,7 +15,18 @@
 </head>
 <body>
 <#include "NavBar.ftl">
-<p>About tab TODO </p>
+<div class="container col-md-offset-3 col-md-6">
+
+<h3>TastyHub Website</h3>
+
+<p>
+This system can let you search or browse the menu of the restaurants from your desktop or through smart phones. It is also a platform to create personal restaurants for individuals to set Up their menu and be available for online ordering. 
+
+It is a free full-functioning online service that can be used to order food online, set up delivery orders or reserve table in a restaurant, show order Status, among many more functions.
+
+First tab on top is used for searching restaurants which are nearby to your location. </p>
+
+</div>
 </body>
 </html>
 

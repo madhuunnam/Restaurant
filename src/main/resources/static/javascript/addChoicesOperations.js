@@ -64,12 +64,13 @@ function saveAddedMenuChoices(restId){
 		    contentType: "application/json",
 		    crossDomain: true,
 		}).then(function(result,status,jqXHR ){
-		      alert(result);
+//		      alert(result);
 		});
 		
 	})
 	
 	$('#saveAddedChoices').prop('disabled', true);
+	$('#addChoicesModalCloseBtn').click();
 }
 
 

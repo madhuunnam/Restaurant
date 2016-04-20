@@ -41,7 +41,7 @@
 					<input type="button" class='btn btn-info' id='saveAddedChoiceValues' value='Save Added ChoiceValues' onClick='saveAddedChoiceValuess(${sessionUserId});' disabled=true />
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" id='addChValuesModalCloseBtn' class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>

@@ -58,12 +58,13 @@ function saveAddedMenuItems(restId){
 		    contentType: "application/json",
 		    crossDomain: true,
 		}).then(function(result,status,jqXHR ){
-		      alert(result);
+//		      alert(result);
 		});
 		
 	})
 	
 	$('#saveAddedItems').prop('disabled', true);
+	$( "#menuItemsModalCloseBtn" ).click();
 }
 
 

@@ -112,7 +112,7 @@ function onclickMyFavorites(sessionUserId){
 	    }).then(function(data) {
 	    	if($('#favListTable tr').length == 1){
 	    		$.each(data, function(index, element) {
-	    			$('#favListTable').append('<tr><td>'+element.restId+'</td>'+'<td>'+element.restName+'</td></tr>');
+	    			$('#favListTable').append('<tr data-dismiss="modal"><td>'+element.restId+'</td>'+'<td>'+element.restName+'</td></tr>');
 	    		});
 	    	}
 	    });
@@ -127,18 +127,29 @@ function onclickMySavedAddress(sessionUserId){
 	        crossDomain: true
 	    }).then(function(data) {
 	    	if($('#savedAddressTable tr').length == 1){
-	    			$('#savedAddressTable').append('<tr><td>'+data['stAddress']+', '+data['city']+', '+data['state']+', '+data['zip']+'</td></tr>');
+	    			$('#savedAddressTable').append('<tr data-dismiss="modal"><td>'+data['stAddress']+', '+data['city']+', '+data['state']+', '+data['zip']+'</td></tr>');
 	    			var credits = data['custCredit'];
 	    			$.each(credits, function(index, element) {
 	    				if( (element != null && element != "" ) && (index == "addr2" || index == "addr3" || index == "addr4") ){
-	    					$('#savedAddressTable').append('<tr><td>'+element+'</td></tr>');
+	    					$('#savedAddressTable').append('<tr data-dismiss="modal"><td>'+element+'</td></tr>');
 	    				}
 		    		});
 	    	}
 	    });
 }
 
+
 $(document).ready(function() {
+	
+	$(document).on("click", "#savedAddressTable > tbody > tr", function() {
+	    $('#location').val($(this).find('td').text());
+	});
+	
+	$(document).on("click", "#favListTable > tbody > tr", function() {
+	    $('#selectedRest').val($(this).find('td:not(:empty):first').text());
+	    $("#searchForm").attr("action", "/getRestaurantDetailsPage/");
+	    $("#searchForm").submit();
+	});
 	
 	$('#restListTable > tbody > tr').click(function() {
 		
@@ -148,13 +159,6 @@ $(document).ready(function() {
 	
 	})
 	
-	$('#savedAddressTable > tbody > tr').click(function() {
-		alert("Madu");
-//	    document.getElementById("restTableForm").action = "/getRestaurantDetailsPage/";
-//		document.getElementById("restTableForm").submit();
-	
-	})
-
 });
 
 

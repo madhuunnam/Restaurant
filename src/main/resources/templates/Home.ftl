@@ -117,34 +117,35 @@
 				</div>
 				<div class="col-md-3">
 					<button type="button" class="btn btn-link form-control" data-toggle="modal" data-target="#myFav" onclick="onclickMyFavorites(${sessionUserId})";>My Favorite Restaurants</button>
-					<div class="modal fade" id="myFav" role="dialog">
-						<div class="modal-dialog">
-
-							<!-- Modal content-->
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">My Favorites</h4>
-								</div>
-								<div class="modal-body">
-									<p>Your Favorite Restarants</p>
-									<table class="table table-hover table-responsive" id="favListTable">
-										<thead>
-											<tr>
-												<th>RestId</th>
-												<th>Rest Name</th>
-											</tr>
-										</thead>
-										<tbody>
-										</tbody>
-									</table>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					
+						<div class="modal fade" id="myFav" role="dialog">
+							<div class="modal-dialog">
+								<input type = 'hidden' name = 'selectedRest' id='selectedRest' />
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title">My Favorites</h4>
+									</div>
+									<div class="modal-body">
+										<p>Your Favorite Restarants</p>
+										<table class="table table-hover table-responsive" id="favListTable">
+											<thead>
+												<tr>
+													<th>RestId</th>
+													<th>Rest Name</th>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
 				</div>
 			</div>
 			</#if> </#if>

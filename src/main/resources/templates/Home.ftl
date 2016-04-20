@@ -370,7 +370,7 @@
 			</div>
 		</form>
 	</div>
-	<br>
-	<footer class="container-fluid text-right" style="background-color: #b3b3b3;"> <a href="<@spring.url '/Home'/> ">Privacy Policy</a> </footer>
+	<!-- <br>
+	<footer class="container-fluid text-right" style="background-color: #b3b3b3;"> <a href="<@spring.url '/Home'/> ">Privacy Policy</a> </footer>  -->
 </body>
 </html>

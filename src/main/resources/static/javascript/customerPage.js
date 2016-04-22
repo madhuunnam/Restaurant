@@ -41,6 +41,7 @@ function onclickCustOrderDetails(sessionUserId, orderId) {
 				$.each(items , function(index , element){
 					$('#orderDetailsTable tbody').append("<tr>");
 					$('#orderDetailsTable tbody').append("<td>"+element.itemName+"</td>");
+					$('#orderDetailsTable tbody').append("<td>"+element.note+"</td>");
 					$('#orderDetailsTable tbody').append("<td>"+element.quantity+"</td>");
 					$('#orderDetailsTable tbody').append("<td>"+element.price+"</td>");
 					$('#orderDetailsTable tbody').append("</tr>");
@@ -48,19 +49,22 @@ function onclickCustOrderDetails(sessionUserId, orderId) {
 				
 				$('#orderDetailsTable tbody').append("<tr>");
 				$('#orderDetailsTable tbody').append("<td></td>");
+				$('#orderDetailsTable tbody').append("<td></td>");
 				$('#orderDetailsTable tbody').append("<td>Tax</td>");
 				$('#orderDetailsTable tbody').append("<td>"+data.taxAmount+"</td>");
 				$('#orderDetailsTable tbody').append("</tr>");
 				
 				if(data.orderType != "PickUp"){
 					$('#orderDetailsTable tbody').append("<tr>");
-					$('#orderDetailsTable tbody').append("<td></td>");
+					$('#orderDetailsTable tbody').append("<td></td>")
+					$('#orderDetailsTable tbody').append("<td></td>");;
 					$('#orderDetailsTable tbody').append("<td>Delivery Fee</td>");
 					$('#orderDetailsTable tbody').append("<td>"+data.deliFee+"</td>");
 					$('#orderDetailsTable tbody').append("</tr>");
 				}
 				
 				$('#orderDetailsTable tbody').append("<tr>");
+				$('#orderDetailsTable tbody').append("<td></td>");
 				$('#orderDetailsTable tbody').append("<td></td>");
 				$('#orderDetailsTable tbody').append("<td>Order Total</td>");
 				$('#orderDetailsTable tbody').append("<td>"+data.totPrice+"</td>");

@@ -102,6 +102,7 @@ footer {
 								<table class="table table-striped table-hover table-responsive table-bordered text-center" id="orderDetailsTable">
 									<thead>
 										<th>Selected Item</th>
+										<th>Special Instruction</th>
 										<th>Quantity</th>
 										<th>Price</th>
 									</thead>
@@ -115,9 +116,9 @@ footer {
 						<div class="row">
 							<label class="col-md-2">Order Status: </label> <label class="col-md-4" id="orderStatus"></label>
 						</div>
-						<div class="row">
+				<!--    <div class="row">
 							<label class="col-md-2">Order Instructions: </label> <label class="col-md-4" id="orderInstruc"></label>
-						</div>
+						</div> -->
 						<br />
 						<div class="row">
 							<label class="col-md-2">Message from Restaurant: </label> <label class="col-md-4" id="msgToCust"></label>

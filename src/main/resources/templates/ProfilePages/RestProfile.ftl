@@ -24,7 +24,11 @@
 			$('#state').val('${updateRestModel.state}');
 			}
 		</#if>
-
+		<#if updateRestModel.deliPolicy??>
+		if ( '${updateRestModel.deliPolicy}' != null ){
+			$('#deliPolicy').val('${updateRestModel.deliPolicy}');
+			}
+		</#if>
 		$('input:checkbox').change(function() {
 		
         	if($(this).is(':checked') == true){
@@ -610,7 +614,7 @@
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="DeliveryPolicy">Delivery Policy:</label>
 						<div class="col-sm-2">
-							<select name="deliPolicy" id="deliPolicy" name="deliPolicy" value="<#if updateRestModel.deliPolicy??>${updateRestModel.deliPolicy}</#if>" class="form-control" >
+							<select name="deliPolicy" id="deliPolicy" value="<#if updateRestModel.deliPolicy??>${updateRestModel.deliPolicy}</#if>" class="form-control" >
 								<option value="">Select </option>
 								<option value="Dollar">Dollar</option>
 								<option value="Free Delivery">Free Delivery</option>

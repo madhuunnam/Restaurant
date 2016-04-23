@@ -20,18 +20,28 @@
 	<div class="container text-left">
 		<div class="jumbotron">
 			<div class="col-md-2">
-			<img src="/images/restimages/${rest.restID}" class="img-rounded" alt="Icon" width="150" height="150">
+			<img src="/images/restimages/${rest.restID}" class="img-rounded" alt="Icon" width="120" height="150">
 			</div>
 			<div class="col-md-6">
 				<h2>
 					<strong><#if rest.restName ??>${rest.restName}</#if></strong>
 				</h2>
 				<div class="row">
+					<div class="col-md-12">
+						<strong>Address: </strong><#if rest.stAddress??>${rest.stAddress} ${rest.city} ${rest.state} ${rest.zip}</#if>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<strong>Phone: </strong><#if rest.telephoneNumber??>${rest.telephoneNumber}</#if>
+					</div>
+				</div>
+				<div class="row">
 					<div class="col-md-3">
-						<strong>Reviews:<#if rest.restAdmin.numRev??>${rest.restAdmin.numRev}</#if></strong>
+						<strong>Reviews: </strong><#if rest.restAdmin.numRev??>${rest.restAdmin.numRev}</#if>
 					</div>
 					<div class="col-md-3">
-						<strong>Yelp:<#if rest.restAdmin.numYelp??>${rest.restAdmin.numYelp}</#if></strong>
+						<strong>Yelp: </strong><#if rest.restAdmin.numYelp??>${rest.restAdmin.numYelp}</#if>
 					</div>
 				</div>
 				<div class="row">
@@ -48,6 +58,57 @@
 				<div class="row">
 					<div class="col-md-3">
 						<strong>Delivery: </strong><#if rest.delivery ??>${rest.delivery}</#if>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						 <button type="button" class="btn btn-link btn-md" data-toggle="modal" data-target="#moreInfo">More Info</button>
+						  <div class="modal fade" id="moreInfo" role="dialog">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal">&times;</button>
+						          <h4 class="modal-title">More Information</h4>
+						        </div>
+						        <div class="modal-body">
+						        	<form role="form" id="moreinfoForm">
+							        	<#if rest.website ??>
+							        	<div class="row text-center">
+											<div class="col-md-12">
+												<strong>Website: </strong>${rest.website}
+											</div>
+										</div>
+										</#if>
+										<#if rest.deliMin ??>
+							        	<div class="row text-center">
+											<div class="col-md-12">
+												<strong>DeliMin: </strong>${rest.deliMin}
+											</div>
+										</div>
+										</#if>
+										<#if rest.deliFee ??>
+							        	<div class="row text-center">
+											<div class="col-md-12">
+												<strong>DeliFee: </strong>${rest.deliFee}
+											</div>
+										</div>
+										</#if>
+										<#if rest.categories ??>
+							        	<div class="row text-center">
+											<div class="col-md-12">
+												<strong>Category: </strong>${rest.categories}
+											</div>
+										</div>
+										</#if>
+						        	</form>
+						        </div>
+						        <div class="modal-footer">
+						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        </div>
+						      </div>
+						      
+						    </div>
+						  </div>
 					</div>
 				</div>
 			 </div>

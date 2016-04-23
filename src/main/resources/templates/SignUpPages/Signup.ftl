@@ -33,14 +33,14 @@
 				<br />
 			</div>
 		</div>
-		<div class="row">
+	<!--	<div class="row">
 			<div class="col-md-6 col-md-offset-3" style="background-color: #f2f2f2">
 				<form class="form-group" role="form" id="signUpAsAssc" action ="/getAssociateSignUpPage">
 					<button class="btn btn-lg  btn-info btn-block" type="submit" >Associate SignUp</button>
 				</form>
 				<br />
 			</div>
-		</div>
+		</div> -->
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3" style="background-color: #f2f2f2">
 				<form class="form-group" role="form" id="signUpAsAdmin" action ="/getAdminSignUpPage">

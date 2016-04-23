@@ -68,9 +68,9 @@
 						<label> <input type="radio" value="As Restaurant Partner" name="radio">
 							As Restaurant Partner
 						</label>
-						<label> <input type="radio" value="As Associate" name="radio">
+						<!--<label> <input type="radio" value="As Associate" name="radio">
 							As Associate
-						</label>
+						</label>-->
 						<label> <input type="radio" value="As Admin" name="radio">
 							As Admin
 						</label>

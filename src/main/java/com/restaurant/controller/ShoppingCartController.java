@@ -391,16 +391,16 @@ public class ShoppingCartController {
 	 ledgerObject.setOrderNum(order.getOrderNo());
 	 ledgerObject.setLedgerDate(order.getOrderTime());
 	
-	 ledgerObject.setIncome(null);
-	 ledgerObject.setInMethod(null);
-	 ledgerObject.setInNote(null);
+	 ledgerObject.setIncome(order.getTotPrice());
+	 ledgerObject.setInMethod("Card");
+	 ledgerObject.setInNote("");
 	 
-	 ledgerObject.setExpense(null);
-	 ledgerObject.setExMethod(null);
-	 ledgerObject.setExNote(null);
+	 ledgerObject.setExpense(order.getTotPrice());
+	 ledgerObject.setExMethod("Card");
+	 ledgerObject.setExNote("");
 	 
 	 ledgerObject.setNote("");
-	 ledgerObject.setBalance(null);
+	 ledgerObject.setBalance(order.getTotPrice() - order.getTotPrice());
 	
 	 ResponseEntity<String> insertStatus =
 	 restTemplate.postForEntity("http://localhost:8090/addToAdminLedger",

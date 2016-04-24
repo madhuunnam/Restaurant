@@ -86,8 +86,8 @@ function onclickAdminAccountPageSubmit(){
     }).then(function(data) {
     	if($('#adminAccntDetailsTable tr').length == 1){
     		$.each(data, function(index, element) {
-    			$('#adminAccntDetailsTable').append("<tr><td>"+element.ledgerNum+"</td><td>"+element.ledgerId+"</td>" +
-        			"<td>"+element.ledgerDate+"</td><td>"+element.custId+"</td><td>"+element.resId+"</td><td>"+element.assocId+"</td>" +
+    			$('#adminAccntDetailsTable').append("<tr><td>"+element.ledgerId+"</td>" +
+        			"<td>"+element.ledgerDate+"</td><td>"+element.custId+"</td><td>"+element.resId+"</td>" +
         			"<td>"+element.orderNum+"</td><td>"+element.income +"</td><td>"+element.inMethod+"</td><td>"+element.inNote+
         			"</td><td>"+element.expense+"</td><td>"+element.exMethod+"</td><td>"+element.exNote+
         			"</td><td>"+element.note+"</td><td>"+element.balance+"</td></tr>");

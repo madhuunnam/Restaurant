@@ -56,13 +56,12 @@
 				<table class="table table-responsive" id="adminAccntDetailsTable">
 					<thead>
 						<tr>
-							<th>Line#</th>
 							<th>LineId</th>
 							<th>Date</th>
 							<th>CustID</td>
 							<th>ResID</th>
-							<th>AssocID</th>
-							<th>Order#</th>
+						<!--	<th>AssocID</th> -->
+							<th>OrderId</th>
 							<th>Income</th>
 							<th>In Method</th>
 							<th>In Note</th>

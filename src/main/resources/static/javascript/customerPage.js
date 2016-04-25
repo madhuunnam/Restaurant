@@ -1,9 +1,12 @@
 $(document).ready(function() {
 	$("#selectedOrderId").trigger("click");
+	
+	$('textarea#msgToRes').focus(function() {
+		   $(this).val('');
+		});
 });
 
 function onclickCustOrderDetails(sessionUserId, orderId) {
-	
 	$.ajax(
 			{
 				url : "http://"+getServicesHost()+"/getOrderbyOrderNumForCustomer/"
@@ -11,11 +14,13 @@ function onclickCustOrderDetails(sessionUserId, orderId) {
 				type : "GET",
 				cache : false,
 				dataType : "json",
-				crossDomain : true
+				crossDomain : true,
+				 async: false,
 			}).then(function(data) {
 //				alert(JSON.stringify(data));
 				$('#custName').html(data.custName);
 				$('#orderDate').html(data.orderTime);
+				$('#selOrderId').val(data.orderNo);
 				$('#orderId').html(data.orderNo);
 				$('#restName').html(data.resName);
 				$('#receiverName').html(data.receiverName);
@@ -77,9 +82,8 @@ function onclickCustOrderDetails(sessionUserId, orderId) {
 function onclickSendBtn(sessionUserId){
 	
 	var msg = $('#msgToRes').val();
-	var orderId = $('#orderId').val();
-	alert(orderId);
-	alert(msg);
+	var orderId = $('#selOrderId').val();
+
 	$.ajax(
 			{
 				url : "http://"+getServicesHost()+"/getOrderbyOrderNumForCustomer/"
@@ -88,9 +92,14 @@ function onclickSendBtn(sessionUserId){
 				cache : false,
 				dataType : "json",
 				async: false,
-				crossDomain : true
+				crossDomain : true,
+				async: false,
 			}).then(function(data) {
-				data.msgToRest = data.msgToRest + msg;
+				if(data.msgToRes != ""){
+					data.msgToRes = data.msgToRes+"; "+msg;
+				}else{
+					data.msgToRes = msg;	
+				}
 				$.ajax(
 						{
 							 url: "http://"+getServicesHost()+"/updateOrder",
@@ -98,10 +107,18 @@ function onclickSendBtn(sessionUserId){
 							    cache: false,
 							    data: JSON.stringify(data),
 							    contentType: "application/json",
-							    async: false,
+							    async: false,	
 							    crossDomain: true,
-							
-						})
+						}).then(function(result,status,jqXHR ){
+		                    if(result=="Order update Success!"){
+		                    	alert("Message sent successfully!");
+		                    	location.reload();
+		                    }
+		                    else{
+		                    	alert("Message not delivered. Please try again after sometime");
+		                    }
+	                    });
 			});
 			
 }
+

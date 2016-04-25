@@ -78,6 +78,7 @@ footer {
 						
 						<div class="row">
 							<label class="col-md-2">Customer Name: </label> <label class="col-md-4" id="custName"></label> 
+							<input type="hidden" id="selOrderId" />
 							<label class="col-md-2">Order ID: </label> <label class="col-md-4" id="orderId"></label>
 						</div>
 						<div class="row">

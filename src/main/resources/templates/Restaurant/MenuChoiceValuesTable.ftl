@@ -31,5 +31,8 @@
 	</div>
 	<input type="button" value="Update Choice Values" class="btn btn-info"
 		id='updateAllChoiceValues' disabled=true onClick=updateChoiceValues(); />
+	<a href="#">
+          <span style="color:#009900;font-weight:bold;" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Double click on one or many rows above to Update ChoiceValues"></span>
+    </a>
 </div>
 

@@ -26,5 +26,8 @@
 		</table>
 		<input type="button" value="Update All Items" class="btn btn-info"
 			id='updateAllItems' disabled=true onClick=updateAllMenuItems(); />
+			<a href="#">
+          		<span style="color:#009900;font-weight:bold;" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Double click on one or many rows above to Update MenuItems"></span>
+        	</a>
 	</div>
 </div>

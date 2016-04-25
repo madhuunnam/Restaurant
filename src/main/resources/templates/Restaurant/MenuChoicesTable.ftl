@@ -26,5 +26,8 @@
 		</table>
 	</div>
 	<input type="button" value="Update All Choices" class="btn btn-info" id='updateAllChoices' disabled=true onClick=udpateChoices(); />
+	<a href="#">
+         <span style="color:#009900;font-weight:bold;" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Double click on one or many rows above to Update Choices"></span>
+    </a>
 </div>
 

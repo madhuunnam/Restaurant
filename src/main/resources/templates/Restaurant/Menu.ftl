@@ -16,6 +16,11 @@
 <script type="text/javascript" src="javascript/addChoicesOperations.js"></script>
 <script type="text/javascript" src="javascript/addChoiceValuesOperations.js"></script>
 <script type="text/javascript" src="vendor/validator.js"></script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
 
 </head>
 <body>

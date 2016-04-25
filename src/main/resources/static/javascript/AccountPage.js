@@ -2,8 +2,44 @@
 function onclickRestAccountPageSubmit(sessionUserId){
 	
 	var recent = $('#recent').val();
-	var fromDate = $('#fromDate').val(); 
-	var tillDate = $('#toDate').val();	
+	if(recent == "Select"){
+		var fromDate = $('#fromDate').val(); 
+		var tillDate = $('#toDate').val();
+		if(fromDate == "" || tillDate ==""){
+			tillDate = "2050-01-01";
+			fromDate = "1960-01-01";
+		}
+	}else if(recent == "Week"){
+		 $('#fromDate').val("");
+		 $('#toDate').val("");
+		var today = new Date();
+	    var tillDate = formatDate(today);
+	   
+	    var oneWeekAgo = new Date();
+	    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+	    var fromDate = formatDate(oneWeekAgo);
+	    
+	}else if(recent == "Month"){
+		$('#fromDate').val("");
+		 $('#toDate').val("");
+		var today = new Date();
+	    var tillDate = formatDate(today);
+	   
+	    var oneMonthAgo = new Date();
+	    oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+	    var fromDate = formatDate(oneMonthAgo);
+	    
+	}else if(recent == "Year"){
+		$('#fromDate').val("");
+		 $('#toDate').val("");
+		var today = new Date();
+	    var tillDate = formatDate(today);
+	   
+	    var oneYearAgo = new Date();
+	    oneYearAgo.setYear(oneYearAgo.getFullYear() - 1);
+	    var fromDate = formatDate(oneYearAgo);
+	
+	}
 	
 	$.ajax({
         url: "http://"+getServicesHost()+"/getRestLedgerListForRest/"+sessionUserId+"/"+fromDate+"/"+tillDate,
@@ -166,6 +202,17 @@ function onclickTotalOrders(sessionUserId, toDate, fromDate){
     });
 }
 
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+}
 
 
 

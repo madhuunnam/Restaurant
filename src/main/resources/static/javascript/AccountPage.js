@@ -18,8 +18,8 @@ function onclickRestAccountPageSubmit(sessionUserId){
 	    var oneWeekAgo = new Date();
 	    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
 	    var fromDate = formatDate(oneWeekAgo);
-	    
 	}else if(recent == "Month"){
+		
 		$('#fromDate').val("");
 		 $('#toDate').val("");
 		var today = new Date();
@@ -28,7 +28,6 @@ function onclickRestAccountPageSubmit(sessionUserId){
 	    var oneMonthAgo = new Date();
 	    oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
 	    var fromDate = formatDate(oneMonthAgo);
-	    
 	}else if(recent == "Year"){
 		$('#fromDate').val("");
 		 $('#toDate').val("");
@@ -38,8 +37,9 @@ function onclickRestAccountPageSubmit(sessionUserId){
 	    var oneYearAgo = new Date();
 	    oneYearAgo.setYear(oneYearAgo.getFullYear() - 1);
 	    var fromDate = formatDate(oneYearAgo);
-	
 	}
+	
+	$("#restaurantAccntDetailsTable tbody > tr").remove();
 	
 	$.ajax({
         url: "http://"+getServicesHost()+"/getRestLedgerListForRest/"+sessionUserId+"/"+fromDate+"/"+tillDate,

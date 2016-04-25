@@ -62,8 +62,43 @@ function onclickRestAccountPageSubmit(sessionUserId){
 function onclickCustAccountPageSubmit(sessionUserId){
 	
 	var recent = $('#recent').val();
-	var fromDate = $('#fromDate').val();  
-	var tillDate = $('#toDate').val();	
+	if(recent == "Select"){
+		var fromDate = $('#fromDate').val(); 
+		var tillDate = $('#toDate').val();
+		if(fromDate == "" || tillDate ==""){
+			tillDate = "2050-01-01";
+			fromDate = "1960-01-01";
+		}
+	}else if(recent == "Week"){
+		 $('#fromDate').val("");
+		 $('#toDate').val("");
+		var today = new Date();
+	    var tillDate = formatDate(today);
+	   
+	    var oneWeekAgo = new Date();
+	    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+	    var fromDate = formatDate(oneWeekAgo);
+	}else if(recent == "Month"){
+		
+		$('#fromDate').val("");
+		 $('#toDate').val("");
+		var today = new Date();
+	    var tillDate = formatDate(today);
+	   
+	    var oneMonthAgo = new Date();
+	    oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+	    var fromDate = formatDate(oneMonthAgo);
+	}else if(recent == "Year"){
+		$('#fromDate').val("");
+		 $('#toDate').val("");
+		var today = new Date();
+	    var tillDate = formatDate(today);
+	   
+	    var oneYearAgo = new Date();
+	    oneYearAgo.setYear(oneYearAgo.getFullYear() - 1);
+	    var fromDate = formatDate(oneYearAgo);
+	}
+	$("#customerAccntDetailsTable tbody > tr").remove();
 	
 	$.ajax({
         url: "http://"+getServicesHost()+"/getCustLedgerListForCustomer/"+sessionUserId+"/"+fromDate+"/"+tillDate,
@@ -86,8 +121,44 @@ function onclickCustAccountPageSubmit(sessionUserId){
 function onclickAssocAccountPageSubmit(sessionUserId){
 	
 	var recent = $('#recent').val();
-	var fromDate = $('#fromDate').val(); 
-	var tillDate = $('#toDate').val();	
+	if(recent == "Select"){
+		var fromDate = $('#fromDate').val(); 
+		var tillDate = $('#toDate').val();
+		if(fromDate == "" || tillDate ==""){
+			tillDate = "2050-01-01";
+			fromDate = "1960-01-01";
+		}
+	}else if(recent == "Week"){
+		 $('#fromDate').val("");
+		 $('#toDate').val("");
+		var today = new Date();
+	    var tillDate = formatDate(today);
+	   
+	    var oneWeekAgo = new Date();
+	    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+	    var fromDate = formatDate(oneWeekAgo);
+	}else if(recent == "Month"){
+		
+		$('#fromDate').val("");
+		 $('#toDate').val("");
+		var today = new Date();
+	    var tillDate = formatDate(today);
+	   
+	    var oneMonthAgo = new Date();
+	    oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+	    var fromDate = formatDate(oneMonthAgo);
+	}else if(recent == "Year"){
+		$('#fromDate').val("");
+		 $('#toDate').val("");
+		var today = new Date();
+	    var tillDate = formatDate(today);
+	   
+	    var oneYearAgo = new Date();
+	    oneYearAgo.setYear(oneYearAgo.getFullYear() - 1);
+	    var fromDate = formatDate(oneYearAgo);
+	}
+	
+	$("#associateAccntDetailsTable tbody > tr").remove();
 	
 	$.ajax({
         url: "http://"+getServicesHost()+"/getAssocLedgerListForAssociate/"+sessionUserId+"/"+fromDate+"/"+tillDate,
@@ -110,8 +181,44 @@ function onclickAssocAccountPageSubmit(sessionUserId){
 function onclickAdminAccountPageSubmit(){
 	
 	var recent = $('#recent').val();
-	var fromDate = $('#fromDate').val();  
-	var tillDate = $('#toDate').val();	 
+	if(recent == "Select"){
+		var fromDate = $('#fromDate').val(); 
+		var tillDate = $('#toDate').val();
+		if(fromDate == "" || tillDate ==""){
+			tillDate = "2050-01-01";
+			fromDate = "1960-01-01";
+		}
+	}else if(recent == "Week"){
+		 $('#fromDate').val("");
+		 $('#toDate').val("");
+		var today = new Date();
+	    var tillDate = formatDate(today);
+	   
+	    var oneWeekAgo = new Date();
+	    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+	    var fromDate = formatDate(oneWeekAgo);
+	}else if(recent == "Month"){
+		
+		$('#fromDate').val("");
+		 $('#toDate').val("");
+		var today = new Date();
+	    var tillDate = formatDate(today);
+	   
+	    var oneMonthAgo = new Date();
+	    oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+	    var fromDate = formatDate(oneMonthAgo);
+	}else if(recent == "Year"){
+		$('#fromDate').val("");
+		 $('#toDate').val("");
+		var today = new Date();
+	    var tillDate = formatDate(today);
+	   
+	    var oneYearAgo = new Date();
+	    oneYearAgo.setYear(oneYearAgo.getFullYear() - 1);
+	    var fromDate = formatDate(oneYearAgo);
+	}
+	
+	$("#adminAccntDetailsTable tbody > tr").remove();
 	
 	$.ajax({
         url: "http://"+getServicesHost()+"/getAdminLedgerList/"+fromDate+"/"+tillDate,

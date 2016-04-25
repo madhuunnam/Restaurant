@@ -31,7 +31,7 @@
 			<div class="form-group">
 				<label for="mostRecent">Most Recent:</label> <select id="recent"
 					class="form-control">
-					<option value="">Select</option>
+					<option value="Select">Select</option>
 					<option value="Week">Week</option>
 					<option value="Month">Month</option>
 					<option value="Year">Year</option>

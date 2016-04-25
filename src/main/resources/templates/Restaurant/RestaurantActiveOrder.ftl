@@ -50,7 +50,7 @@
 								<!-- <td><#if restOrder.pickTime ??>${restOrder.pickTime}</#if></td>
 								<td><#if restOrder.arriveTime ??>${restOrder.arriveTime}</#if></td> -->
 								<td><#if restOrder.msgToRes ??>${restOrder.msgToRes}</#if></td>
-								<td><input type="text" class="form-control" name="msgToCust" value="<#if restOrder.msgToCust ??>${restOrder.msgToCust}</#if>" /></td>
+								<td><input type="text" class="form-control msgToCust" id="msgToCust" name="msgToCust" value="<#if restOrder.msgToCust ??>${restOrder.msgToCust}</#if>" /></td>
 								<td>
 									<select id="status" name="status" value="<#if restOrder.status ??>${restOrder.status}</#if>" class="form-control">
 										<option value="New">New</option>

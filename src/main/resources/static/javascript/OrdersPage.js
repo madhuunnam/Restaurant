@@ -12,3 +12,10 @@ function onclickOrderUpdate(orderNo){
 	document.getElementById("restOrderForm").submit();
 	
 }
+
+$(document).ready(function() {
+	
+	$('.msgToCust').focus(function() {
+		   $(this).val('');
+		});
+});

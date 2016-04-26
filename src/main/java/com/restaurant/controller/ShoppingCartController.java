@@ -189,7 +189,7 @@ public class ShoppingCartController {
 			orderNum = "0";
 		}
 		order.setOrderNo(String.valueOf(Integer.parseInt(orderNum) + 1));
-
+		order.setOrderTime(new Date());
 		Order orderObj = extractSessionOrderObj(order);
 
 		ResponseEntity<String> insertStatus = restTemplate.postForEntity("http://localhost:8090/addOrder", orderObj,

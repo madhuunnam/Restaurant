@@ -112,7 +112,7 @@ function onclickSendBtn(sessionUserId){
 						}).then(function(result,status,jqXHR ){
 		                    if(result=="Order update Success!"){
 		                    	alert("Message sent successfully!");
-		                    	location.reload();
+		                    	//location.reload();
 		                    }
 		                    else{
 		                    	alert("Message not delivered. Please try again after sometime");

@@ -26,7 +26,7 @@
 	<div class="jumbotron" style="background-image: url(images/statistics.jpg); background-size: 30%;">
 		<form class="form-inline" role="form" action="/getRestaurantStatistics">
 			
-			<div class="form-group">
+			<!--<div class="form-group">
 				 <select id="restStats"
 					class="form-control">
 					<option value="">Select</option>
@@ -35,9 +35,9 @@
 					<option value="Quaterly">Quaterly</option>
 					<option value="Annually">Annually</option> 
 				</select>
-			</div>
+			</div>-->
 			<div class="form-group">
-				<label for="from">History OR From</label>
+				<label for="from">View Statistics From</label>
 				<div class='input-group date' >
 					<input type='text' class="form-control"  id='fromDate' name ="fromDate" value='<#if restStats ??><#if restStats.fromDate ??>${restStats.fromDate?date?string["yyyy-MM-dd"]}</#if></#if>'/> 
 					</span>
